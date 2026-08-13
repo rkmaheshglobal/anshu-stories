@@ -69,80 +69,56 @@
 
     /* Cover */
     .cover {
-      min-height: min(92vh, 820px);
+      padding: 0;
+      min-height: min(90vh, 820px);
       display: grid;
-      align-content: space-between;
+      grid-template-rows: 1fr auto;
       text-align: center;
-      padding-top: clamp(2rem, 6vw, 3.5rem);
-      padding-bottom: clamp(2rem, 5vw, 3rem);
+      overflow: hidden;
+      background: #e8f2f0;
+    }
+    .cover::before { display: none; }
+    .cover-hero { margin: 0; min-height: min(58vh, 520px); overflow: hidden; background: #fff; }
+    .cover-hero img {
+      width: 100%; height: 100%; min-height: min(58vh, 520px);
+      object-fit: cover; object-position: center 42%; display: block;
+      animation: cover-in 1.1s ease-out both;
+    }
+    .cover-panel {
+      padding: clamp(1.4rem, 4vw, 2.4rem) clamp(1.4rem, 4vw, 2.6rem);
       background:
-        linear-gradient(180deg, rgba(142, 197, 216, 0.35) 0%, rgba(247, 243, 234, 0.2) 45%, rgba(111, 155, 106, 0.28) 100%),
-        rgba(255, 252, 246, 0.95);
-    }
-
-    .cover::after {
-      content: "";
-      position: absolute;
-      width: 88px;
-      height: 88px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 35% 35%, #ffe08a, var(--sun) 55%, #e09a16);
-      top: 1.6rem;
-      right: 1.6rem;
-      box-shadow: 0 0 0 10px rgba(240, 180, 41, 0.12);
-      animation: sun-rise 1.2s ease-out both;
-    }
-
-    @keyframes sun-rise {
-      from { transform: translateY(12px) scale(0.85); opacity: 0; }
-      to { transform: none; opacity: 1; }
+        linear-gradient(180deg, rgba(255,252,246,.94), #fffdf8 42%),
+        linear-gradient(180deg, rgba(47,111,126,.1), rgba(122,78,138,.1));
+      animation: panel-up .9s .15s ease-out both;
     }
 
     .brand {
       font-family: "Cormorant Garamond", Georgia, serif;
-      font-size: clamp(2.6rem, 8vw, 4.4rem);
+      font-size: clamp(2.2rem, 6.5vw, 3.4rem);
       font-weight: 700;
-      line-height: 1.05;
+      line-height: 1.08;
       letter-spacing: -0.02em;
-      margin: 0 auto;
-      max-width: 12ch;
+      margin: 0;
       color: var(--ink);
-      animation: fade-up 0.9s ease-out both;
     }
-
-    .brand span {
+    .brand em {
       display: block;
-      font-size: 0.42em;
-      font-weight: 600;
-      font-style: italic;
-      letter-spacing: 0.04em;
+      font-style: normal;
+      font-size: 0.38em;
+      margin-top: 0.55rem;
       color: var(--soft-ink);
-      margin: 0.35em 0;
+      font-weight: 700;
     }
 
-    .author-line {
-      margin: 1.1rem 0 0;
-      font-weight: 700;
-      letter-spacing: 0.08em;
+    .author {
+      margin: 1rem 0 0;
+      font-weight: 800;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       font-size: 0.82rem;
-      color: var(--soft-ink);
-      animation: fade-up 1s ease-out 0.15s both;
+      color: var(--vivian);
     }
 
-    .cover-art {
-      width: min(320px, 78%);
-      margin: 1.8rem auto 0;
-      animation: fade-up 1.1s ease-out 0.25s both;
-    }
-
-    .cover-art svg { width: 100%; height: auto; display: block; }
-    .cover-photo {
-      width: min(420px, 90%); margin: 1.2rem auto 0;
-      border-radius: 16px; overflow: hidden;
-      border: 1px solid rgba(31,42,36,0.14);
-    }
-    .cover-photo img { width: 100%; height: auto; display: block; }
     .illust {
       margin: 0 0 1.35rem; border-radius: 14px; overflow: hidden;
       border: 1px solid rgba(31,42,36,0.14); background: #fff;
@@ -155,11 +131,10 @@
 
     .cover-cta {
       display: inline-flex;
-      gap: 0.75rem;
+      gap: 0.7rem;
       flex-wrap: wrap;
       justify-content: center;
-      margin-top: 1.5rem;
-      animation: fade-up 1.1s ease-out 0.4s both;
+      margin-top: 1.1rem;
     }
 
     .cover-cta a {
@@ -168,24 +143,21 @@
       background: var(--ink);
       padding: 0.7rem 1.15rem;
       border-radius: 999px;
-      font-size: 0.9rem;
-      font-weight: 700;
+      font-size: 0.88rem;
+      font-weight: 800;
       transition: transform 0.2s ease, background 0.2s ease;
     }
 
     .cover-cta a.secondary {
       background: transparent;
       color: var(--ink);
-      border: 2px solid rgba(31, 42, 36, 0.25);
+      border: 2px solid rgba(31, 42, 36, 0.18);
     }
 
     .cover-cta a:hover { transform: translateY(-2px); background: var(--grass-deep); }
     .cover-cta a.secondary:hover { background: rgba(31, 42, 36, 0.06); }
-
-    @keyframes fade-up {
-      from { opacity: 0; transform: translateY(18px); }
-      to { opacity: 1; transform: none; }
-    }
+    @keyframes cover-in { from { transform: scale(1.04); opacity: .55; } to { transform: none; opacity: 1; } }
+    @keyframes panel-up { from { transform: translateY(14px); opacity: 0; } to { transform: none; opacity: 1; } }
 
     /* Front matter */
     .blurb {
@@ -363,7 +335,6 @@
     @media (max-width: 640px) {
       .book { width: calc(100% - 1rem); margin-top: 1rem; }
       .page { border-radius: 14px; }
-      .cover::after { width: 64px; height: 64px; top: 1rem; right: 1rem; }
       .dropcap::first-letter { font-size: 2.8rem; }
     }
 
@@ -405,20 +376,17 @@
     <a href="vivian-and-hazel.html">Book 2</a>
   </div>
 <main class="book">
-    <!-- COVER -->
     <section class="page cover" id="cover">
-      <div>
-        <h1 class="brand">The Shy Girl <span>&amp;</span> The Popular Girl</h1>
-        <p class="author-line">By Anshika M. · Age 12</p>
-      </div>
-
-      <div class="cover-photo">
-        <img src="images/shy-girl/cover.png" alt="Hand-drawn cover: The Shy Girl and The Popular Girl by Anshika M." />
-      </div>
-
-      <div class="cover-cta">
-        <a href="#ch1">Read the story</a>
-        <a class="secondary" href="#contents">See chapters</a>
+      <figure class="cover-hero">
+        <img src="images/shy-girl/cover.png?v=book1" alt="Vivian and Hazel walking hand in hand toward school" />
+      </figure>
+      <div class="cover-panel">
+        <h1 class="brand">The Shy Girl &amp; The Popular Girl<em>Book 1 — a new girl, a popular girl, and a true friend</em></h1>
+        <p class="author">Written by Anshika Mahesh</p>
+        <div class="cover-cta">
+          <a href="#ch1">Read the story</a>
+          <a class="secondary" href="#contents">See chapters</a>
+        </div>
       </div>
     </section>
 
