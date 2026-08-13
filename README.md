@@ -1,5 +1,81 @@
 # Anshika Mahesh — Stories
 
-Public website: [`anshika-mahesh-site/`](anshika-mahesh-site/). GitHub: [rkmaheshglobal/anshu-stories](https://github.com/rkmaheshglobal/anshu-stories).
+A static website for young author **Anshika Mahesh**: a story library you can browse, then read like an open hardback book.
 
-Notebooks, scans, and local drafts in this folder are not committed.
+Repository: [rkmaheshglobal/anshu-stories](https://github.com/rkmaheshglobal/anshu-stories)
+
+This repo holds the **public site only** — HTML, CSS, JavaScript, and story art. Notebooks, scans, PDFs, and working drafts in the parent folder stay off GitHub.
+
+## What’s in the site
+
+| Page | What it is |
+| --- | --- |
+| `index.html` | Home — just arrived, start here, series |
+| `stories.html` | Full catalogue (search + mood filters) |
+| `about.html` | About Anshika |
+| `newsletter.html` | Story Notes signup |
+| `connect.html` | Parent-managed contact |
+| `stories/` | Individual books (two-page reader) |
+| `invitations/` | Birthday invite |
+
+Live files live in [`anshika-mahesh-site/`](anshika-mahesh-site/).
+
+## Requirements
+
+- **Python 3** (for the local preview server), or any static file server
+- A browser
+- No `npm install` — there are no Node dependencies
+
+## Clone
+
+```bash
+git clone https://github.com/rkmaheshglobal/anshu-stories.git
+cd anshu-stories
+```
+
+## Run locally
+
+Serve **from the site folder**, not the repo root. If you start the server in the parent folder, Home may load but `/stories.html` and the books return **404**.
+
+```bash
+cd anshika-mahesh-site
+python3 -m http.server 8080
+```
+
+Then open:
+
+- Home — [http://localhost:8080](http://localhost:8080)
+- Stories — [http://localhost:8080/stories.html](http://localhost:8080/stories.html)
+
+Stop the server with `Ctrl+C`.
+
+To use another port:
+
+```bash
+python3 -m http.server 5500
+```
+
+Visit `http://localhost:5500` instead.
+
+You can also open `anshika-mahesh-site/index.html` directly in a browser. A local server is better: story images and the book reader load more reliably.
+
+## Publish
+
+GitHub Pages is set up to deploy `anshika-mahesh-site/` on every push to `main` (see `.github/workflows/pages.yml`).
+
+1. Push to `main`.
+2. On GitHub: **Settings → Pages → Source: GitHub Actions**.
+3. The site URL will be `https://rkmaheshglobal.github.io/anshu-stories/`.
+
+You can also drag `anshika-mahesh-site/` onto [Netlify](https://www.netlify.com/) or [Vercel](https://vercel.com/) and point a domain such as `anshikamahesh.com` at it when ready.
+
+Before going public:
+
+1. Replace `hello@anshikamahesh.com` on Connect with a real parent email.
+2. Hook the newsletter form to a real list (Buttondown, Mailchimp, or ConvertKit). It currently shows a local thank-you only.
+
+## Safety defaults
+
+- Parent-managed contact
+- No public comments
+- Newsletter copy notes unsubscribe and a parent-managed list
