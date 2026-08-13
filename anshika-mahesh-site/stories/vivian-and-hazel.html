@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vivian and Hazel — Anshika Mahesh</title>
+  <meta name="description" content="Vivian and Hazel by Anshika Mahesh — Book 2 of The Shy Girl &amp; The Popular Girl. A school play, an old-school rival, and a secret about Vivian’s sister." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    :root {
+      --ink: #1f2a24; --soft: #4a564e; --card: #fffdf8;
+      --vivian: #2f6f7e; --hazel: #7a4e8a; --sun: #d9a441;
+      --line: rgba(31,42,36,0.12);
+    }
+    .book { width: min(760px, calc(100% - 1.5rem)); margin: 1.2rem auto 3rem; }
+    .page {
+      background: var(--card); border: 1px solid var(--line); border-radius: 18px;
+      padding: clamp(1.5rem, 4vw, 2.8rem); margin-bottom: 1.15rem; position: relative; overflow: hidden;
+    }
+    .page::before {
+      content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 8px;
+      background: linear-gradient(180deg, var(--vivian), var(--sun), var(--hazel));
+    }
+    .cover {
+      padding: 0; min-height: min(90vh, 820px); display: grid; grid-template-rows: 1fr auto;
+      text-align: center; overflow: hidden; background: #e8f2f0;
+    }
+    .cover::before { display: none; }
+    .cover-hero { margin: 0; min-height: min(58vh, 520px); overflow: hidden; background: #fff; }
+    .cover-hero img {
+      width: 100%; height: 100%; min-height: min(58vh, 520px);
+      object-fit: cover; object-position: center top; display: block;
+      animation: cover-in 1.1s ease-out both;
+    }
+    .cover-panel {
+      padding: clamp(1.4rem, 4vw, 2.4rem) clamp(1.4rem, 4vw, 2.6rem);
+      background:
+        linear-gradient(180deg, rgba(255,253,248,.94), #fffdf8 42%),
+        linear-gradient(180deg, rgba(47,111,126,.1), rgba(122,78,138,.1));
+      animation: panel-up .9s .15s ease-out both;
+    }
+    .brand {
+      font-family: Fraunces, Georgia, serif; font-size: clamp(2.2rem, 6.5vw, 3.4rem);
+      font-weight: 700; line-height: 1.05; margin: 0; letter-spacing: -.02em;
+    }
+    .brand em {
+      display: block; font-style: normal; font-size: .38em; margin-top: .55rem;
+      color: var(--soft); font-weight: 700;
+    }
+    .author {
+      margin: 1rem 0 0; font-weight: 800; letter-spacing: .1em;
+      text-transform: uppercase; font-size: .82rem; color: var(--vivian);
+    }
+    .cover-cta { display: inline-flex; gap: .7rem; flex-wrap: wrap; justify-content: center; margin-top: 1.1rem; }
+    .cover-cta a {
+      text-decoration: none; color: #fff; background: var(--ink);
+      padding: .7rem 1.1rem; border-radius: 999px; font-weight: 800; font-size: .88rem;
+    }
+    .cover-cta a.secondary { background: transparent; color: var(--ink); border: 2px solid rgba(31,42,36,.18); }
+    @keyframes cover-in { from { transform: scale(1.04); opacity: .55; } to { transform: none; opacity: 1; } }
+    @keyframes panel-up { from { transform: translateY(14px); opacity: 0; } to { transform: none; opacity: 1; } }
+    .blurb {
+      font-family: Fraunces, Georgia, serif; font-size: clamp(1.15rem, 2.6vw, 1.4rem);
+      font-style: italic; line-height: 1.5; color: var(--soft); max-width: 42ch; margin: 0 auto; text-align: center;
+    }
+    .series-note {
+      margin: 0 0 1rem; padding: .7rem .9rem; border-radius: 12px;
+      background: rgba(47,111,126,.1); color: var(--soft); font-size: .9rem; font-weight: 600;
+    }
+    h2 { font-family: Fraunces, Georgia, serif; font-weight: 700; line-height: 1.15; margin: 0; }
+    .chapter-head { text-align: center; margin: 0 0 1.2rem; padding-bottom: .85rem; border-bottom: 1px solid var(--line); }
+    .chapter-num {
+      display: block; font-size: .75rem; font-weight: 800; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--vivian); margin-bottom: .35rem;
+    }
+    .chapter-head h2 { font-size: clamp(1.65rem, 4vw, 2.2rem); }
+    p { margin: 0 0 1rem; } p:last-child { margin-bottom: 0; }
+    .dropcap::first-letter {
+      font-family: Fraunces, Georgia, serif; float: left; font-size: 3.1rem; line-height: .85;
+      padding-right: .4rem; font-weight: 700; color: var(--hazel);
+    }
+    .cast { display: grid; gap: .55rem; }
+    .cast div { padding: .55rem 0; border-bottom: 1px dashed var(--line); }
+    .cast strong { color: var(--vivian); }
+    .illust {
+      margin: 0 0 1.35rem; border-radius: 14px; overflow: hidden;
+      border: 1px solid var(--line); background: #fff;
+    }
+    .illust img { width: 100%; height: auto; display: block; }
+    .illust figcaption {
+      font-size: .85rem; color: var(--soft); padding: .55rem .8rem;
+      background: rgba(31,42,36,.04); border-top: 1px solid var(--line);
+    }
+    .toc ol { list-style: none; margin: 0; padding: 0; }
+    .toc li { border-bottom: 1px dashed var(--line); }
+    .toc a { display: block; text-decoration: none; color: inherit; padding: .65rem .1rem; font-weight: 600; }
+    .toc a:hover { color: var(--vivian); }
+    .script {
+      margin: 0 0 1rem; padding: .85rem 1rem; border-radius: 12px;
+      background: rgba(47,111,126,.06); border-left: 4px solid var(--vivian);
+    }
+    .script p { margin: 0 0 .55rem; }
+    .script p:last-child { margin-bottom: 0; }
+    .script strong { color: var(--hazel); font-weight: 800; }
+    .stage { font-style: italic; color: var(--soft); font-weight: 600; }
+    .playbox {
+      margin: 1rem 0; padding: 1rem 1.1rem; border-radius: 14px;
+      background: rgba(217,164,65,.12); border: 1px dashed rgba(217,164,65,.45);
+    }
+    .playbox h3 { font-family: Fraunces, Georgia, serif; margin: 0 0 .6rem; font-size: 1.15rem; }
+    .playbox ul { margin: 0; padding-left: 1.1rem; color: var(--soft); }
+    .end-mark { text-align: center; font-family: Fraunces, Georgia, serif; font-size: 2.1rem; font-weight: 700; margin: 0 0 .5rem; }
+    .note { margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--soft); font-size: .92rem; }
+    .thought { font-style: italic; color: var(--soft); }
+    @media print {
+      .site-header, .book-tools, .site-footer, .cover-cta { display: none !important; }
+      .page { break-after: page; border: none; border-radius: 0; margin: 0; padding: 1.3cm 1.5cm; }
+      .page::before { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="logo" href="../index.html">Anshika Mahesh</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../stories.html" aria-current="page">Stories</a>
+        <a href="../newsletter.html">Newsletter</a>
+        <a href="../connect.html">Connect</a>
+      </nav>
+    </div>
+  </header>
+  <div class="book-tools" aria-label="In this story">
+    <a href="#contents">Contents</a>
+    <a href="#ch1">Begin</a>
+    <a href="shy-girl.html">Book 1</a>
+  </div>
+
+  <main class="book">
+    <section class="page cover" id="cover">
+      <figure class="cover-hero">
+        <img src="images/vivian-and-hazel/cover.png" alt="Cover: Vivian and Hazel walking to school together" />
+      </figure>
+      <div class="cover-panel">
+        <h1 class="brand">Vivian and Hazel<em>Book 2 — a play, a rival, and a sister’s secret</em></h1>
+        <p class="author">Written by Anshika Mahesh</p>
+        <div class="cover-cta">
+          <a href="#ch1">Read the story</a>
+          <a class="secondary" href="shy-girl.html">Start with Book 1</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="page">
+      <p class="series-note">Sequel to <a href="shy-girl.html">The Shy Girl &amp; The Popular Girl</a>. From Anshika’s notebook <em>Vivian and Hazel.pdf</em> (18 pages). Spelling lightly polished; her plot, classroom-script scenes, and cliffhanger kept.</p>
+      <p class="blurb">
+        Hazel isn’t the shy new girl anymore. Then Noele arrives from her old school — and Bella still wants to break the friendship that lasted.
+      </p>
+    </section>
+
+    <section class="page" id="cast">
+      <header class="chapter-head">
+        <span class="chapter-num">Introducing…</span>
+        <h2>Best friends, still</h2>
+      </header>
+      <figure class="illust">
+        <img src="images/vivian-and-hazel/manuscript.jpg" alt="Opening page of Anshika’s handwritten Vivian and Hazel notebook" />
+        <figcaption>From the notebook — Hazel standing up at the school gates</figcaption>
+      </figure>
+      <div class="cast">
+        <div><strong>Vivian</strong> — Once the popular girl. Now Hazel’s true friend. Has a sister, Samaya, and a secret she never meant to hide.</div>
+        <div><strong>Hazel</strong> — Once the shy girl. Now she stands up for people — even when standing up for herself still feels hard.</div>
+        <div><strong>Noele</strong> — From Hazel’s old school. Joins Bella’s gang. Hazel won’t tell Vivian the whole story… yet.</div>
+        <div><strong>Emma</strong> — A new girl. Hazel helps her on the first day.</div>
+        <div><strong>Bella, Ria, Lara, Josie</strong> — Still mean. Still trying to spoil things.</div>
+        <div><strong>Miss Colman</strong> — Class teacher. Lets the girls write the school play.</div>
+        <div><strong>Samaya</strong> — Vivian’s sister, away at university — until a phone call changes everything.</div>
+      </div>
+    </section>
+
+    <section class="page toc" id="contents">
+      <header class="chapter-head">
+        <span class="chapter-num">Contents</span>
+        <h2>Chapters</h2>
+      </header>
+      <ol>
+        <li><a href="#ch1">1. Standing Up</a></li>
+        <li><a href="#ch2">2. A Play of Their Own</a></li>
+        <li><a href="#ch3">3. Auditions</a></li>
+        <li><a href="#ch4">4. Vivian’s Secret</a></li>
+        <li><a href="#ch5">5. The Reason She Moved</a></li>
+      </ol>
+    </section>
+
+    <section class="page" id="ch1">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 1</span>
+        <h2>Standing Up</h2>
+      </header>
+      <p class="dropcap">“Vivian!” called Hazel. “Oh Vivian, I looked everywhere for you! Where did you go?”</p>
+      <p>“More like where did you go! I’ve been waiting at the school gates for ten minutes,” replied Vivian.</p>
+      <p>“I was just getting to know a few new girls who got a bit lost,” said Hazel.</p>
+      <p>“Ooh, look — it’s our dear, faithful Vivian and devoted lamb Hazel!” said Ria.</p>
+      <p>“Hmmmm, oh yes — they look quite odd together, don’t they? Not fit for each other,” backed Bella.</p>
+      <p>“Hazel is just fake and Vivian is out of her mind,” said Lara.</p>
+      <p>“Nobody asked you! And I don’t like the way you’re acting towards us. Leave us alone!” retaliated Hazel.</p>
+      <p>“Oh, so it’s Hazel protecting Vivian now, is it?” asked Josie.</p>
+      <p>“Heard anything, Vivian? I thought I heard something. Oh! It was this bee buzzing. We’re going to be late — let’s go!” said Hazel.</p>
+      <p>Vivian looked at her admiringly. “Hazel, you were brilliant! How did you stand up to them?” she asked.</p>
+      <p>“Oh, I’ve experience from my old school,” replied Hazel. “I’m used to it.”</p>
+      <p>They both giggled.</p>
+      <p>“Thanks for standing up for us. Standing up for others is easy. Standing up for myself isn’t,” said Vivian.</p>
+      <p>Arm in arm the two girls walked to the classroom together. They took their seats and opened their books when Hazel noticed one of the new girls looked rather familiar. Then she recognised her.</p>
+      <p class="thought">How did she get here?</p>
+      <p>wondered Hazel. “Well, as long as she doesn’t bother me, I don’t really mind if she’s in the same class as me.”</p>
+      <p>The classes dragged on until finally it was break time.</p>
+      <p>“Oh, hi Hazel. I guess it’s nice to see you,” said the new girl Hazel had noticed.</p>
+      <p>Vivian looked surprised. “You know this girl?” she asked.</p>
+      <p>“Kind of. Vivian, meet Noele. I’ll explain how we know each other later. Now! Look at the time — we really are late. Come on, let’s go,” replied Hazel.</p>
+      <p>Vivian followed Hazel, confused. “Who is she?” asked Vivian.</p>
+      <p>“Oh, just a girl from my old school,” replied Hazel.</p>
+      <p>“Good or bad?” asked Vivian.</p>
+      <p>“Bad. Don’t talk to her much. I don’t want to expose her so I won’t tell you just yet. I don’t want to form your opinion about her,” said Hazel.</p>
+      <p>Vivian couldn’t help noticing that Hazel kept ignoring Noele, but realised Hazel was right when she saw her talking to Bella and laughing about something. Then Noele got up, marched toward a new girl and said, “You stink,” making Bella and her gang roar with laughter.</p>
+      <p>Things may have escalated if it wasn’t for Hazel. She got up from her place, walked to the new girl and said, “Don’t judge a person the second you see them, Noele. You’ve only just started your first day. Do you really want to spoil most people’s break just to tease a new girl? Shouldn’t you try to make yourself likeable?”</p>
+      <p>“Breather! Who are you to tell me what is right and wrong?” asked Noele.</p>
+      <p>“I am your classmate and an old-timer in this school. I do have the right to tell you to stop this nonsense — as you are a new girl and most obviously need to be put in your place,” replied Hazel.</p>
+      <p>That seemed to have shaken Noele a bit. She walked back to her place quietly.</p>
+      <p>“Thank you,” said the new girl.</p>
+      <p>“You’re welcome. What is your name?” asked Hazel.</p>
+      <p>“I’m Emma. What’s your name?”</p>
+      <p>“I’m Hazel. If you ever need any help, you can ask me or tell me anything,” replied Hazel, and walked back to her seat.</p>
+      <p>“You really have changed from the shy girl I knew last year,” said Vivian.</p>
+      <p>“Oh well — at least nobody will think I’m snobby,” replied Hazel.</p>
+    </section>
+
+    <section class="page" id="ch2">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 2</span>
+        <h2>A Play of Their Own</h2>
+      </header>
+      <p class="dropcap">“Hazel! Where are you?” called Vivian.</p>
+      <p>There was a huge crowd in the assembly.</p>
+      <p>“Hazel! There you are! I’ve got some news,” said Vivian. “Miss Maya Colman said there’s going to be a school play and we get to write it! Maybe we should work together and write a really cool play?”</p>
+      <p>“Yes! That’s a great idea! Let’s do it today after school,” replied Hazel.</p>
+      <p>“Oh! So are you going to write a play too? So are we — and for your information, it’s going to be much better than what you’re doing,” said Noele.</p>
+      <p>“Oh, I see…… I thought you hated English about a year ago. So nice to see that you’ve changed so much,” said Hazel with a grin.</p>
+      <p>Noele glared at her, then walked away.</p>
+      <p>“How on Earth are you so good at standing up for yourself?” asked Vivian.</p>
+      <p>“The same way you are so good at standing up for others,” replied Hazel. “Now let’s go to class. I don’t fancy seeing any more of this crowd right now.”</p>
+      <p>The two girls walked to class together, discussing the play they meant to write. The day moved on, and Vivian went to Hazel’s house to discuss possible play ideas. They had many good ideas, but one stood out — and soon the two girls were busy writing it down.</p>
+
+      <div class="playbox">
+        <h3>Plot — The Clown of Nightmares</h3>
+        <p>A clown is in charge of making nightmares for people. He enjoys his job, but one day one of his spells to make a nightmare backfires on him — and that night he struggles to sleep because of his own nightmare. The clown decides to quit, but the head of the circus won’t let him. So the clown makes a nightmare of what would happen if the head didn’t agree to his ideas, and gives him a dose of it. The head realises his mistake and lets the clown go — but the clown’s bag of nightmares explodes, and the magic spreads through the air. Children still get nightmares, but not as badly as before. At least they don’t get them every day. And everyone lives happily ever after.</p>
+        <h3>Cast</h3>
+        <ul>
+          <li>Clown / Joker</li>
+          <li>Child 1, 2, 3, 4, 5</li>
+          <li>Head of the circus</li>
+          <li>Acrobat</li>
+          <li>Clown’s friend</li>
+        </ul>
+      </div>
+
+      <p>“Well, it’s not perfect, but it’s a good start,” said Vivian.</p>
+      <p>“It is quite good. Let’s show it to Miss Colman tomorrow. I’m sure she’ll like it,” replied Hazel. “And it will be one in the eye for Noele. She thought we couldn’t do it.”</p>
+      <p>“How was she like in your old school?” asked Vivian.</p>
+      <p>“Very snobby, spiteful, and an awful snitch,” said Hazel.</p>
+      <p>“Oh! Look at the time! It’s almost half past six. I’d better go now. Bye, Hazel,” said Vivian.</p>
+      <p>“Bye, Vivian!” called Hazel.</p>
+    </section>
+
+    <section class="page" id="ch3">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 3</span>
+        <h2>Auditions</h2>
+      </header>
+      <p class="dropcap">The next day, Vivian and Hazel showed Miss Colman their play. Miss Colman said their ideas were good and agreed to read out the plot and the characters during her period. When she finished, this was the class’s response —</p>
+
+      <div class="script">
+        <p><strong>David —</strong> Jolly good idea, you two!</p>
+        <p><strong>Lily —</strong> Thank goodness it’s not about a boring old fairy tale.</p>
+        <p><strong>Emily —</strong> Fairy tales are good, but I like their concept of a clown being the main character.</p>
+        <p><strong>Josh —</strong> Yes, I really like their plot.</p>
+        <p><strong>Bella —</strong> I don’t! Clowns are meant to be funny, not scary.</p>
+        <p><strong>Ria —</strong> Exactly!</p>
+        <p><strong>Noele —</strong> It’s not as great as you make it to be.</p>
+        <p><strong>David —</strong> Well, you’re outvoted! I’m sure everyone except you has agreed it’s a good idea.</p>
+        <p><strong>Emily —</strong> Clowns can be scary too. My little brother is terrified of them.</p>
+        <p><strong>Miss Colman —</strong> I think the majority of the class likes this plot. I’ll wait till tomorrow in case any others are interested in contributing their ideas. If nobody else has any, this plot will be the final plot for the school play.</p>
+      </div>
+
+      <p class="stage">(The next day)</p>
+
+      <div class="script">
+        <p><strong>Noele —</strong> Miss Colman, Bella, Ria and I have written this plot. Please do read it.</p>
+        <p><strong>Miss Colman —</strong> Very well, I shall read it to the class — “Once upon a time, there lived a boy called Ry, who wrote this thing!”</p>
+        <p><strong>Bella, Ria &amp; Noele —</strong> We three did. Is it good, Ma’am?</p>
+        <p><strong>Miss Colman —</strong> I’m afraid I can’t understand a word you’ve written. There are too many spelling errors. I’ve never heard of the name Ry!</p>
+        <p><strong>Ria —</strong> It was supposed to be Roy.</p>
+        <p><strong>Miss Colman —</strong> Please explain what you have written.</p>
+        <p><strong>Noele —</strong> Well, Roy goes on an adventure.</p>
+        <p><strong>Miss Colman —</strong> That’s it? What is the adventure?</p>
+        <p><strong>Bella —</strong> Well… he is walking and the adventure just happens.</p>
+        <p><strong>Miss Colman —</strong> I’m not asking how it happened. I’m asking what the adventure is.</p>
+        <p><strong>Bella —</strong> Um…. He is going to school and he goes to a forest.</p>
+        <p><strong>Miss Colman —</strong> I am not following you. Are you saying that he intentionally skips school and goes to a forest?</p>
+        <p><strong>Ria —</strong> We… don’t know.</p>
+        <p><strong>Miss Colman —</strong> Then how is this a proper story? You haven’t even told me what happens. I’m afraid I can’t count it. Any other ideas? Nobody?</p>
+        <p><strong>Drake —</strong> Ma’am, I tried, but I don’t have a knack for it, you know.</p>
+        <p><strong>Lily —</strong> I haven’t written a plot, but I can compose the music if any songs are in the play.</p>
+        <p><strong>Miss Colman —</strong> Thank you, Lily. I’m sure that will come in handy sooner or later.</p>
+        <p><strong>Emily —</strong> I’m good at sewing. I can make the costumes once the designs are passed on.</p>
+        <p><strong>Miss Colman —</strong> That will be useful, thank you, Emily. Since nobody has a better plot than Vivian and Hazel’s, I am taking their plot as the story for our play. Vivian and Hazel are the directors, as they have written this play. I’m sure you two will work together well.</p>
+        <p><strong>Hazel &amp; Vivian —</strong> Oh yes! We’ll work together as much as we can.</p>
+        <p><strong>Miss Colman —</strong> I am glad to hear it. You will be allowed to conduct auditions after lunch today.</p>
+      </div>
+
+      <p class="stage">(After lunch break)</p>
+
+      <div class="script">
+        <p><strong>Vivian —</strong> Listen up, everyone! The characters we need are a joker, five children, the head of the circus, an acrobat, a magician, a lion or animal tamer, and the clown’s sidekick.</p>
+        <p><strong>Hazel —</strong> We would also like some names for these characters. Any suggestions?</p>
+        <p><strong>Drake —</strong> We can call him the clown Jim.</p>
+        <p><strong>Dizzy —</strong> Or Jack.</p>
+        <p><strong>Emily —</strong> Or John.</p>
+        <p><strong>Tia —</strong> Maybe Leo.</p>
+        <p><strong>Noele —</strong> I’ve got it — how about Booh!</p>
+        <p><strong>Hazel —</strong> Booh! That’s not even a name!</p>
+        <p><strong>Noele —</strong> But after all he does scare people by creating scary nightmares.</p>
+        <p><strong>Vivian —</strong> And she’s not wrong.</p>
+        <p><strong>Hazel —</strong> Fine. Booh it is.</p>
+        <p><strong>Vivian —</strong> Now, Noele — I’d like it to be Booh. I’ve a good sense of humour, much needed for a clown.</p>
+        <p><strong>Vivian —</strong> We’ll see about that.</p>
+        <p><strong>Tia —</strong> I’d like to be the acrobat. I’m good at yoga and gymnastics.</p>
+        <p><strong>Jemma —</strong> I’d like to be an acrobat too.</p>
+        <p><strong>Hazel —</strong> Okay, you two can be the acrobats — but before our first rehearsal, show me a trick or two.</p>
+        <p><strong>David —</strong> I’d like to be a lion tamer.</p>
+        <p><strong>Josh —</strong> And I want to be the head of the circus.</p>
+        <p><strong>Emma —</strong> Hazel, I have an idea.</p>
+        <p><strong>Hazel —</strong> Go on, Emma.</p>
+        <p><strong>Emma —</strong> The clown becomes good, right? After he learns his mistake — maybe he wants to help people. What if he conducted reading sessions?</p>
+        <p><strong>Vivian —</strong> Hmmm…. Yes, that does seem like a good idea.</p>
+        <p><strong>Lily —</strong> What are the children supposed to do?</p>
+        <p><strong>Hazel —</strong> They are the ones getting nightmares.</p>
+        <p><strong>Emma —</strong> I’d like to be a child.</p>
+        <p><strong>Lily —</strong> Me too!</p>
+        <p><strong>Drake —</strong> Me three.</p>
+        <p><strong>Emily —</strong> Me four.</p>
+        <p><strong>Jenny —</strong> And me five.</p>
+        <p><strong>Vivian —</strong> You can show us your acting skills when we start rehearsals. Okay, time’s up now — meeting disperse.</p>
+      </div>
+      <p class="stage">(They all walk towards class.)</p>
+    </section>
+
+    <section class="page" id="ch4">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 4</span>
+        <h2>Vivian’s Secret</h2>
+      </header>
+      <p class="dropcap">Hazel and Vivian were heading to their classroom when someone tapped on their shoulders.</p>
+
+      <div class="script">
+        <p><strong>Bella —</strong> Hello, you two. I can see the pride has gone to your heads after your success. <span class="stage">(To Hazel)</span> I bet Vivian has told you you’re her BFF.</p>
+        <p><strong>Hazel —</strong> Yes.</p>
+        <p><strong>Bella —</strong> Well, she probably hasn’t told you her deepest, darkest secret, has she?</p>
+        <p><strong>Hazel —</strong> I don’t mind. Everyone has secrets.</p>
+        <p><strong>Bella —</strong> Well… what if I told you she told me her deepest, darkest secret?</p>
+        <p><strong>Vivian —</strong> Bella! Please don’t tell Hazel.</p>
+        <p><strong>Bella —</strong> I’m going to! Vivian has a sister who left for university two years ago.</p>
+        <p><strong>Hazel —</strong> So?</p>
+        <p><strong>Vivian —</strong> Yeah, so what?</p>
+        <p><strong>Bella —</strong> I’m not finished yet. Before her sister left, they had a quarrel and never made up. Such a bad younger sister you are, Vivian! And Vivian thought her sister left because of her. Of course, I think she’s right for once — I mean, who can live with her?</p>
+      </div>
+
+      <p>Hazel looked at Bella scornfully. She was trying to do the same thing she had done when Hazel had joined last year. Bella had told Vivian Hazel’s past to break their friendship. But instead, it had made their bond stronger. She turned to Vivian, who had gone pale from fright.</p>
+
+      <div class="script">
+        <p><strong>Hazel —</strong> Vi, don’t worry. I’m staying by your side. <span class="stage">(Puts an arm around Vivian. To Bella —)</span> You think I’m going to leave my friend just because she made a mistake in the past? You really are horrible! First trying to humiliate me, then another new girl, and now my friend — you crossed the limit, Bella, and you’re probably going to regret it. Because just like last time, I feel like this is going to strengthen our bond, not crumble it. So your evil plan has backfired on you!</p>
+        <p><strong>Bella —</strong> Well, whatever. I don’t care. <span class="stage">(Walks away.)</span></p>
+        <p><strong>Vivian —</strong> Thanks, Hazel. You really are a brick. I’m sorry I didn’t tell you earlier. It’s just that I didn’t want you to think the worst of me.</p>
+        <p><strong>Hazel —</strong> Don’t worry. I know how you feel. I’ve been through it before.</p>
+        <p><strong>Vivian —</strong> How can I do without you?</p>
+        <p><strong>Hazel —</strong> Same question I asked about you a year ago. Now — do you want to come over for tea and a chat? I think, if you don’t mind, I want to discuss this sister of yours.</p>
+        <p><strong>Vivian —</strong> Sure.</p>
+      </div>
+
+      <p class="stage">(At Hazel’s house)</p>
+
+      <div class="script">
+        <p><strong>Hazel —</strong> Vivian, look — if you don’t want to tell me anything, I’m not against it. But if you’re okay with telling me about it, I’m all ears. And I promise I won’t tell tales about you.</p>
+        <p><strong>Vivian —</strong> <span class="stage">(Takes a deep breath.)</span> I’ll tell you what happened. You see, I have a sister, Samaya. She is the best sister you could ever ask for. We used to walk home from school arm in arm. She helped me with my homework while I filled her in about my day. When we were free we used to walk outside together and have fun. I can’t tell you how amazing she is. But then, things changed. She declared that she wanted to go to a university abroad and even got a scholarship to go there. I was proud of her and knew it was for the best — but a part of me couldn’t help wondering if she would be happy to get rid of me. When I asked her about it, she got angry and asked me what she had done to make me feel like that. To be honest her question was valid, and the truth is, I didn’t have any reason to think so. But then I lost my temper and we had a huge fight and didn’t sleep at all that night. She made up her mind to leave that very day. I wanted to say sorry, but my pride wouldn’t let me.</p>
+        <p><strong>Hazel —</strong> To be honest, your story is just like how I felt when I changed to this school.</p>
+        <p><strong>Vivian —</strong> Yes, but there’s one thing that sticks out. You couldn’t help being shy — but I could have held my tongue. That’s why I’m so ashamed about it. Maybe Samaya and I could have departed on a happy note.</p>
+        <p><strong>Hazel —</strong> But Vivian — you would probably still wonder if she was leaving because of you if you didn’t ask her. At least you know that she bore no hard feelings about you. And I don’t think she does now either — and nor do you. You both are only acting like you hate one another because you’re hurt about what happened that day. Come on, Vi! Admit it! You don’t hate her, do you?</p>
+        <p><strong>Vivian —</strong> You’re right. I bear no hard feelings about her, and nor does she about me. But we’re so hurt that we are doing some stupid pretence.</p>
+        <p><strong>Hazel —</strong> Exactly! Come on, Vi — call your sister up and tell her you’re sorry. I’m sure she’ll be grateful to know you don’t assume anything about her.</p>
+        <p><strong>Vivian —</strong> You’re right. I’m going to call her right now, and you are the witness in case anyone wants proof.</p>
+        <p><strong>Hazel —</strong> I’m good with that.</p>
+      </div>
+
+      <p class="stage">Vivian runs to her house while Hazel fetches her mother’s phone and hands it over to Vivian.</p>
+
+      <div class="script">
+        <p><strong>Hazel —</strong> You know her number, don’t you?</p>
+        <p><strong>Vivian —</strong> Yes. I’m dialling it now.</p>
+      </div>
+
+      <p class="stage">She dials the number. It rings once, twice, thrice — and then someone picks it up!</p>
+
+      <div class="script">
+        <p><strong>Samaya —</strong> Hello! Who is this?</p>
+        <p><strong>Vivian —</strong> Samaya! Is it really you?</p>
+        <p><strong>Samaya —</strong> Vivian! Yes it is me! How have you been?</p>
+        <p><strong>Vivian —</strong> I’m doing good. How about you?</p>
+        <p><strong>Samaya —</strong> I’m great.</p>
+        <p><strong>Vivian —</strong> Samaya, I need to tell you something.</p>
+        <p><strong>Samaya —</strong> Go on—</p>
+        <p><strong>Vivian —</strong> I want to apologise for assuming you wanted to leave. It was awfully wrong of me. You can’t think how ashamed and guilty I am.</p>
+        <p><strong>Samaya —</strong> Oh Vivian! I’m sorry too. I shouldn’t have snapped at you like that when you asked me that. It was natural of you to feel like that. I was just so worried about what to pack, how I would settle in there and everything, that anything that bothered me annoyed me.</p>
+        <p><strong>Vivian —</strong> Oh really! You don’t know how much this means to me. And to think I wouldn’t have even thought of calling you if it wasn’t for my best friend Hazel. She’s a huge brick, you know. Do you remember Bella? Well, she’s not my friend anymore — she tried to spread rumours about Hazel, and today she exposed me to Hazel in hopes that Hazel would break away from me. But Hazel stood up for me and put her in her place. When I told her what happened between us, she convinced me to call you. We are even writing a school play together.</p>
+        <p><strong>Samaya —</strong> Oh really! It’s so good to hear that you’re making such good friends. I never did like Bella — too snobby for my liking. And are you really writing the school play? What an honour. I’m so proud of you! I’m probably coming back home next month and I’m going to get a job near home, so I think I’ll come in time to see your play.</p>
+        <p><strong>Vivian —</strong> What! You’re coming home! I’m so happy! Of course you’ll be in time for the play.</p>
+        <p><strong>Samaya —</strong> Well, I’ve got to go now — I have a class now — but I’ll call you really soon, I promise. Bye, Vivian.</p>
+        <p><strong>Vivian —</strong> Bye, Samaya. <span class="stage">(Cuts the call. Claps Hazel into a hug.)</span> Hazel! She’s coming back home! She’ll be in time to see our school play! She isn’t angry at me at all! Oh, I can’t tell you how happy I am.</p>
+        <p><strong>Hazel —</strong> I’m so happy for you, Vivian. And it’s one in the eye for Bella. Not only has our bond grown stronger — even your sister is coming home to see you.</p>
+        <p><strong>Vivian —</strong> Let’s talk about it in the park. I just can’t sit still.</p>
+      </div>
+      <p class="stage">The two girls walk to the park together, with huge smiles on their faces.</p>
+    </section>
+
+    <section class="page" id="ch5">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 5</span>
+        <h2>The Reason She Moved</h2>
+      </header>
+      <p class="dropcap">Hazel and Vivian walked to school together, talking happily about Vivian’s sister, when they couldn’t help noticing that everyone was staring at Hazel.</p>
+
+      <div class="script">
+        <p><strong>Hazel —</strong> Why is everyone staring at me?</p>
+        <p><strong>Vivian —</strong> I don’t know. Let’s find out.</p>
+      </div>
+
+      <p>As Vivian walked to her seat, she heard Lily tell her, “Have you heard? Apparently Hazel’s birthday party was completely empty because she didn’t have any friends.”</p>
+      <p>Vivian glared at Bella. Even though Bella was not her friend, she couldn’t believe she had spread rumours about Hazel.</p>
+
+      <div class="script">
+        <p><strong>Vivian —</strong> Why on Earth are you spreading rumours?</p>
+        <p><strong>Bella —</strong> It wasn’t me. Just because I used to be one of the only people who knew Hazel’s past doesn’t mean I spread the rumours. You should ask Noele, not me.</p>
+      </div>
+
+      <p>Vivian looked at Bella carefully before deciding to trust her. She looked quite honest for once. But how could Noele do such a mean thing? She approached Noele scornfully.</p>
+
+      <div class="script">
+        <p><strong>Vivian —</strong> Noele! Why are you spreading rumours about Hazel? What did she do to you?</p>
+        <p><strong>Hazel —</strong> Vivian!</p>
+        <p><strong>Noele —</strong> Oh well! We were closer than you think.</p>
+      </div>
+
+      <p>Vivian ran to find Hazel. Hazel was sitting alone, looking terrified. Vivian sat next to her and put a comforting arm around her.</p>
+      <p>“Vivian, I didn’t mean to tell you about Noele, but I think I must now. You see, Noele was my best friend. We used to be together always. Things stayed the same and we both grew closer. But then she used me. She got me to write her notes, suddenly stopped being my friend, and spread rumours about me. And before I could explain my side of the story, everyone decided to believe Noele just because I was more shy than her. That’s the reason I moved here.”</p>
+
+      <div class="script">
+        <p><strong>Vivian —</strong> Oh Hazel! You poor old thing! How did you manage?</p>
+        <p><strong>Hazel —</strong> Never mind all that. I just want a chance to explain myself.</p>
+        <p><strong>Vivian —</strong> Fair. Why don’t you tell Miss Colman about it? As she’s our class teacher, she’ll probably sort it out.</p>
+        <p><strong>Hazel —</strong> Good idea. Let’s go tell her now.</p>
+      </div>
+
+      <p>The two girls approach Miss Colman and tell her everything. Miss Colman assures Hazel that she’ll help set things right. During her period, she asks Hazel and Noele to come near the teacher’s desk and asks Noele to explain her side of the incident.</p>
+
+      <div class="script">
+        <p><strong>Noele —</strong> Ma’am, Hazel is responsible for everything. Ever—</p>
+      </div>
+
+      <p class="end-mark">To be continued…</p>
+      <p class="note">
+        From Anshika’s manuscript <em>Vivian and Hazel.pdf</em> (18 pages). Book 2 of <a href="shy-girl.html">The Shy Girl &amp; The Popular Girl</a>.
+        Classroom scenes kept in her script style. Name spellings standardised to Noele, Miss Colman, and Samaya.
+        The notebook ends mid-sentence as Noele begins her side of the story.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span id="y"></span> Anshika Mahesh</span>
+    <a href="../newsletter.html">Subscribe</a>
+  </footer>
+  <script src="../js/main.js?v=pack1"></script>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="kn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ಕುವೆಂಪು — ಕರ್ನಾಟಕದ ಶ್ರೇಷ್ಠ ಕವಿ — Anshika Mahesh</title>
+  <meta name="description" content="ಕುವೆಂಪು — Anshika and Samyuktha Kannada story." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Kannada:wght@400;600;700;800&family=Noto+Serif+Kannada:wght@500;700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    :root {
+      --ink: #1f2a1c; --soft: #4a5646; --card: #fffdf6;
+      --leaf: #2f6b3a; --sun: #e8c84a; --earth: #c45a3a;
+      --line: rgba(31,42,28,0.12);
+    }
+    body {
+      font-family: "Noto Sans Kannada", Manrope, sans-serif;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(232,200,74,.35), transparent 40%),
+        radial-gradient(circle at 90% 10%, rgba(47,107,58,.12), transparent 38%),
+        linear-gradient(180deg, #f7f1d8 0%, #f3ebe0 40%, #efe6d6 100%);
+    }
+    .book { width: min(760px, calc(100% - 1.5rem)); margin: 1.2rem auto 3rem; }
+    .page {
+      background: var(--card); border: 1px solid var(--line); border-radius: 18px;
+      padding: clamp(1.5rem, 4vw, 2.8rem); margin-bottom: 1.15rem; position: relative; overflow: hidden;
+    }
+    .page::before {
+      content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 8px;
+      background: linear-gradient(180deg, var(--leaf), var(--sun), var(--earth));
+    }
+    .cover {
+      padding: 0; min-height: min(90vh, 820px); display: grid; grid-template-rows: 1fr auto;
+      text-align: center; overflow: hidden; background: #f4e56a;
+    }
+    .cover::before { display: none; }
+    .cover-hero { margin: 0; min-height: min(52vh, 480px); overflow: hidden; background: #f4e56a; }
+    .cover-hero img {
+      width: 100%; height: 100%; min-height: min(52vh, 480px);
+      object-fit: contain; object-position: center; display: block;
+      animation: cover-in 1.1s ease-out both;
+    }
+    .cover-panel {
+      padding: clamp(1.4rem, 4vw, 2.4rem) clamp(1.4rem, 4vw, 2.6rem);
+      background:
+        linear-gradient(180deg, rgba(255,253,246,.94), #fffdf6 42%),
+        linear-gradient(180deg, rgba(47,107,58,.1), rgba(196,90,58,.08));
+      animation: panel-up .9s .15s ease-out both;
+    }
+    .brand {
+      font-family: "Noto Serif Kannada", "Noto Sans Kannada", serif;
+      font-size: clamp(2.2rem, 6.5vw, 3.5rem);
+      font-weight: 700; line-height: 1.2; margin: 0;
+    }
+    .brand em {
+      display: block; font-style: normal; font-size: .42em; margin-top: .55rem;
+      color: var(--soft); font-weight: 700;
+    }
+    .author {
+      margin: 1rem 0 0; font-weight: 800; letter-spacing: .06em;
+      font-size: .95rem; color: var(--leaf);
+    }
+    .cover-cta { display: inline-flex; gap: .7rem; flex-wrap: wrap; justify-content: center; margin-top: 1.1rem; }
+    .cover-cta a {
+      text-decoration: none; color: #fff; background: var(--ink);
+      padding: .7rem 1.1rem; border-radius: 999px; font-weight: 800; font-size: .95rem;
+    }
+    .cover-cta a.secondary { background: transparent; color: var(--ink); border: 2px solid rgba(31,42,28,.18); }
+    @keyframes cover-in { from { transform: scale(1.04); opacity: .55; } to { transform: none; opacity: 1; } }
+    @keyframes panel-up { from { transform: translateY(14px); opacity: 0; } to { transform: none; opacity: 1; } }
+    .blurb {
+      font-family: "Noto Serif Kannada", serif; font-size: clamp(1.15rem, 2.6vw, 1.4rem);
+      font-style: italic; line-height: 1.65; color: var(--soft); max-width: 36ch; margin: 0 auto; text-align: center;
+    }
+    .series-note {
+      margin: 0 0 1rem; padding: .7rem .9rem; border-radius: 12px;
+      background: rgba(47,107,58,.1); color: var(--soft); font-size: .92rem; font-weight: 600; line-height: 1.55;
+    }
+    .en-note {
+      margin: 1rem 0 0; padding: .7rem .9rem; border-radius: 12px;
+      background: rgba(196,90,58,.08); color: var(--soft); font-size: .88rem; font-weight: 600;
+      font-family: Manrope, sans-serif; line-height: 1.5;
+    }
+    h2 { font-family: "Noto Serif Kannada", serif; font-weight: 700; line-height: 1.25; margin: 0; }
+    .chapter-head { text-align: center; margin: 0 0 1.2rem; padding-bottom: .85rem; border-bottom: 1px solid var(--line); }
+    .chapter-num {
+      display: block; font-size: .85rem; font-weight: 800; letter-spacing: .08em;
+      color: var(--leaf); margin-bottom: .35rem;
+    }
+    .chapter-head h2 { font-size: clamp(1.65rem, 4vw, 2.2rem); }
+    .story p {
+      margin: 0 0 1.15rem; font-size: clamp(1.12rem, 2.4vw, 1.28rem);
+      line-height: 1.9; text-align: justify;
+    }
+    .story p:last-child { margin-bottom: 0; }
+    .dropcap::first-letter {
+      font-family: "Noto Serif Kannada", serif; float: left; font-size: 3.2rem; line-height: .85;
+      padding-right: .35rem; font-weight: 700; color: var(--earth);
+    }
+    .quote {
+      margin: 1rem 0; padding: .85rem 1rem; border-radius: 12px;
+      background: rgba(47,107,58,.08); border-left: 4px solid var(--leaf);
+      font-size: clamp(1.08rem, 2.2vw, 1.2rem); line-height: 1.85;
+    }
+    .illust {
+      margin: 0 0 1.35rem; border-radius: 14px; overflow: hidden;
+      border: 1px solid var(--line); background: #fff;
+    }
+    .illust img { width: 100%; height: auto; display: block; }
+    .illust figcaption {
+      font-size: .9rem; color: var(--soft); padding: .55rem .8rem;
+      background: rgba(31,42,28,.04); border-top: 1px solid var(--line);
+    }
+    .thanks {
+      text-align: center; font-family: "Noto Serif Kannada", serif;
+      font-size: clamp(1.25rem, 3vw, 1.55rem); line-height: 1.8; margin: 0;
+    }
+    .thanks .sign { display: block; margin-top: 1.2rem; font-weight: 700; color: var(--leaf); }
+    .thanks .class { display: block; margin-top: .5rem; font-size: .95rem; color: var(--soft); font-family: Manrope, sans-serif; }
+    .end-mark {
+      text-align: center; font-family: "Noto Serif Kannada", serif;
+      font-size: 2rem; font-weight: 700; margin: 1.2rem 0 .5rem;
+    }
+    .note { margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--soft); font-size: .95rem; line-height: 1.6; }
+    .site-header .logo, .site-header .nav a, .book-tools a, .site-footer {
+      font-family: Manrope, "Noto Sans Kannada", sans-serif;
+    }
+    @media print {
+      .site-header, .book-tools, .site-footer, .cover-cta { display: none !important; }
+      .page { break-after: page; border: none; border-radius: 0; margin: 0; padding: 1.3cm 1.5cm; }
+      .page::before { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="logo" href="../index.html">Anshika Mahesh</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../stories.html" aria-current="page">Stories</a>
+        <a href="../newsletter.html">Newsletter</a>
+        <a href="../connect.html">Connect</a>
+      </nav>
+    </div>
+  </header>
+  <div class="book-tools" aria-label="In this story">
+    <a href="#story">ಕಥೆ</a>
+    <a href="#thanks">ಧನ್ಯವಾದ</a>
+  </div>
+
+  <main class="book">
+    <section class="page cover" id="cover">
+      <figure class="cover-hero">
+        <img src="images/kuvempu/cover.jpg" alt="ಅಂಶಿಕಾ ತಯಾರಿಸಿದ ಹಳದಿ ಮುಖಪುಟ: ಕುವೆಂಪು ಕರ್ನಾಟಕದ ಶ್ರೇಷ್ಠ ಕವಿ" />
+      </figure>
+      <div class="cover-panel">
+        <h1 class="brand">ಕುವೆಂಪು<em>ಕರ್ನಾಟಕದ ಶ್ರೇಷ್ಠ ಕವಿ</em></h1>
+        <p class="author">ಬರಹ — ಅಂಶಿಕಾ ಮತ್ತು ಸಂಯುಕ್ತಾ</p>
+        <div class="cover-cta">
+          <a href="#story">ಕಥೆ ಓದಿ</a>
+          <a class="secondary" href="#thanks">ಧನ್ಯವಾದ</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="page">
+      <p class="series-note">ಅಂಶಿಕಾ ಅವರ ಕನ್ನಡ ಯೋಜನೆ ಪುಸ್ತಕದಿಂದ (kuvempu poet.pdf). ಕಥೆ ಕನ್ನಡದಲ್ಲೇ ಇದೆ. ಬರಹದಲ್ಲಿ ಸ್ವಲ್ಪ ಕಾಗುಣಿತ ಸರಿಪಡಿಸಲಾಗಿದೆ; ಕಥೆ, ಸಂವಾದ ಮತ್ತು ವಿಚಾರಗಳು ಅಂಶಿಕಾ–ಸಂಯುಕ್ತಾ ಅವರವೇ.</p>
+      <p class="blurb">ಪ್ರಬಂಧಕ್ಕೆ ಮಾಹಿತಿ ಸಾಕಾಗದೆ ಚಿಂತೆ — ಆಗ ಪುಸ್ತಕದಲ್ಲಿನ ಕುವೆಂಪು ಚಿತ್ರವೇ ಮಾತನಾಡಲು ಬರುತ್ತದೆ!</p>
+      <p class="en-note">English: A Kannada school-project story by Anshika and Samyuktha — two friends meet Kuvempu through a magical book picture while writing their essay.</p>
+    </section>
+
+    <section class="page story" id="story">
+      <header class="chapter-head">
+        <span class="chapter-num">ಕಥೆ</span>
+        <h2>ಕುವೆಂಪು</h2>
+      </header>
+
+      <figure class="illust">
+        <img src="images/kuvempu/manuscript.jpg" alt="ಅಂಶಿಕಾ ಬರೆದ ಕನ್ನಡ ಹಸ್ತಪ್ರತಿ ಪುಟ" />
+        <figcaption>ನೋಟ್ಬುಕ್‌ನಿಂದ — ಕಥೆಯ ಮೊದಲ ಪುಟ</figcaption>
+      </figure>
+
+      <p class="dropcap">ಸಂಯುಕ್ತಾ ಮತ್ತು ಅಂಶಿಕಾ ಕನ್ನಡದ ಯೋಜನೆಗಾಗಿ ಕುವೆಂಪು ಬಗ್ಗೆ ಪ್ರಬಂಧ ಬರೆಯುತ್ತಿದ್ದರು. ಒಂದೇ ಒಂದು ಸಮಸ್ಯೆ ಇತ್ತು — ಅವರಿಗೆ ಕುವೆಂಪು ಬಗ್ಗೆ ಏನೂ ತಿಳಿದಿರಲಿಲ್ಲ!</p>
+      <p>ಆದ್ದರಿಂದ ಅವರು ತಮ್ಮ ಬಳಿ ಇದ್ದ ಕುವೆಂಪು ಬಗ್ಗೆ ಸ್ವಲ್ಪ ಮಾಹಿತಿಗಳನ್ನು ಕಲಿತರು. ಆದರೆ ಇಡೀ ಪ್ರಬಂಧಕ್ಕೆ ಸಾಕಷ್ಟು ಮಾಹಿತಿ ಇರಲಿಲ್ಲ. ಅವರು ಚಿಂತೆ ಮಾಡಲು ಪ್ರಾರಂಭಿಸಿದ್ದಂತೆ, «ಕುವೆಂಪು ಬಗ್ಗೆ ಇನ್ನೂ ತಿಳಿದುಕೊಳ್ಳಬೇಕಾದ ಎಲ್ಲವೂ» ಎಂಬ ಶೀರ್ಷಿಕೆಯ ಪುಸ್ತಕವನ್ನು ತೆರೆದರು. ಅಲ್ಲಿ ಅವರ ಚಿತ್ರ ಮಾತ್ರ ಇತ್ತು.</p>
+      <p>ಇದ್ದಕ್ಕಿದ್ದಂತೆ ಚಿತ್ರ ಚಲಿಸಲು ಪ್ರಾರಂಭಿಸಿತು. ಪುಸ್ತಕದಿಂದ ಧ್ವನಿ ಬಂದಾಗ ಗಾಬರಿಗೊಂಡ ಹುಡುಗಿಯರು ಅದರಿಂದ ದೂರ ಸರಿದರು.</p>
+      <p class="quote">«ಹಲೋ, ನಾನು ಕುವೆಂಪು. ನೀವು ಈ ಪುಸ್ತಕವನ್ನು ಏಕೆ ತೆರೆದಿದ್ದೀರಿ?»</p>
+      <p class="quote">«ಹಲೋ, ನಾನು ಸಂಯುಕ್ತಾ ಮತ್ತು ಇವಳು ಅಂಶಿಕಾ. ಪ್ರಬಂಧಕ್ಕಾಗಿ ನಾವು ನಿಮ್ಮ ಬಗ್ಗೆ ಇನ್ನೂ ತಿಳಿದುಕೊಳ್ಳಲು ಬಯಸಿದ್ದೇವೆ,» ಅಂಶಿಕಾ ಗಟ್ಟಿಯಾಗಿ ಉತ್ತರಿಸಿದಳು.</p>
+      <p class="quote">«ಓಹೋ, ಹಾಗಾದರೆ ನನ್ನ ಬಗ್ಗೆ ಹೇಳುತ್ತೇನೆ,» ಎಂದು ಕುವೆಂಪು ಹೇಳಿದರು.</p>
+      <p class="quote">«ನಾನು ಡಿಸೆಂಬರ್ ೨೯, ೧೯೦೪ ರಂದು ಚಿಕ್ಕಮಗಳೂರಿನ ಒಂದು ಕುಪ್ಪಳಿ ಹಳ್ಳಿಯಲ್ಲಿ ಜನಿಸಿದೆ. ಜ್ಞಾನಪೀಠ ಪ್ರಶಸ್ತಿಯನ್ನು ಗೆದ್ದೆ. ಮೊದಲ ಎಂಟು ಹಿಂದಿಯೇತರ ಬರಹಗಾರರಲ್ಲಿ ನಾನು ಒಬ್ಬ. ೧೯೯೨ ರಲ್ಲಿ ಕರ್ನಾಟಕದ ಅತ್ಯುನ್ನತ ನಾಗರಿಕ ಪ್ರಶಸ್ತಿಯಾದ ಕರ್ನಾಟಕ ರತ್ನವನ್ನು ಪಡೆದಿದ್ದೇನೆ. ನಾನು ಹೊಂಬೆಳಕು ಎಂಬ ಮೊದಲ ಕನ್ನಡ ವೈಜ್ಞಾನಿಕ ಕಾದಂಬರಿಯನ್ನು ಬರೆದಿದ್ದೇನೆ. ನಾನು ಪದ್ಮವಿಭೂಷಣವನ್ನು ಪಡೆದಿದ್ದೇನೆ. ನನ್ನ ಅತ್ಯಂತ ಪ್ರಸಿದ್ಧ ಕೃತಿ ಶ್ರೀ ರಾಮಾಯಣ ದರ್ಶನಂ. ನಾನು ಮೈಸೂರು ವಿಶ್ವವಿದ್ಯಾಲಯದಲ್ಲಿ ಪ್ರಾಧ್ಯಾಪಕ ಮತ್ತು ಪ್ರಾಂಶುಪಾಲರಾಗಿದ್ದೆ.</p>
+      <p class="quote">ನನ್ನ ಕೆಲಸವು ಆಧುನಿಕ ಕನ್ನಡ ಸಾಹಿತ್ಯವನ್ನು ಗಮನಾರ್ಹವಾಗಿ ಪ್ರಭಾವಿಸಿದೆ. ನಾನು ಸರಳತೆಗೆ ಮತ್ತು ಪ್ರಕೃತಿ ಪ್ರೀತಿಯ ಜೀವನದಲ್ಲಿ ನಂಬಿಕೆ ಇಟ್ಟಿದ್ದೇನೆ. ನಾನು ಸಾಮಾಜಿಕ ಸುಧಾರಣೆಗಳು ಮತ್ತು ಶಿಕ್ಷಣದ ಪ್ರತಿಪಾದಕನಾಗಿದ್ದೆ. ನನ್ನ ಮನೆ ಈಗ ಒಂದು ವಸ್ತುಸಂಗ್ರಹಾಲಯವಾಗಿದೆ.»</p>
+      <p class="quote">«ಕುವೆಂಪು ಅವರೇ — ಧನ್ಯವಾದಗಳು. ನಿಮ್ಮ ಬಗ್ಗೆ ಎಷ್ಟು ತಿಳಿದುಕೊಂಡೆವು! ಇನ್ನೂ ತಿಳಿಯಬೇಕು ಎಂದು ಆಸೆ. ಆದರೆ ಸಮಯದ ಅಭಾವದಿಂದ ನಾವು ಇಲ್ಲಿಗೆ ನಿಲ್ಲಿಸಬೇಕಾಗಿದೆ.»</p>
+      <p>ಶಾಲೆಯಲ್ಲಿ ಅವರ ಶಿಕ್ಷಕರು ಅವರನ್ನು ಚಪ್ಪಾಳೆ ತಟ್ಟಿ ಪ್ರಶಂಸಿಸಿದರು. ಅವರ ಪ್ರಬಂಧವು ದೊಡ್ಡ ಯಶಸ್ಸನ್ನು ಕಂಡಿತು.</p>
+      <p class="end-mark">&#10047;</p>
+    </section>
+
+    <section class="page" id="thanks">
+      <header class="chapter-head">
+        <span class="chapter-num">ಕೊನೆಯ ಪುಟ</span>
+        <h2>ಧನ್ಯವಾದಗಳು</h2>
+      </header>
+      <figure class="illust">
+        <img src="images/kuvempu/thanks.jpg" alt="ಗುರುಗಳಿಗೆ ಧನ್ಯವಾದದ ಹಸ್ತಲೇಖನ" />
+        <figcaption>ಪುಸ್ತಕದ ಕೊನೆಯ ಪುಟ</figcaption>
+      </figure>
+      <p class="thanks">
+        ಧನ್ಯವಾದಗಳು ಗುರುಗಳು<br />
+        ನೀವು ನಮಗೆ ಎಲ್ಲ ಪಾಠವನ್ನು<br />
+        ಸುಲಭ ಮಾಡಿದ್ದೀರಿ.
+        <span class="sign">— ಸಂಯುಕ್ತಾ ಮತ್ತು ಅಂಶಿಕಾ</span>
+        <span class="class">5D · 2025–26</span>
+      </p>
+      <p class="note">ಮೂಲ: kuvempu poet.pdf — ಹಳದಿ ಮುಖಪುಟ, ಕನ್ನಡ ಕಥೆ, ಧನ್ಯವಾದದ ಪುಟ. ಕೆಲವು ವಿವರಗಳು ಶಾಲಾ ಯೋಜನೆಯ ನೋಟ್ಸ್‌ನಂತೆ ಇವೆ; ಕಥೆಯ ಮಾಯಾ-ಪುಸ್ತಕ ಧ್ವನಿ ಅಂಶಿಕಾ ಅವರ ಕಲ್ಪನೆ.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span id="y"></span> Anshika Mahesh</span>
+    <a href="../newsletter.html">Subscribe</a>
+  </footer>
+  <script src="../js/main.js?v=pack1"></script>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>

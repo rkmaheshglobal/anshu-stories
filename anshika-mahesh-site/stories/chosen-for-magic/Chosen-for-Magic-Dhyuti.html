@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chosen for Magic — A Story for Dhyuti</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../css/styles.css" />
+  <style>
+    :root {
+      --ink: #241a2e;
+      --soft: #4a3d57;
+      --paper: #fff8f1;
+      --card: #fffdf9;
+      --rose: #d46a8c;
+      --gold: #e0a24a;
+      --teal: #2f8f8a;
+      --sky: #7eb8d4;
+      --rule: rgba(36, 26, 46, 0.12);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Nunito", Georgia, sans-serif;
+      color: var(--ink);
+      line-height: 1.7;
+      background:
+        radial-gradient(circle at 10% 0%, rgba(212, 106, 140, 0.18), transparent 40%),
+        radial-gradient(circle at 90% 10%, rgba(224, 162, 74, 0.2), transparent 38%),
+        linear-gradient(180deg, #f3e9f4 0%, var(--paper) 35%, #f7efe3 100%);
+    }
+    .book { width: min(760px, calc(100% - 1.5rem)); margin: 1.4rem auto 3rem; }
+    .page {
+      background: var(--card);
+      border: 1px solid var(--rule);
+      border-radius: 18px;
+      padding: clamp(1.5rem, 4vw, 2.8rem);
+      margin-bottom: 1.2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .page::before {
+      content: "";
+      position: absolute; left: 0; top: 0; bottom: 0; width: 8px;
+      background: linear-gradient(180deg, var(--rose), var(--gold), var(--teal));
+    }
+    .cover {
+      padding: 0; min-height: min(90vh, 820px);
+      display: grid; grid-template-rows: 1fr auto;
+      text-align: center; overflow: hidden;
+      background: #f3e4ef;
+    }
+    .cover::before { display: none; }
+    .cover-hero {
+      position: relative; min-height: min(58vh, 520px); margin: 0; overflow: hidden;
+    }
+    .cover-hero img {
+      width: 100%; height: 100%; object-fit: cover; object-position: center 40%;
+      display: block; min-height: min(58vh, 520px);
+      animation: cover-in 1.1s ease-out both;
+    }
+    .cover-panel {
+      padding: clamp(1.4rem, 4vw, 2.4rem) clamp(1.4rem, 4vw, 2.6rem) clamp(1.6rem, 4vw, 2.6rem);
+      background:
+        linear-gradient(180deg, rgba(255,253,249,.94), #fffdf9 42%),
+        linear-gradient(180deg, rgba(212,106,140,.1), rgba(224,162,74,.1));
+      animation: panel-up .9s .15s ease-out both;
+    }
+    .brand {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(2.4rem, 7vw, 3.8rem);
+      font-weight: 800; line-height: 1.05; margin: 0;
+    }
+    .brand em {
+      display: block; font-style: normal; font-size: 0.42em;
+      font-weight: 700; color: var(--soft); margin-top: 0.55rem;
+      letter-spacing: 0.04em;
+    }
+    .for-line {
+      margin: 1rem 0 0;
+      font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
+      font-size: 0.85rem; color: var(--rose);
+    }
+    .author { margin: 0.4rem 0 0; color: var(--soft); font-size: 0.95rem; }
+    .cta {
+      display: inline-flex; gap: 0.7rem; flex-wrap: wrap; justify-content: center;
+      margin-top: 1.2rem;
+    }
+    @keyframes cover-in {
+      from { transform: scale(1.06); opacity: .55; }
+      to { transform: none; opacity: 1; }
+    }
+    @keyframes panel-up {
+      from { transform: translateY(14px); opacity: 0; }
+      to { transform: none; opacity: 1; }
+    }
+    .cta a {
+      text-decoration: none; color: #fff; background: var(--ink);
+      padding: 0.7rem 1.1rem; border-radius: 999px; font-weight: 800; font-size: 0.9rem;
+    }
+    .cta a.secondary {
+      background: transparent; color: var(--ink);
+      border: 2px solid rgba(36,26,46,0.2);
+    }
+    h2, h3 {
+      font-family: "Fraunces", Georgia, serif;
+      font-weight: 800; line-height: 1.15; margin: 0;
+    }
+    .chapter-head {
+      text-align: center; margin: 0 0 1.4rem; padding-bottom: 0.9rem;
+      border-bottom: 1px solid var(--rule);
+    }
+    .chapter-num {
+      display: block; font-size: 0.75rem; font-weight: 800;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal);
+      margin-bottom: 0.4rem;
+    }
+    .chapter-head h2 { font-size: clamp(1.8rem, 4vw, 2.4rem); }
+    p { margin: 0 0 1rem; }
+    p:last-child { margin-bottom: 0; }
+    .dropcap::first-letter {
+      font-family: "Fraunces", Georgia, serif;
+      float: left; font-size: 3.2rem; line-height: 0.85;
+      padding-right: 0.4rem; font-weight: 800; color: var(--rose);
+    }
+    .thought { font-style: italic; color: var(--soft); }
+    .shout {
+      font-family: "Fraunces", Georgia, serif;
+      font-weight: 800; text-align: center; color: var(--rose);
+      font-size: 1.25rem; margin: 1.1rem 0;
+    }
+    .cast {
+      display: grid; gap: 0.7rem;
+    }
+    .cast-item {
+      display: grid; grid-template-columns: 140px 1fr; gap: 0.6rem;
+      padding: 0.7rem 0; border-bottom: 1px dashed var(--rule);
+    }
+    .cast-item strong { color: var(--teal); }
+    .dialogue { margin: 0 0 0.7rem; }
+    .dialogue .who {
+      font-weight: 800; color: var(--teal); margin-right: 0.35rem;
+    }
+    .stage {
+      font-style: italic; color: var(--soft); margin: 0.9rem 0;
+    }
+    .sidekick-sheet {
+      border: 2px dashed rgba(47, 143, 138, 0.45);
+      border-radius: 16px;
+      padding: 1.2rem;
+      background: linear-gradient(180deg, #fff, #f7fffd);
+    }
+    .draw-box {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      border: 2px solid rgba(36,26,46,0.18);
+      border-radius: 12px;
+      background:
+        repeating-linear-gradient(0deg, transparent, transparent 27px, rgba(36,26,46,0.04) 28px);
+      margin-bottom: 1.1rem;
+      display: grid; place-items: center;
+      color: rgba(36,26,46,0.35);
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+    }
+    .fields { display: grid; gap: 0.85rem; }
+    .field {
+      display: grid; gap: 0.25rem;
+    }
+    .field label {
+      font-weight: 800; font-size: 0.85rem; letter-spacing: 0.04em;
+      text-transform: uppercase; color: var(--soft);
+    }
+    .line {
+      border-bottom: 2px dotted rgba(36,26,46,0.25);
+      min-height: 1.6rem;
+    }
+    .note {
+      margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--rule);
+      color: var(--soft); font-size: 0.92rem;
+    }
+    .end-mark {
+      text-align: center; font-family: "Fraunces", Georgia, serif;
+      font-size: 2.2rem; font-weight: 800; margin: 0 0 0.5rem;
+    }
+    @media print {
+      body { background: white; }
+      .site-header, .book-tools, .cta { display: none !important; }
+      .book { width: 100%; margin: 0; }
+      .page {
+        break-after: page; border: none; border-radius: 0; margin: 0;
+        padding: 1.4cm 1.6cm; background: white;
+      }
+      .page::before { display: none; }
+      .cover { min-height: auto; }
+      a { color: inherit; text-decoration: none; }
+      .draw-box {
+        min-height: 9cm;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body>
+    <header class="site-header">
+    <div class="nav-wrap">
+      <a class="logo" href="../../index.html">Anshika Mahesh</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a href="../../index.html">Home</a>
+        <a href="../../about.html">About</a>
+        <a href="../../stories.html" aria-current="page">Stories</a>
+        <a href="../../newsletter.html">Newsletter</a>
+        <a href="../../connect.html">Connect</a>
+      </nav>
+    </div>
+  </header>
+  <div class="book-tools" aria-label="In this story">
+    <a href="#cover">Cover</a>
+    <a href="#cast">Characters</a>
+    <a href="#ch1">Story</a>
+    <a href="#sidekick">Sidekick</a>
+    <a href="index.html">All editions</a>
+  </div>
+<main class="book">
+    <section class="page cover" id="cover">
+      <figure class="cover-hero">
+        <img src="../images/chosen-for-magic/cover.png" alt="Chosen for Magic — a magical mission begins" />
+      </figure>
+      <div class="cover-panel">
+        <h1 class="brand">Chosen for Magic<em>A Magical Mission Story</em></h1>
+        <p class="for-line">A special edition for Dhyuti</p>
+        <p class="author">Written by Anshika M. · Age 12</p>
+        <div class="cta">
+        <a href="#ch1">Begin Dhyuti's adventure</a>
+        <a class="secondary" href="#sidekick">Create a sidekick</a>
+      </div>
+      </div>
+    </section>
+
+    <section class="page" id="cast">
+      <header class="chapter-head">
+        <span class="chapter-num">Cast</span>
+        <h2>Characters</h2>
+      </header>
+      <div class="cast">
+        <div class="cast-item"><strong>The Hero</strong><span>Dhyuti</span></div>
+        <div class="cast-item"><strong>Sidekick</strong><span>(leave blank — you choose!)</span></div>
+        <div class="cast-item"><strong>Head of Heroes</strong><span>Amaya</span></div>
+        <div class="cast-item"><strong>Mysterious one</strong><span>Willium — villain… or not?</span></div>
+        <div class="cast-item"><strong>Young mystery</strong><span>Krish — or is he a villain?</span></div>
+        <div class="cast-item"><strong>Villain’s sidekick</strong><span>Meera</span></div>
+        <div class="cast-item"><strong>Trouble-maker</strong><span>Spike</span></div>
+      </div>
+    </section>
+
+    <section class="page" id="ch1">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter One</span>
+        <h2>Chosen</h2>
+      </header>
+      <p class="dropcap">Dhyuti was walking home from school when something caught her eye. There was something glittering in the air. She walked towards it and tried to touch it.</p>
+      <p>Immediately, the dust swirled around like a tornado, and before she could even think of anything, the dust stopped swirling around her and settled down. But now, she was in a strange place where she knew nobody.</p>
+      <p>Just as she was beginning to panic, a kind fairy approached her and said, “Hello Dhyuti! I’m Amaya, the Head of Heroes. Congratulations on being chosen.”</p>
+      <p>Dhyuti was a bit dazed. “How do you know me? What do you mean ‘chosen’?” she asked.</p>
+      <p>“We know everything about our heroes. We need to understand them before we choose them. We chose you because we found certain qualities needed in our heroes in you. Now, would you like to choose your sidekick?” said Amaya.</p>
+      <p>“OMG! I get to choose my own sidekick! How do I choose?” asked Dhyuti.</p>
+      <p>“Depends,” replied Amaya. “Now, let’s get on with it.” She pulled out a book from the air and handed it over to her. “Are you ready?” she asked Dhyuti.</p>
+      <p>“Let’s do this!”</p>
+    </section>
+
+    <section class="page" id="ch2">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter Two</span>
+        <h2>The Mission</h2>
+      </header>
+      <p class="dropcap">It was a lovely early morning. Dhyuti woke up to the sound of knocking on her room door.</p>
+      <p>“Dhyuti, I want to see you in exactly 30 minutes. Is that okay with you?” asked Amaya.</p>
+      <p>“Yes, I’m good with that.”</p>
+      <p>Dhyuti got ready and was about to leave when she remembered about her sidekick. Where on earth had he gone? A soft snoring sound could be heard from under her bed. When she looked there, she saw her sidekick sleeping on a pile of clothes.</p>
+      <p>“Wake up!” said Dhyuti. No response.</p>
+      <p class="shout">“WAKE UP!”</p>
+      <p>Still no response.</p>
+      <p class="shout">“ARE YOU DEAF? WAKE UP!”</p>
+      <p>“Five more minutes,” he muttered.</p>
+      <p>“No five more minutes. Amaya said we had to see her in 30 minutes. We’re going to be late,” said Dhyuti. But he didn’t budge an inch. In the end, Dhyuti had to carry him all the way to the hall, where Amaya was waiting for them.</p>
+      <p>“Good morning, huff, your majesty. I mean — huff — Amaya, huff — did you, huff, sleep well?” panted Dhyuti as she finally let go of her sidekick and sat him on a chair. “Sorry we’re late. We had a few ‘problems,’ but everything is fine — don’t worry.”</p>
+      <p>“Oh, I see you and your sidekick have become close,” said Amaya.</p>
+      <p>“Yes, very close,” replied Dhyuti in sarcasm.</p>
+      <p>“I have called you as I need to give you a mission. A little while away, there is a villain called Willium. We think he is a villain as he has tried to steal many of our heroes’ powers, but I am getting reports from a few spies that he has a reason for being mean and bad to everyone. I need you to find out the reason.</p>
+      <p>“I will give you some advice that may help you. Willium has a sidekick called Meera. He used to be a hero too, but now he left and became bad. Meera is very kind and generous. I’m sure your sidekick knows about Meera.”</p>
+      <p>“Oh yes! She was my best friend. She’ll be glad to see me again,” said Sidekick.</p>
+      <p>“Okay… but what does that have to do with our mission?” asked Dhyuti.</p>
+      <p>“I thought you can ask Meera for information,” replied Amaya.</p>
+      <p>“Oh! I’m sure that will work. It seems a bit easy, you know,” said Dhyuti.</p>
+      <p>“Easy! How can it be easy?” asked Amaya.</p>
+      <p>“We just need to get to his place, find Meera, ask her a few things and get our answer,” Dhyuti replied.</p>
+      <p>“Now that you put it like that, it does seem easy. We will all be grateful if you can find out this reason. We have been trying to find out for a long time, but we always get caught. I hope you will be successful,” said Amaya.</p>
+      <p>“Goodbye Amaya! See you soon. Don’t worry — we’ll come back with the answer to our mission,” said Dhyuti as she waved goodbye and set off towards Willium’s house… or at least what Sidekick thought was Willium’s house!</p>
+    </section>
+
+    <section class="page" id="ch3">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter Three</span>
+        <h2>On the Way</h2>
+      </header>
+      <p class="dialogue"><span class="who">Sidekick —</span> “I’m so excited to see Meera again! It’s been 365 years since I saw her! Or was it 9000 years since I saw her?”</p>
+      <p class="dialogue"><span class="who">Dhyuti —</span> “Seriously, why don’t you have any time sense?”</p>
+      <p class="dialogue"><span class="who">Sidekick —</span> “You think we had digital watches and clocks hung on our walls, or in my case, pages?”</p>
+      <p class="dialogue"><span class="who">Dhyuti —</span> “What did you even do in that book?”</p>
+      <p class="dialogue"><span class="who">Sidekick —</span> “Oh, eat food Amaya magically gave us, slept…”</p>
+      <p class="dialogue"><span class="who">Dhyuti —</span> “And annoyed!”</p>
+      <p class="dialogue"><span class="who">Sidekick —</span> “I’m not as stupid as you think.”</p>
+      <p>He suddenly vanished into thin air.</p>
+      <p class="dialogue"><span class="who">Dhyuti —</span> “Where’d you go? Cooee! Where are you?”</p>
+      <p class="dialogue"><span class="who">Sidekick —</span> “Cooee ooo!”</p>
+      <p class="dialogue"><span class="who">Dhyuti —</span> “Ahem! I repeat, where are you?”</p>
+      <p class="dialogue"><span class="who">Sidekick —</span> “Cooer ooee ooo!”</p>
+      <p class="shout">“CAN YOU KINDLY REAPPEAR BEFORE I LOSE MY TEMPER???!!!”</p>
+      <p>“Fine,” he replied reluctantly, and then reappeared.</p>
+      <p>“Why didn’t you tell me you could do that?” asked Dhyuti.</p>
+      <p>“You never said or asked me what I could do.”</p>
+      <p class="thought">“Maybe I’ve judged him too harshly,” thought Dhyuti. “He may be clumsy and senseless at times, but there’s no harm in him — and at least he isn’t brainless!”</p>
+      <p>To Sidekick, she said, “Sorry I judged you too hard. I didn’t mean to hurt you.”</p>
+      <p>“Hey, no worries. Even I could have been more civil,” he replied. Then he put out his odd-looking paw, which was just black, and said, “Peace?”</p>
+      <p>Dhyuti shook it happily. He wasn’t so bad after all.</p>
+      <p>“Why are you nameless, black and faceless?” she asked.</p>
+      <p>“Time will tell,” he said in a mysterious voice. “Look — straight ahead is Willium’s house. The easy part is over. Now we have to figure out how to get in without being seen.”</p>
+      <p>“I’ve got it,” said Dhyuti. “You can become invisible and sneak into his house. Then you can listen to their conversation, talk to Meera and come back!”</p>
+      <p>“Hey, I’m a sidekick, not a hero. I can’t do your job for you,” he replied.</p>
+      <p>“Hmm, okay — you listen to their conversation and I’ll talk to Meera. Sounds okay?” asked Dhyuti.</p>
+      <p>“Okay, but once you finish your talk with Meera, call me. I want to see her again. OMG, I’ve not seen her in 1200 years… or was it 1500 years?” said Sidekick.</p>
+      <p>Dhyuti giggled. He really was funny.</p>
+      <p>“Well, let’s go to his house, which by the way looks like a haunted house,” she said to him. They said goodbye and split up, hoping for the best.</p>
+    </section>
+
+    <section class="page" id="ch4">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter Four</span>
+        <h2>Willium’s Secret</h2>
+      </header>
+      <p class="dropcap">Sidekick had just sneaked through the gates. It was easy — once he became invisible, he could go through objects like a ghost. He was now hunting the place to find Willium. After an hour of hunting, he finally found him.</p>
+      <p>Willium was sitting on a chair and Meera was standing next to him. Meera was a cat with angelic wings. Her power was to change her shape into anything. Willium and Meera were now discussing something.</p>
+      <p class="dialogue"><span class="who">Willium —</span> “It’s been 10 years since I left the heroes, but I still miss being one.”</p>
+      <p class="dialogue"><span class="who">Meera —</span> “Why don’t you confront Amaya?”</p>
+      <p class="dialogue"><span class="who">Willium —</span> “You know what happened, don’t you.”</p>
+      <p class="dialogue"><span class="who">Meera —</span> “Well… I’ll tell you all I know. Your old friend, Spike, laid traps for you so you would fail your first mission — and then you did fail it — and you fought with Spike, but didn’t want to ruin his reputation and thought he’d stop, so you didn’t do anything. Then he tried to steal my powers and probably would have if you didn’t warn me and face him yourself. You and Spike had a huge fight and you lost again. He then spread rumours about you and everyone except for Amaya believed him. You felt hurt and left the heroes.”</p>
+      <p class="dialogue"><span class="who">Willium —</span> “Yes, that’s pretty much what happened.”</p>
+      <p class="dialogue"><span class="who">Meera —</span> “I know I’ve said this before, but thanks for all you’ve done for me.”</p>
+      <p class="dialogue"><span class="who">Willium —</span> “And thanks for staying by my side. Now, I want to be alone in my room. Allow me to go and don’t disturb me.”</p>
+      <p class="dialogue"><span class="who">Meera —</span> “Of course.”</p>
+      <p>Willium walked out of the room. Meera sighed and went to the garden, where luckily Dhyuti was waiting.</p>
+      <p>“Hello Meera, I’m a hero — Dhyuti. I know you are Willium’s sidekick. Can I talk to you?”</p>
+      <p>“About what?” asked Meera.</p>
+      <p>“About how I can help Willium?” she replied.</p>
+      <p>Meera thought for a while. She wasn’t allowed to talk to heroes, but she sensed Dhyuti had good intentions. She couldn’t resist this chance to help him. “Okay,” she replied. They walked to the fountain and sat on a bench.</p>
+      <p class="dialogue"><span class="who">Dhyuti —</span> “Is Willium really… bad?”</p>
+      <p class="dialogue"><span class="who">Meera —</span> “No. You see, a friend of his exposed him and he got mad about it and left them.”</p>
+      <p class="dialogue"><span class="who">Dhyuti —</span> “Do you know how I can help him?”</p>
+      <p class="dialogue"><span class="who">Meera —</span> “Call Amaya. I’m sure she’ll comfort him.”</p>
+      <p class="dialogue"><span class="who">Dhyuti —</span> “Oh, okay.”</p>
+      <p class="dialogue"><span class="who">Meera —</span> “By the way, who’s your sidekick?”</p>
+      <p class="dialogue"><span class="who">Dhyuti —</span> “I don’t know his name and he looks like a black amoeba, but he can become invisible, has bad time sense, is wacky — and apparently you’re his BFF.”</p>
+      <p class="dialogue"><span class="who">Meera —</span> “I do remember having a friend like that. He used to say, ‘I’ve not eaten any food for 100 days… or was it 1000 days?’”</p>
+      <p class="dialogue"><span class="who">Dhyuti —</span> “Yep, that’s him.”</p>
+      <p class="dialogue"><span class="who">Meera —</span> “He’s good at heart though.”</p>
+      <p>Sidekick appeared from nowhere and gave Meera a hug. “Meera, how nice to see you again. It’s been 1500 years since I saw you. Or was it 2000 years?”</p>
+      <p class="dialogue"><span class="who">Meera —</span> “To be exact, it has been 10 years.”</p>
+      <p class="dialogue"><span class="who">Sidekick —</span> “Oh, but it felt like a million years.”</p>
+      <p class="dialogue"><span class="who">Meera —</span> “You really should learn how to tell time.”</p>
+      <p class="dialogue"><span class="who">Sidekick —</span> “Thanks for the compliment.”</p>
+      <p class="dialogue"><span class="who">Dhyuti —</span> “He’s gone bonkers.”</p>
+      <p class="stage">(They all laugh.)</p>
+    </section>
+
+    <section class="page" id="ch5">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter Five</span>
+        <h2>True Heroes</h2>
+      </header>
+      <p class="dropcap">Dhyuti and Sidekick said goodbye to Meera and set off back to Amaya’s house. Amaya was surprised to see them so soon, but welcomed them happily.</p>
+      <p class="dialogue"><span class="who">Amaya —</span> “I hope you have found out the reason why Willium is acting so strange.”</p>
+      <p class="dialogue"><span class="who">Dhyuti —</span> “Yes, we have.”</p>
+      <p class="stage">(They explain everything to Amaya.)</p>
+      <p class="dialogue"><span class="who">Amaya —</span> “Good work! I did give you an easy task, to be honest.”</p>
+      <p class="dialogue"><span class="who">Sidekick —</span> “Yeah, I guess so. I was so happy to see Meera again. It’s been 10 years since I saw her.”</p>
+      <p class="dialogue"><span class="who">Dhyuti —</span> “That’s the first time you didn’t exaggerate about it.”</p>
+      <p class="dialogue"><span class="who">Amaya —</span> “Good for you, Sidekick. Now I think we three should go and talk to Willium.”</p>
+      <p class="stage">(They walk to Willium’s house, where Meera is waiting for them.)</p>
+      <p class="dialogue"><span class="who">Meera —</span> “Amaya, it’s been a long time since I saw you.”</p>
+      <p class="dialogue"><span class="who">Amaya —</span> “Yes, it has been quite a long time. Do you have any idea about how to tackle Willium?”</p>
+      <p class="dialogue"><span class="who">Meera —</span> “You’ve got to be quick if you want to do anything. Otherwise he might get annoyed.”</p>
+      <p class="dialogue"><span class="who">Dhyuti —</span> “Leave it to me — I’ve got an idea.”</p>
+      <p class="stage">(They make their way to Willium’s room.)</p>
+      <p class="dialogue"><span class="who">Meera —</span> “Amaya has come to see you.”</p>
+      <p class="dialogue"><span class="who">Willium —</span> “Does she… think the worst of me?”</p>
+      <p class="dialogue"><span class="who">Dhyuti (to Meera) —</span> “Can I ask him a few questions?”</p>
+      <p class="dialogue"><span class="who">Meera —</span> “Okay, but be quick.”</p>
+      <p class="dialogue"><span class="who">Dhyuti (to Willium) —</span> “Are you okay?”</p>
+      <p class="dialogue"><span class="who">Willium —</span> “I guess.”</p>
+      <p class="dialogue"><span class="who">Dhyuti —</span> “Physically?”</p>
+      <p class="dialogue"><span class="who">Willium —</span> “Yes.”</p>
+      <p class="dialogue"><span class="who">Dhyuti —</span> “Mentally?”</p>
+      <p class="dialogue"><span class="who">Willium —</span> “Yes.”</p>
+      <p class="dialogue"><span class="who">Dhyuti —</span> “Amazingly?”</p>
+      <p class="dialogue"><span class="who">Willium —</span> “Yes.”</p>
+      <p class="dialogue"><span class="who">Dhyuti —</span> “Superbly?”</p>
+      <p class="dialogue"><span class="who">Willium —</span> “What kind of nonsense is this?”</p>
+      <p class="dialogue"><span class="who">Dhyuti —</span> “Emotionally?”</p>
+      <p class="dialogue"><span class="who">Willium —</span> “………………”</p>
+      <p class="stage">(Long silence.)</p>
+      <p class="dialogue"><span class="who">Amaya —</span> “Don’t worry. Spike will be banished from the heroes forever. Would you like to take his place?”</p>
+      <p class="dialogue"><span class="who">Meera —</span> “You said you missed being a hero.”</p>
+      <p class="dialogue"><span class="who">Everyone (except Willium) —</span> “Pleeeeeeeaaasssseeeeee!”</p>
+      <p class="dialogue"><span class="who">Willium —</span> “Okay.”</p>
+      <p class="shout">Everyone — “Horaaaay!!!!!!!!!!”</p>
+      <p class="stage">(The following day)</p>
+      <p>Spike was banished, replaced by Willium. A huge party was arranged. Dhyuti and Sidekick were officially heroes — and the best thing ever happened.</p>
+      <p>It all started with a conversation.</p>
+      <p class="dialogue"><span class="who">Dhyuti —</span> “You know, you’re not so bad after all — face or no face.”</p>
+      <p class="dialogue"><span class="who">Dhyuti (to Sidekick) —</span> “I learnt how to ask like that from the expert.”</p>
+      <p class="dialogue"><span class="who">Sidekick —</span> “Aww… I was hoping you wouldn’t say that.”</p>
+      <p class="dialogue"><span class="who">Dhyuti —</span> “Why?”</p>
+      <p class="dialogue"><span class="who">Sidekick —</span> “Don’t you know that heroes are supposed to draw how their sidekick looks?”</p>
+      <p class="stage">(Silence.)</p>
+      <p class="dialogue"><span class="who">Dhyuti —</span> “LET’S GOOOOO! Now I can draw you a face!”</p>
+      <p class="dialogue"><span class="who">Sidekick —</span> “HOORAY! Now it’s time for you to draw me any way you want, and even give me my own name. Here is your sheet! Have fun drawing me.”</p>
+    </section>
+
+    <section class="page" id="sidekick">
+      <header class="chapter-head">
+        <span class="chapter-num">Your turn, Dhyuti</span>
+        <h2>Create Your Sidekick</h2>
+      </header>
+      <p>Anshika left this page blank on purpose — so <strong>Dhyuti</strong> can invent, name, and draw a sidekick of her own!</p>
+      <div class="sidekick-sheet">
+        <div class="draw-box">Draw your sidekick here</div>
+        <div class="fields">
+          <div class="field"><label>Name</label><div class="line"></div></div>
+          <div class="field"><label>Species (create your own!)</label><div class="line"></div></div>
+          <div class="field"><label>Speciality</label><div class="line"></div></div>
+          <div class="field"><label>Personality</label><div class="line"></div><div class="line"></div></div>
+          <div class="field"><label>Favourite colour</label><div class="line"></div></div>
+          <div class="field"><label>Add more details about your sidekick</label><div class="line"></div><div class="line"></div><div class="line"></div></div>
+        </div>
+      </div>
+      <p class="note">Tip: print this page and fill it in by hand — or type your answers after printing to PDF.</p>
+    </section>
+
+    <section class="page">
+      <p class="end-mark">The End… for now</p>
+      <p style="text-align:center;color:var(--soft);">Made with friendship by Anshika, for Dhyuti.</p>
+      <p class="note">From Anshika’s original manuscript <em>Birthday Friends Story.pdf</em>. Hero name personalised for this gift edition. Spelling lightly polished for reading clarity.</p>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <span>© <span id="y"></span> Anshika Mahesh</span>
+    <a href="../../newsletter.html">Subscribe</a>
+  </footer>
+
+  <script src="../../js/main.js?v=pack1"></script>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>

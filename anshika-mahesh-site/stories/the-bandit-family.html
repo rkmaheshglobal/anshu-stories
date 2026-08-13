@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Bandit Family — Anshika Mahesh</title>
+  <meta name="description" content="The Bandit Family by Anshika Mahesh — eight-year-old Esther discovers her family are bandits, trains as a pickpocket, and faces a bank-robbery plan." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    :root {
+      --ink: #1c2430; --soft: #4a5563; --card: #fffdf9;
+      --night: #2a3544; --moon: #d9a441; --rose: #c97b84;
+      --line: rgba(28,36,48,0.12);
+    }
+    .book { width: min(760px, calc(100% - 1.5rem)); margin: 1.2rem auto 3rem; }
+    .page {
+      background: var(--card); border: 1px solid var(--line); border-radius: 18px;
+      padding: clamp(1.5rem, 4vw, 2.8rem); margin-bottom: 1.15rem; position: relative; overflow: hidden;
+    }
+    .page::before {
+      content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 8px;
+      background: linear-gradient(180deg, var(--night), var(--rose), var(--moon));
+    }
+    .cover {
+      padding: 0; min-height: min(90vh, 820px); display: grid; grid-template-rows: 1fr auto;
+      text-align: center; overflow: hidden; background: #dfe6ee;
+    }
+    .cover::before { display: none; }
+    .cover-hero { margin: 0; min-height: min(58vh, 520px); overflow: hidden; background: #fff; }
+    .cover-hero img {
+      width: 100%; height: 100%; min-height: min(58vh, 520px);
+      object-fit: contain; object-position: center top; display: block;
+      animation: cover-in 1.1s ease-out both;
+    }
+    .cover-panel {
+      padding: clamp(1.4rem, 4vw, 2.4rem) clamp(1.4rem, 4vw, 2.6rem);
+      background:
+        linear-gradient(180deg, rgba(255,253,249,.94), #fffdf9 42%),
+        linear-gradient(180deg, rgba(42,53,68,.1), rgba(201,123,132,.1));
+      animation: panel-up .9s .15s ease-out both;
+    }
+    .brand {
+      font-family: Fraunces, Georgia, serif; font-size: clamp(2.2rem, 6.5vw, 3.4rem);
+      font-weight: 700; line-height: 1.05; margin: 0; letter-spacing: -.02em;
+    }
+    .brand em {
+      display: block; font-style: normal; font-size: .38em; margin-top: .55rem;
+      color: var(--soft); font-weight: 700;
+    }
+    .author {
+      margin: 1rem 0 0; font-weight: 800; letter-spacing: .1em;
+      text-transform: uppercase; font-size: .82rem; color: var(--night);
+    }
+    .cover-cta { display: inline-flex; gap: .7rem; flex-wrap: wrap; justify-content: center; margin-top: 1.1rem; }
+    .cover-cta a {
+      text-decoration: none; color: #fff; background: var(--ink);
+      padding: .7rem 1.1rem; border-radius: 999px; font-weight: 800; font-size: .88rem;
+    }
+    .cover-cta a.secondary { background: transparent; color: var(--ink); border: 2px solid rgba(28,36,48,.18); }
+    @keyframes cover-in { from { transform: scale(1.04); opacity: .55; } to { transform: none; opacity: 1; } }
+    @keyframes panel-up { from { transform: translateY(14px); opacity: 0; } to { transform: none; opacity: 1; } }
+    .blurb {
+      font-family: Fraunces, Georgia, serif; font-size: clamp(1.15rem, 2.6vw, 1.4rem);
+      font-style: italic; line-height: 1.5; color: var(--soft); max-width: 42ch; margin: 0 auto; text-align: center;
+    }
+    .series-note {
+      margin: 0 0 1rem; padding: .7rem .9rem; border-radius: 12px;
+      background: rgba(42,53,68,.08); color: var(--soft); font-size: .9rem; font-weight: 600;
+    }
+    h2 { font-family: Fraunces, Georgia, serif; font-weight: 700; line-height: 1.15; margin: 0; }
+    .chapter-head { text-align: center; margin: 0 0 1.2rem; padding-bottom: .85rem; border-bottom: 1px solid var(--line); }
+    .chapter-num {
+      display: block; font-size: .75rem; font-weight: 800; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--rose); margin-bottom: .35rem;
+    }
+    .chapter-head h2 { font-size: clamp(1.65rem, 4vw, 2.2rem); }
+    p { margin: 0 0 1rem; } p:last-child { margin-bottom: 0; }
+    .dropcap::first-letter {
+      font-family: Fraunces, Georgia, serif; float: left; font-size: 3.1rem; line-height: .85;
+      padding-right: .4rem; font-weight: 700; color: var(--night);
+    }
+    .cast { display: grid; gap: .55rem; }
+    .cast div { padding: .55rem 0; border-bottom: 1px dashed var(--line); }
+    .cast strong { color: var(--rose); }
+    .illust {
+      margin: 1rem 0 1.35rem; border-radius: 14px; overflow: hidden;
+      border: 1px solid var(--line); background: #fff;
+    }
+    .illust img { width: 100%; height: auto; display: block; }
+    .illust figcaption {
+      font-size: .85rem; color: var(--soft); padding: .55rem .8rem;
+      background: rgba(28,36,48,.04); border-top: 1px solid var(--line);
+    }
+    .thought { font-style: italic; color: var(--soft); }
+    .toc ol { list-style: none; margin: 0; padding: 0; }
+    .toc li { border-bottom: 1px dashed var(--line); }
+    .toc a { display: block; text-decoration: none; color: inherit; padding: .65rem .1rem; font-weight: 600; }
+    .toc a:hover { color: var(--rose); }
+    .end-mark { text-align: center; font-family: Fraunces, Georgia, serif; font-size: 2.1rem; font-weight: 700; margin: 0 0 .5rem; }
+    .note { margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--soft); font-size: .92rem; }
+    @media print {
+      .site-header, .book-tools, .site-footer, .cover-cta { display: none !important; }
+      .page { break-after: page; border: none; border-radius: 0; margin: 0; padding: 1.3cm 1.5cm; }
+      .page::before { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="logo" href="../index.html">Anshika Mahesh</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../stories.html" aria-current="page">Stories</a>
+        <a href="../newsletter.html">Newsletter</a>
+        <a href="../connect.html">Connect</a>
+      </nav>
+    </div>
+  </header>
+  <div class="book-tools" aria-label="In this story">
+    <a href="#contents">Contents</a>
+    <a href="#ch1">Begin</a>
+    <a href="#cast">Cast</a>
+  </div>
+
+  <main class="book">
+    <section class="page cover" id="cover">
+      <figure class="cover-hero">
+        <img src="images/bandit-family/cover.jpg" alt="Anshika’s hand-drawn cover: The Bandit Family" />
+      </figure>
+      <div class="cover-panel">
+        <h1 class="brand">The Bandit Family<em>Esther’s secret life begins</em></h1>
+        <p class="author">Written by Anshika Mahesh</p>
+        <div class="cover-cta">
+          <a href="#ch1">Read the story</a>
+          <a class="secondary" href="#contents">See chapters</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="page">
+      <p class="series-note">From Anshika’s handwritten notebooks (<em>The Bandit Family.pdf</em>). Adventure fiction with a twist — Esther’s family are bandits, and by the end she isn’t sure she wants to rob a bank. Spelling lightly polished; her plot, dialogue and drawings kept.</p>
+      <p class="blurb">
+        The day after her eighth birthday, Esther learns a family secret: they are the Bandit Fam. Training, a supermarket test, a secret tunnel… and a plan that makes her stomach twist.
+      </p>
+    </section>
+
+    <section class="page" id="cast">
+      <header class="chapter-head">
+        <span class="chapter-num">Introducing…</span>
+        <h2>The Bandit Fam</h2>
+      </header>
+      <figure class="illust">
+        <img src="images/bandit-family/cast.jpg" alt="Anshika’s drawings of Mum, Dad, Eric and Esther" />
+        <figcaption>Anshika’s character page</figcaption>
+      </figure>
+      <div class="cast">
+        <div><strong>Esther</strong> — Eight years old. Just found out she’s a bandit. Good at “falling” on purpose.</div>
+        <div><strong>Eric</strong> — Her brother. Technical stuff — breaking CCTVs and surprise announcements.</div>
+        <div><strong>Mum</strong> — Distraction expert. Joined for cool things and fitting in (and a high-end pen).</div>
+        <div><strong>Dad</strong> — Escape expert. Started stealing when he was poor and hungry. Still steals “for the thrill.”</div>
+      </div>
+    </section>
+
+    <section class="page toc" id="contents">
+      <header class="chapter-head">
+        <span class="chapter-num">Contents</span>
+        <h2>Chapters</h2>
+      </header>
+      <ol>
+        <li><a href="#ch1">1. The Day After the Life-Changing Day</a></li>
+        <li><a href="#ch2">2. Training as a Thief</a></li>
+        <li><a href="#ch3">3. The Test</a></li>
+        <li><a href="#ch4">4. The Secret Tunnel and the Plan</a></li>
+      </ol>
+    </section>
+
+    <section class="page" id="ch1">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 1</span>
+        <h2>The Day After the Life-Changing Day</h2>
+      </header>
+      <p class="dropcap">“Esther! Come downstairs — we need to discuss something important,” called her Mum.</p>
+      <p>“Coming!” Esther said.</p>
+      <p>It had been her birthday the day yesterday and she had turned eight. She had a party to celebrate and all her friends had been invited. It was a great party, but Esther couldn’t help noticing that her parents and her brother were acting very strange. They had been whispering and talking amongst each other the whole day. She now wondered if this had anything to do with the “important discussion” as she ran down the stairs to the hall.</p>
+      <p>“What is it, Mum? Have I done something wrong?” asked Esther.</p>
+      <p>“No, you’ve not done anything wrong. It’s just that we want to tell you something,” her Mum replied. To Eric she said, “Would you like to tell Esther?”</p>
+      <p>“Esther, you’re a bandit! We are the Bandit Fam — short for family. We rob buildings and people. And… surprise!” said Eric.</p>
+      <p>“Eric! You weren’t supposed to tell it like that — now she’s just more confused,” said Dad.</p>
+      <p>To Esther, he said, “Look, we’ve been bandits for years now. I’ve been stealing since I was your age.”</p>
+      <p>“Wait, what! We’re not bandits — you’re joking. You work on the computer. You don’t rob,” said Esther.</p>
+      <p>“Then look at these diamonds I stole yesterday,” he said, and showed her a bag full of diamonds.</p>
+      <p>“But… I can’t believe it! You’ve put me in a school where they say stealing is bad,” Esther replied. “Why did you even start stealing?”</p>
+      <p>“Esther, you have all the things you wanted and needed — toys, bags, good food, a house, good education. But when I was your age, I didn’t have any of those. Or even if I did, I didn’t have enough.”</p>
+      <p>Dad’s voice grew quieter as he told his story.</p>
+      <p>His mother, father and brothers worked in a mining company. The oldest person who owned it was a real monster. Apart from mining, he used them as servants. Dad hated him and wished he could run away — but that meant leaving his family alone, and if he was found he’d be whipped by the monster man (that’s what he used to call him).</p>
+      <p>They were so poor he couldn’t even go to school. They never got much food to eat or clean water to drink. One day he was starving when he saw the monster open his lunch box — sandwiches, juice, clean water, everything he longed for. Luck was with him, for his Mum asked the monster to look at some bag (Dad guessed it had diamonds). The monster went with her, chanting tasks to everyone, and told Dad to run a few errands.</p>
+      <p>But before Dad went, he did something sly. Something that may seem like nothing to you, but heroic to him. He took the lunch, tipped the table, and led a dog to the empty lunch box. Then he ran away victoriously, munching on the sandwiches. Of course the dog was shouted at — and when Dad came back, he saw the monster chasing the dog away. In his mind, he was rejoicing. He had won!</p>
+      <figure class="illust">
+        <img src="images/bandit-family/lunch-dog.jpg" alt="Anshika’s drawing of the lunch, the dog and the tipped table" />
+        <figcaption>Dad’s first “victory” — sandwiches and a dog</figcaption>
+      </figure>
+      <p>When he told his parents and siblings, they laughed their heads off. That was the beginning of his stealing journey. Soon he was stealing lots of things here and there. He had even pickpocketed many wallets. They kept the money and sold the other items secretly. They had enough money to live a normal life after that.</p>
+      <p>“If you had enough… but why do you still steal then?” asked Esther.</p>
+      <p>“For the thrill. It’s my hobby, you see,” he replied.</p>
+      <p>“How did Mum start stealing then?” asked Esther.</p>
+      <p>“I met your dad when he was doing errands for the monster. He tried to pickpocket my pocket, but I caught him,” said Mum.</p>
+      <p>“What did you do then?” asked Esther. She was feeling a bit… confused. All her parents’ words felt like a fairytale. She’d often read about robbers and bandits, but never in her life imagined she’d be one someday. To be more frank — today.</p>
+      <p>“I told him I’d let him go without telling anyone if he’d teach me how to steal,” replied Mum.</p>
+      <p>“What! But why on earth did you want to steal? Were you poor too?” Esther exclaimed.</p>
+      <p>“Oh no, I wasn’t poor. I just wanted to fit in with my class.”</p>
+      <p>“Seriously, Mum? You steal to fit in! And what did you need to fit into?”</p>
+      <p>“The gang at school. My parents were quite well off but never allowed me to own cool things. So I’d been so jealous of the girls at school that I’d boasted that my parents would buy me the newest model of a high-end pen. I knew they wouldn’t — but if I learnt to steal, I could easily take someone else’s and bring it to school. So your dad taught me to steal, and I stole from the next shop that sold the pen. It was easy. Your dad distracted him while I stole the pen. And the next day when I went to school, everyone saw the pen. It felt so good to own something. After that, your dad and I became fast friends. We even started a club called the Thief Club and stole all sorts of things together.”</p>
+      <p>Esther was slowly digesting this. She now understood why her mother loved to fit in and own all the latest things, and why her dad had lots of money and didn’t do much work. But it still felt wrong. They were taking things from people without permission and never giving it back. On the other hand, it felt so cool to be a bandit. It was like she was a person in a film, getting away with the crime. It would be loads of fun — but could she accept the guilt? And what if someone got to know?</p>
+      <p class="thought">Oh Esther, if only you could see yourself a few months from now, you’d be surprised.</p>
+    </section>
+
+    <section class="page" id="ch2">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 2</span>
+        <h2>Training as a Thief</h2>
+      </header>
+      <p class="dropcap">“Esther! Come to the hall straight away,” called Dad.</p>
+      <p>It was the day after the big discussion about thieving. Esther had digested some part of their conversation, but was still shook by the whole bandit-family idea. As she climbed down the stairs she was in a world of her own. It was too soon to decide if being a thief was a good thing or a bad thing.</p>
+      <p>“Esther, now that you know we’re a gang of thieves, we want to train you to be a thief. We each have a thieving talent. Mine is running away, your Mum’s is distraction, and Eric’s is technical stuff like breaking CCTVs and stuff. Now, we need to find you a skill,” Dad said.</p>
+      <p>“So what is my skill?” asked Esther.</p>
+      <p>“Let’s see — we could do with a person who could pickpocket.”</p>
+      <p>“Is that important?”</p>
+      <p>“Important? Why, it’s incredibly important. Imagine we’re all in danger running away when the police arrive. You can take things from their holders so they can’t do their hands-up thingy. If we spotted a rich man in the mall, you can steal his wallet. Do you see what I mean?”</p>
+      <p>“Yes, Dad — so now what?”</p>
+      <p>“Now that you understand what I mean, it’s time to practice.”</p>
+      <p>“But aren’t you good at pickpocketing?”</p>
+      <p>“I always got caught in the process and eventually gave up.”</p>
+      <p>“Is it very hard?”</p>
+      <p>“Well, it depends. It comes naturally to some people and it’s quite difficult for others. But we won’t know if you’re gifted or not until you try. Now I’ve got a wallet in my pocket — try taking it without my notice.”</p>
+      <p>Esther looked at her dad’s pockets. There was a big lump in one of them. She figured that the lump was the wallet. That was sorted. But how was she going to take it without Dad knowing?</p>
+      <p>Deep in thought, she stepped on something and fell with a thump on the floor.</p>
+      <figure class="illust">
+        <img src="images/bandit-family/practice-fall.jpg" alt="Anshika’s drawing of Esther falling and Dad looking surprised" />
+        <figcaption>Practice — and a plot</figcaption>
+      </figure>
+      <p>“Esther! Are you okay?”</p>
+      <p>“I’m okay — but can you help me up?” she asked, a wicked idea plotting in her mind. As her dad helped her up, she felt for the wallet and took it while distracting him with a conversation. When they got to her room, she leapt out of his hands singing, “I did it! I did it!”</p>
+      <p>“You really are a natural! I didn’t even notice the fall was fake.”</p>
+      <p>“That part was real — but the rest was a plot!”</p>
+      <p>“Well done! I think that’s enough for today. You can do what you like now,” he said, and walked away to his room.</p>
+    </section>
+
+    <section class="page" id="ch3">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 3</span>
+        <h2>The Test</h2>
+      </header>
+      <p class="dropcap">It was a lovely, sunny morning.</p>
+      <p>“It’s the best day for stealing,” Mum said. “Dad told me that you’re good at pickpocketing.”</p>
+      <p>“Well, yes I am, I must say,” Esther replied.</p>
+      <p>“In that case, we must give you a test.”</p>
+      <p>“A test! But what kind of test?”</p>
+      <p>“Well — do you think you can pickpocket someone’s wallet?”</p>
+      <p>Esther couldn’t believe what her mother was telling her. Training as a thief was fun, but actually stealing from someone — that was… scary. And what if she got caught in the act?</p>
+      <p>Her mother guessed her thoughts and said, “Oh well, if you don’t take the test you can’t be a part of the Bandit Family. I did think you’d make a good thief. I shall be so disappointed.”</p>
+      <p>That did the trick. That changed Esther’s thoughts. She wasn’t a coward who couldn’t stand a challenge. She would stand up to this challenge and give it her all.</p>
+      <p>“Don’t worry, Mum — I never said I wouldn’t do it,” she said.</p>
+      <p>“That’s my girl. Now, at the market there will be a lot of people to choose from. That might be hard. And you could get caught in the process. Are you still up for the challenge?”</p>
+      <p>“Yes, Mum, I’m ready for it.”</p>
+      <p>“Good. This proves that you have the mindset of a thief. Now, I’ll stand here and you go finish your test. Okay — but you must pick up any phone call and act normal if the person you want to pickpocket is coming to meet you.”</p>
+      <p>“Okay.”</p>
+      <p>Mum was taking Esther to the supermarket mall. Esther walked out of the supermarket her mother was in. There were loads of people, but one man caught her eye. He had a wallet poking out of his pocket a bit, and he looked kind and friendly.</p>
+      <p>She went behind him, pretended a fall, and wailed, “Oh no! I want my mum but I’m hurt and lost!”</p>
+      <p>Of course, this caught many people’s attention, including the man.</p>
+      <p>“Don’t worry, I’ll take you home to your mum,” he said, and picked her up.</p>
+      <p>This was exactly what she was hoping for. She didn’t even need to call her mother now. He would carry her till there and drop her off — richly rewarded. As he took her there, she distracted him with a lot of talk. To her boon, she had his wallet in her hand. Now to put it in her pocket! With some more distractive talk, she put it in her pocket.</p>
+      <p>Mission accomplished!</p>
+      <p>She told the man to drop her off at the supermarket where her mother was.</p>
+      <p>“Esther! Where did you fall?” asked her mother, not sure if she had really fallen or it was just a fake one for attention. Either way she wanted to know what had happened.</p>
+      <p>When the man left the supermarket, Esther said, “Mum, we need to get out of here! I got his wallet and I’m fine — but you might have to help me out, because nobody is going to believe that I recovered so suddenly.”</p>
+      <p>“Oh!”</p>
+    </section>
+
+    <section class="page" id="ch4">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 4</span>
+        <h2>The Secret Tunnel and the Plan</h2>
+      </header>
+      <p class="dropcap">“Woah! I never knew we had a secret tunnel in our house,” Esther said.</p>
+      <p>“All the thieves and bandits need a secret meeting place,” replied Dad. “Come on, everyone — let’s go down the tunnel.”</p>
+      <p>Then he jumped into the passage.</p>
+      <p>“Dad! Are you okay?”</p>
+      <p>“Oh Esther! This tunnel is so small that I need to crawl if I want to get anywhere. Look — you can still see my hair!” he said.</p>
+      <p>Esther could just see his head sticking out of the hole in the floor. Then it disappeared into the darker darkness.</p>
+      <p>“Come on! We need to discuss things.”</p>
+      <p>So they all jumped in. Mum went in first, followed by Eric and Esther. When Dad said it was small, he wasn’t lying. Esther could hardly stand in there.</p>
+      <p>“Right! Now let’s close the entry and lock it.” He took out the key and locked it up. “Now everyone — crawl till the meeting room!”</p>
+      <p class="thought">Seriously? thought Esther. It takes an hour to even get into the meeting place. We could’ve just talked in the living room or at the dining table.</p>
+      <p>It was a pain crawling down to the place, but after a lot of effort they finally made it.</p>
+      <p>“Why couldn’t we just talk at the dining table? My knees hurt a lot,” asked Esther.</p>
+      <p>“It’s good for training. Now everyone get in the room,” said Dad.</p>
+      <p>Esther entered the room first. She couldn’t wait any longer. She had to see where the tunnel had led to. The room was rather pleasant, full of strange books. It was dimly lit. In the middle there was a huge table. Esther sat down, massaging her aching knees.</p>
+      <p>“Now I need to tell you all something important,” started Dad. “I’ve been thinking about our next robbery and I’ve decided that we should rob the bank! Drumroll please……”</p>
+      <p>“The bank!?”</p>
+      <p>“Yes!” said Eric.</p>
+      <p>“It’s the perfect spot to rob from,” said Mum.</p>
+      <p>“But people have trusted the bank with their money! How would you feel if someone robbed your money? They’d be poor, like you were, Dad,” said Esther.</p>
+      <p>“We don’t talk about all those things, Esther — we only care about robbing,” he replied. However, Esther could see that her dad was moved by her words.</p>
+      <p>“Any other suggestions?” he asked.</p>
+      <p>“The bank is the best place to rob from. It will be fun!” said Eric.</p>
+      <p>“I agree,” said Mum.</p>
+      <p>Esther didn’t know what to say. She didn’t want to rob the bank, but she didn’t want to be left out either. What was she to do? She was just about to tell this when Dad said, “Meeting over — you can all do what you want now.”</p>
+      <p>As they crawled away from the room, Esther felt scared and worried. She did not know what to do.</p>
+      <p class="thought">Well, I guess I’ll figure out how being a bandit will be soon, she thought as she climbed up the hole in the floor and walked to her room.</p>
+      <p class="end-mark">To be continued…</p>
+      <p class="note">
+        From Anshika’s manuscript <em>The Bandit Family.pdf</em> (cover, cast, chapters list, and story through the bank-meeting cliffhanger).
+        Her notebook listed “Ch-4 The Uniform and the plan” — the uniform part isn’t written yet; this chapter covers the tunnel and the plan as drafted.
+        Spelling lightly polished; voice, jokes, drawings and Esther’s doubt kept.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span id="y"></span> Anshika Mahesh</span>
+    <a href="../newsletter.html">Subscribe</a>
+  </footer>
+  <script src="../js/main.js?v=pack1"></script>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>

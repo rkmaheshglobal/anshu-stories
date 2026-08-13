@@ -1,0 +1,81 @@
+/* Compact catalogue — loaded after styles.css so it always wins. */
+.catalogue-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 0.8rem;
+}
+
+.catalogue-grid .story-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  text-decoration: none;
+  color: inherit;
+  background: #fffdf9;
+  border: 1px solid rgba(28, 36, 48, 0.12);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(28, 36, 48, 0.06);
+}
+
+.catalogue-grid .story-card:hover {
+  color: inherit;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(28, 36, 48, 0.1);
+}
+
+.catalogue-grid .story-card-cover,
+.catalogue-grid .story-card-cover img {
+  height: 128px;
+  max-height: 128px;
+  aspect-ratio: auto;
+}
+
+.catalogue-grid .story-card-cover {
+  flex: 0 0 128px;
+  background: #dfe9e4;
+  overflow: hidden;
+}
+
+.catalogue-grid .story-card-cover img {
+  width: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+.catalogue-grid .story-card-lane {
+  padding: 0.32rem 0.4rem;
+  text-align: center;
+  font-size: 0.56rem;
+  font-weight: 800;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #fff;
+  line-height: 1.2;
+}
+
+.catalogue-grid .story-card-body {
+  padding: 0.55rem 0.65rem 0.35rem;
+  gap: 0.1rem;
+}
+
+.catalogue-grid .story-card h3 {
+  font-family: "Manrope", system-ui, sans-serif;
+  font-size: 0.84rem;
+  font-weight: 800;
+  line-height: 1.25;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.catalogue-grid .story-card-credit {
+  font-size: 0.68rem;
+}
+
+.catalogue-grid .story-card-foot {
+  padding: 0.35rem 0.65rem 0.45rem;
+  font-size: 0.58rem;
+}

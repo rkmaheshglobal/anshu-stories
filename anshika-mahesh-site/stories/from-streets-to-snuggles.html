@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>From Streets to Snuggles — Anshika Mahesh</title>
+  <meta name="description" content="From Streets to Snuggles by Anshika Mahesh — a heartwarming illustrated story of Fluffy, Snowy, and Sam." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    :root {
+      --ink: #1c2430; --soft: #4a5563; --paper: #f7f4ef; --card: #fffdf9;
+      --sky: #6aa8c2; --sky-deep: #3d7f99; --moss: #5d7f62; --gold: #d9a441;
+      --line: rgba(28,36,48,0.12);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; font-family: Manrope, system-ui, sans-serif; color: var(--ink); line-height: 1.75;
+      background:
+        radial-gradient(circle at 8% 0%, rgba(106,168,194,0.2), transparent 40%),
+        radial-gradient(circle at 95% 5%, rgba(217,164,65,0.16), transparent 35%),
+        linear-gradient(180deg, #eef5f4, var(--paper) 30%, #f1e8dc);
+    }
+    .book { width: min(760px, calc(100% - 1.5rem)); margin: 1.4rem auto 3rem; }
+    .page {
+      background: var(--card); border: 1px solid var(--line); border-radius: 18px;
+      padding: clamp(1.5rem, 4vw, 2.8rem); margin-bottom: 1.15rem; position: relative; overflow: hidden;
+    }
+    .page::before {
+      content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 8px;
+      background: linear-gradient(180deg, var(--sky), var(--moss), var(--gold));
+    }
+    .cover {
+      min-height: min(90vh, 820px); display: grid; align-content: space-between; text-align: center;
+      background: linear-gradient(180deg, rgba(106,168,194,.18), transparent 40%, rgba(93,127,98,.14)), var(--card);
+    }
+    .brand {
+      font-family: Fraunces, Georgia, serif; font-size: clamp(2.2rem, 6vw, 3.4rem);
+      font-weight: 700; line-height: 1.05; margin: 0; letter-spacing: -.02em;
+    }
+    .brand em { display: block; font-style: normal; font-size: .38em; margin-top: .55rem; color: var(--soft); font-weight: 700; }
+    .author { margin: .85rem 0 0; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; font-size: .82rem; color: var(--sky-deep); }
+    .meta { margin: .35rem 0 0; color: var(--soft); font-size: .95rem; }
+    .cta { display: inline-flex; gap: .7rem; flex-wrap: wrap; justify-content: center; margin-top: 1.1rem; }
+    .cta a {
+      text-decoration: none; color: #fff; background: var(--ink);
+      padding: .75rem 1.15rem; border-radius: 999px; font-weight: 800; font-size: .9rem;
+    }
+    .cta a.secondary { background: transparent; color: var(--ink); border: 2px solid rgba(28,36,48,.2); }
+    .blurb {
+      font-family: Fraunces, Georgia, serif; font-size: clamp(1.15rem, 2.6vw, 1.45rem);
+      font-style: italic; line-height: 1.5; color: var(--soft); max-width: 38ch; margin: 0 auto; text-align: center;
+    }
+    h2 { font-family: Fraunces, Georgia, serif; font-weight: 700; line-height: 1.15; margin: 0; }
+    .chapter-head { text-align: center; margin: 0 0 1.2rem; padding-bottom: .85rem; border-bottom: 1px solid var(--line); }
+    .chapter-num { display: block; font-size: .75rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; color: var(--sky-deep); margin-bottom: .35rem; }
+    .chapter-head h2 { font-size: clamp(1.65rem, 4vw, 2.2rem); }
+    p { margin: 0 0 1rem; }
+    p:last-child { margin-bottom: 0; }
+    .dropcap::first-letter {
+      font-family: Fraunces, Georgia, serif; float: left; font-size: 3.1rem; line-height: .85;
+      padding-right: .4rem; font-weight: 700; color: var(--moss);
+    }
+    .toc ol { list-style: none; margin: 0; padding: 0; }
+    .toc li { border-bottom: 1px dashed var(--line); }
+    .toc a { display: grid; gap: .2rem; text-decoration: none; color: inherit; padding: .85rem .15rem; }
+    .toc a:hover { color: var(--sky-deep); }
+    .toc .sum { color: var(--soft); font-size: .92rem; }
+    .end-mark { text-align: center; font-family: Fraunces, Georgia, serif; font-size: 2.2rem; font-weight: 700; margin: 0 0 .5rem; }
+    .note { margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--soft); font-size: .92rem; }
+    
+    .illust {
+      margin: 0 0 1.35rem;
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+    .illust img {
+      width: 100%;
+      height: auto;
+      display: block;
+      vertical-align: middle;
+    }
+    .illust figcaption {
+      font-size: 0.85rem;
+      color: var(--soft);
+      padding: 0.55rem 0.8rem;
+      background: rgba(28,36,48,0.04);
+      border-top: 1px solid var(--line);
+    }
+    .cover-photo {
+      width: min(420px, 90%);
+      margin: 1.2rem auto 0;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: none;
+    }
+    .cover-photo img { width: 100%; height: auto; display: block; }
+
+    @media print {
+      body { background: #fff; }
+      .site-header, .book-tools, .cta { display: none !important; }
+      .page { break-after: page; border: none; border-radius: 0; margin: 0; padding: 1.2cm 1.4cm; }
+      .page::before { display: none; }
+    }
+  </style>
+</head>
+<body>
+    <header class="site-header">
+    <div class="nav-wrap">
+      <a class="logo" href="../index.html">Anshika Mahesh</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../stories.html" aria-current="page">Stories</a>
+        <a href="../newsletter.html">Newsletter</a>
+        <a href="../connect.html">Connect</a>
+      </nav>
+    </div>
+  </header>
+  <div class="book-tools" aria-label="In this story">
+    <a href="#contents">Contents</a>
+    <a href="#ch1">Begin</a>
+  </div>
+<main class="book">
+    <section class="page cover" id="cover">
+      <div>
+        <h1 class="brand">From Streets to Snuggles<em>A tale of kindness, rescue, and belonging</em></h1>
+        <p class="author">Written by Anshika Mahesh</p>
+        <p class="meta">First Edition · 2025 · Illustrated edition</p>
+      </div>
+      <div class="cover-photo">
+        <img src="images/streets/img-000.jpg" alt="Cover: From Streets to Snuggles by Anshika Mahesh" />
+      </div>
+      <div class="cta">
+        <a href="#ch1">Read the story</a>
+        <a class="secondary" href="#contents">See chapters</a>
+      </div>
+    </section>
+    <section class="page">
+      <p class="blurb">
+        In a heartwarming tale of love, friendship, and second chances, Fluffy and Snowy find their way from the harsh streets to a loving home — thanks to one kind boy named Sam.
+      </p>
+    </section>
+    <section class="page toc" id="contents">
+      <header class="chapter-head">
+        <span class="chapter-num">Contents</span>
+        <h2>25 Chapters</h2>
+      </header>
+      <ol><li><a href="#ch1"><span>1. A Lonely Beginning</span><span class="sum">Bundle, a young puppy, struggles to survive alone on the streets.</span></a></li>
+<li><a href="#ch2"><span>2. A New Friend</span><span class="sum">A kind stray dog offers Bundle food and shelter from the rain.</span></a></li>
+<li><a href="#ch3"><span>3. The Function Hall</span><span class="sum">The two dogs find leftover food at a party but are spotted by a boy.</span></a></li>
+<li><a href="#ch4"><span>4. A New Home</span><span class="sum">Sam takes Bundle and his friend home, offering them safety.</span></a></li>
+<li><a href="#ch5"><span>5. Settling In</span><span class="sum">The pups get their first bath, food, and a walk in their new home.</span></a></li>
+<li><a href="#ch6"><span>6. A New Responsibility</span><span class="sum">Sam's parents let him keep the dogs, but only if he takes good care of them.</span></a></li>
+<li><a href="#ch7"><span>7. Shopping for the Dogs</span><span class="sum">Sam excitedly buys toys, beds, and treats for his new pets.</span></a></li>
+<li><a href="#ch8"><span>8. A Trip to the Vet</span><span class="sum">The dogs are nervous about their first visit to the vet.</span></a></li>
+<li><a href="#ch9"><span>9. The Vet's Office</span><span class="sum">They meet other animals and get their check-ups.</span></a></li>
+<li><a href="#ch10"><span>10. The Vet Visit</span><span class="sum">The vet gives them injections, but they barely notice!</span></a></li>
+<li><a href="#ch11"><span>11. Vaccination Day</span><span class="sum">A few treats make the visit easier, and the pups start learning tricks.</span></a></li>
+<li><a href="#ch12"><span>12. Meeting Rio</span><span class="sum">The pups meet Rio, a friendly dog, and make a new friend.</span></a></li>
+<li><a href="#ch13"><span>13. A Happy Home</span><span class="sum">Life with Sam feels warm, safe, and full of love.</span></a></li>
+<li><a href="#ch14"><span>14. Thunderstorms and Visitors</span><span class="sum">The dogs fear thunder but become loved by visitors.</span></a></li>
+<li><a href="#ch15"><span>15. Reunion with Rio</span><span class="sum">The pups reunite with Rio and learn fun new tricks.</span></a></li>
+<li><a href="#ch16"><span>16. The Hike</span><span class="sum">A fun but exhausting adventure picnic at the top.</span></a></li>
+<li><a href="#ch17"><span>17. Missing Sam</span><span class="sum">The dogs miss Sam when he's at school, but a trainer helps keep them busy.</span></a></li>
+<li><a href="#ch18"><span>18. Show and Tell</span><span class="sum">Sam is excited to showcase his pets at school.</span></a></li>
+<li><a href="#ch19"><span>19. The Big Day</span><span class="sum">The pups impress everyone with their tricks at the event.</span></a></li>
+<li><a href="#ch20"><span>20. Learning New Tricks</span><span class="sum">The dogs continue training and bond even more with Sam.</span></a></li>
+<li><a href="#ch21"><span>21. A Holiday in Goa</span><span class="sum">The pups enjoy a beach vacation and their first swim!</span></a></li>
+<li><a href="#ch22"><span>22. New Year Celebration</span><span class="sum">A festive time filled with joy, a play, and delicious food.</span></a></li>
+<li><a href="#ch23"><span>23. Unexpected Reunion!</span><span class="sum">Bundle meets his first owner in a surprising twist.</span></a></li>
+<li><a href="#ch24"><span>24. Bundle's Tale</span><span class="sum">The pieces of Bundle's past finally come together.</span></a></li>
+<li><a href="#ch25"><span>25. A Perfect Ending</span><span class="sum">The pups are home for good, dreaming of more adventures ahead.</span></a></li></ol>
+    </section>
+    
+    <section class="page chapter" id="ch1">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 1</span>
+        <h2>A Lonely Beginning</h2>
+      </header>
+      <figure class="illust"><img src="images/streets/img-001.jpg" alt="Illustration for Chapter 1: A Lonely Beginning" loading="lazy" /><figcaption>Chapter 1</figcaption></figure>
+      <p class="dropcap">Bundle was all alone on the street. The road was a damp and dirty place to live, and Bundle didn't like it one bit. But where else could a puppy as young as one month go?</p>
+<p>He had been separated from his mother when he was just four weeks old. He missed her terribly and to make matters worse, it was difficult to find food and water on his own.</p>
+<p>As he wandered the streets looking for shelter, the sky turned gray. It looked like it was going to rain, so he needed to find a safe place—and fast. He ran everywhere, looking for a hole or a bus stop to hide in, but there wasn't any shelter around.</p>
+<p>Suddenly, the clouds opened up, and it began to rain heavily.</p>
+    </section>
+    <section class="page chapter" id="ch2">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 2</span>
+        <h2>A New Friend</h2>
+      </header>
+      <figure class="illust"><img src="images/streets/img-002.jpg" alt="Illustration for Chapter 2: A New Friend" loading="lazy" /><figcaption>Chapter 2</figcaption></figure>
+      <p class="dropcap">Poor Bundle! He hated getting wet in the rain. Just then, another dog saw him shivering and took pity on him. She decided to help. She walked toward him and spoke gently.</p>
+<p>"Hello, I am a street dog like you," she said. "If you want, I can help you stay dry."</p>
+<p>Until then, Bundle had never spoken to any other dog because he was very shy and timid.</p>
+<p>"Ok," he whispered. "Thank you for helping me."</p>
+<p>She led him to a sheltered gutter and gave him some leftover food she had saved, just in case of an emergency. Bundle was very grateful and thanked her immensely.</p>
+<p>When the rain finally stopped, the two dogs stepped out together to try and find some more food to eat.</p>
+    </section>
+    <section class="page chapter" id="ch3">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 3</span>
+        <h2>The Function Hall</h2>
+      </header>
+      <figure class="illust"><img src="images/streets/img-003.jpg" alt="Illustration for Chapter 3: The Function Hall" loading="lazy" /><figcaption>Chapter 3</figcaption></figure>
+      <p class="dropcap">In a big hall nearby, a celebration was taking place.</p>
+<p>"Come on," the new friend said to Bundle. "There will be lots of leftover food here."</p>
+<p>He followed her through the gates of the hall. She was right; there was a feast! Bundle took a big hungry bite of some food, but he immediately choked. It was too spicy! He tried to taste something else, but it was too sweet. Finally, he managed to find some plain food to eat before running off with his friend.</p>
+<p>Though they tried their best to camouflage themselves in their surroundings, they weren't careful enough. A young boy on a bicycle spotted them both hiding behind a tree.</p>
+<p>The dogs ran as fast as they could, but the human was faster.</p>
+<p>He caught them both gently and said, "Poor little dogs! Look how filthy and dirty they are. I will take them to my mother and ask her what to do."</p>
+    </section>
+    <section class="page chapter" id="ch4">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 4</span>
+        <h2>A New Home</h2>
+      </header>
+      <figure class="illust"><img src="images/streets/img-004.jpg" alt="Illustration for Chapter 4: A New Home" loading="lazy" /><figcaption>Chapter 4</figcaption></figure>
+      <p class="dropcap">The boy placed Bundle and the other dog into his bicycle basket and pedalled away toward his house.</p>
+<p>Bundle whined in fear. He wanted to run away, but he was too small to jump out. The other dog looked scared, too. Bundle was so terrified that he started shaking continuously.</p>
+<p>The boy saw him shivering and smiled kindly. "Don't worry, puppy," he said. "I won't harm you for anything in the world."</p>
+<p>Once the boy reached his house, he gently carried the two dogs into the living room. He went straight to his mother.</p>
+<p>"Mummy, can I keep these two cute dogs?" he asked. "They have no home or family."</p>
+    </section>
+    <section class="page chapter" id="ch5">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 5</span>
+        <h2>Settling In</h2>
+      </header>
+      <figure class="illust"><img src="images/streets/img-005.jpg" alt="Illustration for Chapter 5: Settling In" loading="lazy" /><figcaption>Chapter 5</figcaption></figure>
+      <p class="dropcap">"Well," said his mother in astonishment. "I will talk to your father and let you know later. Until then, Sam, you should give them some food and a bath. They will look much better after that."</p>
+<p>"Okay, Mother, as you wish!" answered Sam happily.</p>
+<p>He bathed them well, scrubbing their fur until they were clean and free of bugs and ticks. He gave them fresh food and cool water, and the two dogs wagged their tails to say "Thank you."</p>
+<p>After they were full and clean, Sam took them for a nice long walk outside in the park. They enjoyed each other's company a lot.</p>
+<p>Once they returned home, Sam's father and mother sat down to discuss the matter with him.</p>
+    </section>
+    <section class="page chapter" id="ch6">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 6</span>
+        <h2>A New Responsibility</h2>
+      </header>
+      <figure class="illust"><img src="images/streets/img-006.jpg" alt="Illustration for Chapter 6: A New Responsibility" loading="lazy" /><figcaption>Chapter 6</figcaption></figure>
+      <p class="dropcap">"Sam," said his dad, "your mother and I have decided that you are responsible and trustworthy enough to keep these two dogs. But they are your responsibility. From now on, you must care for them properly. Any mistreatment, and they go away for good. Okay, son?"</p>
+<p>"Yes, Dad! Thank you for letting me keep them," answered Sam cheerfully.</p>
+<p>He was glad to be able to keep these two cute fluffballs. He would always have friends to play with and keep him company now. He made the dogs' beds by laying down some warm rugs, but he made up his mind to get them new things the very next day.</p>
+    </section>
+    <section class="page chapter" id="ch7">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 7</span>
+        <h2>Shopping for the Dogs</h2>
+      </header>
+      <figure class="illust"><img src="images/streets/img-007.jpg" alt="Illustration for Chapter 7: Shopping for the Dogs" loading="lazy" /><figcaption>Chapter 7</figcaption></figure>
+      <p class="dropcap">The next day, on the way home from school, Sam stopped at the pet store. He bought many exciting things: toys, brushes, and soft beds. He couldn't believe these were really his pet dogs.</p>
+<p>The dogs were so happy to see him when he got home. Sam ate his lunch and finished his homework quickly. It was a good thing it was Friday, for he could teach the dogs a few tricks and take them for appointments without rushing.</p>
+<p>After he finished his homework, he took the dogs for a walk outside. His parents were proud to see that he was taking initiative.</p>
+<p>Bundle couldn't believe his luck. He finally had a good owner who loved him and cared for him.</p>
+    </section>
+    <section class="page chapter" id="ch8">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 8</span>
+        <h2>A Trip to the Vet</h2>
+      </header>
+      <figure class="illust"><img src="images/streets/img-008.jpg" alt="Illustration for Chapter 8: A Trip to the Vet" loading="lazy" /><figcaption>Chapter 8</figcaption></figure>
+      <p class="dropcap">It was a bright, sunny morning. Sam woke up early, full of plans. He decided to take them to the vet that very day to get their check-ups and vaccinations.</p>
+<p>Suddenly, he heard a noise. The dogs had just woken up. With a cheerful smile, Sam went to their bed to see how they were doing. The dogs barked excitedly; they liked this boy a lot and loved spending time with him.</p>
+<p>After breakfast, they loaded up for the trip to the vet's office. The dogs were nervous, though—this was their first time in a car!</p>
+    </section>
+    <section class="page chapter" id="ch9">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 9</span>
+        <h2>The Vet's Office</h2>
+      </header>
+      <figure class="illust"><img src="images/streets/img-009.jpg" alt="Illustration for Chapter 9: The Vet's Office" loading="lazy" /><figcaption>Chapter 9</figcaption></figure>
+      <p class="dropcap">The dogs sniffed the car nervously. Bundle had never seen the inside of such a huge thing. Why couldn't they walk like they always did? Finally, Sam managed to get them settled.</p>
+<p>During the ride, Sam decided to give them proper names. He renamed Bundle "Fluffy" and the other dog "Snowy."</p>
+<p>The dogs tried to get used to these unusual new names, though they found it a little difficult at first! After a long drive, they finally arrived at the clinic.</p>
+    </section>
+    <section class="page chapter" id="ch10">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 10</span>
+        <h2>The Vet Visit</h2>
+      </header>
+      <figure class="illust"><img src="images/streets/img-010.jpg" alt="Illustration for Chapter 10: The Vet Visit" loading="lazy" /><figcaption>Chapter 10</figcaption></figure>
+      <p class="dropcap">The vet's office was a peculiar sight. There were so many other animals, from cats to dogs and even guinea pigs. Why were they even here?</p>
+<p>A lady came near them and spoke to Sam and his dad. They got up and led the dogs into another room where a big human in a white coat was sitting on a chair.</p>
+<p>He smiled at the dogs. "Well, who have we got here? A pair of well-groomed dogs for their vaccination? Let's get on it, then."</p>
+<p>The man picked them up and placed them gently on a table.</p>
+    </section>
+    <section class="page chapter" id="ch11">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 11</span>
+        <h2>Vaccination Day</h2>
+      </header>
+      <figure class="illust"><img src="images/streets/img-011.jpg" alt="Illustration for Chapter 11: Vaccination Day" loading="lazy" /><figcaption>Chapter 11</figcaption></figure>
+      <p class="dropcap">The vet took out a poky-looking thing—a needle! But he was clever; he gave the dogs some delicious treats to keep them engaged. He carefully injected them without them even knowing.</p>
+<p>Then, he gave a book about dog care to Sam.</p>
+<p>The dogs trotted out of the room with Sam, not suspecting a thing. They went back home in the big car. After a good tuck-in that evening, Sam taught them how to sit down. If they sat, they got a treat!</p>
+    </section>
+    <section class="page chapter" id="ch12">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 12</span>
+        <h2>Meeting Rio</h2>
+      </header>
+      <figure class="illust"><img src="images/streets/img-012.jpg" alt="Illustration for Chapter 12: Meeting Rio" loading="lazy" /><figcaption>Chapter 12</figcaption></figure>
+      <p class="dropcap">It was the next day. The dogs woke up and ran straight to Sam's bed. Sam woke up with a start! Once he saw his pets, he burst into fits of laughter.</p>
+<p>After they had a good meal, they went for a walk on the street. Suddenly, they saw another dog. He had a funny ponytail on his head, and his owner looked very proud of him.</p>
+<p>"Hello, I am Rio," said the dog.</p>
+<p>"Hi," said Fluffy shyly.</p>
+<p>"Who are you? I have never seen you or that other dog before," Rio asked.</p>
+<p>"I am Fluffy, and this is my friend Snowy. We just came to live in this street a few days ago."</p>
+<p>"Okay then, see you sometime soon," replied Rio before trotting away.</p>
+    </section>
+    <section class="page chapter" id="ch13">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 13</span>
+        <h2>A Happy Home</h2>
+      </header>
+      <figure class="illust"><img src="images/streets/img-013.jpg" alt="Illustration for Chapter 13: A Happy Home" loading="lazy" /><figcaption>Chapter 13</figcaption></figure>
+      <p class="dropcap">Once they reached home, they lay on the couch for a little while.</p>
+<p>"I like our owner, don't you?" asked Fluffy.</p>
+<p>"Of course, I like him," answered Snowy. "I think he is a very nice boy."</p>
+<p>They had learned another trick: to give a paw. Every time they did a trick, they got a treat all to themselves to enjoy. Life was much easier now that they were cared for properly. Their old troubles were forgotten.</p>
+<p>The dogs and Sam were getting along well. Even Sam's parents loved them; they fit right into the family. Sam liked having someone to play with after school, and when he was sad, they lifted his spirits.</p>
+    </section>
+    <section class="page chapter" id="ch14">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 14</span>
+        <h2>Thunderstorms and Visitors</h2>
+      </header>
+      <figure class="illust"><img src="images/streets/img-014.jpg" alt="Illustration for Chapter 14: Thunderstorms and Visitors" loading="lazy" /><figcaption>Chapter 14</figcaption></figure>
+      <p class="dropcap">It was a dark Sunday morning. The sky grumbled, and suddenly—BOOM!</p>
+<p>The dogs howled at the top of their voices. They hated the sound of thunder; it scared them immensely. Sam thought it was funny the way they howled, although his parents complained that it woke them up with a start!</p>
+<p>Ever since they arrived at Sam's house, many visitors had come to see them. His grandparents were a bit scared at first, but when they saw how tame the pups were, they decided they weren't as bad as they had thought.</p>
+    </section>
+    <section class="page chapter" id="ch15">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 15</span>
+        <h2>Reunion with Rio</h2>
+      </header>
+      <figure class="illust"><img src="images/streets/img-015.jpg" alt="Illustration for Chapter 15: Reunion with Rio" loading="lazy" /><figcaption>Chapter 15</figcaption></figure>
+      <p class="dropcap">That day, the neighbours came to visit the puppies. The pups were now used to visitors. But to their surprise, the dog with the ponytail came too! It was Rio.</p>
+<p>The three dogs played and got along very well indeed. Rio taught them some more tricks, and they picked them up quite quickly, to everyone's surprise.</p>
+<p>After a splendid time with Rio, they took a short power nap before their walk. That day, they were going on a hike—this was going to be exciting!</p>
+    </section>
+    <section class="page chapter" id="ch16">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 16</span>
+        <h2>The Hike</h2>
+      </header>
+      <figure class="illust"><img src="images/streets/img-016.jpg" alt="Illustration for Chapter 16: The Hike" loading="lazy" /><figcaption>Chapter 16</figcaption></figure>
+      <p class="dropcap">It was still quite hot when they reached the trekking spot. It was a long way up. Fluffy and Snowy got very tired and had to take breaks while climbing. It was hard and thirsty work for a dog to climb like this!</p>
+<p>But all the same, they had fun. When they reached the top, they had a marvelous picnic. Sam had even packed some homemade dog biscuits. Yummy!</p>
+<p>Climbing down wasn't so bad. Once they reached home, they were so exhausted that they rolled into bed straight away.</p>
+    </section>
+    <section class="page chapter" id="ch17">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 17</span>
+        <h2>Missing Sam</h2>
+      </header>
+      <figure class="illust"><img src="images/streets/img-017.jpg" alt="Illustration for Chapter 17: Missing Sam" loading="lazy" /><figcaption>Chapter 17</figcaption></figure>
+      <p class="dropcap">It was the next day already, but to the dogs' disappointment, it was Monday. That meant Sam had to go to school.</p>
+<p>They whined mournfully, wishing he was going to spend the day with them.</p>
+<p>Because Sam went to school in the mornings, his parents had hired a trainer who took them for morning walks and taught them new tricks until Sam came back. On weekends, Sam would learn from the trainer and join in. Now that was something to look forward to!</p>
+    </section>
+    <section class="page chapter" id="ch18">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 18</span>
+        <h2>Show and Tell</h2>
+      </header>
+      <figure class="illust"><img src="images/streets/img-018.jpg" alt="Illustration for Chapter 18: Show and Tell" loading="lazy" /><figcaption>Chapter 18</figcaption></figure>
+      <p class="dropcap">The long-awaited three o'clock seemed to take ages to come, but finally, it arrived. Sam leaped out of the school bus and ran toward his house. He was happy to see his dogs again, and his face was glowing with excitement.</p>
+<p>"Mum, Dad, I've got the best assignment ever!" he shouted. "It's the school 'Show and Tell,' and this year's topic is pets! I am so excited to show everyone what the pups can do. It's going to be great."</p>
+<p>He began thinking about what to say and what tricks to show everyone.</p>
+    </section>
+    <section class="page chapter" id="ch19">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 19</span>
+        <h2>The Big Day</h2>
+      </header>
+      <figure class="illust"><img src="images/streets/img-019.jpg" alt="Illustration for Chapter 19: The Big Day" loading="lazy" /><figcaption>Chapter 19</figcaption></figure>
+      <p class="dropcap">It was the day of Show and Tell. All the parents were watching. Sam was very excited to show the audience what his pets could do. He had been practicing all week with the dogs, teaching them new tricks and perfecting the old ones.</p>
+<p>Finally, after many other students had finished, it was his turn.</p>
+<p>He went on stage, beaming with pride, and told the story of how he had found the dogs on the street. Then, he showed everyone their tricks. The audience clapped loudly! The dogs felt very special indeed.</p>
+    </section>
+    <section class="page chapter" id="ch20">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 20</span>
+        <h2>Learning New Tricks</h2>
+      </header>
+      <figure class="illust"><img src="images/streets/img-020.jpg" alt="Illustration for Chapter 20: Learning New Tricks" loading="lazy" /><figcaption>Chapter 20</figcaption></figure>
+      <p class="dropcap">It was a cloudy Thursday morning. Sam got up early, for he had to go to school. The dogs weren't very pleased about this. Never mind—the trainer would come to entertain them soon.</p>
+<p>They had learned to stand on their hind legs and twirl. Fluffy was a quick learner and picked up tricks instantly. Snowy, on the other paw, took a little more time to get used to things.</p>
+<p>Sam came back early that day because of an event for the high schoolers. The dogs were very pleased!</p>
+    </section>
+    <section class="page chapter" id="ch21">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 21</span>
+        <h2>A Holiday in Goa</h2>
+      </header>
+      <figure class="illust"><img src="images/streets/img-021.jpg" alt="Illustration for Chapter 21: A Holiday in Goa" loading="lazy" /><figcaption>Chapter 21</figcaption></figure>
+      <p class="dropcap">It was Friday. The dogs were waiting for this day because Sam had the next two days off. Usually, they did something special together on the weekends, but this week was different. They were going on holiday to Goa!</p>
+<p>This was the dogs' first trip. What a lot of things they had to take—a swimsuit, sunglasses, an umbrella, and lots more. Since they were traveling by road, they needed plenty of food, too.</p>
+<p>Finally, it was time to roll. They spent two whole days in Goa admiring its beauty. The dogs swam like pros in the sea! When they came back, they wanted to go back again immediately. Never mind, maybe next time during the summer holiday.</p>
+    </section>
+    <section class="page chapter" id="ch22">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 22</span>
+        <h2>New Year Celebration</h2>
+      </header>
+      <figure class="illust"><img src="images/streets/img-022.jpg" alt="Illustration for Chapter 22: New Year Celebration" loading="lazy" /><figcaption>Chapter 22</figcaption></figure>
+      <p class="dropcap">It was New Year's Eve! The dogs were happy because there was a Christmas show at Sam's school. The play was about Jesus Christ, and Sam was playing Joseph, one of the main characters.</p>
+<p>They arrived at the school early because they wanted a seat in the front. The play was fun and joyful, and the dogs behaved very well. All the students admired them, and they got petted a lot.</p>
+<p>When the play was over, Sam looked triumphant and happy. All the students took pictures with the principal. To celebrate the New Year, they stopped at a dog-friendly restaurant and ate a scrumptious supper. They stayed up until midnight and shared their New Year's resolutions. It was a very happy New Year.</p>
+    </section>
+    <section class="page chapter" id="ch23">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 23</span>
+        <h2>Unexpected Reunion!</h2>
+      </header>
+      <figure class="illust"><img src="images/streets/img-023.jpg" alt="Illustration for Chapter 23: Unexpected Reunion!" loading="lazy" /><figcaption>Chapter 23</figcaption></figure>
+      <p class="dropcap">It was a bright, sunny morning, and to the dogs' delight, Sam had one last holiday before school started again.</p>
+<p>He took the dogs on an early morning walk. As they were walking, Fluffy smelled a strangely familiar scent. He looked up and saw a man on a bench. It was his first owner!</p>
+<p>Fluffy squealed with delight.</p>
+<p>The human looked at him in shock. "Bundle? Is that really you?"</p>
+<p>Sam looked surprised. "Who are you, and how do you know my puppy?" he asked.</p>
+<p>"I used to own him before he got lost," said the man. "I had better come and see your parents for a bit."</p>
+    </section>
+    <section class="page chapter" id="ch24">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 24</span>
+        <h2>Bundle's Tale</h2>
+      </header>
+      <figure class="illust"><img src="images/streets/img-024.jpg" alt="Illustration for Chapter 24: Bundle's Tale" loading="lazy" /><figcaption>Chapter 24</figcaption></figure>
+      <p class="dropcap">Sam took the man home and told his parents what had happened. They all sat down to discuss the situation.</p>
+<p>"I own a female dog who gave birth three months ago. Bundle was one of the girl puppies," explained the man. "One day, the postman forgot to close the door, and Bundle managed to escape."</p>
+<p>Sam shared his part of the tale—how he found them in the rain—and it all came together like a jigsaw puzzle.</p>
+<p>"I suppose you want Bundle back then?" asked Sam sadly.</p>
+<p>The man smiled kindly. "I was trying to find them homes anyway, so I don't mind you keeping the puppy."</p>
+<p>Sam was happy; he had become very fond of Fluffy.</p>
+<p>Then he remembered what the man said. "Wait... you said 'her' puppies?"</p>
+<p>"Ah, well that's something you don't know," the man laughed. "Bundle is a 'she', not a 'he'!"</p>
+    </section>
+    <section class="page chapter" id="ch25">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 25</span>
+        <h2>A Perfect Ending</h2>
+      </header>
+      <figure class="illust"><img src="images/streets/img-025.jpg" alt="Illustration for Chapter 25: A Perfect Ending" loading="lazy" /><figcaption>Chapter 25</figcaption></figure>
+      <p class="dropcap">This astonished Sam and his parents.</p>
+<p>"We have got two lovely girl dogs!" said Sam. "And I never knew the whole time!"</p>
+<p>"I suppose you are a permanent part of our family now," his dad said, smiling.</p>
+<p>Bundle and Snowy felt tired. It was past the time they usually slept. Without anybody knowing, they fell asleep right there on the rug.</p>
+<p>"Well, I must get going then," said the man. "See you some other time."</p>
+<p>Sam yawned and rolled into bed. His parents fell asleep, too. And now, we must leave them alone and let them dream of new adventures.</p>
+    </section>
+    <section class="page">
+      <p class="end-mark">The End</p>
+      <p style="text-align:center;color:var(--soft);">And now we leave them to dream of new adventures.</p>
+          </section>
+    <section class="page">
+      <header class="chapter-head">
+        <span class="chapter-num">About</span>
+        <h2>About the Book</h2>
+      </header>
+      <p>When Sam, a kind-hearted young boy, rescues Fluffy, their bond grows stronger with each passing day. They embark on countless adventures—learning tricks, visiting the vet, making new friends, and even taking a holiday to Goa!</p>
+      <p>Perfect for animal lovers and young readers, this touching story reminds us that sometimes, the greatest journeys begin with a single act of kindness.</p>
+      <p class="note">Copyright © 2025 by Anshika Mahesh. Cover design by Anshika Mahesh. Illustrations from the print edition (Google Gemini AI). Web edition includes all chapter images from <em>From_Streets_to_Snuggles_SAM_25_print.pdf</em>.</p>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <span>© <span id="y"></span> Anshika Mahesh</span>
+    <a href="../newsletter.html">Subscribe</a>
+  </footer>
+
+  <script src="../js/main.js?v=pack1"></script>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>

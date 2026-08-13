@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Newsletter — Anshika Mahesh</title>
+  <meta name="description" content="Subscribe to Story Notes by Anshika Mahesh — free updates when new stories and writing notes arrive." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="logo" href="index.html">Anshika Mahesh</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="stories.html">Stories</a>
+        <a href="newsletter.html" aria-current="page">Newsletter</a>
+        <a href="connect.html">Connect</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="section-narrow newsletter-hero">
+      <h1>Subscribe</h1>
+      <p class="pitch">
+        Every so often, Anshika shares the single most important thing from her writing desk.
+      </p>
+      <p class="beats">
+        One story update.<br />
+        One idea.<br />
+        One invitation to imagine.
+      </p>
+      <p class="pitch" style="margin-top:1.2rem;">
+        It’s free — and made for friends, families, and fellow young readers.
+      </p>
+
+      <form class="newsletter-form" data-newsletter-form>
+        <div>
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" />
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@email.com" />
+        </div>
+        <button class="btn btn-primary" type="submit">Join Story Notes</button>
+      </form>
+
+      <p class="form-note">
+        Unsubscribe anytime. Parent-managed list — no spam, no public comments.
+      </p>
+      <p class="form-success" data-newsletter-success>
+        Thank you! You’re on the list for Anshika’s next story note.
+      </p>
+
+      <p class="form-note" style="margin-top:2rem;">
+        Prefer to browse first?
+        <a href="stories.html">Read the story archive</a>.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span id="y"></span> Anshika Mahesh</span>
+    <a href="connect.html">Connect</a>
+  </footer>
+
+  <script src="js/main.js?v=pack1"></script>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Birthday Invite Links — Anshika Mahesh</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,700&family=Manrope:wght@600;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .invite-list { list-style: none; padding: 0; margin: 1.2rem 0 0; display: grid; gap: 0.65rem; }
+    .invite-list a {
+      display: flex; justify-content: space-between; gap: 1rem; align-items: baseline;
+      text-decoration: none; color: inherit; background: rgba(255,253,249,0.9);
+      border: 1px solid var(--line); border-radius: 14px; padding: 0.95rem 1.05rem;
+    }
+    .invite-list a:hover { border-color: var(--sky-deep); }
+    .invite-list span { color: var(--sky-deep); font-size: 0.82rem; font-weight: 800; }
+    .tip {
+      margin-top: 1.4rem; padding: 1rem 1.1rem; border-radius: 14px;
+      background: rgba(107, 63, 160, 0.08); color: var(--ink-soft); font-size: 0.95rem;
+    }
+    .tip code { font-weight: 700; color: var(--ink); }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="logo" href="../index.html">Anshika Mahesh</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../stories.html">Stories</a>
+        <a href="../newsletter.html">Newsletter</a>
+        <a href="../connect.html">Connect</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="section-head">
+      <p class="eyebrow">22nd August</p>
+      <h1 class="page-title">Birthday invitation links</h1>
+      <p class="page-intro">Send Anshika’s invite to each friend. Each link opens a personalised card with their name.</p>
+    </div>
+
+    <p><a class="btn btn-primary" href="birthday-invite.html">Open general invitation</a></p>
+
+    <ul class="invite-list" id="friend-links"></ul>
+
+    <div class="tip">
+      Tip: set the party times once for everyone by adding
+      <code>?from=4:00%20PM&amp;to=7:00%20PM</code>
+      (and <code>&amp;name=Saanvi</code> for a friend). Example:
+      <code>birthday-invite.html?name=Saanvi&amp;from=4:00%20PM&amp;to=7:00%20PM</code>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span id="y"></span> Anshika Mahesh</span>
+    <a href="birthday-invite.html">View invite</a>
+  </footer>
+
+  <script src="../js/main.js?v=pack1"></script>
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+    var friends = ["Saanvi","Advika","Samyuktha","Aanya","Samanvith","Bimba","Dhyuti","Siri","Pranavi","Pragna","Akanksha","Aadhya"];
+    var list = document.getElementById("friend-links");
+    friends.forEach(function (name) {
+      var li = document.createElement("li");
+      var a = document.createElement("a");
+      a.href = "birthday-invite.html?name=" + encodeURIComponent(name);
+      a.innerHTML = "<strong>" + name + "</strong><span>Open invite</span>";
+      li.appendChild(a);
+      list.appendChild(li);
+    });
+  </script>
+</body>
+</html>

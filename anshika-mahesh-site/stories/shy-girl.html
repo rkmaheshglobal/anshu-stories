@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Shy Girl &amp; The Popular Girl — Anshika M.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    :root {
+      --ink: #1f2a24;
+      --soft-ink: #3d4a42;
+      --paper: #f7f3ea;
+      --paper-deep: #efe6d4;
+      --sky: #8ec5d8;
+      --sky-deep: #5fa3bc;
+      --grass: #6f9b6a;
+      --grass-deep: #4f7a4b;
+      --sun: #f0b429;
+      --blush: #e8a0a8;
+      --vivian: #2f6f7e;
+      --hazel: #7a4e8a;
+      --rule: rgba(31, 42, 36, 0.14);
+      --shadow: rgba(31, 42, 36, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "Nunito", Georgia, serif;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      background:
+        radial-gradient(circle at 12% 8%, rgba(142, 197, 216, 0.35), transparent 42%),
+        radial-gradient(circle at 88% 18%, rgba(240, 180, 41, 0.22), transparent 36%),
+        linear-gradient(180deg, #eef6f4 0%, var(--paper) 28%, var(--paper-deep) 100%);
+      min-height: 100vh;
+    }
+
+    .book {
+      width: min(760px, calc(100% - 2rem));
+      margin: 2rem auto 4rem;
+    }
+
+    .page {
+      background: rgba(255, 252, 246, 0.92);
+      border: 1px solid var(--rule);
+      border-radius: 18px;
+      padding: clamp(1.6rem, 4vw, 3rem);
+      margin-bottom: 1.4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: 8px;
+      background: linear-gradient(180deg, var(--sky), var(--grass));
+      opacity: 0.85;
+    }
+
+    /* Cover */
+    .cover {
+      min-height: min(92vh, 820px);
+      display: grid;
+      align-content: space-between;
+      text-align: center;
+      padding-top: clamp(2rem, 6vw, 3.5rem);
+      padding-bottom: clamp(2rem, 5vw, 3rem);
+      background:
+        linear-gradient(180deg, rgba(142, 197, 216, 0.35) 0%, rgba(247, 243, 234, 0.2) 45%, rgba(111, 155, 106, 0.28) 100%),
+        rgba(255, 252, 246, 0.95);
+    }
+
+    .cover::after {
+      content: "";
+      position: absolute;
+      width: 88px;
+      height: 88px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #ffe08a, var(--sun) 55%, #e09a16);
+      top: 1.6rem;
+      right: 1.6rem;
+      box-shadow: 0 0 0 10px rgba(240, 180, 41, 0.12);
+      animation: sun-rise 1.2s ease-out both;
+    }
+
+    @keyframes sun-rise {
+      from { transform: translateY(12px) scale(0.85); opacity: 0; }
+      to { transform: none; opacity: 1; }
+    }
+
+    .brand {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2.6rem, 8vw, 4.4rem);
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      margin: 0 auto;
+      max-width: 12ch;
+      color: var(--ink);
+      animation: fade-up 0.9s ease-out both;
+    }
+
+    .brand span {
+      display: block;
+      font-size: 0.42em;
+      font-weight: 600;
+      font-style: italic;
+      letter-spacing: 0.04em;
+      color: var(--soft-ink);
+      margin: 0.35em 0;
+    }
+
+    .author-line {
+      margin: 1.1rem 0 0;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.82rem;
+      color: var(--soft-ink);
+      animation: fade-up 1s ease-out 0.15s both;
+    }
+
+    .cover-art {
+      width: min(320px, 78%);
+      margin: 1.8rem auto 0;
+      animation: fade-up 1.1s ease-out 0.25s both;
+    }
+
+    .cover-art svg { width: 100%; height: auto; display: block; }
+    .cover-photo {
+      width: min(420px, 90%); margin: 1.2rem auto 0;
+      border-radius: 16px; overflow: hidden;
+      border: 1px solid rgba(31,42,36,0.14);
+    }
+    .cover-photo img { width: 100%; height: auto; display: block; }
+    .illust {
+      margin: 0 0 1.35rem; border-radius: 14px; overflow: hidden;
+      border: 1px solid rgba(31,42,36,0.14); background: #fff;
+    }
+    .illust img { width: 100%; height: auto; display: block; }
+    .illust figcaption {
+      font-size: 0.85rem; color: #3d4a42; padding: 0.55rem 0.8rem;
+      background: rgba(31,42,36,0.04); border-top: 1px solid rgba(31,42,36,0.12);
+    }
+
+    .cover-cta {
+      display: inline-flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 1.5rem;
+      animation: fade-up 1.1s ease-out 0.4s both;
+    }
+
+    .cover-cta a {
+      text-decoration: none;
+      color: white;
+      background: var(--ink);
+      padding: 0.7rem 1.15rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .cover-cta a.secondary {
+      background: transparent;
+      color: var(--ink);
+      border: 2px solid rgba(31, 42, 36, 0.25);
+    }
+
+    .cover-cta a:hover { transform: translateY(-2px); background: var(--grass-deep); }
+    .cover-cta a.secondary:hover { background: rgba(31, 42, 36, 0.06); }
+
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: none; }
+    }
+
+    /* Front matter */
+    .blurb {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.25rem, 2.8vw, 1.55rem);
+      font-style: italic;
+      line-height: 1.55;
+      color: var(--soft-ink);
+      max-width: 36ch;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .meta {
+      text-align: center;
+      color: var(--soft-ink);
+      font-size: 0.95rem;
+    }
+
+    .meta strong { color: var(--ink); }
+
+    h1, h2, h3 {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+
+    .chapter-head {
+      text-align: center;
+      margin: 0 0 1.6rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .chapter-num {
+      display: block;
+      font-family: "Nunito", sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--sky-deep);
+      margin-bottom: 0.45rem;
+    }
+
+    .chapter-head h2 {
+      margin: 0;
+      font-size: clamp(1.9rem, 4.5vw, 2.5rem);
+    }
+
+    .pov {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      margin: 0 0 1rem;
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .pov.vivian { color: var(--vivian); }
+    .pov.hazel { color: var(--hazel); }
+
+    .pov::before {
+      content: "";
+      width: 0.55rem;
+      height: 0.55rem;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    p {
+      margin: 0 0 1rem;
+      color: var(--ink);
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    .dropcap::first-letter {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      float: left;
+      font-size: 3.4rem;
+      line-height: 0.85;
+      padding: 0.12rem 0.45rem 0 0;
+      font-weight: 700;
+      color: var(--grass-deep);
+    }
+
+    .thought {
+      font-style: italic;
+      color: var(--soft-ink);
+    }
+
+    .shout {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(1.35rem, 3vw, 1.7rem);
+      font-weight: 700;
+      text-align: center;
+      letter-spacing: 0.02em;
+      margin: 1.4rem 0 0.4rem;
+      color: var(--hazel);
+    }
+
+    .toc ol {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: chap;
+    }
+
+    .toc li {
+      counter-increment: chap;
+      border-bottom: 1px dashed var(--rule);
+    }
+
+    .toc a {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 0.75rem;
+      align-items: baseline;
+      text-decoration: none;
+      color: inherit;
+      padding: 0.85rem 0.2rem;
+      transition: color 0.2s ease;
+    }
+
+    .toc a:hover { color: var(--sky-deep); }
+
+    .toc a::before {
+      content: counter(chap, decimal-leading-zero);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: var(--grass-deep);
+    }
+
+    .toc .dots {
+      border-bottom: 2px dotted rgba(31, 42, 36, 0.18);
+      height: 0.7em;
+    }
+
+    .end-page {
+      text-align: center;
+      padding-top: 2.5rem;
+      padding-bottom: 2.5rem;
+    }
+
+    .end-mark {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin: 0 0 0.6rem;
+    }
+
+    .dedication {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-style: italic;
+      font-size: 1.25rem;
+      text-align: center;
+      color: var(--soft-ink);
+      max-width: 28ch;
+      margin: 0 auto;
+    }
+
+    .note {
+      font-size: 0.92rem;
+      color: var(--soft-ink);
+      border-top: 1px solid var(--rule);
+      margin-top: 1.5rem;
+      padding-top: 1rem;
+    }
+
+    @media (max-width: 640px) {
+      .book { width: calc(100% - 1rem); margin-top: 1rem; }
+      .page { border-radius: 14px; }
+      .cover::after { width: 64px; height: 64px; top: 1rem; right: 1rem; }
+      .dropcap::first-letter { font-size: 2.8rem; }
+    }
+
+    @media print {
+      body { background: white; }
+      .book { width: 100%; margin: 0; }
+      .page {
+        break-after: page;
+        border: none;
+        border-radius: 0;
+        margin: 0;
+        padding: 1.5cm 1.8cm;
+        background: white;
+      }
+      .page::before { display: none; }
+      .cover { min-height: auto; }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+    <header class="site-header">
+    <div class="nav-wrap">
+      <a class="logo" href="../index.html">Anshika Mahesh</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../stories.html" aria-current="page">Stories</a>
+        <a href="../newsletter.html">Newsletter</a>
+        <a href="../connect.html">Connect</a>
+      </nav>
+    </div>
+  </header>
+  <div class="book-tools" aria-label="In this story">
+    <a href="#contents">Contents</a>
+    <a href="#ch1">Begin</a>
+    <a href="shy-girl-outline.html">Revision outline</a>
+    <a href="vivian-and-hazel.html">Book 2</a>
+  </div>
+<main class="book">
+    <!-- COVER -->
+    <section class="page cover" id="cover">
+      <div>
+        <h1 class="brand">The Shy Girl <span>&amp;</span> The Popular Girl</h1>
+        <p class="author-line">By Anshika M. · Age 12</p>
+      </div>
+
+      <div class="cover-photo">
+        <img src="images/shy-girl/cover.png" alt="Hand-drawn cover: The Shy Girl and The Popular Girl by Anshika M." />
+      </div>
+
+      <div class="cover-cta">
+        <a href="#ch1">Read the story</a>
+        <a class="secondary" href="#contents">See chapters</a>
+      </div>
+    </section>
+
+    <!-- BLURB -->
+    <section class="page" id="blurb">
+      <p class="blurb">
+        Vivian is excited to start school again — and even more thrilled to help and make friends with new girl Hazel.
+        But do Vivian’s friends approve of Hazel, or even let her be Hazel’s friend?
+        There’s drama for sure. Join them on this roller coaster of friendships, quarrels, badminton tryouts and much more.
+      </p>
+    </section>
+
+    <section class="page" id="dedication">
+      <p class="dedication">
+        A story about choosing kindness — even when it isn’t the easiest thing to do.
+      </p>
+    </section>
+
+    <!-- CONTENTS -->
+    <section class="page toc" id="contents">
+      <div class="chapter-head">
+        <span class="chapter-num">Contents</span>
+        <h2>Chapters</h2>
+      </div>
+      <ol>
+        <li><a href="#ch1"><span>The New Girl</span><span class="dots"></span></a></li>
+        <li><a href="#ch2"><span>The Differences, First Day</span><span class="dots"></span></a></li>
+        <li><a href="#ch3"><span>The Class Project</span><span class="dots"></span></a></li>
+        <li><a href="#ch4"><span>The Party</span><span class="dots"></span></a></li>
+        <li><a href="#ch5"><span>The Badminton Team</span><span class="dots"></span></a></li>
+        <li><a href="#ch6"><span>The Awful Practice</span><span class="dots"></span></a></li>
+        <li><a href="#ch7"><span>The Confrontation Talk</span><span class="dots"></span></a></li>
+        <li><a href="#ch8"><span>The True Friend</span><span class="dots"></span></a></li>
+      </ol>
+    </section>
+
+    <!-- CHAPTER 1 -->
+    <section class="page" id="ch1">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter One</span>
+        <h2>The New Girl</h2>
+      </header>
+
+      <p class="pov vivian">Vivian</p>
+      <p class="dropcap">I walked into the school gates, eager to start the new term. I was a popular girl. I had quite a lot of friends that included Bella, Josie, Raya, Rose and Lara. We had been good friends for a long time now, and I was looking forward to seeing them.</p>
+      <p>As I entered, I saw a new girl, probably my age, looking shy and scared. “Do you know the way to class VI D?” she asked hesitantly.</p>
+      <p>“That’s my section. Follow me — we can go together,” I replied. I like figuring out new girls and seeing if we could mingle. That’s how I’d gotten all my friends so far. But how I was going to be friends with this shy girl, I really didn’t know.</p>
+      <p>As we went, I asked her, “Why did you shift to this school?”</p>
+      <p>“Umm… we shifted nearby, so it was easier to come here than to go to my old one,” she said.</p>
+      <p>“I think you’ll fit in well here. The teachers are nice and there are a lot of nice people you can make friends with,” I said.</p>
+      <p>“That’s good to know,” she said in a cheerful, happy voice.</p>
+      <p>I have to admit, as I talked to her, I did like her a bit. But I can’t be friends with her. She’s the shy girl. And I’m the popular one.</p>
+      <p class="thought">Or can I be friends with her?</p>
+
+      <p class="pov hazel" style="margin-top:2rem;">Hazel</p>
+      <p>I entered the gates rather nervously. This new school was rather scary. To make it worse, the reason I left my old school was so silly — what if someone here found out?</p>
+      <p>I saw a girl looking so happy and excited. Anyone would want to be friends with her. She looked at me curiously. I decided to try and talk to her. Maybe it would help, having her as my friend.</p>
+      <p>“Do you know the way to class VI D?” I asked, hoping it didn’t sound as shy as I was.</p>
+      <p>“That’s my section,” she said. “Follow me — we can go together.”</p>
+      <p>She was in my section! Maybe if I became friends with her, I wouldn’t have a problem settling in. So I rather liked her and chatted as friendly-like as I could. Except for one question — she asked me why I’d shifted my school.</p>
+      <p>I couldn’t tell her the real reason. I’d been too shy to make any friends. So I just told her I’d shifted. It was the best thing to tell her at the present time, at least.</p>
+      <p>And as we walked to class, I couldn’t help wanting to be her friend. She was friendly, kind, funny and cheerful. But she must be so popular. I’m so shy. She’ll never want to be friends with me.</p>
+      <p class="thought">Or will she?</p>
+    </section>
+
+    <!-- CHAPTER 2 -->
+    <section class="page" id="ch2">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter Two</span>
+        <h2>The Differences, First Day</h2>
+      </header>
+
+      <p class="pov vivian">Vivian</p>
+      <p class="dropcap">I was thinking deeply about this new girl when all my friends surrounded me.</p>
+      <p>“Hello!” said Bella. “What’ve you been up to?”</p>
+      <p>As I was talking to them, I saw the new girl I had talked to and gave her a smile. She smiled back, a little shyly but warmly.</p>
+      <p>“Who’s that you smiled at?” asked Raya.</p>
+      <p>“Oh, just a new girl I talked to,” I said.</p>
+      <p>They studied her closely.</p>
+      <p>“She’s so shy,” said Josie.</p>
+      <p>“I don’t like her,” said Rose.</p>
+      <p>“Oh, she’s all right — a bit scared, but there’s nothing wrong with that,” I said quickly. “Anyway, let’s choose our seats.”</p>
+      <p>I chose the seat next to Josie. Not only that — the new girl was in the bench next to mine. We could talk easily. Our class teacher seemed a nice person.</p>
+      <p>“What’s your name?” I asked the new girl.</p>
+      <p>“I’m Hazel. Nice to meet you,” she said.</p>
+      <p>“I’m Vivian,” I told her.</p>
+      <p>I liked Hazel, but couldn’t say so or talk to her properly, for Josie kept distracting me. It was clear that none of them wanted anything to do with the new girl.</p>
+      <p>The day sped by quickly. The teachers either asked us about our summer or played a game with us. It was all very satisfactory. I only wish I could have talked to Hazel more.</p>
+
+      <p class="pov hazel" style="margin-top:2rem;">Hazel</p>
+      <p>As soon as we entered class, a lot of girls rushed to say hello to my new friend. I was right when I’d guessed she was popular. She’s so lucky. I’m sure nobody will want to be friends with me.</p>
+      <p>I noticed her friends staring at me. What do they think of me?</p>
+      <p>I learnt that her name was Vivian. I tried talking to her, but her friends kept distracting her every time she tried. I could tell she wanted to talk to me. I was touched by this, but hurt that her friends didn’t like me.</p>
+      <p>Our class teacher was very nice. I liked her a lot. All the teachers were nice to us today. They either made us talk about ourselves and our holidays or played games with us. It was very fun — but I wished I could talk to Vivian more.</p>
+    </section>
+
+    <!-- CHAPTER 3 -->
+    <section class="page" id="ch3">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter Three</span>
+        <h2>The Class Project</h2>
+      </header>
+
+      <p class="pov vivian">Vivian</p>
+      <p class="dropcap">The first few days of school were fun, but soon real lessons began and we were assigned a project: to talk about the importance of trains. I wondered who my partner would be.</p>
+      <p>We had to randomly pick people from a box of chits by our teacher. I got Hazel, which was lucky for me. Hazel and I met at my house today to discuss the project.</p>
+      <p>I must say, if you get through her shy side, she is very amiable and nice. I do like her, but it’s a pity my friends don’t. They think I’m being silly to want to be her friend, though I don’t know why.</p>
+      <p>It is a nice change to have Hazel to talk to. The others are nice, but they have an opinion about everything — and they don’t even look at Hazel.</p>
+      <p>Discussing our project was fun. My mum liked Hazel and provided us with yummy snacks. It was all very fun. And to make it even better, we got a round of applause and an A+ the next day!</p>
+
+      <p class="pov hazel" style="margin-top:2rem;">Hazel</p>
+      <p>When our teacher gave us the project and announced Vivian as my partner, I was super happy. Vivian was the only other person who liked me, except for Alice, my other friend.</p>
+      <p>After school, I went to her house to discuss the project. We came up with many cool ideas together. I think our project was the best one. After that, we played UNO, and Vivian’s mum provided us with lots of snacks. I liked her mum. She was friendly, kind, generous and cheerful.</p>
+      <p>And in school, everyone liked our project and we got good grades. I think I’m finally starting to settle in. The only things that bother me are her friends. It’s clear that they don’t like me, and they won’t even let Vivian speak to me.</p>
+      <p>I wish Vivian was my BFF. We are friends, but those other girls are too mean. Still, I had a good time with her.</p>
+      <p class="thought">Maybe we’ll be BFFs one day.</p>
+    </section>
+
+    <!-- CHAPTER 4 -->
+    <section class="page" id="ch4">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter Four</span>
+        <h2>The Party</h2>
+      </header>
+
+      <p class="pov vivian">Vivian</p>
+      <p class="dropcap">When I went to school today, Hazel approached me and said, “Can I ask you something?”</p>
+      <p>“Sure,” I said, wondering what she wanted to ask me.</p>
+      <p>“It’s my birthday tomorrow and I’m having a party. Would you like to come?” she asked.</p>
+      <p>“Of course! I’d love to attend your birthday party!” I said happily. I’d not attended a party in a long time, and since Mum already met Hazel, she would definitely allow me to go.</p>
+      <p>I waited eagerly for the next day, and finally it arrived. At the party, I met Alice and her parents. I couldn’t help wondering why none of her friends from her old school had come. When I asked her, she said, “I called a few of them, but they’re busy, you know. They’ve probably forgotten all about me.”</p>
+      <p>I was rather surprised by the way she answered the question and decided not to ask her more about her old school. Maybe she was just missing her old friends.</p>
+      <p>I met a snobby cousin called Ria who came to our school. It was clear Hazel didn’t like her — nor did I. We played many fun games and ate a lot of delicious food. Overall, it was a great party and I enjoyed myself a lot.</p>
+
+      <p class="pov hazel" style="margin-top:2rem;">Hazel</p>
+      <p>When I asked Vivian if she’d come to my party, she seemed super excited. I invited Alice too, for she was my other friend. I didn’t invite anyone else. I didn’t have any friends in my old school.</p>
+      <p>I just invited a few of my relations, including my snobby cousin Ria. She also came to our school, and I was hoping she would not blab out my secret — of not having any friends in my old school. Fortunately, she kept her mouth shut, but was still extremely snobby and irritating.</p>
+      <p>Vivian asked about my old school friends. I guess she was wondering why the guests were a bit fewer than at normal parties. I just told her they couldn’t make it. She looked a bit surprised, but soon forgot about it (I think).</p>
+      <p>We played games, ate food and had fun. It was a good party — and a nice change to have Vivian and Alice to myself.</p>
+    </section>
+
+    <!-- CHAPTER 5 -->
+    <section class="page" id="ch5">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter Five</span>
+        <h2>The Badminton Team</h2>
+      </header>
+
+      <p class="pov vivian">Vivian</p>
+      <p class="dropcap">Today, Hazel and I went to school excitedly. The PE coaches were selecting the school badminton team for a competition, and we both were good at badminton and hoping for a place in the team.</p>
+      <p>When we had PE class, I was assigned to play with a boy called Josh. I easily won the match. Hazel played well against her opponent and won too. So did all my friends — and Hazel’s cousin Ria. Since we played well, we all got spots in the team.</p>
+      <p>I was so pleased, though I do wish Ria wasn’t in the team. We were having a celebration at my house today, and Ria was trying to make things uncomfortable for Hazel. Not only did she become friends with my friends, but she also told false claims about her.</p>
+      <p>I clearly heard her say, “OMG! I went to Hazel’s party and it was so bad. There were hardly any people, too-boring games and disgusting food too. She probably wants to ill-treat us.”</p>
+      <p>And to make things worse, my friends believed everything she said and decided to add her to our group! I was so disgusted that I took Hazel to the park. We pretended we didn’t hear a thing Ria said — but inwardly, we knew we had!</p>
+      <p class="thought">Why, oh why, did she get in the team???</p>
+
+      <p class="pov hazel" style="margin-top:2rem;">Hazel</p>
+      <p>Today Vivian and I went to school quite happily. It was badminton tryouts day. I loved badminton and had been playing it for a long time — ever since I was young, six years old. I felt excited to show off my skills, but couldn’t help seeing Ria and Vivian’s friends staring at me scornfully.</p>
+      <p><span class="thought">Oh no — did she say something about me to Vivian’s friends?</span> I thought. But then I pushed the thought away from my mind. They already hated me so much — why should I bother about it? Also, Vivian hadn’t noticed this, and I didn’t want to interrupt her. It would be better to just ignore Ria.</p>
+      <p>The tryouts were great. I got a spot, so did Vivian and her friends. And most annoyingly, so did Ria. Ugh! It was bad enough to have her in the same school, and now she was in the badminton team too!</p>
+      <p>But I cheered up a little when Vivian invited me to her celebration party. Well, at least I was a bit cheerful. Then I noticed Ria was talking about me with Vivian’s friends. I think Vivian noticed I was feeling uncomfortable, as she asked me if I wanted to go to the park with her. She’s so kind!</p>
+      <p>I agreed and we quickly walked out of her house. I pretended I didn’t hear a word of what Ria said. So did Vivian. I guess she didn’t want me to feel any worse than I was. I really do like her. But deep down we could still feel the tension.</p>
+      <p class="shout">Why did Ria have to spoil everything!???</p>
+    </section>
+
+    <!-- CHAPTER 6 -->
+    <section class="page" id="ch6">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter Six</span>
+        <h2>The Awful Practice</h2>
+      </header>
+
+      <p class="pov vivian">Vivian</p>
+      <p class="dropcap">Oh my God! I knew things were not going to work out between Hazel and my “friends” (which now includes Ria) — but I didn’t expect it to escalate so soon! I still can’t believe all the drama that happened today.</p>
+      <p>We were all practising our badminton skills. Hazel was probably the best amongst us. Bella got jealous of her and challenged her to a match. Hazel hesitantly agreed, and I was a bit sceptical about this. Bella hates losing, and even though Hazel was good, Bella could be really hard to beat when she’s playing.</p>
+      <p>But to everyone’s surprise, Hazel beat her easily. And now you’d think Bella would back out, right? But no, she didn’t. Instead, she called Raya, Josie, Rose, Lara and Ria, and asked Hazel to play against all of them. (I officially think Bella’s just rude.)</p>
+      <p>I felt sorry for Hazel, looking pale and frightened, so I offered to join her side. I knew my friends were going to be mad at me, but they were being too mean for words.</p>
+      <p>And just as I thought things couldn’t get any worse — they did! I could tell they were all jealous of my friendship with Hazel, and I wondered, <span class="thought">Could they be thinking of ways to break my friendship with her?</span></p>
+      <p>My question got answered the very next minute. Ria and my friends were glaring at Hazel scornfully, and Ria approached me saying, “Vivian, I think it’s time I reveal to you how cowardly Hazel is.”</p>
+      <p>Hazel turned pale. “You can’t, Ria — please don’t!”</p>
+      <p>“I can, and I’m going to,” continued Ria. “Hazel shifted from her old school because she was too scared and shy to make a single friend.”</p>
+      <p>“I tried to,” said Hazel.</p>
+      <p>“You should have tried harder then. At that time, everyone thought she was snobbish and left her alone.”</p>
+      <p>“Why? You never gave me a chance to be myself!” Hazel gave back.</p>
+      <p>“I’m surprised you can even say this much, Hazel. In our old school she was just snobbish and cowardly. Now, Vivian, I advise you to break your friendship with Hazel at once. She doesn’t deserve you as her friend,” finished Ria.</p>
+
+      <p class="pov hazel" style="margin-top:2rem;">Hazel</p>
+      <p>Today was the worst day ever. I can’t believe or understand why my own cousin wanted to expose me like this — but she did.</p>
+      <p>Today we were peacefully practising our badminton skills. I was quite good, if I’m being honest, and more importantly, I was enjoying myself. But this happiness only lasted a short while.</p>
+      <p>Bella approached me and asked me to play a match with her. I was surprised to see that Bella was taking notice of me, yet suspicious, as I didn’t want to interact with her. After a few minutes of thought, I agreed.</p>
+      <p>Bella was quite good, but I easily beat her. I had quite a lot of experience at this, and I used some of the best techniques I’d learnt. But I expected Bella to shake hands or congratulate me, like I did when I lost. Instead, she called her whole gang (including Ria) and asked me to play with all of them at once. Talk about unfair people.</p>
+      <p>I expected Vivian to go join them, but she didn’t. Instead, she stayed with me. I felt so grateful she was there on my side, as seeing that gang look so threatening had frightened me.</p>
+      <p>But things quickly escalated from there. They all huddled together and began discussing something. When they finished, they all looked at me scornfully. I wanted the floor to eat me up so badly. What were they going to do now?</p>
+      <p>Ria neared Vivian and — oh, I can’t even think of all the things she said — she exposed my past in the school I used to go to. I tried retaliating, but nothing stopped her. When she finished, she asked Vivian to join her. My heart sank.</p>
+      <p class="shout">Would Vivian abandon me and join them??? Or would she stay on my side???</p>
+    </section>
+
+    <!-- CHAPTER 7 -->
+    <section class="page" id="ch7">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter Seven</span>
+        <h2>The Confrontation Talk</h2>
+      </header>
+
+      <p class="pov vivian">Vivian</p>
+      <p class="dropcap">My mind was really confused. Who were my true friends in this room? This was a question I’d been trying to avoid since I’d become close with Hazel, but now I knew I had to answer it.</p>
+      <p>Bella, Josie, Rose, Raya and Lara had been my friends for five years, but I didn’t want to leave Hazel. We had just become close, and I really liked her.</p>
+      <p>I decided to have a private talk with Hazel and with my friends to figure out the solution of the puzzle. Everyone agreed with this solution, and Hazel and Bella did rock-paper-scissors to find out who would talk with me first. Hazel won, and all the others went out of the room. The two of us were alone.</p>
+      <p>“Vivian, I’m sorry I didn’t tell you earlier. I really just wanted to make a good start at this school, and thought that if I told anyone, I’d be alone again. You’re my only true friend — please don’t leave me,” she said. Then she sighed. “Well, Bella, Josie, Raya, Rose and Lara have been your friends for a long time. I guess you’ll have to go with them. But even if you do, I want to thank you for being a true friend to me, for sticking by my side and for making happy memories with me.”</p>
+      <p>I couldn’t help feeling awfully pleased and touched by this speech.</p>
+      <p>“Thanks, Hazel — it means a lot to me. I’ll always be your friend. I’m sure I can make the others agree and let me be your friend,” I said to her.</p>
+      <p>“Well, good luck,” she said to me.</p>
+      <p>“Thanks,” I replied as she walked out of the room.</p>
+      <p>Next, when my troop came in, they looked determined to get what they wanted.</p>
+      <p>“You saw what a coward she is — why should you even talk to her? Stay on our side and you’ll see what I mean,” said Ria.</p>
+      <p>“Vivian, that girl doesn’t deserve you as her friend. You two are complete opposites,” said Bella.</p>
+      <p>“I’ll come back to you in a minute. I need to think,” I said, and heaved a sigh of relief as they left.</p>
+      <p>Now for the think.</p>
+      <p>Even though those five girls had been my friends for five years, there was no true friendship between us — just common opinions about Hazel. And unlike Hazel, they didn’t even think about how I feel.</p>
+      <p>I’d known Hazel for only a month, but there was something warm, friendly, kind and open between us. And what those six girls (including Ria) did to Hazel was very mean. Ria is a really bad influence on them.</p>
+      <p>So what if Hazel tried to hide her past? It was only to find out if she was a likeable person or not. Maybe she’d have told me herself sooner or later, if it wasn’t for Ria.</p>
+      <p>I knew leaving Hazel alone was the easiest option — but would it work long term? I needed to do what was right for me, not for everyone else.</p>
+      <p>And so I came up with my solution.</p>
+
+      <p class="pov hazel" style="margin-top:2rem;">Hazel</p>
+      <p>When Vivian suggested her “private talk” idea, I agreed immediately, as I knew it was fair. We played rock-paper-scissors to find out who would talk with her first, and I won. The six girls went out of the room, and only Vivian and I were alone.</p>
+      <p>All the memories I’d made that month flashed back to me, and I remembered how Vivian had stuck by me, even when it wasn’t the easiest thing to do. I knew if she left me, I’d really miss her — but I couldn’t blame her, as they were her friends first.</p>
+      <p>But just because you met a person first doesn’t mean you have to choose them over others… or does it?</p>
+      <p>If I was Vivian, I’d go with what my heart said. But I wasn’t Vivian. I was Hazel — the new, shy girl who was probably going to lose her only best friend. (Alice was my friend, but not as close as I was to Vivian.)</p>
+      <p>I decided that I would at least thank Vivian before she left me, because without her, I don’t know where I’d have been now. So I said my thanks as graciously as I could without sounding too shy.</p>
+      <p>Vivian said she’d always be my friend and would convince the others, but I wasn’t too sure about that. All the same, I think she’s really kind. I can’t do without her. How will I manage the rest of my school year all alone, without anyone to share secrets, invite home, play with and confide in?</p>
+      <p>But as I walked outside the room and watched the others go in, I knew all I could do was wait.</p>
+    </section>
+
+    <!-- CHAPTER 8 -->
+    <section class="page" id="ch8">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter Eight</span>
+        <h2>The True Friend</h2>
+      </header>
+
+      <p class="pov vivian">Vivian</p>
+      <p class="dropcap">I walked into the crowd of people. How was I going to announce my decision? But there was no other option but to conquer my stage fear. <span class="thought">(Oh, come on — you’re scared of seven people?)</span></p>
+      <p>“I have put in a lot of thought into my decision, and I hope you all accept it as graciously as you can,” I said. “Bella, Josie, Ria, Raya, Lara and Rose — I know you all think I ought to choose your side. Yet I’ve known you all since a long time… but what you did to Hazel was terrible, and there is, nor will there ever be, any true friendship between us.</p>
+      <p>“Bella and Ria just make all the choices, and the rest of you just agree with them. I don’t think you need or want me — so I am going to stick by Hazel.”</p>
+      <p>“What! You’re going to stick up for that nasty, double-faced girl? What has happened to you, Vivian? You are surely joking. You’ve only known her for a month!” exclaimed Bella.</p>
+      <p>“So what if I have known her for a month!” I exploded. “She has shown me kindness, respect and fondness that none of you have ever felt towards me! So what if she didn’t tell me her secret? She probably would have confided in me herself if you hadn’t interfered in this matter — which, by the way, didn’t even concern you in the first place. Mind your own business, and don’t poke your nose into somebody’s private affairs unless you do it for a good cause!”</p>
+      <p>There was a silence in the room.</p>
+      <p>“Fine! Go stick up for that horrible girl. I don’t care,” said Ria.</p>
+      <p>“Nor do I care a tuppence about you!” I shot back.</p>
+      <p>We exchanged glares, and they went out of the room. When the door shut, I felt arms hugging me. It was Hazel!</p>
+      <p>“Thank you, Vivian — you really are the truest friend there ever was.”</p>
+      <p>“Same to you,” I said, hugging her back.</p>
+
+      <p class="pov hazel" style="margin-top:2rem;">Hazel</p>
+      <p>When Vivian stepped out of the room, I couldn’t help feeling nervous. Vivian would surely leave me alone and join her old friends again — and then what was I to do?</p>
+      <p>As frightened as I was, I thought it was for the best. At least none of her friends would glare at me, or think I was preventing Vivian from speaking to them. I had to stay strong and think positive. Maybe I’d forget all this trouble, and soon things would blow over and be how it used to be in my old school.</p>
+      <p>I wasn’t completely friendless, though. I still had Alice. But somehow, I kept wishing and praying Vivian would still be my friend.</p>
+      <p>Vivian looked a bit scared as she gazed at us. I couldn’t blame her. Who wouldn’t be if they were in her shoes?</p>
+      <p>But I got the shock of my life when Vivian chose me instead of them. I had to pinch myself twenty times to even believe I wasn’t dreaming. I looked at Vivian admiringly. She was so brave — always following what she thought was right.</p>
+      <p>And as the others left the room, I couldn’t help hugging her. How nice it would be to have Vivian by my side. One day, I’d pay her back for all she had done for me.</p>
+      <p>And now we are walking home together, arm in arm. Who knew that I would actually find a true friend? Who knew Vivian would choose me over the others? And who knows what will happen in the future?</p>
+      <p>Well, whatever happens, I know Vivian and I are going to be the best of friends forever. I can feel it in my bones!</p>
+      <p>But now, I’m going to enjoy this moment — the moment I got my first true friend.</p>
+      <p class="thought">Isn’t it just wonderful? Unbelievable?</p>
+    </section>
+
+    <!-- THE END -->
+    <section class="page end-page">
+      <p class="end-mark">The End</p>
+      <p class="dedication">Two girls. One choice. A friendship that felt right.</p>
+      <p class="dedication" style="margin-top:1.2rem;">The story continues in <a href="vivian-and-hazel.html">Vivian and Hazel — Book 2</a>.</p>
+    </section>
+
+    <!-- ABOUT / EDITOR NOTE -->
+    <section class="page" id="about">
+      <div class="chapter-head">
+        <span class="chapter-num">About this book</span>
+        <h2>From Anshika’s notebook</h2>
+      </div>
+      <p class="meta">
+        Written by <strong>Anshika Mahesh</strong>, age 12<br />
+        Original manuscript: handwritten dual-perspective chapters<br />
+        Book edition prepared from: <em>The Shy Girl and popular Girl Anshu.pdf</em> &amp; <em>The Shy Girl and Popular Girl 2.pdf</em>
+      </p>
+      <p class="note">
+        This book edition keeps Anshika’s story, characters, chapters and dual points of view (Vivian and Hazel).
+        Spelling and punctuation were gently polished for reading clarity, while the voice, dialogue and emotional beats stay true to her original manuscript.
+      </p>
+      <p class="note" style="border-top:none;margin-top:0.4rem;padding-top:0;">
+        Tip: open this file in a browser and use <strong>Print → Save as PDF</strong> for a printable book PDF.
+      </p>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <span>© <span id="y"></span> Anshika Mahesh</span>
+    <a href="../newsletter.html">Subscribe</a>
+  </footer>
+
+  <script src="../js/main.js?v=pack1"></script>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Short Stories — Anshika Mahesh</title>
+  <meta name="description" content="A collection of short stories by Anshika Mahesh — facing fears, a unicorn switcheroo, mermaids, a singing dragon, a pirate castle, and a camel who meets a penguin." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    :root {
+      --ink: #243028; --soft: #516057; --card: #fffdf8;
+      --coral: #c45a5a; --sea: #3d7f99; --gold: #d4a05a;
+      --line: rgba(36,48,40,0.12);
+    }
+    .book { width: min(760px, calc(100% - 1.5rem)); margin: 1.2rem auto 3rem; }
+    .page {
+      background: var(--card); border: 1px solid var(--line); border-radius: 18px;
+      padding: clamp(1.5rem, 4vw, 2.8rem); margin-bottom: 1.15rem; position: relative; overflow: hidden;
+    }
+    .page::before {
+      content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 8px;
+      background: linear-gradient(180deg, var(--coral), var(--gold), var(--sea));
+    }
+    .cover {
+      padding: 0; min-height: min(90vh, 820px); display: grid; grid-template-rows: 1fr auto;
+      text-align: center; overflow: hidden; background: #efe6d6;
+    }
+    .cover::before { display: none; }
+    .cover-hero { margin: 0; min-height: min(58vh, 520px); overflow: hidden; background: #fff; }
+    .cover-hero img {
+      width: 100%; height: 100%; min-height: min(58vh, 520px);
+      object-fit: cover; object-position: center top; display: block;
+      animation: cover-in 1.1s ease-out both;
+    }
+    .cover-panel {
+      padding: clamp(1.4rem, 4vw, 2.4rem) clamp(1.4rem, 4vw, 2.6rem);
+      background:
+        linear-gradient(180deg, rgba(255,253,248,.94), #fffdf8 42%),
+        linear-gradient(180deg, rgba(196,90,90,.1), rgba(61,127,153,.1));
+      animation: panel-up .9s .15s ease-out both;
+    }
+    .brand {
+      font-family: Fraunces, Georgia, serif; font-size: clamp(2.2rem, 6.5vw, 3.4rem);
+      font-weight: 700; line-height: 1.05; margin: 0; letter-spacing: -.02em;
+    }
+    .brand em {
+      display: block; font-style: normal; font-size: .38em; margin-top: .55rem;
+      color: var(--soft); font-weight: 700;
+    }
+    .author {
+      margin: 1rem 0 0; font-weight: 800; letter-spacing: .1em;
+      text-transform: uppercase; font-size: .82rem; color: var(--coral);
+    }
+    .cover-cta { display: inline-flex; gap: .7rem; flex-wrap: wrap; justify-content: center; margin-top: 1.1rem; }
+    .cover-cta a {
+      text-decoration: none; color: #fff; background: var(--ink);
+      padding: .7rem 1.1rem; border-radius: 999px; font-weight: 800; font-size: .88rem;
+    }
+    .cover-cta a.secondary { background: transparent; color: var(--ink); border: 2px solid rgba(36,48,40,.18); }
+    @keyframes cover-in { from { transform: scale(1.04); opacity: .55; } to { transform: none; opacity: 1; } }
+    @keyframes panel-up { from { transform: translateY(14px); opacity: 0; } to { transform: none; opacity: 1; } }
+    .blurb {
+      font-family: Fraunces, Georgia, serif; font-size: clamp(1.15rem, 2.6vw, 1.4rem);
+      font-style: italic; line-height: 1.5; color: var(--soft); max-width: 42ch; margin: 0 auto; text-align: center;
+    }
+    .series-note {
+      margin: 0 0 1rem; padding: .7rem .9rem; border-radius: 12px;
+      background: rgba(61,127,153,.1); color: var(--soft); font-size: .9rem; font-weight: 600;
+    }
+    h2 { font-family: Fraunces, Georgia, serif; font-weight: 700; line-height: 1.15; margin: 0; }
+    .chapter-head { text-align: center; margin: 0 0 1.2rem; padding-bottom: .85rem; border-bottom: 1px solid var(--line); }
+    .chapter-num {
+      display: block; font-size: .75rem; font-weight: 800; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--coral); margin-bottom: .35rem;
+    }
+    .chapter-head h2 { font-size: clamp(1.65rem, 4vw, 2.2rem); }
+    p { margin: 0 0 1rem; } p:last-child { margin-bottom: 0; }
+    .dropcap::first-letter {
+      font-family: Fraunces, Georgia, serif; float: left; font-size: 3.1rem; line-height: .85;
+      padding-right: .4rem; font-weight: 700; color: var(--sea);
+    }
+    .illust {
+      margin: 0 0 1.35rem; border-radius: 14px; overflow: hidden;
+      border: 1px solid var(--line); background: #fff;
+    }
+    .illust img { width: 100%; height: auto; display: block; }
+    .illust figcaption {
+      font-size: .85rem; color: var(--soft); padding: .55rem .8rem;
+      background: rgba(36,48,40,.04); border-top: 1px solid var(--line);
+    }
+    .toc ol { list-style: none; margin: 0; padding: 0; }
+    .toc li { border-bottom: 1px dashed var(--line); }
+    .toc a { display: block; text-decoration: none; color: inherit; padding: .65rem .1rem; font-weight: 600; }
+    .toc a:hover { color: var(--coral); }
+    .script {
+      margin: 0 0 1rem; padding: .85rem 1rem; border-radius: 12px;
+      background: rgba(61,127,153,.06); border-left: 4px solid var(--sea);
+    }
+    .script p { margin: 0 0 .55rem; }
+    .script p:last-child { margin-bottom: 0; }
+    .script strong { color: var(--coral); font-weight: 800; }
+    .end-mark { text-align: center; font-family: Fraunces, Georgia, serif; font-size: 1.6rem; font-weight: 700; margin: 1rem 0 0; }
+    .note { margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--soft); font-size: .92rem; }
+    @media print {
+      .site-header, .book-tools, .site-footer, .cover-cta { display: none !important; }
+      .page { break-after: page; border: none; border-radius: 0; margin: 0; padding: 1.3cm 1.5cm; }
+      .page::before { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="logo" href="../index.html">Anshika Mahesh</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../stories.html" aria-current="page">Stories</a>
+        <a href="../newsletter.html">Newsletter</a>
+        <a href="../connect.html">Connect</a>
+      </nav>
+    </div>
+  </header>
+  <div class="book-tools" aria-label="In this story">
+    <a href="#contents">Contents</a>
+    <a href="#s1">Begin</a>
+  </div>
+
+  <main class="book">
+    <section class="page cover" id="cover">
+      <figure class="cover-hero">
+        <img src="images/short-stories/cover.png" alt="Cover: a notebook of tiny tales — mermaid, unicorn, dragon, bicycle" />
+      </figure>
+      <div class="cover-panel">
+        <h1 class="brand">Short Stories<em>Six little tales (and one thought about Google)</em></h1>
+        <p class="author">Written by Anshika Mahesh</p>
+        <div class="cover-cta">
+          <a href="#s1">Read the stories</a>
+          <a class="secondary" href="#contents">See titles</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="page">
+      <p class="series-note">From two notebooks: <em>short stories.pdf</em> and <em>short stories 2.pdf</em>. Spelling lightly polished; her plots, dialogue and morals kept. Titles capitalised for the contents list.</p>
+      <p class="blurb">
+        A scaredy-poke learns to ride. A horse and a unicorn swap jobs. A mermaid and a dolphin take turns saving each other. A dragon would rather sing.
+      </p>
+    </section>
+
+    <section class="page toc" id="contents">
+      <header class="chapter-head">
+        <span class="chapter-num">In this book</span>
+        <h2>The stories</h2>
+      </header>
+      <ol>
+        <li><a href="#s1">1. Facing Fears</a></li>
+        <li><a href="#s2">2. The Switcheroo</a></li>
+        <li><a href="#s3">3. One Good Turn Deserves Another</a></li>
+        <li><a href="#s4">4. The Voice</a></li>
+        <li><a href="#s5">5. The Castle Full of Mystery</a></li>
+        <li><a href="#s6">6. The King and Queen of Extremes</a></li>
+        <li><a href="#s7">7. Do It Ourselves <em>(a thought)</em></a></li>
+      </ol>
+    </section>
+
+    <section class="page" id="s1">
+      <header class="chapter-head">
+        <span class="chapter-num">Story 1</span>
+        <h2>Facing Fears</h2>
+      </header>
+      <figure class="illust">
+        <img src="images/short-stories/facing-fears.jpg" alt="Opening notebook page of Facing Fears" />
+        <figcaption>From the notebook</figcaption>
+      </figure>
+      <p class="dropcap">Mia was scared of everything — at least that’s what she thought. Everyone teased her and called her the scaredy-poke. That was until one day when she was talking to her friend, Stuthi. This was their conversation.</p>
+      <div class="script">
+        <p><strong>Mia —</strong> I wish I was as brave as you, Stuthi.</p>
+        <p><strong>Stuthi —</strong> Why are you always so scared?</p>
+        <p><strong>Mia —</strong> What if something bad happens to me while doing something?</p>
+        <p><strong>Stuthi —</strong> Even if something happens, you should get back up.</p>
+        <p><strong>Mia —</strong> How are you so brave even when you are talking? I feel so scared I could run away sometimes.</p>
+        <p><strong>Stuthi —</strong> When I am scared, I think of good things that I like. It helps me to face my fears. You should try it — it works very well on me.</p>
+        <p><strong>Mia —</strong> I will definitely try it and see how it works on me. Thanks for the advice.</p>
+      </div>
+      <p>The next day, Mia is scared as she really wants to ride her bicycle but she doesn’t want to fall. She tries Stuthi’s advice and thinks of yummy chocolate ice cream. She and her dad are practising outside.</p>
+      <div class="script">
+        <p><strong>Dad —</strong> Come on Mia, pedal faster. I am holding on to the cycle.</p>
+        <p><strong>Mia —</strong> I am scared, Dad. What if I fall?</p>
+        <p><strong>Dad —</strong> If you fall, just get back up.</p>
+        <p><strong>Mia —</strong> But Dad, what if I get hurt very badly?</p>
+      </div>
+      <p>Just then she falls from the cycle and injures her knee. Her dad puts a bandage on it and comforts her, but now she is scared to ride her cycle. She thinks of the ice cream again and decides to try again tomorrow.</p>
+      <p>The next day is here now and she is trying hard to ride her cycle.</p>
+      <div class="script">
+        <p><strong>Mia —</strong> Dad, am I cycling fast enough?</p>
+        <p><strong>Dad —</strong> Yes Mia, you are doing good. Just don’t worry about anything.</p>
+        <p><strong>Mia —</strong> Okay, Dad.</p>
+      </div>
+      <p>Just then, her dad lets go of her cycle and watches her cycle while following her. She doesn’t even notice till she parks the cycle and looks back. She realises what happened and starts laughing along with her dad. Now she is off on a bike ride with Stuthi and her dad. The next time she gets scared, she will remember this incident and face it.</p>
+      <p class="end-mark">✿</p>
+    </section>
+
+    <section class="page" id="s2">
+      <header class="chapter-head">
+        <span class="chapter-num">Story 2</span>
+        <h2>The Switcheroo</h2>
+      </header>
+      <p class="dropcap">Once, there lived a horse and a unicorn. They admired each other. Horse thought Unicorn was lucky as she was loved and admired by everyone. But Unicorn didn’t know Horse thought he was lucky — as he had no jobs to do and the farmer looked after him so well too. He didn’t need to make rainbows or be amazing to all those young girls and boys.</p>
+      <p>One day, Unicorn decided to visit his stable. When he saw her, he couldn’t help confessing this to her. Unicorn also shared her thoughts about him, and both of them were surprised and decided to switch places.</p>
+      <p>Horse liked flying and making rainbows, but he wished he could have some time to rest. And Unicorn liked taking a break from all her jobs, but she missed doing all those things instead of having nothing to do.</p>
+      <p>They both realised that they were best at being themselves instead of somebody else. And even though Horse accompanies Unicorn and helps her make rainbows, and even though Unicorn still came to visit Horse and go riding with him, they like being themselves best.</p>
+      <p class="end-mark">✿</p>
+    </section>
+
+    <section class="page" id="s3">
+      <header class="chapter-head">
+        <span class="chapter-num">Story 3</span>
+        <h2>One Good Turn Deserves Another</h2>
+      </header>
+      <p class="dropcap">Once, there lived a beautiful mermaid named Coral. She had a very good friend who was a dolphin. Her name was Rose. Both of them were very good friends and liked each other’s company. All was peace in the ocean, until a fisherman came. He caught Rose in his big net. She tried to break free but the net was too strong. Just then, Coral saw her. She tore a hole in the net for Rose to escape. She swam out of the net just in time, for the fisherman was just about to pull his net. Rose thanked Coral and promised to repay her some day.</p>
+      <p>One day, there was a big storm and the ocean went wild. The waves separated Rose and Coral from the other mermaids and animals. But Rose knew just what to do. She whistled as loud as she could. The dolphins heard the whistle and started to search for them. Rose kept whistling until they found her and Coral. The dolphins led them to safety. Coral thanked Rose and praised her for her quick thinking. The two of them lived happily ever after.</p>
+      <p class="end-mark">✿</p>
+    </section>
+
+    <section class="page" id="s4">
+      <header class="chapter-head">
+        <span class="chapter-num">Story 4</span>
+        <h2>The Voice</h2>
+      </header>
+      <figure class="illust">
+        <img src="images/short-stories/the-voice.jpg" alt="Notebook page of The Voice" />
+        <figcaption>Hugo the dragon</figcaption>
+      </figure>
+      <p class="dropcap">Hugo the dragon felt like nobody understood him. He loved singing more than anything in the world. But when the animals saw him, they wanted him to breathe fire. This was until there was a talent show. All the animals hoped he would breathe fire like he did in front of them. But Hugo had other plans. He decided he was going to sing a song he had written. That would show everyone what his true passion really was. He didn’t tell anyone his plans. They would just beg him to breathe fire.</p>
+      <p>He worked all day long, writing his song and rehearsing it. Finally, the day came. Everyone went to the talent show as they all wanted to see him. But when Hugo went on stage and sang his song, they all thought it was the best song they had ever heard. Now, wherever Hugo goes, they ask him to sing his songs. He is now the happiest dragon alive.</p>
+      <p class="end-mark">✿</p>
+    </section>
+
+    <section class="page" id="s5">
+      <header class="chapter-head">
+        <span class="chapter-num">Story 5</span>
+        <h2>The Castle Full of Mystery</h2>
+      </header>
+      <figure class="illust">
+        <img src="images/short-stories/castle.jpg" alt="Notebook page of The Castle Full of Mystery" />
+        <figcaption>Delia the pirate</figcaption>
+      </figure>
+      <p class="dropcap">Once there lived a she-pirate named Delia. One day, she was sailing across the Indian Ocean when she saw a beautiful castle. To others, it was an old tower, but in her eyes it was the most beautiful castle ever. She approached it. On the door it said, “If you answer one riddle, you may pass.”</p>
+      <p>“Okay,” said Delia bravely.</p>
+      <p>“Who invented gravity?” asked a voice in the air.</p>
+      <p>“Isaac Newton,” she answered.</p>
+      <p>All of a sudden, the door opened. She wandered around the castle when she found a magical mirror. The mirror said, “Finally you are here to save the day. There is a baby dragon who everyone thinks is a monster. He is harmless, don’t worry — just lift it up, the castle will be restored back to life.”</p>
+      <p>So she began hunting. She finally found a room with the dragon. She lifted it up and the dragon disappeared. The castle was restored! In front of her eyes, many princesses and princes appeared. They all thanked Delia for all her work. From that day on, life in the castle went on peacefully.</p>
+      <p class="end-mark">✿</p>
+    </section>
+
+    <section class="page" id="s6">
+      <header class="chapter-head">
+        <span class="chapter-num">Story 6</span>
+        <h2>The King and Queen of Extremes</h2>
+      </header>
+      <p class="dropcap">It was night time. There was not a sound to be heard. All the animals were getting ready for bed. Humpy, a camel, was walking around, wondering about the lives of other animals like him, when he saw a penguin looking at him through the transparent wall. Curiously, he walked towards the wall.</p>
+      <p>“Hello there, I’m Raya. Who are you?” said the penguin.</p>
+      <p>“Hello, I am Humpy,” he replied.</p>
+      <p>“What do you use that big hump of yours for?” asked Raya.</p>
+      <p>“As I live in scorching hot conditions, food is scarce. This hump stores fat that I use when I can’t find food,” replied Humpy.</p>
+      <p>“How clever! Even I store fat, though not in a hump like yours. It’s stored underneath all my feathers and skin and it is called blubber,” said Raya.</p>
+      <p>“How do you live in this cold climate? It confuses me — what do you use to thrive?” asked Humpy.</p>
+      <p>“I look at my feathers. They are packed very tightly and are so numerous that no wind or water can pass through,” replied Raya.</p>
+      <p>“But what if it’s too cold even for your coat?” Humpy asked.</p>
+      <p>“Then, we use the greatest trick of all: friendship. We all get together and form a big group called a huddle. We share our warmth to survive,” explained Raya.</p>
+      <p>“See my long legs — they may look like nothing, but they keep my body away from the hot sand, and my wide flat feet stop me from sinking into the soft sand,” said Humpy.</p>
+      <p>“We both face the opposite extremes, built perfectly for our homes,” said Raya.</p>
+      <p>“Exactly. We show why adaptation matters,” replied Humpy.</p>
+      <p>“Until tomorrow then,” said Raya, walking away.</p>
+      <p>“Until tomorrow,” said Humpy, and walked back to his exhibit.</p>
+      <p class="end-mark">✿</p>
+    </section>
+
+    <section class="page" id="s7">
+      <header class="chapter-head">
+        <span class="chapter-num">A thought</span>
+        <h2>Do It Ourselves</h2>
+      </header>
+      <p class="dropcap">In today’s living world, people are busy with apps like Google, WhatsApp, etc. Every time we get a homework assignment, we often Google up the answer or get hints from it. So we’ve forgotten to pick up a book to figure out the answer. Why at all the need?</p>
+      <p>It takes so much time to find the answer, underline it and then write it down. But now, it’s like technology is taking over us. We don’t read books great authors have written — we play video games instead. We don’t use our brains or try to find the answer, we Google the answer. Just imagine: teachers are correcting the work the internet provided us. We get “Very Good” or “Excellent” for the work Google did for us. Wouldn’t it be better to just do it ourselves?</p>
+      <p>Now, I’m not saying we should stop using the internet completely. I’m just saying that we must use it for the right reasons.</p>
+      <p class="end-mark">✿</p>
+      <p class="note">
+        Collected from <em>short stories.pdf</em> (Facing Fears, The Switcheroo, One Good Turn, The Voice) and <em>short stories 2.pdf</em> (Do It Ourselves, The Castle Full of Mystery, The King and Queen of Extremes).
+        Spelling lightly polished. “Scaredy-poke,” Hugo’s talent show, Delia’s riddle, and Humpy’s exhibit are hers.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span id="y"></span> Anshika Mahesh</span>
+    <a href="../newsletter.html">Subscribe</a>
+  </footer>
+  <script src="../js/main.js?v=pack1"></script>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kylie’s Story — Anshika Mahesh</title>
+  <meta name="description" content="Kylie’s Story by Anshika Mahesh — dreams that come true, a baby sister named Stuthi, and a magical watch that saves the future." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    :root {
+      --ink: #2a2430; --soft: #5a5160; --card: #fffaf6;
+      --pink: #c4788a; --sky: #5a8fa8; --gold: #d4a05a;
+      --line: rgba(42,36,48,0.12);
+    }
+    .book { width: min(760px, calc(100% - 1.5rem)); margin: 1.2rem auto 3rem; }
+    .page {
+      background: var(--card); border: 1px solid var(--line); border-radius: 18px;
+      padding: clamp(1.5rem, 4vw, 2.8rem); margin-bottom: 1.15rem; position: relative; overflow: hidden;
+    }
+    .page::before {
+      content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 8px;
+      background: linear-gradient(180deg, var(--pink), var(--gold), var(--sky));
+    }
+    .cover {
+      padding: 0; min-height: min(90vh, 820px); display: grid; grid-template-rows: 1fr auto;
+      text-align: center; overflow: hidden; background: #f3ebe6;
+    }
+    .cover::before { display: none; }
+    .cover-hero { margin: 0; min-height: min(58vh, 520px); overflow: hidden; background: #fff; }
+    .cover-hero img {
+      width: 100%; height: 100%; min-height: min(58vh, 520px);
+      object-fit: cover; object-position: center top; display: block;
+      animation: cover-in 1.1s ease-out both;
+    }
+    .cover-panel {
+      padding: clamp(1.4rem, 4vw, 2.4rem) clamp(1.4rem, 4vw, 2.6rem);
+      background:
+        linear-gradient(180deg, rgba(255,250,246,.94), #fffaf6 42%),
+        linear-gradient(180deg, rgba(196,120,138,.1), rgba(90,143,168,.1));
+      animation: panel-up .9s .15s ease-out both;
+    }
+    .brand {
+      font-family: Fraunces, Georgia, serif; font-size: clamp(2.2rem, 6.5vw, 3.4rem);
+      font-weight: 700; line-height: 1.05; margin: 0; letter-spacing: -.02em;
+    }
+    .brand em {
+      display: block; font-style: normal; font-size: .38em; margin-top: .55rem;
+      color: var(--soft); font-weight: 700;
+    }
+    .author {
+      margin: 1rem 0 0; font-weight: 800; letter-spacing: .1em;
+      text-transform: uppercase; font-size: .82rem; color: var(--pink);
+    }
+    .cover-cta { display: inline-flex; gap: .7rem; flex-wrap: wrap; justify-content: center; margin-top: 1.1rem; }
+    .cover-cta a {
+      text-decoration: none; color: #fff; background: var(--ink);
+      padding: .7rem 1.1rem; border-radius: 999px; font-weight: 800; font-size: .88rem;
+    }
+    .cover-cta a.secondary { background: transparent; color: var(--ink); border: 2px solid rgba(42,36,48,.18); }
+    @keyframes cover-in { from { transform: scale(1.04); opacity: .55; } to { transform: none; opacity: 1; } }
+    @keyframes panel-up { from { transform: translateY(14px); opacity: 0; } to { transform: none; opacity: 1; } }
+    .blurb {
+      font-family: Fraunces, Georgia, serif; font-size: clamp(1.15rem, 2.6vw, 1.4rem);
+      font-style: italic; line-height: 1.5; color: var(--soft); max-width: 42ch; margin: 0 auto; text-align: center;
+    }
+    .series-note {
+      margin: 0 0 1rem; padding: .7rem .9rem; border-radius: 12px;
+      background: rgba(196,120,138,.1); color: var(--soft); font-size: .9rem; font-weight: 600;
+    }
+    .rebuild {
+      margin: 0 0 1rem; padding: .75rem .95rem; border-radius: 12px;
+      border-left: 4px solid var(--gold);
+      background: rgba(212,160,90,.12); color: var(--soft); font-size: .9rem; font-weight: 600;
+    }
+    h2 { font-family: Fraunces, Georgia, serif; font-weight: 700; line-height: 1.15; margin: 0; }
+    .chapter-head { text-align: center; margin: 0 0 1.2rem; padding-bottom: .85rem; border-bottom: 1px solid var(--line); }
+    .chapter-num {
+      display: block; font-size: .75rem; font-weight: 800; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--pink); margin-bottom: .35rem;
+    }
+    .chapter-head h2 { font-size: clamp(1.65rem, 4vw, 2.2rem); }
+    p { margin: 0 0 1rem; } p:last-child { margin-bottom: 0; }
+    .dropcap::first-letter {
+      font-family: Fraunces, Georgia, serif; float: left; font-size: 3.1rem; line-height: .85;
+      padding-right: .4rem; font-weight: 700; color: var(--sky);
+    }
+    .cast { display: grid; gap: .55rem; }
+    .cast div { padding: .55rem 0; border-bottom: 1px dashed var(--line); }
+    .cast strong { color: var(--pink); }
+    .illust {
+      margin: 0 0 1.35rem; border-radius: 14px; overflow: hidden;
+      border: 1px solid var(--line); background: #fff;
+    }
+    .illust img { width: 100%; height: auto; display: block; }
+    .illust figcaption {
+      font-size: .85rem; color: var(--soft); padding: .55rem .8rem;
+      background: rgba(42,36,48,.04); border-top: 1px solid var(--line);
+    }
+    .toc ol { list-style: none; margin: 0; padding: 0; }
+    .toc li { border-bottom: 1px dashed var(--line); }
+    .toc a { display: block; text-decoration: none; color: inherit; padding: .65rem .1rem; font-weight: 600; }
+    .toc a:hover { color: var(--pink); }
+    .end-mark { text-align: center; font-family: Fraunces, Georgia, serif; font-size: 2.1rem; font-weight: 700; margin: 0 0 .5rem; }
+    .note { margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--soft); font-size: .92rem; }
+    .thought { font-style: italic; color: var(--soft); }
+    @media print {
+      .site-header, .book-tools, .site-footer, .cover-cta { display: none !important; }
+      .page { break-after: page; border: none; border-radius: 0; margin: 0; padding: 1.3cm 1.5cm; }
+      .page::before { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="logo" href="../index.html">Anshika Mahesh</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../stories.html" aria-current="page">Stories</a>
+        <a href="../newsletter.html">Newsletter</a>
+        <a href="../connect.html">Connect</a>
+      </nav>
+    </div>
+  </header>
+  <div class="book-tools" aria-label="In this story">
+    <a href="#contents">Contents</a>
+    <a href="#ch1">Begin</a>
+    <a href="#cast">Cast</a>
+  </div>
+
+  <main class="book">
+    <section class="page cover" id="cover">
+      <figure class="cover-hero">
+        <img src="images/kylies-story/cover.png" alt="Cover: Kylie on a sunny farm with a little cat" />
+      </figure>
+      <div class="cover-panel">
+        <h1 class="brand">Kylie’s Story<em>When dreams come true — even the peculiar ones</em></h1>
+        <p class="author">Written by Anshika Mahesh</p>
+        <div class="cover-cta">
+          <a href="#ch1">Read the story</a>
+          <a class="secondary" href="#contents">See chapters</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="page">
+      <p class="series-note">From Anshika’s illustrated notebook (<em>kylie's stiry.pdf</em> — 20 pages, complete). Title spelled <em>Kylie’s Story</em> for the site. Spelling lightly polished; her drawings, dreams, and ending kept.</p>
+      <p class="blurb">
+        Kylie’s dreams come true. She turns into a cat, becomes a big sister, and — with Moira — plants a future that had gone dry.
+      </p>
+    </section>
+
+    <section class="page" id="cast">
+      <header class="chapter-head">
+        <span class="chapter-num">Introducing…</span>
+        <h2>Kylie, Moira &amp; a watch</h2>
+      </header>
+      <figure class="illust">
+        <img src="images/kylies-story/kylie.jpg" alt="Anshika’s drawing of Kylie celebrating" />
+        <figcaption>Opening page — Kylie after her project</figcaption>
+      </figure>
+      <div class="cast">
+        <div><strong>Kylie</strong> — Dreams come true. Can turn into animals. Names her baby sister Stuthi.</div>
+        <div><strong>Moira</strong> — Best friend. Believes Kylie. Discovers she can transform too — and make dreams real.</div>
+        <div><strong>Mum &amp; Dad</strong> — Proud of the project. Laugh when Kylie mentions powers… until the watch shakes.</div>
+        <div><strong>Aunty Lou</strong> — Bakes chocolate cake and ice-cream while Mum is at the hospital.</div>
+        <div><strong>Stuthi</strong> — The baby sister Kylie dreamed of — then named.</div>
+        <div><strong>Ria &amp; Harshini</strong> — Daughters of future-Kylie, waiting by an old well on dry land.</div>
+      </div>
+    </section>
+
+    <section class="page toc" id="contents">
+      <header class="chapter-head">
+        <span class="chapter-num">Contents</span>
+        <h2>Chapters</h2>
+      </header>
+      <ol>
+        <li><a href="#ch1">1. Even Her Dreams Came True</a></li>
+        <li><a href="#ch2">2. Moira Believes</a></li>
+        <li><a href="#ch3">3. Goa, Raj &amp; the Luminary</a></li>
+        <li><a href="#ch4">4. Her Name Shall Be Stuthi</a></li>
+        <li><a href="#ch5">5. They Saved the Future</a></li>
+      </ol>
+    </section>
+
+    <section class="page" id="ch1">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 1</span>
+        <h2>Even Her Dreams Came True</h2>
+      </header>
+      <p class="rebuild">The notebook begins “It was the next day,” after a school project. A short opening sentence is added so the first page has somewhere to land.</p>
+      <p class="dropcap">Kylie had just finished her school project — and she could hardly wait for what the teacher would say.</p>
+      <p>It was the next day. The teacher was quite impressed by Kylie’s project and promised her an A grade in her report card. She was pleased with herself and couldn’t wait to break the news to her dad. Fortunately, he was free when Kylie came home, and very proud too. So much so that he took her outside for ice-cream. Kylie was happy about that.</p>
+      <p>That night when she slept, she dreamt of herself as a cat in a farm, mewing for milk and shelter. She woke up to her alarm clock with a jerk. But little did she know that even her dreams came true!</p>
+      <p>It was the next day and, to Kylie’s astonishment, they were going to visit her grandfather on his farm, as it was a Saturday. Her dad started the car and they were off. They had a long journey and finally reached. At the farm, there were lots of things to do. Kylie lay on the soft green grass all alone. She decided to turn into a cat. Once she did, she felt very hungry and mewed for milk. <span class="thought">Just like my dream,</span> she thought to herself. She decided to explore more later and changed back to her human form.</p>
+      <p>It was Sunday and time to go home. Kylie hopped into the car and said goodbye to her grandfather. It took hours to go home and she found it a bit too quiet. So much so that she slept in the car. She dreamt of being a big sister to a baby girl. How wonderful it would be! No more being lonely or the youngest.</p>
+      <p>“Kylie, we’re home,” said her mother. Kylie woke up and went inside.</p>
+      <p>“I think I might have a rest,” said her mother. “I am very tired.”</p>
+      <p>Kylie remembered her dream. Had it come true? Her mother went to the doctor with her father and came back smiling.</p>
+      <p>“Sit down, Kylie. I have great news,” said her father. “You are going to be a big sister!”</p>
+      <p>What had her father said? It couldn’t be real — her, a big sister? Really? Her dream had come true! Oh, the preparations to make! She jumped in delight.</p>
+      <p>That night, she dreamt of holding the baby tightly as she put it to sleep. She woke up early the next day and went to school. Ugh! Exams were tomorrow. Good thing she prepared long ago. After school, she studied for a long time and decided to take a power nap. She dreamt of acing her exams, scoring A’s in all. When she woke up, a little confidence flew over her, and as she studied more, she felt happy.</p>
+      <figure class="illust">
+        <img src="images/kylies-story/exams.jpg" alt="Anshika’s drawing: YOU DID IT! YAY! WOW! and an A+" />
+        <figcaption>You did it!</figcaption>
+      </figure>
+    </section>
+
+    <section class="page" id="ch2">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 2</span>
+        <h2>Moira Believes</h2>
+      </header>
+      <p class="dropcap">She woke up early the next day and ran to school with a smile. The question paper was very easy. But to her shock, everyone was groaning frustratedly. How come?</p>
+      <p>When the exam was over, she went to her friend Moira, who was standing sadly in a corner.</p>
+      <p>“I failed, I know I did!” said Moira.</p>
+      <p>“Well, I can help you for the rest of the exams if you come over to my house during study holidays,” said Kylie.</p>
+      <p>“You really would?”</p>
+      <p>“Of course!”</p>
+      <p>That very day Moira came over and the two of them studied. She came over the next day too. Kylie dreamt of Moira getting A’s in her exams.</p>
+      <p>It was the last exam day. Kylie and Moira were getting A’s in their exams, but the rest of the class fell far behind. Kylie had tried to tell her parents about her special powers, but they thought it was a joke and roared with laughter. But Moira believed it after she saw Kylie turn into a monkey. The two of them spent loads of time together. They loved each other’s company. To Moira’s delight, she found out she could transform into animals too — and make her dreams real! How very surprising!</p>
+      <figure class="illust">
+        <img src="images/kylies-story/parents.jpg" alt="Anshika’s drawing: Mum and Dad laughing while Kylie thinks Please Listen" />
+        <figcaption>Please listen — they thought it was a joke</figcaption>
+      </figure>
+      <p>It was the day! Kylie was going to find out if her sibling was a girl or a boy! Well, at least that’s what everyone thought. She already knew it was a girl, for she had dreamt it. They were to pop a balloon, and if the confetti was blue it was a boy, and if it was pink, it was a girl. When the balloon popped, pink confetti fell out of it. A girl! How exciting! The people were glad to know at last. What a lovely day it had been. And even better was when her mother said Kylie was to name the baby girl once she was born. Oh how Kylie wished five months (the time her sister was supposed to be born) would fly by quickly.</p>
+      <figure class="illust">
+        <img src="images/kylies-story/big-sister.jpg" alt="Anshika’s drawing of Kylie holding a Big sister sign and a Girl or Boy balloon" />
+        <figcaption>Big sister — girl or boy?</figcaption>
+      </figure>
+    </section>
+
+    <section class="page" id="ch3">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 3</span>
+        <h2>Goa, Raj &amp; the Luminary</h2>
+      </header>
+      <p class="dropcap">It was tripping time! A month of summer vacations had fled by and now Kylie was going to Goa with Moira! How fun it was going to be! They were going on a road trip there. They drove till Moira’s house, got out to eat some breakfast and set off. Kylie couldn’t wait to go to the beach. She loved building sandcastles. From Bengaluru to Goa was a long drive, so she was glad to have her friend to talk to. They played a game of I Spy and read some books. They got out for lunch and set off again. Finally they reached Goa. How lovely the view was from their hotel room window.</p>
+      <p>Once they settled a bit they changed into swimsuits and went to the swimming pool. Kylie’s dad came with them. They had a lovely time. After a scrumptious dinner, they fell fast asleep. The next day they went to the beach. How lovely it was! Like this they spent the week exploring exciting places. Finally, the day came when they had to go home. Well, never mind — they would come some other time!</p>
+      <p>Once they reached home, Kylie’s mother took some rest. They talked about the baby and what all they had to get. How exciting it all was! But how hard it was to wait!</p>
+      <p>Time to go back to school! The summer had flown by so quickly! She had gone with Moira to the shop to buy stationery. It was sad that holidays were over, but the good thing about it was that there were only two more months left to see the baby. They were making plans. What a list of things they had to buy! But it would be worth it in the end.</p>
+      <p>Kylie went to her aunt’s house to practice on her cousin, Raj. He was just a month old. Sometimes Moira would go with her to see Raj. He was very cute and sweet. Kylie loved taking care of him. Kylie couldn’t wait to see the baby for the first time.</p>
+      <p>It was time to go to school! She and Moira walked to school together, talking happily. They went to their sections and made friends. Kylie made friends with a girl called Ruhi. She was really nice to her. Luckily, Moira and she were in the same section. There was great excitement buzzing in class when the teacher told them about an award called Luminary of the Fortnight. Every fortnight a child was awarded a badge with their parents if they were disciplined, kind, loyal, etc. Everyone hoped to be the luminary. Kylie hoped fervently she would too. She made up her mind to be as good as possible.</p>
+      <p>A week of school passed and it was time to announce the first and second luminary. To Kylie’s joy and delight, she was the first luminary, followed by Moira. Her parents were to come the next day. The next day arrived and Kylie’s parents arrived. The teacher described some good things about Kylie. Kylie shared her news of being a big sister with the class. They were very interested and surprisingly quiet. Two weeks later it was Moira’s turn. After their luminaries they got many friends, for they were the first and second people to be luminaries. They both enjoyed this special attention from the class.</p>
+      <figure class="illust">
+        <img src="images/kylies-story/luminary.jpg" alt="Anshika’s drawing of two girls holding a Luminary banner" />
+        <figcaption>First and second luminary</figcaption>
+      </figure>
+    </section>
+
+    <section class="page" id="ch4">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 4</span>
+        <h2>Her Name Shall Be Stuthi</h2>
+      </header>
+      <p class="dropcap">A month had passed just like that and the next month began. Her mother began to feel very tired. Plans for things to buy for the baby began. They went to the baby shop to buy things for her. Kylie felt excited. This month her sister was going to be born. This was definitely the best month of the year.</p>
+      <p>The next day when she came back from school, nobody was at home. She found a note on the table. It said:</p>
+      <p class="thought">Dear Kylie, Your mother and I rushed to the hospital. Your aunt will come to look after you as soon as she can. Yours lovingly — Dad.</p>
+      <p>Kylie jumped with excitement. She was going to be a big sister — possibly that very day!</p>
+      <p>There was a knock on the door. Kylie rushed to get it. Her aunt smiled at her. She went inside, hung her coat and sat on a chair.</p>
+      <p>“Well! What a lucky girl you are.”</p>
+      <p>“Yes.”</p>
+      <p>“Let’s bake a cake to celebrate,” said her aunty.</p>
+      <p>“Okay, Aunty Lou.”</p>
+      <p>Together, they went to the shops to get the ingredients. They baked a delicious chocolate cake. Aunty Lou even taught her how to make ice-cream. They had made quite a nice spread. Even a jug of strawberry milkshake was placed on the table. They saved some for mummy and daddy too. She missed them a lot. She took some supplies to make a card. She had gone out with her aunt and got a present for them too.</p>
+      <figure class="illust">
+        <img src="images/kylies-story/cake.jpg" alt="Anshika’s drawing of Kylie thinking Yummy Cake and a Welcome cake" />
+        <figcaption>Yummy cake — Welcome</figcaption>
+      </figure>
+      <p>Kylie was very excited. She was going to see her baby sister for the first time! She and her aunt got into the car and drove off. She went to a room and waited. Ugh! How boring. She thought of names for the baby. Sophie, Minnie, Ria… Finally it was time to see her mother. A nurse led her to another room. Inside was her mother and baby sister. She had never seen her mother so pale before. Her father was present there too.</p>
+      <p>Her baby sister was the cutest sibling ever.</p>
+      <p>“Have you found a name for her?” asked her mother.</p>
+      <p>“Yes, her name shall be… Stuthi!”</p>
+      <p>“What a lovely name,” answered her father.</p>
+      <p>“I’m glad you liked it,” said Kylie happily.</p>
+      <p>It was time for her baby sister to come home! How exciting it was going to be, having a baby around in the house. Aunty Lou had helped her arrange the baby room. She also made some mac-n-cheese to go with the leftover cake. They even baked cookies and muffins. At last they arrived home. Kylie ran towards them, slowing down as she saw the baby in her mother’s arms. How sweet she was. Moira also paid a visit to see the baby. They all enjoyed the feast that Kylie and Aunty Lou had made. And when Kylie showed her mother the room she had decorated, she gave her a great big hug. It was the best day ever.</p>
+      <figure class="illust">
+        <img src="images/kylies-story/welcome.jpg" alt="Anshika’s drawing of cupcakes, cookies, mac-n-cheese and a Welcome cake" />
+        <figcaption>The welcome feast</figcaption>
+      </figure>
+    </section>
+
+    <section class="page" id="ch5">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 5</span>
+        <h2>They Saved the Future</h2>
+      </header>
+      <p class="dropcap">A month had flown away just like that. Kylie didn’t really show her powers to the world except for Moira and her baby sister — for other than them nobody would ever believe such a thing. But that night she dreamt of something rather peculiar. She and other people were planting saplings in a desert. Moira was with her too. And then, she held out her watch and went back home with everyone there.</p>
+      <p>The next morning was a Sunday, to her relief, for she badly needed someone to talk about this with. She knew it would come true — but how? She decided to go over to Moira’s house right after breakfast.</p>
+      <p>She ran to Moira’s house straight after breakfast and told her what had happened. Surprisingly, Moira had the same dream. They decided it was time to show the world their powers. They called their parents to the dining room and changed into animals in front of them. They were very shocked. How could it be real?</p>
+      <p>Suddenly, her watch started shaking. An entrance into a magical world! How very strange! They hopped in and found a dry piece of land. Kylie saw people who looked a lot like her family. Moira also said she had a dream of travelling to the future. Could this be the future?</p>
+      <figure class="illust">
+        <img src="images/kylies-story/future.jpg" alt="Anshika’s drawings of Ria, Harshini, Kylie and Moira" />
+        <figcaption>Ria, Harshini, Kylie (ಕೈಲಿ) and Moira</figcaption>
+      </figure>
+      <p>“Hello! Who are you?” asked Kylie.</p>
+      <p>“We are Ria and Harshini, daughters of Kylie who is standing near the old well,” answered Ria.</p>
+      <p>Kylie couldn’t believe her ears. Were these kids really her children?</p>
+      <p>“Next to our mother is our Aunty Stuthi,” said Harshini.</p>
+      <p>“Well,” said Kylie, finding her voice at last, “we can help you grow crops here if you like. We can bring many plants and seeds and grow them here.”</p>
+      <p>“Thank you very much, you are very kind,” said Ria.</p>
+      <p>“Yes, we shall be glad of your help,” said Harshini.</p>
+      <p>They talked a little bit more and returned home.</p>
+      <p>Many years passed. Kylie and Moira kept going to the future world and planted trees. They always brought help with them so they could finish it easily. Stuthi was already three and Moira and Kylie were thirteen. Finally they had made the old, dry land into a huge farmland. They couldn’t believe what they had done. They had saved the future. They had made life better for their children.</p>
+      <p>“Kylie.”</p>
+      <p>“Yes, Moira.”</p>
+      <p>“Let’s always be this close forever.”</p>
+      <p>“Obviously we will,” said Kylie.</p>
+      <p>“Let’s go to the park,” said Stuthi.</p>
+      <p>“Okay my dear, let’s go,” said Kylie.</p>
+      <p>Now we must let them go on their own, far away!</p>
+      <figure class="illust">
+        <img src="images/kylies-story/farm.jpg" alt="Anshika’s drawing of Moira and Kylie in a green farm under a rising sun" />
+        <figcaption>They had made the dry land into a huge farmland</figcaption>
+      </figure>
+      <p class="end-mark">The End</p>
+      <p class="note">
+        From Anshika’s manuscript <em>kylie's stiry.pdf</em> (20 illustrated pages, complete).
+        One connecting sentence added at the start so “the next day” has a project to follow.
+        Spelling lightly polished. Drawings, names (Stuthi, Moira, Aunty Lou, Ria, Harshini) and the last narrator line are hers.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span id="y"></span> Anshika Mahesh</span>
+    <a href="../newsletter.html">Subscribe</a>
+  </footer>
+  <script src="../js/main.js?v=pack1"></script>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>

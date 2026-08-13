@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Trip to the Great Pyramid of Giza — Anshika</title>
+  <meta name="description" content="The Trip to the Great Pyramid of Giza by Anshika Mahesh and Samyuktha — a magical school-project adventure through ancient Egypt." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    :root {
+      --ink: #1c2430; --soft: #4a5563; --card: #fffdf9;
+      --sand: #c9a46a; --nile: #2f7a86; --terracotta: #b56a4a;
+      --line: rgba(28,36,48,0.12);
+    }
+    .book { width: min(760px, calc(100% - 1.5rem)); margin: 1.2rem auto 3rem; }
+    .page {
+      background: var(--card); border: 1px solid var(--line); border-radius: 18px;
+      padding: clamp(1.5rem, 4vw, 2.8rem); margin-bottom: 1.15rem; position: relative; overflow: hidden;
+    }
+    .page::before {
+      content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 8px;
+      background: linear-gradient(180deg, var(--sand), var(--terracotta), var(--nile));
+    }
+    .cover {
+      padding: 0; min-height: min(90vh, 820px); display: grid; grid-template-rows: 1fr auto;
+      text-align: center; overflow: hidden; background: #f3e4c8;
+    }
+    .cover::before { display: none; }
+    .cover-hero { margin: 0; min-height: min(58vh, 520px); overflow: hidden; }
+    .cover-hero img {
+      width: 100%; height: 100%; min-height: min(58vh, 520px);
+      object-fit: cover; object-position: center 45%; display: block;
+      animation: cover-in 1.1s ease-out both;
+    }
+    .cover-panel {
+      padding: clamp(1.4rem, 4vw, 2.4rem) clamp(1.4rem, 4vw, 2.6rem);
+      background:
+        linear-gradient(180deg, rgba(255,253,249,.94), #fffdf9 42%),
+        linear-gradient(180deg, rgba(201,164,106,.14), rgba(47,122,134,.1));
+      animation: panel-up .9s .15s ease-out both;
+    }
+    .brand {
+      font-family: Fraunces, Georgia, serif; font-size: clamp(2rem, 5.8vw, 3.1rem);
+      font-weight: 700; line-height: 1.08; margin: 0; letter-spacing: -.02em;
+    }
+    .brand em {
+      display: block; font-style: normal; font-size: .4em; margin-top: .55rem;
+      color: var(--soft); font-weight: 700;
+    }
+    .author {
+      margin: 1rem 0 0; font-weight: 800; letter-spacing: .1em;
+      text-transform: uppercase; font-size: .82rem; color: var(--nile);
+    }
+    .cover-cta { display: inline-flex; gap: .7rem; flex-wrap: wrap; justify-content: center; margin-top: 1.1rem; }
+    .cover-cta a {
+      text-decoration: none; color: #fff; background: var(--ink);
+      padding: .7rem 1.1rem; border-radius: 999px; font-weight: 800; font-size: .88rem;
+    }
+    .cover-cta a.secondary { background: transparent; color: var(--ink); border: 2px solid rgba(28,36,48,.18); }
+    @keyframes cover-in {
+      from { transform: scale(1.06); opacity: .55; }
+      to { transform: none; opacity: 1; }
+    }
+    @keyframes panel-up {
+      from { transform: translateY(14px); opacity: 0; }
+      to { transform: none; opacity: 1; }
+    }
+    .blurb {
+      font-family: Fraunces, Georgia, serif; font-size: clamp(1.15rem, 2.6vw, 1.4rem);
+      font-style: italic; line-height: 1.5; color: var(--soft); max-width: 40ch; margin: 0 auto; text-align: center;
+    }
+    h2 { font-family: Fraunces, Georgia, serif; font-weight: 700; line-height: 1.15; margin: 0; }
+    .chapter-head { text-align: center; margin: 0 0 1.2rem; padding-bottom: .85rem; border-bottom: 1px solid var(--line); }
+    .chapter-num {
+      display: block; font-size: .75rem; font-weight: 800; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--nile); margin-bottom: .35rem;
+    }
+    .chapter-head h2 { font-size: clamp(1.65rem, 4vw, 2.2rem); }
+    p { margin: 0 0 1rem; } p:last-child { margin-bottom: 0; }
+    .dropcap::first-letter {
+      font-family: Fraunces, Georgia, serif; float: left; font-size: 3.1rem; line-height: .85;
+      padding-right: .4rem; font-weight: 700; color: var(--terracotta);
+    }
+    .illust {
+      margin: 0 0 1.35rem; border-radius: 14px; overflow: hidden;
+      border: 1px solid var(--line); background: #fff;
+    }
+    .illust img { width: 100%; height: auto; display: block; }
+    .illust figcaption {
+      font-size: .85rem; color: var(--soft); padding: .55rem .8rem;
+      background: rgba(28,36,48,.04); border-top: 1px solid var(--line);
+    }
+    .toc ol { list-style: none; margin: 0; padding: 0; }
+    .toc li { border-bottom: 1px dashed var(--line); }
+    .toc a { display: block; text-decoration: none; color: inherit; padding: .65rem .1rem; font-weight: 600; }
+    .toc a:hover { color: var(--nile); }
+    .end-mark { text-align: center; font-family: Fraunces, Georgia, serif; font-size: 2.1rem; font-weight: 700; margin: 0 0 .5rem; }
+    .note { margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--soft); font-size: .92rem; }
+    @media print {
+      .site-header, .book-tools, .site-footer, .cover-cta { display: none !important; }
+      .page { break-after: page; border: none; border-radius: 0; margin: 0; padding: 1.3cm 1.5cm; }
+      .page::before { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="logo" href="../index.html">Anshika Mahesh</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../stories.html" aria-current="page">Stories</a>
+        <a href="../newsletter.html">Newsletter</a>
+        <a href="../connect.html">Connect</a>
+      </nav>
+    </div>
+  </header>
+  <div class="book-tools" aria-label="In this story">
+    <a href="#contents">Contents</a>
+    <a href="#ch1">Begin</a>
+  </div>
+
+  <main class="book">
+    <section class="page cover" id="cover">
+      <figure class="cover-hero">
+        <img src="images/giza/img-000.jpg" alt="Cover: The Trip to the Great Pyramid of Giza" />
+      </figure>
+      <div class="cover-panel">
+        <h1 class="brand">The Trip to the Great Pyramid of Giza<em>A Magical Adventure</em></h1>
+        <p class="author">By Anshika Mahesh</p>
+        <div class="cover-cta">
+          <a href="#ch1">Read the adventure</a>
+          <a class="secondary" href="#contents">See chapters</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="page">
+      <p class="blurb">
+        A cardboard pyramid, a school competition, and a whoosh into ancient Egypt — where camels, tombs, and ramps teach Anshika and Samyuktha everything their project needed.
+      </p>
+    </section>
+
+    <section class="page toc" id="contents">
+      <header class="chapter-head">
+        <span class="chapter-num">Contents</span>
+        <h2>Chapters</h2>
+      </header>
+      <ol>
+        <li><a href="#ch1">1. The Big Project</a></li>
+        <li><a href="#ch2">2. A Magic Journey</a></li>
+        <li><a href="#ch3">3. Welcome to Giza</a></li>
+        <li><a href="#ch4">4. Riding the Ships of the Desert</a></li>
+        <li><a href="#ch5">5. Secrets of the Tomb</a></li>
+        <li><a href="#ch6">6. Ancient Engineering</a></li>
+        <li><a href="#ch7">7. Home Again</a></li>
+        <li><a href="#ch8">8. The Winners</a></li>
+      </ol>
+    </section>
+
+    <section class="page" id="ch1">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter One</span>
+        <h2>The Big Project</h2>
+      </header>
+      <figure class="illust">
+        <img src="images/giza/img-001.jpg" alt="Anshika and Samyuktha building a cardboard pyramid" loading="lazy" />
+        <figcaption>An amazing model from drawer cardboard</figcaption>
+      </figure>
+      <p class="dropcap">Samyuktha and Anshika were working on a big project about the Great Pyramid of Giza for a school competition. They wanted to make it unique, so they found some cardboard in a drawer and built an amazing model.</p>
+      <p>When they finished, it looked exactly like the real pyramid!</p>
+      <p>But there was one big problem — they didn’t know much about the history of the pyramids. What were they going to do?</p>
+    </section>
+
+    <section class="page" id="ch2">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter Two</span>
+        <h2>A Magic Journey</h2>
+      </header>
+      <figure class="illust">
+        <img src="images/giza/img-002.jpg" alt="Diving into the pyramid model toward ancient Egypt" loading="lazy" />
+        <figcaption>WHOOSH!</figcaption>
+      </figure>
+      <p class="dropcap">Suddenly, they touched their model, and WHOOSH! They dived right into ancient Egypt!</p>
+      <p>When they opened their eyes, hot sand was under their feet, and the sun beat down warmly. They were so surprised that they started pinching themselves to make sure they weren’t dreaming.</p>
+    </section>
+
+    <section class="page" id="ch3">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter Three</span>
+        <h2>Welcome to Giza</h2>
+      </header>
+      <figure class="illust">
+        <img src="images/giza/img-003.jpg" alt="A friendly guide welcomes them to the Great Pyramid" loading="lazy" />
+        <figcaption>A friendly welcome</figcaption>
+      </figure>
+      <p class="dropcap">A friendly man saw their confused faces and smiled. “Welcome to the Great Pyramid of Giza! Would you like a tour?”</p>
+      <p>“Yes, thank you!” they replied excitedly.</p>
+    </section>
+
+    <section class="page" id="ch4">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter Four</span>
+        <h2>Riding the Ships of the Desert</h2>
+      </header>
+      <figure class="illust">
+        <img src="images/giza/img-004.jpg" alt="Camel ride across the desert toward the pyramid" loading="lazy" />
+        <figcaption>Thud-thud through the golden sand</figcaption>
+      </figure>
+      <p class="dropcap">To their delight, the man brought two camels. “It’s not far, but for the full experience, would you like a ride?”</p>
+      <p>“Yes, we would love to try!” they shouted.</p>
+      <p>He helped them climb onto the tall, swaying camels. As they rode through the golden desert, the camels’ hooves made soft thud-thud sounds in the sand. Finally, they reached the massive pyramid shining under the blue sky.</p>
+    </section>
+
+    <section class="page" id="ch5">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter Five</span>
+        <h2>Secrets of the Tomb</h2>
+      </header>
+      <figure class="illust">
+        <img src="images/giza/img-005.jpg" alt="Learning about mummies and natron salt" loading="lazy" />
+        <figcaption>Pharaohs, mummies, and natron</figcaption>
+      </figure>
+      <p class="dropcap">“What is this pyramid used for?” asked Samyuktha.</p>
+      <p>“It is a grand tomb for powerful Egyptian pharaohs,” replied the man. “They preserved the bodies as mummies so people would never forget them.”</p>
+      <p>“Why do they use salt for mummifying?” asked Anshika.</p>
+      <p>“Ancient Egyptians used a special salt called natron to dry the body and stop it from rotting. That way, it lasted forever inside the pyramid!”</p>
+    </section>
+
+    <section class="page" id="ch6">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter Six</span>
+        <h2>Ancient Engineering</h2>
+      </header>
+      <figure class="illust">
+        <img src="images/giza/img-006.jpg" alt="Looking up at giant pyramid stones and ramps" loading="lazy" />
+        <figcaption>Ramps, not machines</figcaption>
+      </figure>
+      <p class="dropcap">“Are only Egyptian pharaohs buried here?” asked Anshika.</p>
+      <p>“Mostly Egyptian kings and queens,” the guide explained. “But history has stories of others honored nearby. For example, Alexander the Great from Macedonia had a famous tomb not far away.”</p>
+      <p>“Was any machine used to build this pyramid?” asked Samyuktha, looking up at the giant stones.</p>
+      <p>“No machines like today! They used inclined planes — or ramps — to lift huge stones from the ground to higher levels.”</p>
+    </section>
+
+    <section class="page" id="ch7">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter Seven</span>
+        <h2>Home Again</h2>
+      </header>
+      <figure class="illust">
+        <img src="images/giza/img-007.jpg" alt="The desert fades as they return home" loading="lazy" />
+        <figcaption>POOF!</figcaption>
+      </figure>
+      <p class="dropcap">Suddenly, the desert began to fade.</p>
+      <p>“We need to go now, but thank you so much!” cried Anshika.</p>
+      <p>“I never knew a pyramid could have so much meaning,” added Samyuktha.</p>
+      <p>“You are very welcome,” the man replied with a wave.</p>
+      <p>POOF! They were back home, blinking in surprise.</p>
+    </section>
+
+    <section class="page" id="ch8">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter Eight</span>
+        <h2>The Winners</h2>
+      </header>
+      <figure class="illust">
+        <img src="images/giza/img-008.jpg" alt="Winning first place in the school competition" loading="lazy" />
+        <figcaption>First place!</figcaption>
+      </figure>
+      <p class="dropcap">The next day at school, their teacher loved the project and all the fascinating facts they shared.</p>
+      <p>Samyuktha and Anshika won First Place in the competition!</p>
+      <p>They were thrilled to have visited the Great Pyramid of Giza — even if it was just a magical dream.</p>
+      <p class="end-mark">The End</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span id="y"></span> Anshika Mahesh</span>
+    <a href="../newsletter.html">Subscribe</a>
+  </footer>
+  <script src="../js/main.js?v=pack1"></script>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>

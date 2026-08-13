@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>About — Anshika Mahesh</title>
+  <meta name="description" content="About Anshika Mahesh, a 12-year-old author writing stories about friendship, bravery, and kindness." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="logo" href="index.html">Anshika Mahesh</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="about.html" aria-current="page">About</a>
+        <a href="stories.html">Stories</a>
+        <a href="newsletter.html">Newsletter</a>
+        <a href="connect.html">Connect</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="section">
+    <div class="section-head">
+      <p class="eyebrow">About</p>
+      <h1 class="page-title">Hi, I’m Anshika.</h1>
+      <p class="page-intro">I’m 12 years old, and I write stories about friendship, courage, secrets, and the quiet moments that change everything.</p>
+    </div>
+
+    <div class="author-photos" aria-label="Photos of Anshika">
+      <figure class="author-photo author-photo--main">
+        <img src="images/anshika/anshu2.jpg" alt="Anshika smiling outdoors with an umbrella" width="1200" height="1600" />
+      </figure>
+      <figure class="author-photo">
+        <img src="images/anshika/anshu1.jpg" alt="Portrait of Anshika Mahesh" width="1200" height="1600" />
+      </figure>
+    </div>
+
+    <div class="about-grid">
+      <div>
+        <p>I started writing in notebooks — covers first, characters second, then chapter after chapter until the story felt finished. My readers began as friends. Now this site is where those stories can travel a little farther.</p>
+        <p>I love dual points of view, sidekicks with terrible time sense, and endings where people choose kindness even when it isn’t easy.</p>
+        <p>When I’m not writing, I’m usually thinking about the next plot twist… or drawing what a nameless sidekick might look like.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="stories.html">Explore my stories</a>
+          <a class="btn btn-ghost" href="newsletter.html">Get story notes</a>
+        </div>
+      </div>
+
+      <aside class="about-panel">
+        <h3>At a glance</h3>
+        <p>Author · Student · Friend-gift story maker</p>
+        <div class="stat-row">
+          <div class="stat"><strong>12</strong><span>Years old</span></div>
+          <div class="stat"><strong data-story-count>17</strong><span>Published stories</span></div>
+          <div class="stat"><strong>∞</strong><span>Ideas brewing</span></div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span id="y"></span> Anshika Mahesh</span>
+    <a href="newsletter.html">Subscribe</a>
+  </footer>
+
+  <script src="js/main.js?v=pack1"></script>
+  <script src="js/library.js"></script>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>

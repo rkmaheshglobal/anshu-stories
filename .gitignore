@@ -1,0 +1,23 @@
+# Working files — not part of the public site
+Stories-Raw/
+Birthday-Friends-Books/
+pages_2/
+pages_anshu/
+pages_birthday/
+references/
+generate_birthday_books.py
+The-Shy-Girl-and-the-Popular-Girl-Book.html
+shy_girl_2.txt
+shy_girl_anshu.txt
+/Anshu1.jpg
+/Anshu2.JPG
+/Anshu2.jpg
+
+# Junk
+.DS_Store
+**/.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.log
+*.pdf

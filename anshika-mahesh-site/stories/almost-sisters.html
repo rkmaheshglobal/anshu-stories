@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Almost Sisters — Anshika Mahesh</title>
+  <meta name="description" content="Almost Sisters by Anshika Mahesh — Meg and Rosemina are new stepsisters who can’t stand each other… until they finally tell the truth." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    :root {
+      --ink: #243028; --soft: #516057; --card: #fffdf8;
+      --leaf: #5f8f6e; --clay: #c4785a; --sky: #6a9bb0;
+      --line: rgba(36,48,40,0.12);
+    }
+    .book { width: min(760px, calc(100% - 1.5rem)); margin: 1.2rem auto 3rem; }
+    .page {
+      background: var(--card); border: 1px solid var(--line); border-radius: 18px;
+      padding: clamp(1.5rem, 4vw, 2.8rem); margin-bottom: 1.15rem; position: relative; overflow: hidden;
+    }
+    .page::before {
+      content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 8px;
+      background: linear-gradient(180deg, var(--leaf), var(--sky), var(--clay));
+    }
+    .cover {
+      padding: 0; min-height: min(90vh, 820px); display: grid; grid-template-rows: 1fr auto;
+      text-align: center; overflow: hidden; background: #e8f0ea;
+    }
+    .cover::before { display: none; }
+    .cover-hero { margin: 0; min-height: min(58vh, 520px); overflow: hidden; background: #fff; }
+    .cover-hero img {
+      width: 100%; height: 100%; min-height: min(58vh, 520px);
+      object-fit: cover; object-position: center top; display: block;
+      animation: cover-in 1.1s ease-out both;
+    }
+    .cover-panel {
+      padding: clamp(1.4rem, 4vw, 2.4rem) clamp(1.4rem, 4vw, 2.6rem);
+      background:
+        linear-gradient(180deg, rgba(255,253,248,.94), #fffdf8 42%),
+        linear-gradient(180deg, rgba(95,143,110,.1), rgba(196,120,90,.1));
+      animation: panel-up .9s .15s ease-out both;
+    }
+    .brand {
+      font-family: Fraunces, Georgia, serif; font-size: clamp(2.2rem, 6.5vw, 3.4rem);
+      font-weight: 700; line-height: 1.05; margin: 0; letter-spacing: -.02em;
+    }
+    .brand em {
+      display: block; font-style: normal; font-size: .38em; margin-top: .55rem;
+      color: var(--soft); font-weight: 700;
+    }
+    .author {
+      margin: 1rem 0 0; font-weight: 800; letter-spacing: .1em;
+      text-transform: uppercase; font-size: .82rem; color: var(--leaf);
+    }
+    .cover-cta { display: inline-flex; gap: .7rem; flex-wrap: wrap; justify-content: center; margin-top: 1.1rem; }
+    .cover-cta a {
+      text-decoration: none; color: #fff; background: var(--ink);
+      padding: .7rem 1.1rem; border-radius: 999px; font-weight: 800; font-size: .88rem;
+    }
+    .cover-cta a.secondary { background: transparent; color: var(--ink); border: 2px solid rgba(36,48,40,.18); }
+    @keyframes cover-in { from { transform: scale(1.04); opacity: .55; } to { transform: none; opacity: 1; } }
+    @keyframes panel-up { from { transform: translateY(14px); opacity: 0; } to { transform: none; opacity: 1; } }
+    .blurb {
+      font-family: Fraunces, Georgia, serif; font-size: clamp(1.15rem, 2.6vw, 1.4rem);
+      font-style: italic; line-height: 1.5; color: var(--soft); max-width: 40ch; margin: 0 auto; text-align: center;
+    }
+    .series-note {
+      margin: 0 0 1rem; padding: .7rem .9rem; border-radius: 12px;
+      background: rgba(95,143,110,.12); color: var(--soft); font-size: .9rem; font-weight: 600;
+    }
+    .rebuild {
+      margin: 0 0 1rem; padding: .75rem .95rem; border-radius: 12px;
+      border-left: 4px solid var(--clay);
+      background: rgba(196,120,90,.1); color: var(--soft); font-size: .9rem; font-weight: 600;
+    }
+    h2 { font-family: Fraunces, Georgia, serif; font-weight: 700; line-height: 1.15; margin: 0; }
+    .chapter-head { text-align: center; margin: 0 0 1.2rem; padding-bottom: .85rem; border-bottom: 1px solid var(--line); }
+    .chapter-num {
+      display: block; font-size: .75rem; font-weight: 800; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--leaf); margin-bottom: .35rem;
+    }
+    .chapter-head h2 { font-size: clamp(1.65rem, 4vw, 2.2rem); }
+    p { margin: 0 0 1rem; } p:last-child { margin-bottom: 0; }
+    .dropcap::first-letter {
+      font-family: Fraunces, Georgia, serif; float: left; font-size: 3.1rem; line-height: .85;
+      padding-right: .4rem; font-weight: 700; color: var(--clay);
+    }
+    .cast { display: grid; gap: .55rem; }
+    .cast div { padding: .55rem 0; border-bottom: 1px dashed var(--line); }
+    .cast strong { color: var(--leaf); }
+    .illust {
+      margin: 0 0 1.35rem; border-radius: 14px; overflow: hidden;
+      border: 1px solid var(--line); background: #fff;
+    }
+    .illust img { width: 100%; height: auto; display: block; }
+    .illust figcaption {
+      font-size: .85rem; color: var(--soft); padding: .55rem .8rem;
+      background: rgba(36,48,40,.04); border-top: 1px solid var(--line);
+    }
+    .toc ol { list-style: none; margin: 0; padding: 0; }
+    .toc li { border-bottom: 1px dashed var(--line); }
+    .toc a { display: block; text-decoration: none; color: inherit; padding: .65rem .1rem; font-weight: 600; }
+    .toc a:hover { color: var(--leaf); }
+    .end-mark { text-align: center; font-family: Fraunces, Georgia, serif; font-size: 2.1rem; font-weight: 700; margin: 0 0 .5rem; }
+    .note { margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--soft); font-size: .92rem; }
+    .thought { font-style: italic; color: var(--soft); }
+    @media print {
+      .site-header, .book-tools, .site-footer, .cover-cta { display: none !important; }
+      .page { break-after: page; border: none; border-radius: 0; margin: 0; padding: 1.3cm 1.5cm; }
+      .page::before { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="logo" href="../index.html">Anshika Mahesh</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../stories.html" aria-current="page">Stories</a>
+        <a href="../newsletter.html">Newsletter</a>
+        <a href="../connect.html">Connect</a>
+      </nav>
+    </div>
+  </header>
+  <div class="book-tools" aria-label="In this story">
+    <a href="#contents">Contents</a>
+    <a href="#ch1">Begin</a>
+    <a href="#cast">Cast</a>
+  </div>
+
+  <main class="book">
+    <section class="page cover" id="cover">
+      <figure class="cover-hero">
+        <img src="images/almost-sisters/cover.png" alt="Cover: Meg and Rosemina at a countryside bus stop" />
+      </figure>
+      <div class="cover-panel">
+        <h1 class="brand">Almost Sisters<em>Meg, Rosemina, and a marriage that jumped the gun</em></h1>
+        <p class="author">Written by Anshika Mahesh</p>
+        <div class="cover-cta">
+          <a href="#ch1">Read the story</a>
+          <a class="secondary" href="#contents">See chapters</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="page">
+      <p class="series-note">From Anshika’s notebook (<em>incomplete story starting 2.pdf</em>). Title chosen for the site. Chapter 1 was a missing page — rewritten to match her later clues (blended family, bus to market, Meg’s self-pity, Rosemina not accepting people). Spelling lightly polished.</p>
+      <p class="blurb">
+        Meg always wanted an elder sister. Then Mum and Dad got married — and she got Rosemina. Beautiful. Snappy. And certain Meg would never be her sister.
+      </p>
+    </section>
+
+    <section class="page" id="cast">
+      <header class="chapter-head">
+        <span class="chapter-num">Introducing…</span>
+        <h2>Two girls, one house</h2>
+      </header>
+      <figure class="illust">
+        <img src="images/almost-sisters/manuscript.jpg" alt="Anshika’s notebook page beginning Chapter 2" />
+        <figcaption>From the notebook — Chapter 2 starts after the missing first page</figcaption>
+      </figure>
+      <div class="cast">
+        <div><strong>Meg</strong> — Younger. New to the house. Weak point (Anshika’s note): self-pity. Wished for a sister… then got one.</div>
+        <div><strong>Rosemina</strong> — Elder. Has lived here “ever since she was little.” Weak point: not accepting people. Paints. Snaps.</div>
+        <div><strong>Mum &amp; Dad</strong> — Married in a hurry. Kept disappearing. Left the girls out of their plans.</div>
+      </div>
+    </section>
+
+    <section class="page toc" id="contents">
+      <header class="chapter-head">
+        <span class="chapter-num">Contents</span>
+        <h2>Chapters</h2>
+      </header>
+      <ol>
+        <li><a href="#ch1">1. Waiting for the Bus <em>(reconstructed)</em></a></li>
+        <li><a href="#ch2">2. Not Much Has Changed</a></li>
+        <li><a href="#ch3">3. Never Be My Sister</a></li>
+        <li><a href="#ch4">4. Forced to Love You</a></li>
+        <li><a href="#ch5">5. Jumped the Gun</a></li>
+      </ol>
+    </section>
+
+    <section class="page" id="ch1">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 1</span>
+        <h2>Waiting for the Bus</h2>
+      </header>
+      <p class="rebuild">Reconstructed first chapter — the notebook page before “for the bus to arrive” couldn’t be found. Written to match Anshika’s characters, setting, and later plot (parents’ sudden marriage; Meg new to Rosemina’s town; school in two days).</p>
+      <p class="dropcap">Meg stood in the doorway of her new bedroom and tried to pretend it felt like home.</p>
+      <p>It didn’t.</p>
+      <p>The walls were the wrong colour. The window looked out on the wrong trees. Even the air smelled different — like paint and garden soil and someone else’s life. Three weeks ago she had lived in a flat with her Mum, where the kettle sang every morning and nobody snapped at her for breathing too loudly. Then Mum had married Dad. Just like that. One week they were “going out for a bit,” and the next week boxes were being stacked in a hallway Meg had never seen before.</p>
+      <p>“You’ll love having a sister,” Mum had said, eyes shining. “Rosemina’s a little older than you. Won’t that be wonderful?”</p>
+      <p>Meg had thought it would be. She had always wanted an elder sister — someone to braid her hair, borrow books from, whisper secrets with after lights-out. She had pictured soft laughs and shared jokes. She had not pictured Rosemina.</p>
+      <p>Rosemina was beautiful. That part Meg could admit. Tall, neat hair, the sort of face that looked as if it belonged in a painting. But she moved through the house like Meg was a spare chair someone had left in the way. She said “excuse me” without looking. She shut library doors with a soft click that somehow felt louder than a slam.</p>
+      <p>This morning Mum had poked her head into Meg’s room. “School starts in two days. Why don’t you and Rosemina hop to the market for pencils and bits? You can take the bus together. A little sister trip!”</p>
+      <p>Sister trip. Meg’s stomach twisted.</p>
+      <p>Downstairs, Rosemina was already tying her shoes, mouth set in a straight line.</p>
+      <p>“Do we have to?” she muttered.</p>
+      <p>“Mum said,” Meg answered carefully.</p>
+      <p>Rosemina glanced at her — just once — and shrugged. “Fine. But don’t chatter the whole way. It’s embarrassing.”</p>
+      <p>Meg swallowed the reply she wanted to give. Self-pity rose in her chest like warm water. <span class="thought">Why do I have to live here? Why can’t things go back?</span> She pushed the thought down and followed Rosemina out into the middle-of-nowhere quiet of the lane.</p>
+      <p>The bus stop was a simple post and a patch of shade. Hills rolled away in soft green waves. Birds argued in a hedge. It really was lovely — the sort of place people wrote poems about — and Meg almost said so, then remembered Rosemina’s warning about chattering.</p>
+      <p>They stood side by side without standing together.</p>
+      <p>Meg shifted her bag on her shoulder and stared down the empty road, waiting for the bus to arrive.</p>
+    </section>
+
+    <section class="page" id="ch2">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 2</span>
+        <h2>Not Much Has Changed</h2>
+      </header>
+      <p class="dropcap">After a little while, the bus came, and the two girls hopped into the bus. They sat down on the seats and looked out the window.</p>
+      <p>“What a lovely view!” exclaimed Meg.</p>
+      <p>“It’s so beautiful and peaceful!”</p>
+      <p>“Yes, it’s been like that ever since I was little. Not much has changed here and it’s quite boring,” said Rosemina.</p>
+      <p>“I don’t think I could ever get bored of it,” said Meg.</p>
+      <p>“You will — and then you’ll know what I mean,” snapped Rosemina.</p>
+      <p>Meg was taken aback by her sudden change in attitude. She admired Rosemina and thought she was very beautiful, but she didn’t like how snappy she was.</p>
+      <p>The two of them didn’t speak a word to each other. After what seemed to take forever, they were finally at the market.</p>
+      <p>“Can we get some pencils on the way for school? Summer is almost over — school starts in two days,” said Meg.</p>
+      <p>“Thank goodness! At least I can be alone for a week,” replied Rosemina.</p>
+      <p>Meg glared at her angrily. <span class="thought">Why do I live with this girl? She is such a pest! I do pity myself for having to live with her,</span> thought Meg.</p>
+      <p>After Meg got her pencils, they went back home quietly. Meg felt very bitter towards Rosemina, and the admiration she had for her an hour ago was gone.</p>
+    </section>
+
+    <section class="page" id="ch3">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 3</span>
+        <h2>Never Be My Sister</h2>
+      </header>
+      <p class="dropcap">Once they reached their house, they merely ignored each other and walked in opposite directions, facing their backs to each other. Meg soberly went to her room to pack her bag while Rosemina went to the house library to read.</p>
+      <p><span class="thought">How I wish I didn’t have to live with Meg,</span> she thought as she flipped the page of the book. <span class="thought">She is a nice kid — but she’ll never be my sister.</span></p>
+      <p>Meanwhile Meg was packing her things for school. <span class="thought">I thought it’d be fun to have an elder sister, but really, Rosemina is so snappy. I wish I never met her,</span> she thought.</p>
+      <p>They both kept out of each other’s way and hardly noticed if they were next to each other. After a long day of chores Meg went to bed wishing she was back at her old house with her Mum and Dad. She tossed and turned all night until she finally fell asleep.</p>
+    </section>
+
+    <section class="page" id="ch4">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 4</span>
+        <h2>Forced to Love You</h2>
+      </header>
+      <p class="dropcap">When Meg woke up to the chirping of the birds, she rubbed her eyes and got up slowly, and went to freshen up with an open mind (that was at least until she remembered Rosemina was her sister. She wasn’t so open-minded after that).</p>
+      <p>She went downstairs to have her breakfast, making sure not to sit next to Rosemina. They had a scrumptious breakfast of sandwich, eggs and porridge. She then went to the garden to play with her ball. Unfortunately for her, Rosemina was present in the garden too, painting a picture of the view. Meg edged towards her, looking at the picture she was painting with interest.</p>
+      <p>“That’s a nice picture you’ve painted,” she said.</p>
+      <p>“Thanks. Now go away — I need to focus and you’re just being annoying,” replied Rosemina.</p>
+      <p>“Why do you always like to tease and hurt me? You know how bad and frustrated I feel,” argued Meg.</p>
+      <p>“Well, do you know how I feel? I feel like I’m forced to love you — and I don’t want to hurt you, but I just can’t help it,” said Rosemina, exasperated.</p>
+      <p>Meg was shaken. She never thought that Rosemina had a reason to hate her. All this while she had been self-pitying herself for living with her, but now she felt different. She actually admired Rosemina for confronting her.</p>
+      <p>“I’m sorry I made you feel that way. I never thought you’d feel like that. I always thought of myself and how I felt,” said Meg.</p>
+      <p>Now it was Rosemina who was taken aback. She never thought that Meg would actually apologise to her — and though she was still a little stiff, something in her face softened, just for a second.</p>
+      <p class="rebuild">A short stretch after this apology is missing from the notebook (the next surviving page jumps to the dining-table talk). The bridge below follows Anshika’s own clue that they “planned it out secretly the day before.”</p>
+      <p>That evening they did not ignore each other quite so hard. In the library, with the door half shut, they whispered about Mum and Dad — the disappearing, the sudden wedding, the way nobody had asked the girls how they felt. For the first time they sounded like a team. They decided, secretly, that tomorrow they would tell the truth.</p>
+    </section>
+
+    <section class="page" id="ch5">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 5</span>
+        <h2>Jumped the Gun</h2>
+      </header>
+      <p class="dropcap">They planned it out secretly the day before. Now they were sitting at the dining table.</p>
+      <p>“Mum, Dad, we’ve got something to tell you.”</p>
+      <p>“Well, whatever could it be?” asked their Mum.</p>
+      <p>“It’s just that we wanted to tell you how we feel about your marriage,” said Rosemina. “You always left us out of your plans, and kept disappearing — and then you just said you were getting married without even telling us how you met in the first place. It’s like you jumped the gun.”</p>
+      <p class="end-mark">To be continued…</p>
+      <p class="note">
+        From Anshika’s manuscript <em>incomplete story starting 2.pdf</em> (5 pages). Chapter 1 reconstructed to end on her line about waiting for the bus.
+        Her notebook used “Ch-2” twice — renumbered here as Chapters 2 and 3. Margin notes kept in spirit: Meg’s weak point = self-pity; Rosemina’s = not accepting people.
+        The story still needs Anshika’s ending after the parents hear the truth.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span id="y"></span> Anshika Mahesh</span>
+    <a href="../newsletter.html">Subscribe</a>
+  </footer>
+  <script src="../js/main.js?v=pack1"></script>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>

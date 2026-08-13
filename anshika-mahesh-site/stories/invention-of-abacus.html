@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Invention of Abacus — Anshika &amp; Samyuktha</title>
+  <meta name="description" content="Invention of Abacus by Anshika Mahesh — a magical project adventure with Samyuktha to ancient China to learn how the abacus began." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    :root {
+      --ink: #1c2430; --soft: #4a5563; --card: #fffdf9;
+      --lacquer: #a33b32; --wood: #c9a46a; --ink-blue: #2f5f7a;
+      --line: rgba(28,36,48,0.12);
+    }
+    .book { width: min(760px, calc(100% - 1.5rem)); margin: 1.2rem auto 3rem; }
+    .page {
+      background: var(--card); border: 1px solid var(--line); border-radius: 18px;
+      padding: clamp(1.5rem, 4vw, 2.8rem); margin-bottom: 1.15rem; position: relative; overflow: hidden;
+    }
+    .page::before {
+      content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 8px;
+      background: linear-gradient(180deg, var(--lacquer), var(--wood), var(--ink-blue));
+    }
+    .cover {
+      padding: 0; min-height: min(90vh, 820px); display: grid; grid-template-rows: 1fr auto;
+      text-align: center; overflow: hidden; background: #f3e0d6;
+    }
+    .cover::before { display: none; }
+    .cover-hero { margin: 0; min-height: min(58vh, 520px); overflow: hidden; }
+    .cover-hero img {
+      width: 100%; height: 100%; min-height: min(58vh, 520px);
+      object-fit: cover; object-position: center 40%; display: block;
+      animation: cover-in 1.1s ease-out both;
+    }
+    .cover-panel {
+      padding: clamp(1.4rem, 4vw, 2.4rem) clamp(1.4rem, 4vw, 2.6rem);
+      background:
+        linear-gradient(180deg, rgba(255,253,249,.94), #fffdf9 42%),
+        linear-gradient(180deg, rgba(163,59,50,.08), rgba(201,164,106,.12));
+      animation: panel-up .9s .15s ease-out both;
+    }
+    .brand {
+      font-family: Fraunces, Georgia, serif; font-size: clamp(2.1rem, 6vw, 3.2rem);
+      font-weight: 700; line-height: 1.08; margin: 0; letter-spacing: -.02em;
+    }
+    .brand em {
+      display: block; font-style: normal; font-size: .4em; margin-top: .55rem;
+      color: var(--soft); font-weight: 700;
+    }
+    .author {
+      margin: 1rem 0 0; font-weight: 800; letter-spacing: .1em;
+      text-transform: uppercase; font-size: .82rem; color: var(--lacquer);
+    }
+    .cover-cta { display: inline-flex; gap: .7rem; flex-wrap: wrap; justify-content: center; margin-top: 1.1rem; }
+    .cover-cta a {
+      text-decoration: none; color: #fff; background: var(--ink);
+      padding: .7rem 1.1rem; border-radius: 999px; font-weight: 800; font-size: .88rem;
+    }
+    .cover-cta a.secondary { background: transparent; color: var(--ink); border: 2px solid rgba(28,36,48,.18); }
+    @keyframes cover-in { from { transform: scale(1.06); opacity: .55; } to { transform: none; opacity: 1; } }
+    @keyframes panel-up { from { transform: translateY(14px); opacity: 0; } to { transform: none; opacity: 1; } }
+    .blurb {
+      font-family: Fraunces, Georgia, serif; font-size: clamp(1.15rem, 2.6vw, 1.4rem);
+      font-style: italic; line-height: 1.5; color: var(--soft); max-width: 40ch; margin: 0 auto; text-align: center;
+    }
+    .series-note {
+      margin: 0 0 1rem; padding: .7rem .9rem; border-radius: 12px;
+      background: rgba(163,59,50,.08); color: var(--soft); font-size: .9rem; font-weight: 600;
+    }
+    h2 { font-family: Fraunces, Georgia, serif; font-weight: 700; line-height: 1.15; margin: 0; }
+    .chapter-head { text-align: center; margin: 0 0 1.2rem; padding-bottom: .85rem; border-bottom: 1px solid var(--line); }
+    .chapter-num {
+      display: block; font-size: .75rem; font-weight: 800; letter-spacing: .16em;
+      text-transform: uppercase; color: var(--lacquer); margin-bottom: .35rem;
+    }
+    .chapter-head h2 { font-size: clamp(1.65rem, 4vw, 2.2rem); }
+    p { margin: 0 0 1rem; } p:last-child { margin-bottom: 0; }
+    .dropcap::first-letter {
+      font-family: Fraunces, Georgia, serif; float: left; font-size: 3.1rem; line-height: .85;
+      padding-right: .4rem; font-weight: 700; color: var(--lacquer);
+    }
+    .illust {
+      margin: 0 0 1.35rem; border-radius: 14px; overflow: hidden;
+      border: 1px solid var(--line); background: #fff;
+    }
+    .illust img { width: 100%; height: auto; display: block; }
+    .illust figcaption {
+      font-size: .85rem; color: var(--soft); padding: .55rem .8rem;
+      background: rgba(28,36,48,.04); border-top: 1px solid var(--line);
+    }
+    .toc ol { list-style: none; margin: 0; padding: 0; }
+    .toc li { border-bottom: 1px dashed var(--line); }
+    .toc a { display: block; text-decoration: none; color: inherit; padding: .65rem .1rem; font-weight: 600; }
+    .toc a:hover { color: var(--lacquer); }
+    .fact {
+      margin: 1rem 0 0; padding: .9rem 1rem; border-radius: 12px;
+      background: rgba(47,95,122,.08); color: var(--soft); font-size: .95rem;
+    }
+    .end-mark { text-align: center; font-family: Fraunces, Georgia, serif; font-size: 2.1rem; font-weight: 700; margin: 0 0 .5rem; }
+    .note { margin-top: 1.2rem; padding-top: 1rem; border-top: 1px solid var(--line); color: var(--soft); font-size: .92rem; }
+    @media print {
+      .site-header, .book-tools, .site-footer, .cover-cta { display: none !important; }
+      .page { break-after: page; border: none; border-radius: 0; margin: 0; padding: 1.3cm 1.5cm; }
+      .page::before { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="logo" href="../index.html">Anshika Mahesh</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../stories.html" aria-current="page">Stories</a>
+        <a href="../newsletter.html">Newsletter</a>
+        <a href="../connect.html">Connect</a>
+      </nav>
+    </div>
+  </header>
+  <div class="book-tools" aria-label="In this story">
+    <a href="#contents">Contents</a>
+    <a href="#ch1">Begin</a>
+    <a href="#manuscript">Notebook page</a>
+  </div>
+
+  <main class="book">
+    <section class="page cover" id="cover">
+      <figure class="cover-hero">
+        <img src="images/abacus/cover.png" alt="Cover: Invention of Abacus — magic dust and a museum abacus" />
+      </figure>
+      <div class="cover-panel">
+        <h1 class="brand">Invention of Abacus<em>A Magical Project Adventure</em></h1>
+        <p class="author">By Anshika Mahesh &amp; Samyuktha</p>
+        <div class="cover-cta">
+          <a href="#ch1">Read the story</a>
+          <a class="secondary" href="#contents">See chapters</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="page">
+      <p class="series-note">From Anshika’s handwritten notebook page. The original stopped mid-sentence with blanks for the inventor — completed gently so the project adventure can finish (without inventing a fake historical person).</p>
+      <p class="blurb">
+        Samyuktha and Anshika’s abacus project is stuck — their phone is dead. Magic dust swirls… and suddenly they are in China, where a girl named Mimi Cheng helps them learn how beads taught the world to count.
+      </p>
+    </section>
+
+    <section class="page toc" id="contents">
+      <header class="chapter-head">
+        <span class="chapter-num">Contents</span>
+        <h2>Chapters</h2>
+      </header>
+      <ol>
+        <li><a href="#ch1">1. The Dead Phone Project</a></li>
+        <li><a href="#ch2">2. Magic Dust to China</a></li>
+        <li><a href="#ch3">3. At the Museum</a></li>
+        <li><a href="#ch4">4. My Name Is Mimi Cheng!</a></li>
+        <li><a href="#ch5">5. Beads That Count</a></li>
+        <li><a href="#ch6">6. Home Again</a></li>
+      </ol>
+    </section>
+
+    <section class="page" id="ch1">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 1</span>
+        <h2>The Dead Phone Project</h2>
+      </header>
+      <p class="dropcap">Samyuktha and Anshika were in their room doing a project about the abacus. They were preparing a speech and writing an essay about it. But except for the fact that it was used for maths, they didn’t know anything else about it.</p>
+      <p>Their phone was dead too, so they couldn’t research.</p>
+      <p>Just as they were starting to worry…</p>
+    </section>
+
+    <section class="page" id="ch2">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 2</span>
+        <h2>Magic Dust to China</h2>
+      </header>
+      <p class="dropcap">…magic dust surrounded them, and before they knew what was going on, they were in China!</p>
+      <p>The air smelled different. Lanterns glowed. A wooden building with a curved roof stood ahead — a museum.</p>
+      <p>“Did we just—?” whispered Samyuktha.</p>
+      <p>“Don’t pinch too hard,” said Anshika. “If this is a dream, I still want the facts for our essay.”</p>
+      <p>They walked inside.</p>
+    </section>
+
+    <section class="page" id="ch3">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 3</span>
+        <h2>At the Museum</h2>
+      </header>
+      <p class="dropcap">They saw displays about counting tools and the famous Chinese abacus — the suanpan — with neat rows of beads on rods.</p>
+      <p>A board said the abacus was used for maths long, long ago. One label mentioned times around <strong>500 BC</strong> — so ancient people were already finding clever ways to count!</p>
+      <p>But the girls frowned. Next to “Inventor” the space seemed… empty of one neat famous name.</p>
+      <p>“His name was…?” Anshika began.</p>
+      <p>“Born on…?” Samyuktha tried.</p>
+      <p>They didn’t know. Their project blanks were still blank — until a girl approached them.</p>
+    </section>
+
+    <section class="page" id="ch4">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 4</span>
+        <h2>My Name Is Mimi Cheng!</h2>
+      </header>
+      <p class="dropcap">Looking at them, a girl approached and said, “Hello! My name is Mira — but everyone here calls me Mimi Cheng. Can I help you?”</p>
+      <p>“Hello, my name is Anshika, and this is Samyuktha,” said Anshika. “Yes — we would like to know more about abac—”</p>
+      <p>“Abacuses!” finished Samyuktha. “For a school project. Our phone died. Then… magic dust.”</p>
+      <p>Mimi’s eyes lit up. “Then you came to the right place. Follow me.”</p>
+      <p>She led them to a big wooden abacus under soft museum lights.</p>
+      <div class="fact">
+        <strong>What Mimi told them (the honest bit):</strong> There isn’t one single famous inventor with a birthday on a neat plaque. Counting boards and bead frames grew over many years in different places. In China, the suanpan became a beloved tool — and people still learn it today.
+      </div>
+    </section>
+
+    <section class="page" id="ch5">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 5</span>
+        <h2>Beads That Count</h2>
+      </header>
+      <p class="dropcap">“Watch,” said Mimi. She slid beads with quick fingers. “Each rod is a place — ones, tens, hundreds… Move the beads, and you can add and subtract without writing every number.”</p>
+      <p>Anshika tried. Click-click. Samyuktha tried. Click-click-click.</p>
+      <p>“It’s like a calculator made of wood!” said Samyuktha.</p>
+      <p>“A calculator that doesn’t need charging,” grinned Anshika. “Unlike our phone.”</p>
+      <p>Mimi taught them enough for a speech: what an abacus is, that it helped with maths for centuries, that China has a famous style with beads on rods, and that you learn by practising with your hands — not only by memorising a date.</p>
+      <p>“For your essay,” Mimi added, “write that people invented better ways to count because they needed them — for markets, building, and school. The abacus is one brilliant answer.”</p>
+    </section>
+
+    <section class="page" id="ch6">
+      <header class="chapter-head">
+        <span class="chapter-num">Chapter 6</span>
+        <h2>Home Again</h2>
+      </header>
+      <p class="dropcap">“Thank you, Mimi Cheng!” said both girls together.</p>
+      <p>Golden dust swirled again. POOF — they were back in their room. The phone was still dead. The essay page was still waiting.</p>
+      <p>But now they had plenty to say.</p>
+      <p>They wrote about beads and rods, about ancient counting, about China, and about how a tool can be invented by many clever hands over time — not always by one person with a birthday.</p>
+      <p>Their speech went well. Their teacher smiled. And whenever Anshika and Samyuktha saw an abacus after that, they remembered Mimi’s quick fingers — and the click-click of magic that started with a dead phone.</p>
+      <p class="end-mark">The End</p>
+      <p class="note">
+        Opening from Anshika’s notebook <em>invention of Abacus.pdf</em> (with Samyuktha). The page ended mid-sentence at “abac—” and left blanks for inventor name and birth date.
+        Those blanks are answered honestly in Chapters 3–4 (no single famous inventor invented). Spelling lightly polished; voice kept close to her draft.
+      </p>
+    </section>
+
+    <section class="page" id="manuscript">
+      <header class="chapter-head">
+        <span class="chapter-num">From the notebook</span>
+        <h2>Anshika’s original page</h2>
+      </header>
+      <figure class="illust">
+        <img src="images/abacus/manuscript.jpg" alt="Handwritten notebook page: Invention of Abacus" />
+        <figcaption>Original handwritten start — including the margin note “MY NAME IS MIMI CHENG!”</figcaption>
+      </figure>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span id="y"></span> Anshika Mahesh</span>
+    <a href="../newsletter.html">Subscribe</a>
+  </footer>
+  <script src="../js/main.js?v=pack1"></script>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>

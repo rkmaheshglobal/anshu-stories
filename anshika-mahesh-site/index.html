@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anshika Mahesh — Stories</title>
+  <meta name="description" content="Stories by Anshika Mahesh — a young author sharing friendship, courage, and imagination with the world." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css?v=catalogue" />
+  <link rel="stylesheet" href="css/catalogue.css?v=1" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="logo" href="index.html">Anshika Mahesh</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="about.html">About</a>
+        <a href="stories.html">Stories</a>
+        <a href="newsletter.html">Newsletter</a>
+        <a href="connect.html">Connect</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Young author · Storyteller</p>
+        <h1 class="brand">Anshika Mahesh</h1>
+        <p class="lead">Stories of friendship, courage, and the magic of choosing kindness.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="stories.html">Read the stories</a>
+          <a class="btn btn-ghost" href="newsletter.html">Join the newsletter</a>
+        </div>
+      </div>
+      <figure class="hero-photo">
+        <img src="images/anshika/anshu1.jpg" alt="Anshika Mahesh" width="1200" height="1600" />
+      </figure>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <p class="eyebrow">New on the shelf</p>
+        <h2>Just arrived</h2>
+        <p>The newest notebooks, ready to open.</p>
+      </div>
+      <div class="story-grid story-grid--featured catalogue-grid" data-library="latest"></div>
+      <noscript>
+        <p class="story-empty">Turn on JavaScript to browse covers, or open <a href="stories/short-stories.html">Short Stories</a>, <a href="stories/shy-girl.html">The Shy Girl</a>, or <a href="stories/from-streets-to-snuggles.html">From Streets to Snuggles</a>.</p>
+      </noscript>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <p class="eyebrow">If you’re new</p>
+        <h2>Start here</h2>
+        <p>A quick read, a school friendship, and a long illustrated tale.</p>
+      </div>
+      <div class="story-grid catalogue-grid" data-library="start"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <p class="eyebrow">Books that belong together</p>
+        <h2>Series</h2>
+        <p>Read Book 1 first — then keep going.</p>
+      </div>
+      <div class="series-grid" data-library="series"></div>
+      <p class="page-intro"><a href="stories.html#series">See series in the library</a></p>
+    </section>
+
+    <section class="section">
+      <div class="browse-band">
+        <div>
+          <h2>The whole library</h2>
+          <p><span data-story-count>17</span> stories — search a title or pick a mood. More on the way.</p>
+        </div>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="stories.html">Browse all stories</a>
+          <a class="btn btn-ghost" href="newsletter.html">Story Notes</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-band">
+      <blockquote class="quote">
+        “I needed to do what was right for me, not for everyone else.”
+        <cite>From The Shy Girl &amp; The Popular Girl</cite>
+      </blockquote>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Read. Share. Grow.</h2>
+        <p>This site is Anshika’s home on the web — a place for her stories, her readers, and the friends who inspire the next chapter.</p>
+      </div>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="about.html">Meet Anshika</a>
+        <a class="btn btn-ghost" href="connect.html">Say hello</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span id="y"></span> Anshika Mahesh</span>
+    <a href="newsletter.html">Subscribe</a>
+  </footer>
+
+  <script src="js/main.js?v=pack1"></script>
+  <script src="js/library.js?v=catalogue"></script>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>
