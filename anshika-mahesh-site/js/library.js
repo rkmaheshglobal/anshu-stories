@@ -88,7 +88,7 @@
       id: "moving-in",
       title: "Moving In",
       href: "stories/moving-in.html",
-      cover: "stories/images/moving-in/cover.jpg",
+      cover: "stories/images/moving-in/cover.png",
       blurb: "Aarushi’s new flat, a playground gang, and the Amazing Adventurers — KT2A — waiting for their first mystery.",
       tags: ["adventure", "school"],
       lengthLabel: "A short book",
@@ -269,8 +269,8 @@
   function cardHTML(story) {
     const lane = laneOf(story);
     const credit = story.credit || "Anshika Mahesh";
-    const extra = story.credit ? "Co-written tale" : "From her notebooks";
-    const mark = story.fresh ? "New" : (story.continued ? "To be continued" : "Notebook");
+    const extra = story.credit ? "Co-written tale" : "A story by Anshika";
+    const mark = story.fresh ? "New" : (story.continued ? "To be continued" : "");
     return (
       '<a class="story-card" href="' + esc(story.href) + '">' +
         '<div class="story-card-cover"><img src="' + esc(story.cover) + '" alt="" /></div>' +

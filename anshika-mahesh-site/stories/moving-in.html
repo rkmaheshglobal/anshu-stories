@@ -32,7 +32,7 @@
     .cover-hero { margin: 0; min-height: min(58vh, 520px); overflow: hidden; background: #fff; }
     .cover-hero img {
       width: 100%; height: 100%; min-height: min(58vh, 520px);
-      object-fit: contain; object-position: center top; display: block;
+      object-fit: cover; object-position: center top; display: block;
       animation: cover-in 1.1s ease-out both;
     }
     .cover-panel {
@@ -134,7 +134,7 @@
   <main class="book">
     <section class="page cover" id="cover">
       <figure class="cover-hero">
-        <img src="images/moving-in/cover.jpg" alt="Anshika’s hand-drawn cast: The Amazing Adventurers KT2A" />
+        <img src="images/moving-in/cover.png" alt="Aarushi, Amaya, Krish and Tanay meeting on the playground of their apartment" />
       </figure>
       <div class="cover-panel">
         <h1 class="brand">Moving In<em>The Amazing Adventurers · KT2A</em></h1>
@@ -147,7 +147,6 @@
     </section>
 
     <section class="page">
-      <p class="series-note">From Anshika’s handwritten notebooks (<em>Moving in.pdf</em>). A Secret Seven–style friendship story — Chapters 1 &amp; 2 as she wrote them, ending where her pencil left the gang hunting for their first adventure.</p>
       <p class="blurb">
         Aarushi moves into a new flat and longs for a gang like the Secret Seven. On the playground she finds Krish, Tanay and shy Amaya — and together they become the Amazing Adventurers.
       </p>
@@ -174,8 +173,8 @@
         <h2>Chapters</h2>
       </header>
       <ol>
-        <li><a href="#ch1">1. Moving In</a></li>
-        <li><a href="#ch2">2. The First Meeting</a></li>
+        <li><a href="#ch1"> Moving In</a></li>
+        <li><a href="#ch2"> The First Meeting</a></li>
       </ol>
     </section>
 
@@ -207,8 +206,8 @@
       <p>Aarushi started planning many things for the next day. She made a fort in the balcony, kept loads of books all around, and decorated it with hangings and lights.</p>
       <p>This was going to be exciting!</p>
       <figure class="illust">
-        <img src="images/moving-in/fort.jpg" alt="Anshika’s drawing of Aarushi and the Meeting Place fort" />
-        <figcaption>Anshika’s notebook drawing — the Meeting Place fort</figcaption>
+        <img src="images/moving-in/fort.png" alt="Aarushi beside her balcony fort, with a Meeting Place sign, fairy lights, and books" />
+        <figcaption>The Meeting Place fort</figcaption>
       </figure>
     </section>
 
@@ -240,10 +239,6 @@
       <p>They spent the rest of the meeting making badges and talking about the grand adventures they were going to have.</p>
       <p>Over the next few days, all the members started to look for something to do. But to their disappointment, they were left empty-handed.</p>
       <p class="end-mark">To be continued…</p>
-      <p class="note">
-        From Anshika’s manuscript <em>Moving in.pdf</em>. Spelling and punctuation lightly polished; dialogue and character beats kept from her draft
-        (including Krish’s “diddly-dudly-doo,” Tanay’s butterfly password, and the open ending where KT2A still waits for their first real adventure).
-      </p>
     </section>
   </main>
 
@@ -251,7 +246,7 @@
     <span>© <span id="y"></span> Anshika Mahesh</span>
     <a href="../newsletter.html">Subscribe</a>
   </footer>
-  <script src="../js/main.js?v=pack1"></script>
+  <script src="../js/main.js?v=pad1"></script>
   <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
 </body>
 </html>
