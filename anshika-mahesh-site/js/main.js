@@ -1,5 +1,5 @@
-/** GoatCounter site code — create this code at https://www.goatcounter.com then keep it in sync here. */
-var GOATCOUNTER_CODE = "anshu-stories";
+/** GoatCounter site code — must match https://CODE.goatcounter.com */
+var GOATCOUNTER_CODE = "rkmaheshglobal";
 var readerEventQueue = [];
 var readerFlushTimer = 0;
 
@@ -80,14 +80,12 @@ function isLiveSite() {
 
 function initReaderStats() {
   if (!GOATCOUNTER_CODE || !isLiveSite()) return;
-  window.goatcounter = window.goatcounter || {};
-  window.goatcounter.endpoint = "https://" + GOATCOUNTER_CODE + ".goatcounter.com/count";
   if (document.getElementById("goatcounter-script")) return;
   var s = document.createElement("script");
   s.id = "goatcounter-script";
   s.async = true;
   s.src = "https://gc.zgo.at/count.js";
-  s.setAttribute("data-goatcounter", window.goatcounter.endpoint);
+  s.setAttribute("data-goatcounter", "https://" + GOATCOUNTER_CODE + ".goatcounter.com/count");
   document.head.appendChild(s);
 }
 

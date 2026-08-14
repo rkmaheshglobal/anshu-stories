@@ -72,7 +72,7 @@ You can also drag `anshika-mahesh-site/` onto [Netlify](https://www.netlify.com/
 Before going public:
 
 1. Confirm FormSubmit’s first activation email at rkmaheshglobal@gmail.com (one-time, after the first Story Notes signup).
-2. Create the GoatCounter site code `anshu-stories` if you want live reader stats.
+2. Create the GoatCounter site code `rkmaheshglobal` if you want live reader stats.
 
 ## Safety defaults
 
@@ -85,7 +85,7 @@ Before going public:
 
 The live site records page views and three book events (`story_open`, `story_halfway`, `story_finish`). Localhost is skipped.
 
-1. Create a free site at [goatcounter.com](https://www.goatcounter.com) with code **`anshu-stories`** (or another code).
+1. Create a free site at [goatcounter.com](https://www.goatcounter.com) with code **`rkmaheshglobal`** (already created).
 2. If you pick a different code, change `GOATCOUNTER_CODE` in `anshika-mahesh-site/js/main.js`.
 3. Open **Settings → Sites** in GoatCounter and confirm the site URL is `https://rkmaheshglobal.github.io/anshu-stories/`.
-4. After a visit to the live site, the dashboard shows pages; events appear as paths like `story_open/shy-girl`.
+4. After a visit to the live site (not localhost), the dashboard shows pages; events appear as paths like `story_open/shy-girl`. Your own visits may be hidden if Do Not Track is on or if GoatCounter is set to ignore you.
