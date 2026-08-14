@@ -16,8 +16,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=catalogue" />
-  <link rel="stylesheet" href="css/catalogue.css?v=1" />
+  <link rel="stylesheet" href="css/styles.css?v=bento1" />
+  <link rel="stylesheet" href="css/catalogue.css?v=bento1" />
+  <link rel="stylesheet" href="css/ui.css?v=bento1" />
 </head>
 <body>
   <header class="site-header">
@@ -34,9 +35,9 @@
     </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-copy">
+  <main class="u-shell">
+    <div class="u-bento">
+      <section class="u-tile u-tile--hero u-pad-lg u-span-8 u-enter">
         <p class="eyebrow">Young author · Storyteller</p>
         <h1 class="brand">Anshika Mahesh</h1>
         <p class="lead">Stories of friendship, courage, and the magic of choosing kindness.</p>
@@ -44,73 +45,55 @@
           <a class="btn btn-primary" href="stories.html">Read the stories</a>
           <a class="btn btn-ghost" href="newsletter.html">Join the newsletter</a>
         </div>
-      </div>
-      <figure class="hero-photo">
+      </section>
+      <figure class="u-tile u-tile--photo u-span-4 u-spring u-enter">
         <img src="images/anshika/anshu1.jpg" alt="Anshika Mahesh" width="1200" height="1600" />
       </figure>
-    </section>
 
-    <section class="section">
-      <div class="section-head">
-        <p class="eyebrow">New on the shelf</p>
-        <h2>Just arrived</h2>
-        <p>The newest stories, ready to open.</p>
-      </div>
-      <div class="story-grid story-grid--featured catalogue-grid" data-library="latest"></div>
-      <noscript>
-        <p class="story-empty">Turn on JavaScript to browse covers, or open <a href="stories/short-stories.html">Short Stories</a>, <a href="stories/shy-girl.html">The Shy Girl</a>, or <a href="stories/from-streets-to-snuggles.html">From Streets to Snuggles</a>.</p>
-      </noscript>
-    </section>
+      <p class="u-kicker u-span-12 u-enter" style="margin: .6rem 0 0;">New on the shelf</p>
+      <div class="u-bento u-span-12" data-library="latest" data-bento="6 6 6"></div>
 
-    <section class="section">
-      <div class="section-head">
-        <p class="eyebrow">If you’re new</p>
-        <h2>Start here</h2>
-        <p>A quick read, a school friendship, and a long illustrated tale.</p>
-      </div>
-      <div class="story-grid catalogue-grid" data-library="start"></div>
-    </section>
+      <article class="u-tile u-tile--quote u-tile--sun u-pad u-span-5 u-spring u-enter">
+        <blockquote>
+          “I needed to do what was right for me, not for everyone else.”
+          <cite>From The Shy Girl &amp; The Popular Girl</cite>
+        </blockquote>
+      </article>
+      <article class="u-tile u-tile--moss u-pad u-span-4 u-spring u-enter">
+        <p class="u-kicker">If you’re new</p>
+        <h2 class="u-title">Start here</h2>
+        <p class="u-copy">A quick read, a school friendship, and a long illustrated tale.</p>
+        <a class="u-link" href="stories.html">Open the library</a>
+      </article>
+      <article class="u-tile u-tile--sky u-pad u-span-3 u-spring u-enter">
+        <p class="u-kicker">Library</p>
+        <p class="u-stat"><strong data-story-count>17</strong><span>Stories on the shelf</span></p>
+        <a class="u-link" href="stories.html">Browse all</a>
+      </article>
 
-    <section class="section">
-      <div class="section-head">
-        <p class="eyebrow">Books that belong together</p>
-        <h2>Series</h2>
-        <p>Read Book 1 first — then keep going.</p>
-      </div>
-      <div class="series-grid" data-library="series"></div>
-      <p class="page-intro"><a href="stories.html#series">See series in the library</a></p>
-    </section>
+      <p class="u-kicker u-span-12 u-enter" style="margin: .6rem 0 0;">Books that belong together</p>
+      <div class="u-bento u-span-12 series-grid" data-library="series"></div>
 
-    <section class="section">
-      <div class="browse-band">
-        <div>
-          <h2>The whole library</h2>
-          <p><span data-story-count>17</span> stories — search a title or pick a mood. More on the way.</p>
-        </div>
+      <article class="u-tile u-pad u-span-6 u-spring u-enter">
+        <h2 class="u-title">The whole library</h2>
+        <p class="u-copy"><span data-story-count>17</span> stories — search a title or pick a mood. More on the way.</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="stories.html">Browse all stories</a>
+        </div>
+      </article>
+      <article class="u-tile u-tile--sky u-pad u-span-6 u-spring u-enter">
+        <h2 class="u-title">Read. Share. Grow.</h2>
+        <p class="u-copy">This site is Anshika’s home on the web — a place for her stories, her readers, and the friends who inspire the next chapter.</p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="about.html">Meet Anshika</a>
+          <a class="btn btn-ghost" href="connect.html">Say hello</a>
           <a class="btn btn-ghost" href="newsletter.html">Story Notes</a>
         </div>
-      </div>
-    </section>
-
-    <section class="quote-band">
-      <blockquote class="quote">
-        “I needed to do what was right for me, not for everyone else.”
-        <cite>From The Shy Girl &amp; The Popular Girl</cite>
-      </blockquote>
-    </section>
-
-    <section class="section">
-      <div class="section-head">
-        <h2>Read. Share. Grow.</h2>
-        <p>This site is Anshika’s home on the web — a place for her stories, her readers, and the friends who inspire the next chapter.</p>
-      </div>
-      <div class="cta-row">
-        <a class="btn btn-primary" href="about.html">Meet Anshika</a>
-        <a class="btn btn-ghost" href="connect.html">Say hello</a>
-      </div>
-    </section>
+      </article>
+    </div>
+    <noscript>
+      <p class="story-empty">Turn on JavaScript to browse covers, or open <a href="stories/short-stories.html">Short Stories</a>, <a href="stories/shy-girl.html">The Shy Girl</a>, or <a href="stories/from-streets-to-snuggles.html">From Streets to Snuggles</a>.</p>
+    </noscript>
   </main>
 
   <footer class="site-footer">
@@ -118,8 +101,8 @@
     <a href="newsletter.html">Subscribe</a>
   </footer>
 
-  <script src="js/main.js?v=reader5"></script>
-  <script src="js/library.js?v=covers2"></script>
+  <script src="js/main.js?v=reader11"></script>
+  <script src="js/library.js?v=bento1"></script>
   <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
 </body>
 </html>

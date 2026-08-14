@@ -16,7 +16,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/styles.css?v=bento1" />
+  <link rel="stylesheet" href="css/ui.css?v=bento1" />
 </head>
 <body>
   <header class="site-header">
@@ -33,24 +34,21 @@
     </div>
   </header>
 
-  <main class="section">
-    <div class="section-head">
-      <p class="eyebrow">About</p>
-      <h1 class="page-title">Hi, I’m Anshika.</h1>
-      <p class="page-intro">I’m 12 years old, and I write stories about friendship, courage, secrets, and the quiet moments that change everything.</p>
-    </div>
-
-    <div class="author-photos" aria-label="Photos of Anshika">
-      <figure class="author-photo author-photo--main">
+  <main class="u-shell">
+    <div class="u-bento">
+      <section class="u-tile u-tile--hero u-pad-lg u-span-7 u-enter">
+        <p class="eyebrow">About</p>
+        <h1 class="page-title">Hi, I’m Anshika.</h1>
+        <p class="page-intro">I’m 12 years old, and I write stories about friendship, courage, secrets, and the quiet moments that change everything.</p>
+      </section>
+      <figure class="u-tile u-tile--photo u-span-5 u-row-2 u-spring u-enter">
         <img src="images/anshika/anshu2.jpg" alt="Anshika smiling outdoors with an umbrella" width="1200" height="1600" />
       </figure>
-      <figure class="author-photo">
+      <figure class="u-tile u-tile--photo u-span-7 u-spring u-enter">
         <img src="images/anshika/anshu1.jpg" alt="Portrait of Anshika Mahesh" width="1200" height="1600" />
       </figure>
-    </div>
 
-    <div class="about-grid">
-      <div>
+      <article class="u-tile u-pad u-span-8 u-enter">
         <p>I started writing in notebooks — covers first, characters second, then chapter after chapter until the story felt finished. My readers began as friends. Now this site is where those stories can travel a little farther.</p>
         <p>I love dual points of view, sidekicks with terrible time sense, and endings where people choose kindness even when it isn’t easy.</p>
         <p>When I’m not writing, I’m usually thinking about the next plot twist… or drawing what a nameless sidekick might look like.</p>
@@ -58,15 +56,14 @@
           <a class="btn btn-primary" href="stories.html">Explore my stories</a>
           <a class="btn btn-ghost" href="newsletter.html">Get story notes</a>
         </div>
-      </div>
-
-      <aside class="about-panel">
-        <h3>At a glance</h3>
-        <p>Author · Student · Friend-gift story maker</p>
+      </article>
+      <aside class="u-tile u-tile--moss u-pad u-span-4 u-enter">
+        <p class="u-kicker">At a glance</p>
+        <h3 class="u-title">Author · Student · Friend-gift story maker</h3>
         <div class="stat-row">
           <div class="stat"><strong>12</strong><span>Years old</span></div>
-          <div class="stat"><strong data-story-count>17</strong><span>Published stories</span></div>
-          <div class="stat"><strong>∞</strong><span>Ideas brewing</span></div>
+          <div class="stat"><strong data-story-count>17</strong><span>Stories</span></div>
+          <div class="stat"><strong>∞</strong><span>Ideas</span></div>
         </div>
       </aside>
     </div>
@@ -77,8 +74,8 @@
     <a href="newsletter.html">Subscribe</a>
   </footer>
 
-  <script src="js/main.js?v=reader5"></script>
-  <script src="js/library.js?v=covers2"></script>
+  <script src="js/main.js?v=reader11"></script>
+  <script src="js/library.js?v=bento1"></script>
   <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
 </body>
 </html>

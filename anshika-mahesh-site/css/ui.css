@@ -1,0 +1,270 @@
+/* Modular UI layer: 12-column bento, tile utilities, spring motion.
+   Load after styles.css on chrome pages only — not on story readers. */
+
+:root {
+  --u-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --u-spring: cubic-bezier(0.34, 1.45, 0.64, 1);
+  --u-radius: 22px;
+}
+
+@supports (transition-timing-function: linear(0, 1)) {
+  :root {
+    --u-spring: linear(
+      0, 0.009, 0.035 2.1%, 0.141 4.4%, 0.723 12.9%, 0.938 16.7%,
+      1.077, 1.157, 1.186, 1.202, 1.199, 1.183, 1.15 40.8%,
+      1.018 52.4%, 0.988 57.5%, 0.975 65.6%, 0.997 76.9%, 1
+    );
+  }
+}
+
+@view-transition { navigation: auto; }
+
+.u-shell {
+  width: min(1120px, calc(100% - 1.25rem));
+  margin: 0 auto;
+  padding: 1.1rem 0 3.2rem;
+}
+
+.u-bento {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.u-span-3 { grid-column: span 3; }
+.u-span-4 { grid-column: span 4; }
+.u-span-5 { grid-column: span 5; }
+.u-span-6 { grid-column: span 6; }
+.u-span-7 { grid-column: span 7; }
+.u-span-8 { grid-column: span 8; }
+.u-span-12 { grid-column: span 12; }
+.u-row-2 { grid-row: span 2; }
+
+.u-tile {
+  min-width: 0;
+  min-height: 0;
+  border-radius: var(--u-radius);
+  background: var(--paper-bright);
+  border: 1px solid var(--line);
+  box-shadow: 0 8px 24px rgba(28, 36, 48, 0.05);
+  overflow: hidden;
+}
+
+.u-tile--flush { padding: 0; }
+.u-pad { padding: clamp(1.1rem, 2.4vw, 1.7rem); }
+.u-pad-lg { padding: clamp(1.35rem, 3vw, 2.1rem); }
+
+.u-tile--hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background:
+    linear-gradient(160deg, rgba(106, 168, 194, 0.14), transparent 46%),
+    var(--paper-bright);
+}
+
+.u-tile--hero .brand {
+  font-size: clamp(2.6rem, 7vw, 4.6rem);
+  animation: none;
+}
+
+.u-tile--hero .lead,
+.u-tile--hero .cta-row { animation: none; }
+
+.u-tile--photo {
+  margin: 0;
+  background: #dfe9e4;
+}
+
+.u-tile--photo img {
+  width: 100%;
+  height: 100%;
+  min-height: 280px;
+  object-fit: cover;
+  display: block;
+}
+
+.u-tile--moss {
+  background: linear-gradient(165deg, rgba(93, 127, 98, 0.16), var(--paper-bright) 55%);
+}
+
+.u-tile--sky {
+  background: linear-gradient(165deg, rgba(106, 168, 194, 0.18), var(--paper-bright) 58%);
+}
+
+.u-tile--sun {
+  background: linear-gradient(165deg, rgba(217, 164, 65, 0.18), var(--paper-bright) 58%);
+}
+
+.u-tile--quote {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.u-tile--quote blockquote {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 2.4vw, 1.55rem);
+  font-style: italic;
+  line-height: 1.35;
+}
+
+.u-tile--quote cite {
+  display: block;
+  margin-top: 0.85rem;
+  font-style: normal;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.u-kicker {
+  margin: 0 0 0.45rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--sky-deep);
+}
+
+.u-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 2.6vw, 1.85rem);
+  line-height: 1.15;
+}
+
+.u-copy {
+  margin: 0.55rem 0 0;
+  color: var(--ink-soft);
+}
+
+.u-link {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+.u-spring {
+  transform: translateZ(0);
+  transition:
+    transform 0.65s var(--u-spring),
+    box-shadow 0.5s var(--u-ease),
+    border-color 0.3s var(--u-ease);
+}
+
+a.u-spring { color: inherit; text-decoration: none; }
+
+.u-spring:hover,
+.u-spring:focus-visible {
+  color: inherit;
+  transform: translateY(-7px) scale(1.018);
+  box-shadow: 0 22px 40px rgba(28, 36, 48, 0.12);
+}
+
+.u-enter {
+  animation: u-rise 0.78s var(--u-spring) both;
+}
+
+.u-bento > .u-enter:nth-child(1) { animation-delay: 0.02s; }
+.u-bento > .u-enter:nth-child(2) { animation-delay: 0.07s; }
+.u-bento > .u-enter:nth-child(3) { animation-delay: 0.12s; }
+.u-bento > .u-enter:nth-child(4) { animation-delay: 0.16s; }
+.u-bento > .u-enter:nth-child(5) { animation-delay: 0.2s; }
+.u-bento > .u-enter:nth-child(6) { animation-delay: 0.24s; }
+.u-bento > .u-enter:nth-child(7) { animation-delay: 0.28s; }
+.u-bento > .u-enter:nth-child(8) { animation-delay: 0.32s; }
+.u-bento > .u-enter:nth-child(9) { animation-delay: 0.36s; }
+
+@keyframes u-rise {
+  from { opacity: 0; transform: translateY(22px) scale(0.97); }
+  to { opacity: 1; transform: none; }
+}
+
+.u-bento > .story-card {
+  height: 100%;
+  border-radius: var(--u-radius);
+}
+
+.catalogue-grid .story-card.u-tile {
+  border-radius: var(--u-radius);
+}
+
+.catalogue-grid .story-card.u-spring {
+  transition:
+    transform 0.65s var(--u-spring),
+    box-shadow 0.5s var(--u-ease),
+    border-color 0.3s var(--u-ease);
+}
+
+.u-bento > .story-card.u-tile--feature .story-card-cover,
+.u-bento > .story-card.u-tile--feature .story-card-cover img {
+  height: min(260px, 38vw);
+  max-height: none;
+  flex: 1 1 auto;
+}
+
+.u-bento .series-bundle {
+  height: 100%;
+  margin: 0;
+}
+
+.u-stat {
+  text-align: center;
+}
+
+.u-stat strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  line-height: 1;
+}
+
+.u-stat span {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 900px) {
+  .u-bento { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .u-span-3,
+  .u-span-4,
+  .u-span-5 { grid-column: span 3; }
+  .u-span-6,
+  .u-span-7,
+  .u-span-8,
+  .u-span-12 { grid-column: span 6; }
+  .u-row-2 { grid-row: auto; }
+}
+
+@media (max-width: 640px) {
+  .u-bento { grid-template-columns: 1fr; gap: 0.7rem; }
+  .u-span-3,
+  .u-span-4,
+  .u-span-5,
+  .u-span-6,
+  .u-span-7,
+  .u-span-8,
+  .u-span-12 { grid-column: 1 / -1; }
+  .u-tile--photo img { min-height: 220px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .u-enter,
+  .u-bento > .u-enter { animation: none; }
+  .u-spring,
+  .u-spring:hover,
+  .u-spring:focus-visible {
+    transition: none;
+    transform: none;
+  }
+}

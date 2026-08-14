@@ -273,7 +273,7 @@
     const extra = story.credit ? "Co-written tale" : "A story by Anshika";
     const mark = story.fresh ? "New" : (story.continued ? "To be continued" : "");
     return (
-      '<a class="story-card" href="' + esc(story.href) + '">' +
+      '<a class="story-card u-tile u-spring" href="' + esc(story.href) + '">' +
         '<div class="story-card-cover"><img src="' + esc(story.cover) + '" alt="" /></div>' +
         '<div class="story-card-lane story-card-lane--' + lane + '">' + esc(laneLabel(story)) + "</div>" +
         '<div class="story-card-body">' +
@@ -300,6 +300,17 @@
 
   function renderGrid(root, stories) {
     root.innerHTML = stories.map(cardHTML).join("");
+    const pattern = (root.getAttribute("data-bento") || "").trim().split(/\s+/).filter(Boolean);
+    if (!pattern.length) return;
+    Array.prototype.forEach.call(root.children, function (card, i) {
+      const span = pattern[i] || pattern[pattern.length - 1];
+      card.classList.add("u-span-" + span);
+      if (i === 0 && root.getAttribute("data-library") === "latest") {
+        card.classList.add("u-row-2", "u-tile--feature", "u-enter");
+      } else {
+        card.classList.add("u-enter");
+      }
+    });
   }
 
   function renderSeriesBundles(root) {
@@ -315,7 +326,7 @@
         );
       }).join("");
       return (
-        '<article class="series-bundle">' +
+        '<article class="series-bundle u-tile u-spring u-span-6 u-enter">' +
           '<p class="eyebrow">' + books.length + " books</p>" +
           "<h3>" + esc(bundle.title) + "</h3>" +
           "<p>" + esc(bundle.blurb) + "</p>" +

@@ -444,8 +444,6 @@ a:hover { color: var(--ink); }
 
 .story-card:hover {
   color: inherit;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 24px rgba(28, 36, 48, 0.1);
 }
 
 .story-card-cover {

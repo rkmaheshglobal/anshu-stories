@@ -206,7 +206,7 @@ function initStoryBook() {
       '<button type="button" class="book-nav book-listen-btn" data-listen-toggle aria-pressed="false" aria-label="Read this page aloud">▶</button>' +
       '<button type="button" class="book-nav book-focus-btn" data-book-focus aria-pressed="false" aria-label="Read without menus">⛶</button>' +
     "</div>" +
-    '<p class="book-listen-note" data-listen-note hidden><span class="listen-wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span> <span data-listen-voice>Computer voice · Indian English, if your device has one</span></p>' +
+    '<p class="book-listen-note" data-listen-note hidden><span class="listen-wave" aria-hidden="true"><i></i><i></i><i></i><i></i></span> <span data-listen-voice>Neerja Natural · clear computer voice</span></p>' +
     '<p class="book-hint" data-book-hint></p>' +
     '<div class="story-react" data-react hidden>' +
       '<p>Did you love this story? Leave a reaction:</p>' +
@@ -310,6 +310,27 @@ function initStoryBook() {
     inner.innerHTML = leaf.html;
     if (inner.querySelector("figure, .illust, .gallery")) el.classList.add("has-picture");
     num.textContent = String(leafIndex + 1);
+    fitLeaf(el);
+  }
+
+  function fitLeaf(el) {
+    const inner = el.querySelector(".leaf-inner");
+    if (!inner || el.classList.contains("is-cover") || el.classList.contains("is-endpaper") || el.classList.contains("is-blank")) {
+      if (inner) {
+        inner.style.fontSize = "";
+        inner.style.overflowY = "";
+      }
+      return;
+    }
+    inner.style.fontSize = "";
+    inner.style.overflowY = "hidden";
+    if (inner.scrollHeight <= inner.clientHeight + 2) return;
+    const sizes = ["0.84rem", "0.8rem", "0.76rem", "0.72rem"];
+    for (let i = 0; i < sizes.length; i++) {
+      inner.style.fontSize = sizes[i];
+      if (inner.scrollHeight <= inner.clientHeight + 2) return;
+    }
+    inner.style.overflowY = "auto";
   }
 
   function paint(si) {
@@ -378,16 +399,17 @@ function initStoryBook() {
   function scoreNarrationVoice(voice) {
     const name = (voice.name || "").toLowerCase();
     const lang = (voice.lang || "").toLowerCase().replace("_", "-");
+    if (/neerja/.test(name) && /natural/.test(name)) return 400;
+    if (/neerja/.test(name)) return 350;
     let score = 0;
     if (/^en-in/.test(lang)) score += 130;
     else if (/india|indian/.test(name) && /^en/.test(lang)) score += 120;
-    else if (/heera|neerja|veena|sangeeta|isha/.test(name)) score += 115;
-    else if (/^hi/.test(lang)) score += 25;
+    else if (/heera|veena|sangeeta|isha/.test(name)) score += 115;
     else if (/^en/.test(lang)) score += 8;
     else return -1;
-    if (/male|\bman\b|rishi|ravi|prabhat|david|daniel|george|fred/.test(name)) score -= 90;
-    if (/female|woman|girl|heera|neerja|veena|sangeeta|isha|lekha|kalpana|aditi|raveena|priya/.test(name)) score += 45;
-    if (voice.localService) score += 6;
+    if (/male|\bman\b|rishi|ravi|prabhat/.test(name)) score -= 90;
+    if (/female|heera|veena|sangeeta|isha/.test(name)) score += 40;
+    if (/natural|neural|online/.test(name)) score += 30;
     return score;
   }
 
@@ -411,22 +433,20 @@ function initStoryBook() {
       return;
     }
     let settled = false;
-    function finish() {
+    function once() {
       if (settled) return;
       settled = true;
       done(window.speechSynthesis.getVoices() || []);
     }
-    window.speechSynthesis.addEventListener("voiceschanged", finish, { once: true });
-    window.setTimeout(finish, 500);
+    window.speechSynthesis.addEventListener("voiceschanged", once, { once: true });
+    window.setTimeout(once, 500);
   }
 
   function describeVoice(voice) {
-    if (!voice) return "Computer voice · Indian English, if your device has one";
-    const lang = (voice.lang || "").replace("_", "-");
-    if (/^en-IN/i.test(lang) || /india|indian|heera|neerja|veena|sangeeta|isha/i.test(voice.name || "")) {
-      return "Reading with " + voice.name + " · Indian English computer voice";
-    }
-    return "Reading with " + voice.name + " · closest female English voice on this device";
+    const name = (voice && voice.name) || "";
+    if (/neerja/i.test(name)) return "Neerja Natural · clear computer voice";
+    if (name) return "Reading with " + name + " · clear computer voice";
+    return "Clear computer voice · Neerja Natural when this device has it";
   }
 
   function speakVisiblePages() {
@@ -444,8 +464,9 @@ function initStoryBook() {
       const voice = pickNarrationVoice(voices);
       utter.lang = (voice && voice.lang) || "en-IN";
       if (voice) utter.voice = voice;
-      utter.rate = 0.92;
-      utter.pitch = 1.04;
+      utter.rate = 0.82;
+      utter.pitch = 1;
+      utter.volume = 1;
       utter.onend = function () {
         if (token !== speakToken) return;
         if (listening && spread < totalSpreads - 1) go(1);
@@ -659,14 +680,14 @@ function initStoryBook() {
       return { leaves: list, idToLeaf: map };
     }
 
-    const sizer = sampleClone(rightEl.querySelector(".leaf-inner"), maxW, maxH);
+    const sizer = sampleClone(rightEl.querySelector(".leaf-inner"), maxW, Math.max(80, maxH - 10));
     rightEl.appendChild(sizer);
 
     const out = [];
     const map = {};
 
     function overflows() {
-      return sizer.scrollHeight - sizer.clientHeight > 6;
+      return sizer.scrollHeight - sizer.clientHeight > 2;
     }
 
     function isHeading(el) {
@@ -684,6 +705,62 @@ function initStoryBook() {
       if (el.classList.contains("cast") && el.children.length > 1) return el;
       return null;
     }
+    function isTextBlock(el) {
+      if (!el || el.nodeType !== 1) return false;
+      if (isHeading(el) || isMedia(el) || listHost(el)) return false;
+      const tag = el.tagName;
+      if (tag !== "P" && tag !== "DIV" && tag !== "BLOCKQUOTE") return false;
+      return Array.prototype.every.call(el.children, function (ch) {
+        return /^(EM|STRONG|I|B|A|SPAN|BR)$/.test(ch.tagName);
+      });
+    }
+    function sentenceChunks(html) {
+      const parts = [];
+      const re = /[.!?]["']?(?:\s+|$)/g;
+      let last = 0;
+      let m;
+      while ((m = re.exec(html))) {
+        const bit = html.slice(last, m.index + m[0].length).trim();
+        if (bit) parts.push(bit);
+        last = m.index + m[0].length;
+      }
+      if (last < html.length) {
+        const tail = html.slice(last).trim();
+        if (tail) parts.push(tail);
+      }
+      return parts;
+    }
+    function splitTextBlock(el) {
+      const chunks = sentenceChunks(el.innerHTML.trim());
+      if (chunks.length < 2) return;
+      const tag = el.tagName;
+      const cls = el.className;
+      el.innerHTML = "";
+      let current = el;
+      let acc = [];
+      chunks.forEach(function (chunk) {
+        acc.push(chunk);
+        current.innerHTML = acc.join(" ");
+        if (overflows() && acc.length > 1) {
+          acc.pop();
+          current.innerHTML = acc.join(" ");
+          flush();
+          current = document.createElement(tag);
+          current.className = cls;
+          sizer.appendChild(current);
+          acc = [chunk];
+          current.innerHTML = chunk;
+        }
+      });
+    }
+    function fitClone(clone) {
+      const host = listHost(clone);
+      if (host) {
+        splitHost(host);
+        return;
+      }
+      if (isTextBlock(clone)) splitTextBlock(clone);
+    }
     function flush() {
       if (!sizer.innerHTML.trim()) return;
       out.push({ html: sizer.innerHTML, cover: false });
@@ -698,7 +775,7 @@ function initStoryBook() {
       let current = host;
       items.forEach(function (item) {
         current.appendChild(item);
-        if (sizer.scrollHeight - sizer.clientHeight > 6 && current.children.length > 1) {
+        if (sizer.scrollHeight - sizer.clientHeight > 2 && current.children.length > 1) {
           current.removeChild(item);
           flush();
           current = document.createElement(tag);
@@ -732,22 +809,15 @@ function initStoryBook() {
         sizer.appendChild(clone);
         if (!overflows()) return;
 
-        const host = listHost(clone);
-        const glued = sizer.children.length === 2 && isHeading(sizer.children[0]) && isMedia(clone);
-        if (glued) return;
-
         if (sizer.children.length === 1) {
-          if (host) splitHost(host);
+          fitClone(clone);
           return;
         }
 
         sizer.removeChild(clone);
         flush();
         sizer.appendChild(clone);
-        if (overflows()) {
-          const again = listHost(clone);
-          if (again) splitHost(again);
-        }
+        if (overflows()) fitClone(clone);
       });
       flush();
     });
@@ -1011,7 +1081,7 @@ function injectBookCss() {
   style.id = "book-reader-css";
   style.textContent = [
     "body.is-book-reader{height:100vh;overflow:hidden;display:flex;flex-direction:column}",
-    "body.is-book-reader .site-header{position:relative;flex:0 0 auto;z-index:4}",
+    "body.is-book-reader .site-header{position:relative;flex:0 0 auto;z-index:30;background:rgba(247,244,239,.94)}",
     "body.is-book-reader .site-footer{display:none}",
     "body.is-book-reader main.book{position:absolute!important;left:-9999px!important;width:1px!important;height:1px!important;overflow:hidden!important;margin:0!important}",
     "body.is-book-reader .book-tools{flex:0 0 auto;position:relative;z-index:5;width:min(980px,calc(100vw - 1.5rem));margin:0 auto;padding:.45rem .6rem .35rem;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:.45rem .7rem}",
@@ -1110,7 +1180,7 @@ function injectBookCss() {
     ".cast-card button{border:1px solid rgba(28,36,48,.14);background:#fff;border-radius:999px;padding:.3rem .8rem;cursor:pointer;font-weight:700}",
     "@media (prefers-reduced-motion:reduce){.flipper.is-forward,.flipper.is-back{animation-duration:.01s}.listen-wave i{animation:none}}",
     "@media print{body.is-book-reader{height:auto;overflow:visible}.book-stage{display:none!important}body.is-book-reader main.book{position:static!important;width:auto!important;height:auto!important;left:auto!important}body.is-book-reader .site-footer{display:flex}}",
-    "@media (max-width:767px){.hardback.is-single{grid-template-columns:1fr;width:min(560px,calc(100vw - 1rem));height:min(72vh,calc(100% - 118px));border-radius:8px}.hardback.is-single .leaf-left,.hardback.is-single .spine,.hardback.is-single .flipper{display:none!important}.hardback.is-single .leaf-right{border-radius:8px;background:#fbf7ee}.hardback.is-single .leaf-inner{overflow-y:auto;-webkit-overflow-scrolling:touch;font-size:.86rem;padding:.85rem .9rem 2.5rem}.book-hint{display:none}.book-chrome{width:min(560px,calc(100vw - 1rem));grid-template-columns:44px 1fr 44px 44px 44px}.book-chrome.no-listen{grid-template-columns:44px 1fr 44px 44px}.leaf-inner .brand{font-size:1.2rem!important}.book-tools a{font-size:.7rem;padding:.22rem .55rem}.story-react{width:min(560px,calc(100vw - 1rem))}body.is-book-single .site-header{display:none}}"
+    "@media (max-width:767px){.hardback.is-single{grid-template-columns:1fr;width:min(560px,calc(100vw - 1rem));height:min(70vh,calc(100% - 88px));border-radius:8px}.hardback.is-single .leaf-left,.hardback.is-single .spine,.hardback.is-single .flipper{display:none!important}.hardback.is-single .leaf-right{border-radius:8px;background:#fbf7ee}.hardback.is-single .leaf-inner{overflow-y:auto;-webkit-overflow-scrolling:touch;font-size:.86rem;padding:.85rem .9rem 2.5rem}.book-hint{display:none}.book-chrome{width:min(560px,calc(100vw - 1rem));grid-template-columns:44px 1fr 44px 44px 44px}.book-chrome.no-listen{grid-template-columns:44px 1fr 44px 44px}.leaf-inner .brand{font-size:1.2rem!important}.book-tools a{font-size:.7rem;padding:.22rem .55rem}.story-react{width:min(560px,calc(100vw - 1rem))}body.is-book-reader .nav{background:rgba(247,244,239,.98)}}"
   ].join("");
   document.head.appendChild(style);
 }

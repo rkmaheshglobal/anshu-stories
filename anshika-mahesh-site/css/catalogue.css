@@ -20,8 +20,6 @@
 
 .catalogue-grid .story-card:hover {
   color: inherit;
-  transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(28, 36, 48, 0.1);
 }
 
 .catalogue-grid .story-card-cover,

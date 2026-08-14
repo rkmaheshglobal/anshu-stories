@@ -16,7 +16,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=notes1" />
+  <link rel="stylesheet" href="css/styles.css?v=bento1" />
+  <link rel="stylesheet" href="css/ui.css?v=bento1" />
 </head>
 <body>
   <header class="site-header">
@@ -33,37 +34,30 @@
     </div>
   </header>
 
-  <main class="section-narrow">
-    <p class="eyebrow">Connect</p>
-    <h1 class="page-title">Let’s stay in touch</h1>
-    <p class="page-intro">
-      This site is parent-managed for Anshika’s safety. For reading invitations, school features, or collaboration notes, use the links below.
-    </p>
-
-    <ul class="connect-list">
-      <li>
-        <a href="newsletter.html">
-          Newsletter
-          <span>Join Story Notes</span>
-        </a>
-      </li>
-      <li>
-        <a href="stories.html">
-          Stories
-          <span>Read the library</span>
-        </a>
-      </li>
-      <li>
-        <a href="mailto:rkmaheshglobal@gmail.com">
-          Email
-          <span>rkmaheshglobal@gmail.com</span>
-        </a>
-      </li>
-    </ul>
-
-    <p class="form-note" style="margin-top:1.5rem;">
-      Comments and DMs stay off by default. Story Notes signups also arrive in this inbox.
-    </p>
+  <main class="u-shell">
+    <div class="u-bento">
+      <section class="u-tile u-tile--hero u-pad-lg u-span-12 u-enter">
+        <p class="eyebrow">Connect</p>
+        <h1 class="page-title">Let’s stay in touch</h1>
+        <p class="page-intro">This site is parent-managed for Anshika’s safety. For reading invitations, school features, or collaboration notes, use the tiles below.</p>
+      </section>
+      <a class="u-tile u-tile--sky u-pad u-span-4 u-spring u-enter" href="newsletter.html">
+        <p class="u-kicker">Story Notes</p>
+        <h2 class="u-title">Newsletter</h2>
+        <p class="u-copy">Join for new stories and writing notes.</p>
+      </a>
+      <a class="u-tile u-tile--moss u-pad u-span-4 u-spring u-enter" href="stories.html">
+        <p class="u-kicker">Library</p>
+        <h2 class="u-title">Stories</h2>
+        <p class="u-copy">Read the illustrated shelf.</p>
+      </a>
+      <a class="u-tile u-tile--sun u-pad u-span-4 u-spring u-enter" href="mailto:rkmaheshglobal@gmail.com">
+        <p class="u-kicker">Parent inbox</p>
+        <h2 class="u-title">Email</h2>
+        <p class="u-copy">rkmaheshglobal@gmail.com</p>
+      </a>
+      <p class="u-copy u-span-12 u-enter">Comments and DMs stay off by default. Story Notes signups also arrive in this inbox.</p>
+    </div>
   </main>
 
   <footer class="site-footer">
@@ -71,7 +65,7 @@
     <a href="newsletter.html">Subscribe</a>
   </footer>
 
-  <script src="js/main.js?v=reader5"></script>
+  <script src="js/main.js?v=reader11"></script>
   <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
 </body>
 </html>
