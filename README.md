@@ -71,11 +71,21 @@ You can also drag `anshika-mahesh-site/` onto [Netlify](https://www.netlify.com/
 
 Before going public:
 
-1. Replace `hello@anshikamahesh.com` on Connect with a real parent email.
-2. Hook the newsletter form to a real list (Buttondown, Mailchimp, or ConvertKit). It currently shows a local thank-you only.
+1. Confirm FormSubmit’s first activation email at rkmaheshglobal@gmail.com (one-time, after the first Story Notes signup).
+2. Create the GoatCounter site code `anshu-stories` if you want live reader stats.
 
 ## Safety defaults
 
 - Parent-managed contact
 - No public comments
 - Newsletter copy notes unsubscribe and a parent-managed list
+- Anonymous visit counts via GoatCounter (no names, no cookies); see `privacy.html`
+
+## Reader stats
+
+The live site records page views and three book events (`story_open`, `story_halfway`, `story_finish`). Localhost is skipped.
+
+1. Create a free site at [goatcounter.com](https://www.goatcounter.com) with code **`anshu-stories`** (or another code).
+2. If you pick a different code, change `GOATCOUNTER_CODE` in `anshika-mahesh-site/js/main.js`.
+3. Open **Settings → Sites** in GoatCounter and confirm the site URL is `https://rkmaheshglobal.github.io/anshu-stories/`.
+4. After a visit to the live site, the dashboard shows pages; events appear as paths like `story_open/shy-girl`.

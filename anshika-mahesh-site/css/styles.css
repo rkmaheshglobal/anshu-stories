@@ -171,6 +171,7 @@ a:hover { color: var(--ink); }
 }
 
 .btn:hover { transform: translateY(-2px); }
+.btn:disabled { opacity: 0.55; transform: none; cursor: default; }
 .btn-primary { background: var(--ink); color: #fff; }
 .btn-primary:hover { background: var(--sky-deep); color: #fff; }
 .btn-ghost {
@@ -747,6 +748,18 @@ a:hover { color: var(--ink); }
 }
 
 .form-success.is-visible { display: block; }
+
+.form-error {
+  display: none;
+  margin-top: 1rem;
+  padding: 0.9rem 1rem;
+  border-radius: 12px;
+  background: rgba(201, 123, 132, 0.14);
+  color: #8a3d48;
+  font-weight: 700;
+}
+
+.form-error.is-visible { display: block; }
 
 .about-grid {
   display: grid;

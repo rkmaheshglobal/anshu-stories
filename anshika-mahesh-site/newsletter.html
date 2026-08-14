@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/styles.css?v=notes1" />
 </head>
 <body>
   <header class="site-header">
@@ -40,7 +40,11 @@
         It’s free — and made for friends, families, and fellow young readers.
       </p>
 
-      <form class="newsletter-form" data-newsletter-form>
+      <form class="newsletter-form" data-newsletter-form method="post" action="https://formsubmit.co/ajax/rkmaheshglobal@gmail.com">
+        <input type="hidden" name="_subject" value="Story Notes signup — Anshika Mahesh" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_captcha" value="false" />
+        <input class="visually-hidden" type="text" name="_honey" tabindex="-1" autocomplete="off" />
         <div>
           <label for="name">Name</label>
           <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" />
@@ -53,10 +57,13 @@
       </form>
 
       <p class="form-note">
-        Unsubscribe anytime. Parent-managed list — no spam, no public comments.
+        Signups go to the parent inbox. New stories are sent from there — reply to unsubscribe. No public comments.
       </p>
       <p class="form-success" data-newsletter-success>
         Thank you! You’re on the list for Anshika’s next story note.
+      </p>
+      <p class="form-error" data-newsletter-error>
+        Couldn’t send just now. Try again, or email the parent inbox on Connect.
       </p>
 
       <p class="form-note" style="margin-top:2rem;">
@@ -71,7 +78,7 @@
     <a href="connect.html">Connect</a>
   </footer>
 
-  <script src="js/main.js?v=pad1"></script>
+  <script src="js/main.js?v=notes1"></script>
   <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
 </body>
 </html>

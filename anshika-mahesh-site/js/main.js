@@ -1,3 +1,8 @@
+/** GoatCounter site code — create this code at https://www.goatcounter.com then keep it in sync here. */
+var GOATCOUNTER_CODE = "anshu-stories";
+var readerEventQueue = [];
+var readerFlushTimer = 0;
+
 (function () {
   const toggle = document.querySelector(".menu-toggle");
   const nav = document.querySelector(".nav");
@@ -10,18 +15,112 @@
 
   const form = document.querySelector("[data-newsletter-form]");
   const success = document.querySelector("[data-newsletter-success]");
+  const errorBox = document.querySelector("[data-newsletter-error]");
   if (form && success) {
     form.addEventListener("submit", function (event) {
       event.preventDefault();
       const email = form.querySelector('input[type="email"]');
       if (!email || !email.value.trim()) return;
-      success.classList.add("is-visible");
-      form.reset();
+      const btn = form.querySelector('button[type="submit"]');
+      success.classList.remove("is-visible");
+      if (errorBox) errorBox.classList.remove("is-visible");
+      if (btn) btn.disabled = true;
+      fetch(form.getAttribute("action"), {
+        method: "POST",
+        body: new FormData(form),
+        headers: { Accept: "application/json" }
+      }).then(function (res) {
+        return res.json().catch(function () { return {}; }).then(function (data) {
+          return { ok: res.ok, data: data };
+        });
+      }).then(function (result) {
+        if (btn) btn.disabled = false;
+        if (result.ok) {
+          success.classList.add("is-visible");
+          form.reset();
+          return;
+        }
+        if (errorBox) errorBox.classList.add("is-visible");
+      }).catch(function () {
+        if (btn) btn.disabled = false;
+        if (errorBox) errorBox.classList.add("is-visible");
+      });
     });
   }
 
+  addPrivacyLink();
+  initReaderStats();
   initStoryBook();
 })();
+
+function siteFileHref(file) {
+  var path = (location.pathname || "").replace(/\\/g, "/");
+  if (path.indexOf("/stories/chosen-for-magic/") !== -1) return "../../" + file;
+  if (path.indexOf("/stories/") !== -1 || path.indexOf("/invitations/") !== -1) return "../" + file;
+  return file;
+}
+
+function addPrivacyLink() {
+  var footers = document.querySelectorAll(".site-footer");
+  if (!footers.length) return;
+  Array.prototype.forEach.call(footers, function (footer) {
+    if (footer.querySelector("[data-privacy]")) return;
+    var a = document.createElement("a");
+    a.href = siteFileHref("privacy.html");
+    a.textContent = "Privacy";
+    a.setAttribute("data-privacy", "");
+    footer.appendChild(a);
+  });
+}
+
+function isLiveSite() {
+  var host = location.hostname;
+  return !!host && host !== "localhost" && host !== "127.0.0.1";
+}
+
+function initReaderStats() {
+  if (!GOATCOUNTER_CODE || !isLiveSite()) return;
+  window.goatcounter = window.goatcounter || {};
+  window.goatcounter.endpoint = "https://" + GOATCOUNTER_CODE + ".goatcounter.com/count";
+  if (document.getElementById("goatcounter-script")) return;
+  var s = document.createElement("script");
+  s.id = "goatcounter-script";
+  s.async = true;
+  s.src = "https://gc.zgo.at/count.js";
+  s.setAttribute("data-goatcounter", window.goatcounter.endpoint);
+  document.head.appendChild(s);
+}
+
+function flushReaderEvents() {
+  if (!window.goatcounter || typeof window.goatcounter.count !== "function") return false;
+  while (readerEventQueue.length) window.goatcounter.count(readerEventQueue.shift());
+  return true;
+}
+
+function trackReaderEvent(path, title) {
+  if (!GOATCOUNTER_CODE || !isLiveSite() || !path) return;
+  readerEventQueue.push({ path: path, title: title || path, event: true });
+  if (flushReaderEvents()) return;
+  if (readerFlushTimer) return;
+  var tries = 0;
+  readerFlushTimer = window.setInterval(function () {
+    tries += 1;
+    if (flushReaderEvents() || tries > 40) {
+      window.clearInterval(readerFlushTimer);
+      readerFlushTimer = 0;
+    }
+  }, 250);
+}
+
+function storyIdFromPath() {
+  var parts = (location.pathname || "").replace(/\\/g, "/").split("/");
+  var file = (parts.pop() || "").replace(/\.html$/i, "");
+  if (!file) return "";
+  if (file.toLowerCase() === "index" && parts[parts.length - 1] === "chosen-for-magic") {
+    return "chosen-for-magic";
+  }
+  return file.toLowerCase();
+}
 
 function initStoryBook() {
   const book = document.querySelector("main.book");
@@ -115,6 +214,25 @@ function initStoryBook() {
       : "";
     prevBtn.disabled = si === 0;
     nextBtn.disabled = si === totalSpreads - 1;
+    noteStoryProgress(si);
+  }
+
+  const storyId = storyIdFromPath();
+  const sentRead = { open: false, halfway: false, finish: false };
+  function noteStoryProgress(si) {
+    if (!storyId) return;
+    if (!sentRead.open) {
+      sentRead.open = true;
+      trackReaderEvent("story_open/" + storyId, "Opened " + storyId);
+    }
+    if (!sentRead.halfway && totalSpreads > 1 && si > 0 && si >= Math.floor((totalSpreads - 1) / 2)) {
+      sentRead.halfway = true;
+      trackReaderEvent("story_halfway/" + storyId, "Halfway " + storyId);
+    }
+    if (!sentRead.finish && si === totalSpreads - 1) {
+      sentRead.finish = true;
+      trackReaderEvent("story_finish/" + storyId, "Finished " + storyId);
+    }
   }
 
   function spreadFromLeaf(leafIndex) {
