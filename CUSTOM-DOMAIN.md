@@ -24,7 +24,7 @@ Do these steps in order. Do **not** make the GitHub repo private until step 5.
 5. **Save and Deploy**. Wait until the build is **Success**.
 6. Open the `*.pages.dev` URL Cloudflare shows. You should see Anshika’s Home page.
 
-The repo already has `wrangler.toml` with `pages_build_output_dir = "./anshika-mahesh-site"`. If the form is empty, those values should fill in.
+The repo has `wrangler.toml` with `[assets] directory = "./anshika-mahesh-site"`. Cloudflare’s Git deploy now runs Wrangler, which needs that assets block (the old Pages “build output directory” field is not enough).
 
 ## 2. Take the domain off GitHub Pages (you)
 

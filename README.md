@@ -61,7 +61,7 @@ You can also open `anshika-mahesh-site/index.html` directly in a browser. A loca
 
 ## Publish
 
-Cloudflare Pages deploys `anshika-mahesh-site/` from `main` (see `wrangler.toml`). Step-by-step: [CUSTOM-DOMAIN.md](CUSTOM-DOMAIN.md).
+Cloudflare deploys `anshika-mahesh-site/` from `main` as static assets (`wrangler.toml` `[assets]`). Step-by-step: [CUSTOM-DOMAIN.md](CUSTOM-DOMAIN.md).
 
 1. Connect this GitHub repo to a Cloudflare Pages project (build output: `anshika-mahesh-site`, no build command).
 2. Confirm the `*.pages.dev` preview.
