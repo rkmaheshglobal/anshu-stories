@@ -1,77 +1,74 @@
 # Custom domain — anshikamahesh.com
 
-Registered at **Cloudflare** on 14 Aug 2026. The site stays on GitHub Pages. This file is the wiring checklist.
+Registered at **Cloudflare** on 14 Aug 2026. The live site is **Cloudflare Pages**. The GitHub repo can stay **private**; the website stays public at https://anshikamahesh.com/.
 
-Public URL once DNS and GitHub agree: **https://anshikamahesh.com/**
+GitHub Free cannot serve Pages from a private repo. Cloudflare Pages can.
 
-Because this repo deploys with **GitHub Actions**, GitHub ignores a `CNAME` file in the site folder. Set the domain in GitHub Settings (step 2).
+Do these steps in order. Do **not** make the GitHub repo private until step 5.
 
-## 1. Cloudflare DNS (you)
+## 1. Create the Pages project (you)
 
-Open [dash.cloudflare.com](https://dash.cloudflare.com/) → click **anshikamahesh.com** → left sidebar **DNS** → **Records**.
+1. Open [dash.cloudflare.com](https://dash.cloudflare.com/) → **Workers & Pages** → **Create** → **Pages** → **Connect to Git**.
+2. Authorize GitHub if asked. When the GitHub App asks which repos it may see, choose **All repositories** (or at least `anshu-stories`). That keeps deploys working after the repo becomes private.
+3. Select **rkmaheshglobal/anshu-stories**.
+4. Fill the build form:
 
-### Clean up
+   | Field | Value |
+   | --- | --- |
+   | Project name | `anshika-mahesh` |
+   | Production branch | `main` |
+   | Framework preset | **None** |
+   | Build command | *(leave empty)* |
+   | Build output directory | `anshika-mahesh-site` |
 
-Leave MX / TXT / email records if you see any. Delete only leftover **A** or **CNAME** rows for `@` (the root) or `www` that point at Cloudflare parking IPs or “coming soon”. Those will fight GitHub.
+5. **Save and Deploy**. Wait until the build is **Success**.
+6. Open the `*.pages.dev` URL Cloudflare shows. You should see Anshika’s Home page.
 
-### Add two records
+The repo already has `wrangler.toml` with `pages_build_output_dir = "./anshika-mahesh-site"`. If the form is empty, those values should fill in.
 
-Click **Add record**. Fill the form **exactly** like this. Then **Save**. Repeat for the second row.
+## 2. Take the domain off GitHub Pages (you)
 
-| # | Type | Name | Target / content | Proxy status | TTL |
-| --- | --- | --- | --- | --- | --- |
-| 1 | CNAME | `@` | `rkmaheshglobal.github.io` | **DNS only** (grey cloud) | Auto |
-| 2 | CNAME | `www` | `rkmaheshglobal.github.io` | **DNS only** (grey cloud) | Auto |
+GitHub and Cloudflare cannot both own `anshikamahesh.com`.
 
-Cloudflare turns `@` into `anshikamahesh.com`. Do **not** type `anshikamahesh.com` in Name (that would become `anshikamahesh.com.anshikamahesh.com`).
+1. Open [GitHub Pages settings](https://github.com/rkmaheshglobal/anshu-stories/settings/pages).
+2. Remove the custom domain `anshikamahesh.com` → Save.
+3. Cloudflare **DNS** → **Records**: delete every **A**, **AAAA**, and **CNAME** for `@` and `www` that point at GitHub (`185.199.*`, `2606:50c0:*`, or `rkmaheshglobal.github.io`). Leave MX / TXT / email rows.
 
-Do **not** put `https://`, a trailing slash, or `/anshu-stories` in the target. Only `rkmaheshglobal.github.io`.
+The custom domain will go offline for a few minutes. The `*.pages.dev` URL still works.
 
-**Grey cloud is required.** If the cloud is orange and the label says Proxied, click it until it says **DNS only**. Orange proxy blocks GitHub’s HTTPS certificate.
+## 3. Attach anshikamahesh.com to Pages (you)
 
-Apex CNAME is allowed here because Cloudflare flattens it to A records for the rest of the internet.
+1. Workers & Pages → **anshika-mahesh** → **Custom domains** → **Set up a custom domain**.
+2. Add `anshikamahesh.com`. Cloudflare creates the DNS record. **Proxied (orange cloud) is correct** here — this is Cloudflare Pages, not GitHub Pages.
+3. Repeat for `www.anshikamahesh.com` if Cloudflare does not add it automatically.
 
-### If GitHub still says DNS is wrong
+Wait until both show **Active**. Then open https://anshikamahesh.com/ in a private window.
 
-Delete the `@` CNAME and instead add GitHub’s A / AAAA records (all DNS only):
+## 4. Confirm GoatCounter
 
-- A `@` → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-- AAAA `@` → `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153`, `2606:50c0:8003::153`
+GoatCounter **Settings → Sites**: keep `https://anshikamahesh.com/`.
 
-Keep the `www` CNAME.
+## 5. Make the GitHub repo private (you)
 
-## 2. GitHub Pages (you)
+Only after the custom domain loads from Cloudflare:
 
-1. Open [Pages settings](https://github.com/rkmaheshglobal/anshu-stories/settings/pages).
-2. **Custom domain:** `anshikamahesh.com` → Save.
-3. Wait until GitHub shows DNS check as passed (often a few minutes; sometimes up to an hour).
-4. Tick **Enforce HTTPS**. If the box is grey, wait for the certificate (can take up to 24 hours, usually much less).
-5. If GitHub asks you to **verify** the domain, it will show a TXT record. Add that in Cloudflare DNS, then return and verify.
+1. [anshu-stories settings](https://github.com/rkmaheshglobal/anshu-stories/settings) → **General** → **Danger zone** → **Change repository visibility** → **Private**.
+2. Push a tiny change (or **Retry deployment** in Pages) and confirm a new Cloudflare build still succeeds.
 
-GitHub will redirect `www.anshikamahesh.com` and the old `https://rkmaheshglobal.github.io/anshu-stories/` URL to the custom domain once both DNS records are in.
+If the next build cannot see the repo, the GitHub App was limited to public repos. Cloudflare → Pages → Settings → Source → reconnect GitHub with **All repositories**.
 
-## 3. After it loads
+## 6. After it is stable
 
-- Open https://anshikamahesh.com/ in a private window. You should see Home, not a Cloudflare or GitHub error page.
-- GoatCounter: **Settings → Sites** — add `https://anshikamahesh.com/` so counts keep working on the new host.
-- Optional later: Cloudflare **Email Routing** to forward `hello@anshikamahesh.com` to `rkmaheshglobal@gmail.com`. Until then, Connect stays on Gmail.
+Say when the custom domain is on Cloudflare Pages. Then we can delete `.github/workflows/pages.yml` so GitHub Pages stops deploying.
 
-Share-card (`og:`) URLs in the site already use `https://anshikamahesh.com`. They take effect after the next push to `main`.
+Optional: Cloudflare **Email Routing** to forward `hello@anshikamahesh.com` to `rkmaheshglobal@gmail.com`.
 
 ---
+
+## What stays public
+
+The **website** is public. Stories, HTML, CSS, and images can be viewed in a browser. What becomes private is the **GitHub repo** (commits, README, workflow files, file tree).
 
 ## Buying notes (kept for later domains)
 
 Search names on [Instant Domain Search](https://instantdomainsearch.com/). Buy at Cloudflare or Porkbun. Avoid GoDaddy / BigRock / hosting bundles.
-
-| Place | Typical `.com` | Why |
-| --- | --- | --- |
-| Cloudflare Registrar | ~$10–11, same at renewal | At-cost, strong DNS. Must use Cloudflare nameservers. |
-| Porkbun | ~$11, same at renewal | Easier checkout, free privacy and email forwarding. |
-
-Checklist used for this name:
-
-- Parent as registrant; recovery email `rkmaheshglobal@gmail.com`
-- WHOIS privacy on; 2FA and auto-renew on
-- Real DNS, not forwarding; no hosting add-on
-- `.com` without hyphens; not a publisher / Famous Five brand

@@ -1,3 +1,5 @@
+# Temporary: GitHub Pages until Cloudflare Pages owns anshikamahesh.com.
+# After CUSTOM-DOMAIN.md steps 1–3 succeed, delete this workflow.
 name: GitHub Pages
 
 on:

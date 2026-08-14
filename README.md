@@ -4,7 +4,7 @@ A static website for young author **Anshika Mahesh**: a story library you can br
 
 Repository: [rkmaheshglobal/anshu-stories](https://github.com/rkmaheshglobal/anshu-stories)
 
-This repo holds the **public site only** — HTML, CSS, JavaScript, and story art. Notebooks, scans, PDFs, and working drafts in the parent folder stay off GitHub.
+This repo holds the **site source**. The live website is public at [https://anshikamahesh.com/](https://anshikamahesh.com/). The GitHub repo can be **private** (Cloudflare Pages). Notebooks, scans, PDFs, and working drafts in the parent folder stay off GitHub.
 
 ## What’s in the site
 
@@ -61,14 +61,15 @@ You can also open `anshika-mahesh-site/index.html` directly in a browser. A loca
 
 ## Publish
 
-GitHub Pages is set up to deploy `anshika-mahesh-site/` on every push to `main` (see `.github/workflows/pages.yml`).
+Cloudflare Pages deploys `anshika-mahesh-site/` from `main` (see `wrangler.toml`). Step-by-step: [CUSTOM-DOMAIN.md](CUSTOM-DOMAIN.md).
 
-1. Push to `main`.
-2. On GitHub: **Settings → Pages → Source: GitHub Actions**.
-3. Custom domain: `anshikamahesh.com` (see [CUSTOM-DOMAIN.md](CUSTOM-DOMAIN.md) for Cloudflare DNS).
-4. Live URL: [https://anshikamahesh.com/](https://anshikamahesh.com/). The old GitHub Pages URL keeps working as a redirect.
+1. Connect this GitHub repo to a Cloudflare Pages project (build output: `anshika-mahesh-site`, no build command).
+2. Confirm the `*.pages.dev` preview.
+3. Remove `anshikamahesh.com` from GitHub Pages, delete GitHub A/CNAME records, then add the domain under Pages → Custom domains.
+4. Live URL: [https://anshikamahesh.com/](https://anshikamahesh.com/).
+5. After that works, make this GitHub repo **private**.
 
-Custom domain wiring (Cloudflare DNS + GitHub HTTPS): [CUSTOM-DOMAIN.md](CUSTOM-DOMAIN.md).
+Until step 3 is done, the existing GitHub Pages workflow (`.github/workflows/pages.yml`) may still deploy. Remove it once Cloudflare Pages is serving the custom domain.
 
 Before going public:
 
