@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Coloring pages — Anshika Mahesh</title>
+  <link rel="icon" href="../images/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .wrap { width: min(720px, calc(100% - 1.5rem)); margin: 1.5rem auto 3rem; }
+    .printable-nav {
+      display: flex; flex-wrap: wrap; gap: .5rem .7rem; align-items: center;
+      margin: 0 0 1.2rem;
+    }
+    .printable-nav a {
+      padding: .35rem .85rem; border-radius: 999px; border: 1px solid rgba(28,36,48,.12);
+      background: #fffdf9; color: #1c2430; text-decoration: none; font-weight: 700; font-size: .88rem;
+    }
+    .printable-nav a[hidden] { display: none !important; }
+    .sheet {
+      break-inside: avoid; page-break-after: always;
+      margin: 0 0 1.8rem; padding: 1rem; border: 1px solid rgba(28,36,48,.12);
+      border-radius: 16px; background: #fff;
+    }
+    .sheet h2 { font-family: Fraunces, Georgia, serif; font-size: 1.2rem; margin: 0 0 .4rem; }
+    .sheet p { margin: 0 0 .8rem; color: #4a5563; font-size: .9rem; }
+    .art { width: 100%; height: auto; display: block; }
+    @media print {
+      .site-header, .site-footer, .no-print { display: none !important; }
+      body { background: #fff; }
+      .wrap { width: auto; margin: 0; }
+      .sheet { border: none; border-radius: 0; margin: 0; padding: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-wrap">
+      <a class="logo" href="../index.html">Anshika Mahesh</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+      <nav class="nav" id="site-nav" aria-label="Primary">
+        <a href="../index.html">Home</a>
+        <a href="../about.html">About</a>
+        <a href="../stories.html">Stories</a>
+        <a href="../newsletter.html">Newsletter</a>
+        <a href="../connect.html">Connect</a>
+      </nav>
+    </div>
+  </header>
+  <main class="wrap">
+    <p class="printable-nav no-print">
+      <a data-back-to-story hidden href="../stories.html">← Back to this story</a>
+      <a href="../stories.html">All stories</a>
+      <button class="btn btn-primary" type="button" onclick="window.print()">Print or save as PDF</button>
+    </p>
+    <p class="eyebrow">Printable</p>
+    <h1 class="page-title">Coloring pages</h1>
+    <p class="page-intro no-print">Line drawings to colour in — an open book, a toy-farm friend, and two readers. Print and keep them beside the story. The menu and story links stay on screen — they will not print.</p>
+
+    <section class="sheet">
+      <h2>An open storybook</h2>
+      <p>Colour the pages any way you like.</p>
+      <svg class="art" viewBox="0 0 400 280" fill="none" stroke="#1c2430" stroke-width="2" stroke-linejoin="round">
+        <rect x="40" y="40" width="140" height="200" rx="6"/>
+        <rect x="220" y="40" width="140" height="200" rx="6"/>
+        <line x1="200" y1="36" x2="200" y2="244"/>
+        <path d="M70 90 h80 M70 120 h80 M70 150 h55"/>
+        <circle cx="290" cy="120" r="28"/>
+        <path d="M270 170 h40 M255 200 q35 -20 70 0"/>
+      </svg>
+    </section>
+
+    <section class="sheet">
+      <h2>A farmyard friend</h2>
+      <p class="no-print">Inspired by <a href="../stories/star-of-the-toy-farm.html">Star of the Toy Farm</a>.</p>
+      <svg class="art" viewBox="0 0 400 280" fill="none" stroke="#1c2430" stroke-width="2" stroke-linejoin="round">
+        <ellipse cx="200" cy="160" rx="70" ry="50"/>
+        <circle cx="200" cy="95" r="36"/>
+        <circle cx="188" cy="90" r="4"/>
+        <circle cx="212" cy="90" r="4"/>
+        <path d="M188 108 q12 10 24 0"/>
+        <path d="M155 80 q-20 -28 8 -36 M245 80 q20 -28 -8 -36"/>
+        <path d="M150 200 v40 M250 200 v40"/>
+        <path d="M40 250 h320"/>
+        <circle cx="330" cy="55" r="22"/>
+      </svg>
+    </section>
+
+    <section class="sheet">
+      <h2>Two friends</h2>
+      <p class="no-print">Inspired by <a href="../stories/vivian-and-hazel.html">Vivian &amp; Hazel</a> — walking side by side.</p>
+      <svg class="art" viewBox="0 0 400 280" fill="none" stroke="#1c2430" stroke-width="2" stroke-linejoin="round">
+        <circle cx="150" cy="70" r="22"/>
+        <circle cx="250" cy="70" r="22"/>
+        <path d="M150 92 v70 M250 92 v70"/>
+        <path d="M150 162 l-18 70 M150 162 l18 70 M250 162 l-18 70 M250 162 l18 70"/>
+        <path d="M150 118 h100"/>
+        <path d="M40 250 h320"/>
+        <path d="M300 40 l12 22 l24 2 l-18 16 l5 24 l-23 -14 l-23 14 l5 -24 l-18 -16 l24 -2 z"/>
+      </svg>
+    </section>
+  </main>
+  <footer class="site-footer">
+    <span>© <span id="y"></span> Anshika Mahesh</span>
+    <a href="../stories.html">Stories</a>
+    <a href="../newsletter.html">Subscribe</a>
+  </footer>
+  <script src="../js/main.js?v=reader5"></script>
+  <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
+</body>
+</html>
