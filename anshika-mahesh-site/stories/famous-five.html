@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>The Famous Five Adventure — Aanya &amp; Anshika</title>
   <meta name="description" content="A short Famous Five adventure written by Aanya and Anshika Mahesh — illustrated treasure hunt on Kirrin Island." />
+  <link rel="icon" href="../images/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png" />
+  <meta property="og:title" content="The Famous Five Adventure — Aanya & Anshika" />
+  <meta property="og:description" content="A short Famous Five adventure written by Aanya and Anshika Mahesh — illustrated treasure hunt on Kirrin Island." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://anshikamahesh.com/stories/famous-five.html" />
+  <meta property="og:image" content="https://anshikamahesh.com/images/og-share.png" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
@@ -33,8 +41,20 @@
       background: linear-gradient(180deg, var(--sky), var(--moss), var(--gold));
     }
     .cover {
-      min-height: min(90vh, 820px); display: grid; align-content: space-between; text-align: center;
-      background: linear-gradient(180deg, rgba(106,168,194,.22), transparent 50%, rgba(93,127,98,.18)), var(--card);
+      padding: 0; min-height: min(90vh, 820px); display: grid; grid-template-rows: 1fr auto;
+      text-align: center; overflow: hidden; background: #dceef4;
+    }
+    .cover::before { display: none; }
+    .cover-hero { margin: 0; min-height: min(58vh, 520px); overflow: hidden; background: #fff; }
+    .cover-hero img {
+      width: 100%; height: 100%; min-height: min(58vh, 520px);
+      object-fit: cover; object-position: center 42%; display: block;
+    }
+    .cover-panel {
+      padding: clamp(1.4rem, 4vw, 2.4rem) clamp(1.4rem, 4vw, 2.6rem);
+      background:
+        linear-gradient(180deg, rgba(255,253,249,.94), #fffdf9 42%),
+        linear-gradient(180deg, rgba(106,168,194,.12), rgba(93,127,98,.1));
     }
     .brand {
       font-family: Fraunces, Georgia, serif; font-size: clamp(2.2rem, 6.5vw, 3.4rem);
@@ -87,12 +107,6 @@
       padding: 0.55rem 0.8rem; background: rgba(28,36,48,0.04);
       border-top: 1px solid var(--line, rgba(28,36,48,0.12));
     }
-    .cover-photo {
-      width: min(420px, 90%); margin: 1.2rem auto 0;
-      border-radius: 16px; overflow: hidden;
-      border: 1px solid var(--line, rgba(28,36,48,0.12));
-    }
-    .cover-photo img { width: 100%; height: auto; display: block; }
     .gallery {
       display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin: 1rem 0;
     }
@@ -126,16 +140,16 @@
   </div>
 <main class="book">
     <section class="page cover" id="cover">
-      <div>
+      <figure class="cover-hero">
+        <img src="images/famous-five/cover.png" alt="Four children and a dog rowing toward a castle island" />
+      </figure>
+      <div class="cover-panel">
         <h1 class="brand">The Famous Five<em>Five Discover Treasure</em></h1>
         <p class="author">By Anshika Mahesh &amp; Aanya Shikaripur</p>
-      </div>
-      <div class="cover-photo">
-        <img src="images/famous-five/img-000.jpg" alt="Cover: Famous Five — Five Discover Treasure" />
-      </div>
-      <div class="cta">
-        <a href="#ch1">Read the adventure</a>
-        <a class="secondary" href="#activity">Activity page</a>
+        <div class="cta">
+          <a href="#ch1">Read the adventure</a>
+          <a class="secondary" href="#activity">Activity page</a>
+        </div>
       </div>
     </section>
 
@@ -254,7 +268,7 @@
     <a href="../newsletter.html">Subscribe</a>
   </footer>
 
-  <script src="../js/main.js?v=gc1"></script>
+  <script src="../js/main.js?v=share1"></script>
   <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
 </body>
 </html>

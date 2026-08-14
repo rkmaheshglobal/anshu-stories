@@ -49,6 +49,7 @@ var readerFlushTimer = 0;
   }
 
   addPrivacyLink();
+  addSiteIcons();
   initReaderStats();
   initStoryBook();
 })();
@@ -58,6 +59,19 @@ function siteFileHref(file) {
   if (path.indexOf("/stories/chosen-for-magic/") !== -1) return "../../" + file;
   if (path.indexOf("/stories/") !== -1 || path.indexOf("/invitations/") !== -1) return "../" + file;
   return file;
+}
+
+function addSiteIcons() {
+  if (document.querySelector('link[rel="icon"]')) return;
+  var icon = document.createElement("link");
+  icon.rel = "icon";
+  icon.type = "image/svg+xml";
+  icon.href = siteFileHref("images/favicon.svg");
+  document.head.appendChild(icon);
+  var apple = document.createElement("link");
+  apple.rel = "apple-touch-icon";
+  apple.href = siteFileHref("images/apple-touch-icon.png");
+  document.head.appendChild(apple);
 }
 
 function addPrivacyLink() {

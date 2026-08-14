@@ -5,6 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>From Streets to Snuggles — Anshika Mahesh</title>
   <meta name="description" content="From Streets to Snuggles by Anshika Mahesh — a heartwarming illustrated story of Fluffy, Snowy, and Sam." />
+  <link rel="icon" href="../images/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="../images/apple-touch-icon.png" />
+  <meta property="og:title" content="From Streets to Snuggles — Anshika Mahesh" />
+  <meta property="og:description" content="From Streets to Snuggles by Anshika Mahesh — a heartwarming illustrated story of Fluffy, Snowy, and Sam." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://anshikamahesh.com/stories/from-streets-to-snuggles.html" />
+  <meta property="og:image" content="https://anshikamahesh.com/images/og-share.png" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
@@ -33,8 +41,20 @@
       background: linear-gradient(180deg, var(--sky), var(--moss), var(--gold));
     }
     .cover {
-      min-height: min(90vh, 820px); display: grid; align-content: space-between; text-align: center;
-      background: linear-gradient(180deg, rgba(106,168,194,.18), transparent 40%, rgba(93,127,98,.14)), var(--card);
+      padding: 0; min-height: min(90vh, 820px); display: grid; grid-template-rows: 1fr auto;
+      text-align: center; overflow: hidden; background: #e8f2f4;
+    }
+    .cover::before { display: none; }
+    .cover-hero { margin: 0; min-height: min(58vh, 520px); overflow: hidden; background: #fff; }
+    .cover-hero img {
+      width: 100%; height: 100%; min-height: min(58vh, 520px);
+      object-fit: cover; object-position: center 40%; display: block;
+    }
+    .cover-panel {
+      padding: clamp(1.4rem, 4vw, 2.4rem) clamp(1.4rem, 4vw, 2.6rem);
+      background:
+        linear-gradient(180deg, rgba(255,253,249,.94), #fffdf9 42%),
+        linear-gradient(180deg, rgba(106,168,194,.12), rgba(93,127,98,.1));
     }
     .brand {
       font-family: Fraunces, Georgia, serif; font-size: clamp(2.2rem, 6vw, 3.4rem);
@@ -91,15 +111,6 @@
       background: rgba(28,36,48,0.04);
       border-top: 1px solid var(--line);
     }
-    .cover-photo {
-      width: min(420px, 90%);
-      margin: 1.2rem auto 0;
-      border-radius: 16px;
-      overflow: hidden;
-      border: 1px solid var(--line);
-      box-shadow: none;
-    }
-    .cover-photo img { width: 100%; height: auto; display: block; }
 
     @media print {
       body { background: #fff; }
@@ -129,17 +140,17 @@
   </div>
 <main class="book">
     <section class="page cover" id="cover">
-      <div>
+      <figure class="cover-hero">
+        <img src="images/streets/cover.png" alt="Fluffy and Snowy snuggling at home with Sam" />
+      </figure>
+      <div class="cover-panel">
         <h1 class="brand">From Streets to Snuggles<em>A tale of kindness, rescue, and belonging</em></h1>
         <p class="author">Written by Anshika Mahesh</p>
         <p class="meta">First Edition · 2025 · Illustrated edition</p>
-      </div>
-      <div class="cover-photo">
-        <img src="images/streets/img-000.jpg" alt="Cover: From Streets to Snuggles by Anshika Mahesh" />
-      </div>
-      <div class="cta">
-        <a href="#ch1">Read the story</a>
-        <a class="secondary" href="#contents">See chapters</a>
+        <div class="cta">
+          <a href="#ch1">Read the story</a>
+          <a class="secondary" href="#contents">See chapters</a>
+        </div>
       </div>
     </section>
     <section class="page">
@@ -478,7 +489,7 @@
     <a href="../newsletter.html">Subscribe</a>
   </footer>
 
-  <script src="../js/main.js?v=gc1"></script>
+  <script src="../js/main.js?v=share1"></script>
   <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
 </body>
 </html>

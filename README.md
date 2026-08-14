@@ -65,9 +65,10 @@ GitHub Pages is set up to deploy `anshika-mahesh-site/` on every push to `main` 
 
 1. Push to `main`.
 2. On GitHub: **Settings → Pages → Source: GitHub Actions**.
-3. The site URL will be `https://rkmaheshglobal.github.io/anshu-stories/`.
+3. Custom domain: `anshikamahesh.com` (see [CUSTOM-DOMAIN.md](CUSTOM-DOMAIN.md) for Cloudflare DNS).
+4. Live URL: [https://anshikamahesh.com/](https://anshikamahesh.com/). The old GitHub Pages URL keeps working as a redirect.
 
-You can also drag `anshika-mahesh-site/` onto [Netlify](https://www.netlify.com/) or [Vercel](https://vercel.com/) and point a domain such as `anshikamahesh.com` at it when ready.
+Custom domain wiring (Cloudflare DNS + GitHub HTTPS): [CUSTOM-DOMAIN.md](CUSTOM-DOMAIN.md).
 
 Before going public:
 
@@ -87,5 +88,5 @@ The live site records page views and three book events (`story_open`, `story_hal
 
 1. Create a free site at [goatcounter.com](https://www.goatcounter.com) with code **`rkmaheshglobal`** (already created).
 2. If you pick a different code, change `GOATCOUNTER_CODE` in `anshika-mahesh-site/js/main.js`.
-3. Open **Settings → Sites** in GoatCounter and confirm the site URL is `https://rkmaheshglobal.github.io/anshu-stories/`.
+3. Open **Settings → Sites** in GoatCounter and set the site URL to `https://anshikamahesh.com/` (keep the GitHub Pages URL listed too until the redirect is in place).
 4. After a visit to the live site (not localhost), the dashboard shows pages; events appear as paths like `story_open/shy-girl`. Your own visits may be hidden if Do Not Track is on or if GoatCounter is set to ignore you.

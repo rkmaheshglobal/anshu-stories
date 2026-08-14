@@ -1,0 +1,9 @@
+User-agent: *
+Disallow: /stories/shy-girl-outline.html
+Disallow: /stories/star-of-the-toy-farm-outline.html
+Disallow: /stories/star-of-the-toy-farm-book2-outline.html
+Disallow: /invitations/
+Disallow: /anshu-stories/stories/shy-girl-outline.html
+Disallow: /anshu-stories/stories/star-of-the-toy-farm-outline.html
+Disallow: /anshu-stories/stories/star-of-the-toy-farm-book2-outline.html
+Disallow: /anshu-stories/invitations/
