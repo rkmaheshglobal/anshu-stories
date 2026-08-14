@@ -69,7 +69,7 @@ Cloudflare Pages deploys `anshika-mahesh-site/` from `main` (see `wrangler.toml`
 4. Live URL: [https://anshikamahesh.com/](https://anshikamahesh.com/).
 5. After that works, make this GitHub repo **private**.
 
-Until step 3 is done, the existing GitHub Pages workflow (`.github/workflows/pages.yml`) may still deploy. Remove it once Cloudflare Pages is serving the custom domain.
+GitHub Pages is no longer used. Cloudflare Pages deploys on every push to `main`. A red **GitHub Pages** Action on an older commit can be ignored.
 
 Before going public:
 

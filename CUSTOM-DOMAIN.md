@@ -57,9 +57,9 @@ Only after the custom domain loads from Cloudflare:
 
 If the next build cannot see the repo, the GitHub App was limited to public repos. Cloudflare → Pages → Settings → Source → reconnect GitHub with **All repositories**.
 
-## 6. After it is stable
+## 6. GitHub Pages workflow
 
-Say when the custom domain is on Cloudflare Pages. Then we can delete `.github/workflows/pages.yml` so GitHub Pages stops deploying.
+`.github/workflows/pages.yml` is removed. A red **GitHub Pages** Action on an older commit is leftover — ignore it. New pushes only deploy on Cloudflare Pages.
 
 Optional: Cloudflare **Email Routing** to forward `hello@anshikamahesh.com` to `rkmaheshglobal@gmail.com`.
 
