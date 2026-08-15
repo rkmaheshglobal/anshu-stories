@@ -63,6 +63,8 @@ You can also open `anshika-mahesh-site/index.html` directly in a browser. A loca
 
 Cloudflare deploys `anshika-mahesh-site/` from `main` as static assets (`wrangler.toml` `[assets]`). Step-by-step: [CUSTOM-DOMAIN.md](CUSTOM-DOMAIN.md).
 
+Print-on-demand (Amazon KDP / Lulu) is **not live yet**. Checklist and title filter: [KDP-PRINT.md](KDP-PRINT.md). Do not add Order on Amazon buttons until a title has a live ASIN.
+
 1. Connect this GitHub repo to a Cloudflare Pages project (build output: `anshika-mahesh-site`, no build command).
 2. Confirm the `*.pages.dev` preview.
 3. Remove `anshikamahesh.com` from GitHub Pages, delete GitHub A/CNAME records, then add the domain under Pages → Custom domains.

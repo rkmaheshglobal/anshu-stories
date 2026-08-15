@@ -1,0 +1,14 @@
+{
+  "page_count": 60,
+  "trim": "6 \u00d7 9 in",
+  "bleed": "0.125 in",
+  "spine_in": 0.1408,
+  "cover_width_in": 12.3908,
+  "cover_height_in": 9.25,
+  "barcode": "White box reserved on back cover; KDP adds the barcode.",
+  "spine_text": "None \u2014 under 79 pages, spine is too thin for type.",
+  "interior": "interior.pdf",
+  "cover": "cover-wrap.pdf",
+  "ink": "Premium color, white paper (unique color plate per chapter).",
+  "bleed_interior": "No bleed \u2014 art is inset inside margins."
+}

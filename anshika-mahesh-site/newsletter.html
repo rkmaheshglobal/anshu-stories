@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Newsletter — Anshika Mahesh</title>
-  <meta name="description" content="Subscribe to Story Notes by Anshika Mahesh — free updates when new stories and writing notes arrive." />
+  <title>Anshika’s Story Club — Anshika Mahesh</title>
+  <meta name="description" content="Join Anshika’s Story Club for monthly illustrated micro-stories, sneak peeks of upcoming character art, or creative writing prompts for kids." />
   <link rel="icon" href="images/favicon.svg" type="image/svg+xml" />
   <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
-  <meta property="og:title" content="Newsletter — Anshika Mahesh" />
-  <meta property="og:description" content="Subscribe to Story Notes by Anshika Mahesh — free updates when new stories and writing notes arrive." />
+  <meta property="og:title" content="Anshika’s Story Club — Anshika Mahesh" />
+  <meta property="og:description" content="Join Anshika’s Story Club for monthly illustrated micro-stories, sneak peeks of upcoming character art, or creative writing prompts for kids." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://anshikamahesh.com/newsletter.html" />
   <meta property="og:image" content="https://anshikamahesh.com/images/og-share.png" />
@@ -16,8 +16,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="css/styles.css?v=bento1" />
-  <link rel="stylesheet" href="css/ui.css?v=bento1" />
+  <link rel="stylesheet" href="css/styles.css?v=club1" />
+  <link rel="stylesheet" href="css/ui.css?v=club1" />
 </head>
 <body>
   <header class="site-header">
@@ -28,7 +28,7 @@
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="stories.html">Stories</a>
-        <a href="newsletter.html" aria-current="page">Newsletter</a>
+        <a href="newsletter.html" aria-current="page">Story Club</a>
         <a href="connect.html">Connect</a>
       </nav>
     </div>
@@ -36,59 +36,66 @@
 
   <main class="u-shell">
     <div class="u-bento">
-      <section class="u-tile u-tile--hero u-pad-lg u-span-6 u-enter">
-      <h1>Subscribe</h1>
-      <p class="pitch">
-        Every so often, Anshika shares the single most important thing from her writing desk.
-      </p>
-      <p class="beats">
-        One story update.<br />
-        One idea.<br />
-        One invitation to imagine.
-      </p>
-      <p class="pitch" style="margin-top:1.2rem;">
-        It’s free — and made for friends, families, and fellow young readers.
-      </p>
+      <section class="u-tile u-tile--hero u-pad-lg u-span-12 u-enter">
+        <p class="eyebrow">Monthly mail</p>
+        <h1 class="brand">Anshika’s Story Club</h1>
+        <p class="lead">A free inbox club for young readers and the families who read with them. Each month brings one small illustrated surprise.</p>
+      </section>
+
+      <article class="u-tile u-tile--sky u-pad u-span-4 u-spring u-enter">
+        <p class="u-kicker">This month might be</p>
+        <h2 class="u-title">A micro-story</h2>
+        <p class="u-copy">A short illustrated tale you can finish in one sitting.</p>
+      </article>
+      <article class="u-tile u-tile--sun u-pad u-span-4 u-spring u-enter">
+        <p class="u-kicker">Or a peek</p>
+        <h2 class="u-title">Character art</h2>
+        <p class="u-copy">Sneak peeks of drawings still on the desk — before they land in a book.</p>
+      </article>
+      <article class="u-tile u-tile--moss u-pad u-span-4 u-spring u-enter">
+        <p class="u-kicker">Or a spark</p>
+        <h2 class="u-title">A writing prompt</h2>
+        <p class="u-copy">A creative writing prompt for kids who want to try a story of their own.</p>
+      </article>
+
+      <section class="u-tile u-pad-lg u-span-6 u-enter">
+        <p class="u-kicker">Join free</p>
+        <h2 class="u-title">Save a seat</h2>
+        <p class="u-copy">We’ll send the next club note to this email. It’s parent-managed, with no public comments.</p>
       </section>
       <section class="u-tile u-pad-lg u-span-6 u-enter">
+        <form class="newsletter-form" data-newsletter-form method="post" action="https://formsubmit.co/ajax/rkmaheshglobal@gmail.com">
+          <input type="hidden" name="_subject" value="Story Club signup — Anshika Mahesh" />
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input class="visually-hidden" type="text" name="_honey" tabindex="-1" autocomplete="off" />
+          <div>
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" />
+          </div>
+          <div>
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@email.com" />
+          </div>
+          <button class="btn btn-primary" type="submit">Join Story Club</button>
+        </form>
 
-      <form class="newsletter-form" data-newsletter-form method="post" action="https://formsubmit.co/ajax/rkmaheshglobal@gmail.com">
-        <input type="hidden" name="_subject" value="Story Notes signup — Anshika Mahesh" />
-        <input type="hidden" name="_template" value="table" />
-        <input type="hidden" name="_captcha" value="false" />
-        <input class="visually-hidden" type="text" name="_honey" tabindex="-1" autocomplete="off" />
-        <div>
-          <label for="name">Name</label>
-          <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" />
-        </div>
-        <div>
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" required autocomplete="email" placeholder="you@email.com" />
-        </div>
-        <button class="btn btn-primary" type="submit">Join Story Notes</button>
-      </form>
-
-      <p class="form-note">
-        Signups go to the parent inbox. New stories are sent from there — reply to unsubscribe. No public comments.
-      </p>
-      <p class="form-success" data-newsletter-success>
-        Thank you! You’re on the list for Anshika’s next story note.
-      </p>
-      <p class="form-error" data-newsletter-error>
-        Couldn’t send just now. Try again, or email the parent inbox on Connect.
-      </p>
-
-      <p class="form-note" style="margin-top:2rem;">
-        Prefer to browse first?
-        <a href="stories.html">Read the story archive</a>.
-      </p>
+        <p class="form-note">
+          Signups go to the parent inbox. Club notes are sent from there — reply to unsubscribe.
+        </p>
+        <p class="form-success" data-newsletter-success>
+          You’re in Anshika’s Story Club. Watch for the next monthly note.
+        </p>
+        <p class="form-error" data-newsletter-error>
+          Couldn’t send just now. Try again, or email the parent inbox on Connect.
+        </p>
       </section>
     </div>
   </main>
 
   <footer class="site-footer">
     <span>© <span id="y"></span> Anshika Mahesh</span>
-    <a href="connect.html">Connect</a>
+    <a href="stories.html">Read the stories</a>
   </footer>
 
   <script src="js/main.js?v=reader11"></script>

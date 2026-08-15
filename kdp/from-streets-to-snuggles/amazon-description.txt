@@ -1,0 +1,18 @@
+Paste into KDP → Paperback or Kindle eBook → Description. Amazon shows the first paragraph before “Read more,” so keep that hook as-is.
+
+HTML is allowed: b, i, br, p, ul, li.
+
+---
+
+<p><b>A lonely street. A kind boy. Two dogs who needed a home.</b></p>
+<p>Bundle is only a month old when the rain comes down and there is nowhere to hide. Then another street dog shares her food and her shelter — and a boy on a bicycle named Sam stops, gently, and takes them both home.</p>
+<p>So begins <i>From Streets to Snuggles</i>, a warm illustrated chapter book by young author Anshika Mahesh. Sam names the pups Fluffy and Snowy. He gives them baths, beds, and a trip to the vet. They learn to sit and offer a paw. They meet a neighbourhood dog called Rio, howl at thunder, picnic at the top of a hike, swim in the sea in Goa, and even go to school Show and Tell.</p>
+<p>Along the way, Sam learns what it means to be responsible for someone smaller than you. The dogs learn that a family can start with one act of kindness.</p>
+<p><b>This book is for:</b></p>
+<ul>
+<li>Children ages 6–8 who love animal stories</li>
+<li>Families who like to read a short illustrated chapter together</li>
+<li>Readers who want a story about rescue, friendship, and belonging</li>
+</ul>
+<p>Twenty-five short chapters, each with its own picture. Perfect for animal lovers and young readers — a reminder that the greatest journeys can begin with a single kind heart.</p>
+<p><i>From Streets to Snuggles</i> · A tale of kindness, rescue, and belonging · Written by Anshika Mahesh</p>

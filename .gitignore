@@ -21,3 +21,6 @@ Thumbs.db
 .vscode/
 *.log
 *.pdf
+!kdp/**/*.pdf
+kdp/**/interior.pdf
+kdp/**/.cache/
