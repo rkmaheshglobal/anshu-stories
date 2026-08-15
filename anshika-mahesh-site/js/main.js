@@ -289,6 +289,7 @@ function initStoryBook() {
     const inner = el.querySelector(".leaf-inner");
     const num = el.querySelector(".page-num");
     el.classList.remove("is-blank", "is-cover", "is-cover-bleed", "has-picture", "is-endpaper");
+    inner.classList.remove("toc");
     inner.style.fontSize = "";
     if (leafIndex < 0) {
       inner.innerHTML = ENDPAPER;
@@ -308,6 +309,7 @@ function initStoryBook() {
       if (leaf.html.indexOf("cover-hero") !== -1) el.classList.add("is-cover-bleed");
     }
     inner.innerHTML = leaf.html;
+    if (leaf.toc) inner.classList.add("toc");
     if (inner.querySelector("figure, .illust, .gallery")) el.classList.add("has-picture");
     num.textContent = String(leafIndex + 1);
     fitLeaf(el);
@@ -615,6 +617,15 @@ function initStoryBook() {
     return 0;
   }
 
+  function copyLeafFace(target, source) {
+    target.innerHTML = source ? source.innerHTML : "";
+    target.classList.toggle("toc", !!(source && source.classList.contains("toc")));
+  }
+  function copyLeafHtml(target, leaf) {
+    target.innerHTML = leaf ? leaf.html : "";
+    target.classList.toggle("toc", !!(leaf && leaf.toc));
+  }
+
   function go(dir) {
     if (flipping) return;
     const next = spread + dir;
@@ -633,15 +644,15 @@ function initStoryBook() {
     const back = flipper.querySelector(".flip-back .leaf-inner");
 
     if (dir > 0) {
-      front.innerHTML = rightEl.querySelector(".leaf-inner").innerHTML;
+      copyLeafFace(front, rightEl.querySelector(".leaf-inner"));
       const upcoming = leftIndex(next);
-      back.innerHTML = upcoming >= 0 && upcoming < leaves.length ? leaves[upcoming].html : "";
+      copyLeafHtml(back, upcoming >= 0 && upcoming < leaves.length ? leaves[upcoming] : null);
       fillLeaf(rightEl, rightIndex(next));
       flipper.className = "flipper is-forward";
     } else {
-      front.innerHTML = leftEl.querySelector(".leaf-inner").innerHTML;
+      copyLeafFace(front, leftEl.querySelector(".leaf-inner"));
       const upcoming = rightIndex(next);
-      back.innerHTML = upcoming >= 0 && upcoming < leaves.length ? leaves[upcoming].html : "";
+      copyLeafHtml(back, upcoming >= 0 && upcoming < leaves.length ? leaves[upcoming] : null);
       fillLeaf(leftEl, leftIndex(next));
       flipper.className = "flipper is-back";
     }
@@ -685,6 +696,7 @@ function initStoryBook() {
 
     const out = [];
     const map = {};
+    let pageIsToc = false;
 
     function overflows() {
       return sizer.scrollHeight - sizer.clientHeight > 2;
@@ -763,7 +775,7 @@ function initStoryBook() {
     }
     function flush() {
       if (!sizer.innerHTML.trim()) return;
-      out.push({ html: sizer.innerHTML, cover: false });
+      out.push({ html: sizer.innerHTML, cover: false, toc: pageIsToc });
       sizer.innerHTML = "";
     }
     function splitHost(host) {
@@ -788,6 +800,7 @@ function initStoryBook() {
 
     sourcePages.forEach(function (src) {
       const isCover = src.classList.contains("cover");
+      pageIsToc = src.classList.contains("toc");
       const sid = src.id || "";
       const start = out.length;
       if (sid) map[sid] = start;
@@ -866,7 +879,7 @@ function initStoryBook() {
     Array.prototype.forEach.call(src.children, function (ch) {
       if (!ch.classList.contains("page-num")) wrap.appendChild(ch.cloneNode(true));
     });
-    return { html: wrap.innerHTML, cover: src.classList.contains("cover") };
+    return { html: wrap.innerHTML, cover: src.classList.contains("cover"), toc: src.classList.contains("toc") };
   }
 
   function waitForImages(root) {
@@ -1125,9 +1138,12 @@ function injectBookCss() {
     ".leaf-inner .author,.leaf-inner .author-line{font-size:.72rem!important;margin:.35rem 0 0!important}",
     ".leaf-inner .blurb{font-size:.98rem!important;margin:0 auto!important}",
     ".leaf-inner .series-note,.leaf-inner .note{font-size:.75rem!important;margin:.4rem 0!important;padding:.45rem!important}",
-    ".leaf-inner .toc ol{font-size:.78rem;columns:1!important;margin:0;padding-left:1.1rem}",
-    ".leaf-inner .toc a{padding:.22rem .1rem!important}",
-    ".leaf-inner .toc .sum{display:none!important}",
+    ".leaf-inner.toc ol,.leaf-inner .toc ol{font-size:.78rem;columns:1!important;margin:0;padding:0;list-style:none;counter-reset:tocchap}",
+    ".leaf-inner.toc li,.leaf-inner .toc li{counter-increment:tocchap;border-bottom:1px dashed rgba(28,36,48,.12)}",
+    ".leaf-inner.toc a,.leaf-inner .toc a{display:grid;grid-template-columns:1.7em 1fr;column-gap:.4rem;align-items:baseline;padding:.28rem .1rem!important;text-decoration:none;color:inherit;font-weight:600}",
+    ".leaf-inner.toc a::before,.leaf-inner .toc a::before{content:counter(tocchap) \".\";font-weight:800;text-align:right;color:#3d7f99}",
+    ".leaf-inner.toc a > span:first-of-type,.leaf-inner .toc a > span:first-of-type{grid-column:2}",
+    ".leaf-inner.toc .sum,.leaf-inner .toc .sum{display:none!important}",
     ".leaf-inner .cover-hero,.leaf-inner .cover-photo{min-height:0!important}",
     ".leaf.is-cover .leaf-inner{display:flex;flex-direction:column;justify-content:center;text-align:center;gap:.45rem;padding:.9rem .95rem 1.6rem}",
     ".leaf.is-cover .leaf-inner img{max-height:var(--cover-img-max,300px)!important}",

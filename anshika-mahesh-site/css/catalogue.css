@@ -30,9 +30,15 @@
 }
 
 .catalogue-grid .story-card-cover {
+  position: relative;
   flex: 0 0 128px;
   background: #dfe9e4;
   overflow: hidden;
+}
+
+.catalogue-grid .story-card-teaser {
+  font-size: 0.68rem;
+  padding: 1.2rem 0.5rem 0.45rem;
 }
 
 .catalogue-grid .story-card-cover img {
@@ -69,7 +75,7 @@
   overflow: hidden;
 }
 
-.catalogue-grid .story-card-credit {
+.catalogue-grid .story-card-credit--collab {
   font-size: 0.68rem;
 }
 

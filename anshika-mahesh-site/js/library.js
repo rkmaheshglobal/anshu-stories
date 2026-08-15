@@ -11,6 +11,7 @@
       href: "stories/short-stories.html",
       cover: "stories/images/short-stories/cover.png",
       blurb: "Six little tales — a bicycle, a unicorn swap, mermaids, a singing dragon, a pirate castle, and a camel who meets a penguin.",
+      teaser: "Six little tales of magic, animals, and everyday wonder.",
       tags: ["short", "magic", "animals"],
       lengthLabel: "Quick read",
       fresh: true,
@@ -22,6 +23,7 @@
       href: "stories/kylies-story.html",
       cover: "stories/images/kylies-story/cover.png",
       blurb: "Dreams that come true, a baby sister named Stuthi, and a watch that opens the future.",
+      teaser: "Dreams that come true, a baby sister, and a watch that opens the future.",
       tags: ["magic"],
       lengthLabel: "A short book",
       fresh: true,
@@ -33,6 +35,7 @@
       href: "stories/vivian-and-hazel.html",
       cover: "stories/images/vivian-and-hazel/cover.png",
       blurb: "A school play, an old-school rival, and the secret about Vivian’s sister.",
+      teaser: "A school play, a rival, and a sister’s secret.",
       tags: ["school", "series"],
       seriesId: "shy-girl",
       seriesLabel: "Book 2",
@@ -47,6 +50,7 @@
       href: "stories/kuvempu.html",
       cover: "stories/images/kuvempu/cover.png",
       blurb: "Kannada project tale: Anshika and Samyuktha meet Kuvempu in a magical book.",
+      teaser: "Two friends meet a great Kannada poet inside a magical book.",
       tags: ["kannada", "school", "magic"],
       lang: "kn",
       lengthLabel: "A short book",
@@ -58,6 +62,7 @@
       href: "stories/almost-sisters.html",
       cover: "stories/images/almost-sisters/cover.png",
       blurb: "Meg and Rosemina — new stepsisters, old hurt, and a marriage that jumped the gun.",
+      teaser: "New stepsisters, old hurt, and a truth that needs telling.",
       tags: ["school"],
       lengthLabel: "Quick read",
       continued: true,
@@ -69,6 +74,7 @@
       href: "stories/the-wish-hair-fairies.html",
       cover: "stories/images/wish-hair-fairies/cover.png",
       blurb: "Moira and Sthuthi stop gloomy elves from stealing wishes — and help one secret wish turn gray into rainbow.",
+      teaser: "Two sisters stop gloomy elves — and help a wish turn gray into rainbow.",
       tags: ["magic", "short"],
       lengthLabel: "Quick read",
       search: "fairies fairyland elves wishes moira sthuthi rainbow"
@@ -79,6 +85,7 @@
       href: "stories/the-bandit-family.html",
       cover: "stories/images/bandit-family/cover.png",
       blurb: "Esther’s birthday secret: Mum, Dad and Eric are bandits — and they want to train her too.",
+      teaser: "A birthday secret: Esther’s family are bandits — and they want to train her too.",
       tags: ["adventure"],
       lengthLabel: "A short book",
       continued: true,
@@ -90,6 +97,7 @@
       href: "stories/moving-in.html",
       cover: "stories/images/moving-in/cover.png",
       blurb: "Aarushi’s new flat, a playground gang, and the Amazing Adventurers — KT2A — waiting for their first mystery.",
+      teaser: "A new flat, a playground gang, and adventurers waiting for their first mystery.",
       tags: ["adventure", "school"],
       lengthLabel: "A short book",
       continued: true,
@@ -101,6 +109,7 @@
       href: "stories/invention-of-abacus.html",
       cover: "stories/images/abacus/cover.png",
       blurb: "A magical project adventure with Samyuktha — from a dead phone to beads in a China museum.",
+      teaser: "A school-project adventure — from a dead phone to beads in a China museum.",
       tags: ["magic", "school"],
       lengthLabel: "A short book",
       search: "abacus china beads mimi cheng samyuktha school project"
@@ -111,22 +120,24 @@
       href: "stories/trip-to-giza.html",
       cover: "stories/images/giza/cover.png",
       blurb: "A magical school-project adventure with Samyuktha — from cardboard model to the sands of Giza.",
+      teaser: "A school-project adventure from a cardboard model to the sands of Giza.",
       tags: ["magic", "school"],
       lengthLabel: "A short book",
       search: "egypt pyramid giza camel tomb ramp samyuktha school project"
     },
     {
       id: "star-of-the-toy-farm",
-      title: "Star of the Toy Farm",
+      title: "Star Finds a Home",
       href: "stories/star-of-the-toy-farm.html",
       cover: "stories/images/star-of-the-toy-farm/cover.png",
       blurb: "Star finds her name, brings Mia home, and learns her purpose is family.",
+      teaser: "A toy sheep finds her name, her girl, and a family.",
       tags: ["animals", "series"],
       seriesId: "star",
-      seriesLabel: "Book 1",
+      seriesLabel: "Star of the Toy Farm",
       seriesBook: 1,
       lengthLabel: "12 chapters",
-      search: "star toy farm mia dog purpose belonging"
+      search: "star finds a home toy farm mia dog purpose belonging"
     },
     {
       id: "star-and-the-midnight-feast",
@@ -134,12 +145,13 @@
       href: "stories/star-and-the-midnight-feast.html",
       cover: "stories/images/star-of-the-toy-farm/midnight-feast.png",
       blurb: "A sleepover, a riddle-loving goat, and a midnight feast — Star learns bravery is looking after friends when the night gets messy.",
+      teaser: "A sleepover, a riddle-loving goat, and bravery that looks after friends.",
       tags: ["animals", "series"],
       seriesId: "star",
-      seriesLabel: "Book 2",
+      seriesLabel: "Star of the Toy Farm",
       seriesBook: 2,
       lengthLabel: "12 chapters",
-      search: "star midnight feast barney avril goat sleepover"
+      search: "star midnight feast barney avril goat sleepover toy farm"
     },
     {
       id: "from-streets-to-snuggles",
@@ -147,6 +159,7 @@
       href: "stories/from-streets-to-snuggles.html",
       cover: "stories/images/streets/cover.png",
       blurb: "Bundle and Snowy go from rainy streets to a loving home — a tale of rescue and belonging.",
+      teaser: "A tale of kindness, rescue, and belonging.",
       tags: ["animals"],
       lengthLabel: "25 chapters",
       search: "bundle snowy fluffy rescue dogs goa sam forever home"
@@ -157,6 +170,7 @@
       href: "stories/shy-girl.html",
       cover: "stories/images/shy-girl/cover.png?v=book1",
       blurb: "Vivian and Hazel learn what true friendship looks like when popularity and kindness collide.",
+      teaser: "When popularity and kindness collide, two girls learn what friendship is.",
       tags: ["school", "series"],
       seriesId: "shy-girl",
       seriesLabel: "Book 1",
@@ -170,6 +184,7 @@
       href: "stories/chosen-for-magic/index.html",
       cover: "stories/images/chosen-for-magic/cover.png",
       blurb: "A Magical Mission Story — personalised editions for each friend, with a sidekick to invent.",
+      teaser: "A magical mission story — personalised editions for each friend.",
       tags: ["magic", "series"],
       seriesId: "chosen-for-magic",
       seriesLabel: "Gift series",
@@ -183,6 +198,7 @@
       href: "stories/famous-five.html",
       cover: "stories/images/famous-five/cover.png",
       blurb: "Aanya and Anshika’s Kirrin Island treasure hunt — with Timmy and an activity page.",
+      teaser: "A Kirrin Island treasure hunt with Timmy — and an activity page.",
       tags: ["adventure", "short"],
       lengthLabel: "Quick read",
       credit: "Aanya & Anshika",
@@ -194,6 +210,7 @@
       href: "stories/magic-of-storytelling.html",
       cover: "stories/images/magic/cover.png",
       blurb: "Anshu and Anya — magic dust, Enid Blyton’s garden study, and secrets for young writers.",
+      teaser: "Magic dust, a garden study, and secrets for young writers.",
       tags: ["magic", "short"],
       lengthLabel: "Quick read",
       search: "anshu anya aanya enid blyton writing magic dust garden study"
@@ -212,7 +229,7 @@
     {
       id: "star",
       title: "Star of the Toy Farm",
-      blurb: "A toy dog finds her name, her girl, and a farm full of midnight adventures.",
+      blurb: "A toy sheep finds her name, her girl, and a farm full of adventures.",
       storyIds: ["star-of-the-toy-farm", "star-and-the-midnight-feast"]
     }
   ];
@@ -269,17 +286,22 @@
 
   function cardHTML(story) {
     const lane = laneOf(story);
-    const credit = story.credit || "Anshika Mahesh";
-    const extra = story.credit ? "Co-written tale" : "A story by Anshika";
     const mark = story.fresh ? "New" : (story.continued ? "To be continued" : "");
+    const credit = story.credit
+      ? '<p class="story-card-credit story-card-credit--collab">' + esc(story.credit) + "</p>"
+      : "";
+    const teaser = story.teaser || story.blurb || "";
     return (
-      '<a class="story-card u-tile u-spring" href="' + esc(story.href) + '">' +
-        '<div class="story-card-cover"><img src="' + esc(story.cover) + '" alt="" /></div>' +
+      '<a class="story-card u-tile u-spring" href="' + esc(story.href) + '"' +
+        (teaser ? ' aria-label="' + esc(story.title) + ". " + esc(teaser) + '"' : "") + ">" +
+        '<div class="story-card-cover">' +
+          '<img src="' + esc(story.cover) + '" alt="" />' +
+          (teaser ? '<span class="story-card-teaser">' + esc(teaser) + "</span>" : "") +
+        "</div>" +
         '<div class="story-card-lane story-card-lane--' + lane + '">' + esc(laneLabel(story)) + "</div>" +
         '<div class="story-card-body">' +
           "<h3>" + esc(story.title) + "</h3>" +
-          '<p class="story-card-credit">' + esc(credit) + "</p>" +
-          (extra ? '<p class="story-card-credit">' + esc(extra) + "</p>" : "") +
+          credit +
         "</div>" +
         '<div class="story-card-foot">' +
           "<span>" + esc(mark) + "</span>" +

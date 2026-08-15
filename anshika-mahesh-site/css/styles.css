@@ -447,12 +447,36 @@ a:hover { color: var(--ink); }
 }
 
 .story-card-cover {
+  position: relative;
   height: 132px;
   max-height: 132px;
   aspect-ratio: unset;
   background: #dfe9e4;
   overflow: hidden;
   flex: 0 0 132px;
+}
+
+.story-card-teaser {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 1.4rem 0.55rem 0.5rem;
+  background: linear-gradient(180deg, transparent, rgba(28, 36, 48, 0.88));
+  color: #fffdf9;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.35;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+.story-card:hover .story-card-teaser,
+.story-card:focus-visible .story-card-teaser {
+  opacity: 1;
+  transform: none;
 }
 
 .story-card-cover img {
@@ -501,6 +525,11 @@ a:hover { color: var(--ink); }
 }
 
 .story-card-credit {
+  display: none;
+}
+
+.story-card-credit--collab {
+  display: block;
   margin: 0;
   color: var(--ink-soft);
   font-size: 0.72rem;

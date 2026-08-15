@@ -43,8 +43,8 @@ Paperback on Amazon and the full story free on the site **can coexist**. Do **no
 | Story | On the site | Print path | Why |
 | --- | --- | --- | --- |
 | The Shy Girl & The Popular Girl | Finished · Book 1 | **First KDP candidate** | Original school story, complete, already illustrated |
-| Star of the Toy Farm | Finished · 12 ch. | **First KDP candidate** | Complete original series opener |
-| Star and the Midnight Feast | Finished · 12 ch. | KDP after Book 1 | Publish as Book 2 once Book 1 has a proof |
+| Star Finds a Home | Finished · 12 ch. | **First KDP candidate** | Star of the Toy Farm series opener |
+| Star and the Midnight Feast | Finished · 12 ch. | KDP after Star Finds a Home | Second Star of the Toy Farm story |
 | From Streets to Snuggles | Finished · 25 ch. | **Chosen first KDP title** | 6 × 9 illustrated chapter book — see section below |
 | Short Stories | Finished collection | Possible KDP bundle | Six shorts can pad to 24+ pages |
 | Kylie’s Story / Giza / Abacus / Kuvempu / Wish Hair Fairies | Finished shorts | Later / collections | Fine free online; thin as standalone paperbacks |
@@ -152,7 +152,7 @@ Add `amazonUrl` on `from-streets-to-snuggles` in `js/library.js`. Primary button
 
 ## Other first-book options (later)
 
-*The Shy Girl & The Popular Girl* or *Star of the Toy Farm* remain good second paperbacks (cream paper, black ink, a few illustrations) after this one has a proof.
+*The Shy Girl & The Popular Girl* or *Star Finds a Home* remain good second paperbacks (cream paper, black ink, a few illustrations) after this one has a proof.
 
 ## Sources
 
