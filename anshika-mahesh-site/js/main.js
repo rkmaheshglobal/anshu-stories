@@ -50,6 +50,7 @@ var readerFlushTimer = 0;
 
   addPrivacyLink();
   addSiteIcons();
+  addShareMeta();
   initReaderStats();
   initPrintableBack();
   initStoryBook();
@@ -60,6 +61,48 @@ function siteFileHref(file) {
   if (path.indexOf("/stories/chosen-for-magic/") !== -1) return "../../" + file;
   if (path.indexOf("/stories/") !== -1 || path.indexOf("/invitations/") !== -1 || path.indexOf("/printables/") !== -1) return "../" + file;
   return file;
+}
+
+function addShareMeta() {
+  var SITE = "https://anshikamahesh.com";
+  var img = SITE + "/images/og-share.jpg";
+  var titleEl = document.querySelector('meta[property="og:title"]');
+  var descEl = document.querySelector('meta[property="og:description"]') || document.querySelector('meta[name="description"]');
+  var title = (titleEl && titleEl.getAttribute("content")) || document.title || "Anshika Mahesh";
+  var desc = (descEl && descEl.getAttribute("content")) || "Stories of friendship, courage, and kindness.";
+  var path = (location.pathname || "/").replace(/\/index\.html$/, "/");
+  if (!path || path === "") path = "/";
+  var url = SITE + (path === "/" ? "/" : path);
+
+  function ensure(attr, key, value) {
+    var sel = attr === "name" ? 'meta[name="' + key + '"]' : 'meta[property="' + key + '"]';
+    var existing = document.querySelector(sel);
+    if (existing) {
+      if (!existing.getAttribute("content")) existing.setAttribute("content", value);
+      return;
+    }
+    var meta = document.createElement("meta");
+    meta.setAttribute(attr, key);
+    meta.setAttribute("content", value);
+    document.head.appendChild(meta);
+  }
+
+  ensure("property", "og:title", title);
+  ensure("property", "og:description", desc);
+  ensure("property", "og:type", "website");
+  ensure("property", "og:url", url);
+  ensure("property", "og:site_name", "Anshika Mahesh");
+  ensure("property", "og:locale", "en_IN");
+  ensure("property", "og:image", img);
+  ensure("property", "og:image:secure_url", img);
+  ensure("property", "og:image:type", "image/jpeg");
+  ensure("property", "og:image:width", "1200");
+  ensure("property", "og:image:height", "800");
+  ensure("property", "og:image:alt", "Anshika Mahesh — Stories of friendship, courage, and kindness");
+  ensure("name", "twitter:card", "summary_large_image");
+  ensure("name", "twitter:title", title);
+  ensure("name", "twitter:description", desc);
+  ensure("name", "twitter:image", img);
 }
 
 function addSiteIcons() {
