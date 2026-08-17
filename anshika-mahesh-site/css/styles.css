@@ -587,6 +587,10 @@ a:hover { color: var(--ink); }
   text-align: right;
 }
 
+.story-card-foot span.is-amazon {
+  color: var(--moss);
+}
+
 .story-empty {
   margin: 0;
   padding: 2rem 0 1rem;

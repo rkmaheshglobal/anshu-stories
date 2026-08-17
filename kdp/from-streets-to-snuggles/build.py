@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build KDP 6x9 interior + wraparound cover for From Streets to Snuggles.
 
-Source text is copied from the site HTML without rewriting Anshika's story.
+Source text is copied from this folder’s HTML without rewriting Anshika's story.
 Run from anywhere:
 
     python3 kdp/from-streets-to-snuggles/build.py
@@ -25,7 +25,7 @@ from reportlab.lib.enums import TA_CENTER, TA_JUSTIFY, TA_LEFT
 
 ROOT = Path(__file__).resolve().parents[2]
 HERE = Path(__file__).resolve().parent
-STORY = ROOT / "anshika-mahesh-site/stories/from-streets-to-snuggles.html"
+STORY = HERE / "from-streets-to-snuggles.html"
 IMG_DIR = ROOT / "anshika-mahesh-site/stories/images/streets"
 COVER_SRC = IMG_DIR / "cover.png"
 CAST_DIR = HERE / "cast"

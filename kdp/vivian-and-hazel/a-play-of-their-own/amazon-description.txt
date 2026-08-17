@@ -1,0 +1,17 @@
+Paste into KDP → Kindle eBook → Description. Amazon shows the first paragraph before “Read more,” so keep that hook as-is.
+
+HTML is allowed: b, i, br, p, ul, li.
+
+---
+
+<p><b>Hazel isn’t the shy new girl any more. Then an old rival arrives — and the class gets to write the school play.</b></p>
+<p>Hazel and Vivian are best friends now. Then Noele arrives from Hazel’s old school, Bella still wants to break them apart, and Miss Colman lets the girls write a play of their own. There are rumours, a secret about Vivian’s sister, jokes, costumes, and opening night.</p>
+<p><i>A Play of Their Own</i> is a school story by young author Anshika Mahesh. Best after <i>The Shy Girl &amp; The Popular Girl</i>.</p>
+<p><b>This book is for:</b></p>
+<ul>
+<li>Readers ages 9–12 who liked the first Vivian &amp; Hazel story</li>
+<li>Families who enjoy school plays, friendship, and a bit of drama</li>
+<li>Anyone who wants a story about standing up for a friend</li>
+</ul>
+<p>Seven chapters, with pictures and costume drawings. A <i>Vivian &amp; Hazel</i> story.</p>
+<p><i>A Play of Their Own</i> · Written by Anshika Mahesh</p>

@@ -1,0 +1,64 @@
+Paste these into KDP → Bookshelf → Create series page (or Add to series).
+Do not type Book 1 / Book 2 into the series title, subtitle, or this description.
+
+============================================================
+SERIES TITLE
+============================================================
+Star of the Toy Farm
+
+Copy-paste exactly. Do not add the word Series — Amazon already labels it as a series.
+Use this same spelling on both books. A missing space or different capital letter will split them into two series.
+
+
+============================================================
+READING ORDER
+============================================================
+Choose: Ordered
+
+Midnight Feast is meant to be read after Star Finds a Home.
+
+When you add each title, set:
+
+  Content type     Main content
+  Display number   1     Star Finds a Home
+  Display number   2     Star and the Midnight Feast
+
+Amazon will show those numbers on the series page. That is reading order, not a “Book 1” label on the cover.
+
+
+============================================================
+SERIES IMAGE
+============================================================
+Upload:  kdp/star-of-the-toy-farm/series/series-image.jpg
+Size:    1600 × 2560 px, RGB JPEG (same as a Kindle cover)
+
+If the form does not let you upload a file, and instead shows book-cover thumbnails:
+leave it. Amazon will build the series picture from the two Kindle covers once both books are live.
+Until the second book is live, shoppers may only see the first cover.
+
+
+============================================================
+DESCRIPTION
+============================================================
+Amazon shows the first paragraph before “Read more.” If you leave this blank, Amazon uses the first book’s description instead. Paste the HTML below into the series description box.
+
+---
+
+<p><b>A toy sheep, a farm of friends, and adventures that start after bedtime.</b></p>
+<p>Star is a toy sheep who wonders why she exists. When she becomes Sophia’s birthday gift, she finds a name, a family, and friends who talk when grown-ups aren’t listening.</p>
+<p>The <i>Star of the Toy Farm</i> stories follow Star, Bundle, Mia, and the farm through a missing-cow rescue, a mountain day, a sleepover, a riddle-loving goat, and a midnight feast.</p>
+<p>Written by young author Anshika Mahesh. For readers ages 6–8 who like talking toys, friendship, and a little bravery. From a kid, to a kid.</p>
+<p><b>Read in this order:</b></p>
+<ul>
+<li><i>Star Finds a Home</i></li>
+<li><i>Star and the Midnight Feast</i></li>
+</ul>
+
+
+============================================================
+AFTER YOU SAVE
+============================================================
+- Language: English
+- Do not enroll in KDP Select until the full story is no longer free on anshikamahesh.com
+- The public series page appears within about 72 hours after at least two main-content titles are Live
+- Do not add an Amazon button on the website until you have the live series or product URL

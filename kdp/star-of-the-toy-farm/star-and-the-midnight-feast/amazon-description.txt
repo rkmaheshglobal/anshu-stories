@@ -1,0 +1,17 @@
+Paste into KDP → Kindle eBook → Description. Amazon shows the first paragraph before “Read more,” so keep that hook as-is.
+
+HTML is allowed: b, i, br, p, ul, li.
+
+---
+
+<p><b>A sleepover, a riddle-loving goat, and a midnight feast — Star learns bravery is looking after friends when the night gets messy.</b></p>
+<p>A sleepover, a show-and-tell prize, a riddle-loving goat, and a midnight feast — Star learns that bravery isn’t only mountains. It’s looking after friends when the night gets messy.</p>
+<p><i>Star and the Midnight Feast</i> is a toy-farm story by young author Anshika Mahesh. Best after <i>Star Finds a Home</i>.</p>
+<p><b>This book is for:</b></p>
+<ul>
+<li>Readers ages 6–8 who liked Star Finds a Home</li>
+<li>Families who enjoy sleepovers, talking toys, and a bit of mischief</li>
+<li>Anyone who wants a story about looking after friends</li>
+</ul>
+<p>Twelve chapters, with pictures. A <i>Star of the Toy Farm</i> story.</p>
+<p><i>Star and the Midnight Feast</i> · Written by Anshika Mahesh</p>

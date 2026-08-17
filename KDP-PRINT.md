@@ -28,7 +28,7 @@ Reviewed 14 Aug 2026. Finished original, 25 chapters, ~2,700 words, The End. Goo
 - [x] Choose ink **before** layout for this title: **6 × 9 in** paperback, about 56–64 pages. Premium color if the comics stay in color; otherwise black ink + cream paper. Not a 24-page square picture book.
 - [x] Build an interior PDF (even page count, **24+** pages, 300 dpi art, bleed/margins) and a wraparound cover from KDP’s cover calculator.
 - [ ] Upload, pass Print Previewer, order a **physical proof**, fix, then set price and publish.
-- [ ] Copy the live Amazon product URL (ASIN). Only then add `amazonUrl` in `anshika-mahesh-site/js/library.js` and the secondary Order on Amazon button next to Read Online (Free).
+- [x] Copy the live Amazon product URL (ASIN). Only then add `amazonUrl` in `anshika-mahesh-site/js/library.js` and the Buy on Amazon button next to the sample.
 
 ## Two workstreams
 
@@ -42,13 +42,13 @@ Paperback on Amazon and the full story free on the site **can coexist**. Do **no
 
 | Story | On the site | Print path | Why |
 | --- | --- | --- | --- |
-| The Shy Girl & The Popular Girl | Finished · Vivian & Hazel | **First KDP candidate** | Original school story, complete, already illustrated |
-| Star Finds a Home | Finished · 12 ch. | **First KDP candidate** | Star of the Toy Farm series opener |
-| Star and the Midnight Feast | Finished · 12 ch. | KDP after Star Finds a Home | Second Star of the Toy Farm story |
-| From Streets to Snuggles | Finished · 25 ch. | **Chosen first KDP title** | 6 × 9 illustrated chapter book — see section below |
+| The Shy Girl & The Popular Girl | Finished · Vivian & Hazel | **Kindle kit ready** | Upload from `kdp/vivian-and-hazel/shy-girl/` |
+| Star Finds a Home | Finished · 12 ch. | **Kindle kit ready** | Upload from `kdp/star-of-the-toy-farm/star-finds-a-home/` |
+| Star and the Midnight Feast | Finished · 12 ch. | **Kindle kit ready** (after Star Finds a Home) | Upload from `kdp/star-of-the-toy-farm/star-and-the-midnight-feast/` |
+| From Streets to Snuggles | Finished · 25 ch. | **Live on Amazon** | Sample on site · buy: `https://amzn.in/d/00MzW627` |
 | Short Stories | Finished collection | Possible KDP bundle | Six shorts can pad to 24+ pages |
 | Kylie’s Story / Giza / Abacus / Kuvempu / Wish Hair Fairies | Finished shorts | Later / collections | Fine free online; thin as standalone paperbacks |
-| A Play of Their Own | Finished · 7 ch. | KDP after The Shy Girl | Complete sequel — play, Noele, and Samaya |
+| A Play of Their Own | Finished · 7 ch. | **Kindle kit ready** (after Shy Girl) | Upload from `kdp/vivian-and-hazel/a-play-of-their-own/` |
 | Almost Sisters / Bandit Family / Moving In | To be continued | **Wait** | Site already marks these unfinished |
 | Chosen for Magic | 12 gift editions | **Lulu / private print only** | Real friends’ names — not a public Amazon listing |
 | The Famous Five | Co-written short | **Do not sell** | Kirrin Island / Timmy are Enid Blyton marks |
@@ -94,15 +94,18 @@ This is a publishing filter, not legal advice. Clear rights before listing anyth
 
 ## Website button rules (when a listing is Live)
 
-Cards in `js/library.js` are currently a single link into the reader.
+When a title has a live Amazon URL, add `amazonUrl` on that story in `js/library.js`. The site then shows an **On Amazon** badge on the card, a **Buy on Amazon** button, and only a Look Inside sample (cover + first chapters). The full story is not on the website.
 
 | Rule | Detail |
 | --- | --- |
-| Primary = Read Online (Free) | Same URL as today (`stories/*.html`). Never paywall the site copy. |
-| Secondary = Order on Amazon | Opens the live paperback (or hardcover) product page in a new tab. Prefer the Amazon.in URL if that is the storefront families will use. |
-| Show only when `amazonUrl` exists | Optional field on that story in `library.js`. No URL, no button. |
-| Where to put them | Best: a short story landing (cover, blurb, two buttons), then the reader. Next-best: the reader toolbar beside bookmark/coloring. Do not put two buttons on the whole-card link without splitting the card. |
-| No affiliate until registered | Plain product URLs are enough. Amazon Associates is a separate program with extra child-directed advertising rules — skip it unless you want that review. |
+| Card | Still opens the site sample (cover, like the Kindle listing). Badge: **On Amazon**. |
+| Primary on the story page | **Buy on Amazon** — live Amazon.in product URL, new tab. |
+| Secondary | **Read the sample** — cover, contents, first chapters, then a buy page. |
+| Show only when `amazonUrl` exists | Unpublished stories stay free to read in full. |
+| Full text | Keep the complete HTML under `kdp/…` for rebuilds. Do not leave later chapters in the public `stories/*.html`. |
+| No affiliate until registered | Plain product URLs are enough. |
+
+Live now: **From Streets to Snuggles** → `https://amzn.in/d/00MzW627`.
 
 ## From Streets to Snuggles — how to publish
 
@@ -122,7 +125,7 @@ Amazon needs **one** consistent book. Recommended: prose + `cover.png` as the fr
 - Paperback first: **6 × 9 in**, about **56–64 pages** (even). One illustration plate + one text page per chapter, plus title/copyright/contents.
 - Premium **color** if the comics stay in color; cheaper **black ink + cream paper** if you grayscale the plates.
 - Do **not** squeeze this into a 24-page square picture book — that would drop most of the 25 chapters.
-- Kindle of the prose can wait. Comic-page Kindle needs fixed layout. Skip **KDP Select** while the story is free on the site.
+- Kindle of the prose can wait. Comic-page Kindle needs fixed layout. The website now shows only a Look Inside sample; the full text lives in `kdp/from-streets-to-snuggles/from-streets-to-snuggles.html`.
 
 ### Cover and art sizes (today)
 
@@ -148,11 +151,42 @@ Amazon needs **one** consistent book. Recommended: prose + `cover.png` as the fr
 
 ### After the book is Live
 
-Add `amazonUrl` on `from-streets-to-snuggles` in `js/library.js`. Primary button stays **Read Online (Free)**. Secondary **Order on Amazon** only for this title.
+`amazonUrl` is set on `from-streets-to-snuggles` in `js/library.js`. The public page is a two-chapter sample. **Buy on Amazon** uses `https://amzn.in/d/00MzW627`.
+
+## Vivian & Hazel — Kindle (ready to upload)
+
+Two Kindle titles, same series. Rebuild with `python3 kdp/vivian-and-hazel/build_kindle.py`. How to fill the KDP form is in `kdp/vivian-and-hazel/README.md`.
+
+| Title | Folder | Manuscript | Cover |
+| --- | --- | --- | --- |
+| The Shy Girl & The Popular Girl | `kdp/vivian-and-hazel/shy-girl/` | `the-shy-girl-and-the-popular-girl-kindle.docx` | `kindle-cover.jpg` |
+| A Play of Their Own | `kdp/vivian-and-hazel/a-play-of-their-own/` | `a-play-of-their-own-kindle.docx` | `kindle-cover.jpg` |
+
+- Subtitle for both: **A Vivian & Hazel story**. Do not put Book 1 / Book 2 on the listing.
+- Age **9–12**. Skip **KDP Select** while the stories are free on the site. DRM off.
+- Tick AI-generated images. Publish Shy Girl first, then Play in the same KDP series.
+- Paperback interiors are not built yet. Kindle can go live on its own.
+- Do not add Amazon buttons until each title is Live and you have the ASIN.
+
+## Star of the Toy Farm — Kindle (ready to upload)
+
+Two Kindle titles, same series. Rebuild with `python3 kdp/star-of-the-toy-farm/build_kindle.py`. How to fill the KDP form is in `kdp/star-of-the-toy-farm/README.md`.
+
+| Title | Folder | Manuscript | Cover |
+| --- | --- | --- | --- |
+| Star Finds a Home | `kdp/star-of-the-toy-farm/star-finds-a-home/` | `star-finds-a-home-kindle.docx` | `kindle-cover.jpg` |
+| Star and the Midnight Feast | `kdp/star-of-the-toy-farm/star-and-the-midnight-feast/` | `star-and-the-midnight-feast-kindle.docx` | `kindle-cover.jpg` |
+
+- Subtitle for both: **A Star of the Toy Farm story**. Do not put Book 1 / Book 2 on the listing.
+- Age **6–8**. Categories: Juvenile Fiction / Animals / Toys, Dolls & Puppets; Social Themes / Friendship.
+- Skip **KDP Select** while the stories are free on the site. DRM off.
+- Tick AI-generated images. Publish Star Finds a Home first, then Midnight Feast in the same KDP series.
+- Paperback interiors are not built yet. Kindle can go live on its own.
+- Do not add Amazon buttons until each title is Live and you have the ASIN.
 
 ## Other first-book options (later)
 
-*The Shy Girl & The Popular Girl* or *Star Finds a Home* remain good second paperbacks (cream paper, black ink, a few illustrations) after this one has a proof.
+*From Streets to Snuggles* remains a good paperback (cream paper, black ink, a few illustrations) after a proof. Vivian & Hazel Kindle files are in `kdp/vivian-and-hazel/`. Star of the Toy Farm Kindle files are in `kdp/star-of-the-toy-farm/`.
 
 ## Sources
 

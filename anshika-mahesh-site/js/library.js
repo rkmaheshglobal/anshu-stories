@@ -156,12 +156,13 @@
       id: "from-streets-to-snuggles",
       title: "From Streets to Snuggles",
       href: "stories/from-streets-to-snuggles.html",
-      cover: "stories/images/streets/cover.png",
+      cover: "stories/images/streets/kindle-cover.jpg",
       blurb: "Bundle and Snowy go from rainy streets to a loving home — a tale of rescue and belonging.",
       teaser: "A tale of kindness, rescue, and belonging.",
       tags: ["animals"],
       lengthLabel: "25 chapters",
-      search: "bundle snowy fluffy rescue dogs goa sam forever home"
+      amazonUrl: "https://amzn.in/d/00MzW627",
+      search: "bundle snowy fluffy rescue dogs goa sam forever home amazon kindle"
     },
     {
       id: "shy-girl",
@@ -351,7 +352,10 @@
 
   function cardHTML(story) {
     const lane = laneOf(story);
-    const mark = story.fresh ? "New" : (story.continued ? "To be continued" : "");
+    const mark = story.amazonUrl
+      ? "On Amazon"
+      : (story.fresh ? "New" : (story.continued ? "To be continued" : ""));
+    const markClass = story.amazonUrl ? ' class="is-amazon"' : "";
     const credit = story.credit
       ? '<p class="story-card-credit story-card-credit--collab">' + esc(story.credit) + "</p>"
       : "";
@@ -369,7 +373,7 @@
           credit +
         "</div>" +
         '<div class="story-card-foot">' +
-          "<span>" + esc(mark) + "</span>" +
+          "<span" + markClass + ">" + esc(mark) + "</span>" +
           "<span>" + esc(story.lengthLabel || "") + "</span>" +
         "</div>" +
       "</a>"

@@ -1,6 +1,6 @@
 # From Streets to Snuggles — KDP files
 
-Generated from the site story. Text is Anshika’s, not rewritten.
+Generated from `from-streets-to-snuggles.html` in this folder (the public site is a Look Inside sample only). Text is Anshika’s, not rewritten.
 
 ## Files to upload
 
@@ -28,7 +28,7 @@ python3 kdp/from-streets-to-snuggles/build_kindle.py
 5. Upload `interior.pdf`. Confirm KDP counts **60** pages.
 6. Upload `cover-wrap.pdf` (or use Cover Creator only if you abandon this wrap).
 7. Pass **Print Previewer**. Order a **proof copy**. Do not publish until the proof is in your hands.
-8. Do **not** enroll in KDP Select while the story is free on anshikamahesh.com.
+8. The website now shows only a two-chapter sample, so KDP Select is possible if you want Kindle Unlimited.
 
 ## KDP Kindle eBook settings
 
@@ -38,8 +38,8 @@ Create this as a **new Kindle eBook** on the same Bookshelf title (or link it to
 2. Upload `kindle-cover.jpg` as the eBook cover (separate from the wrap PDF).
 3. Tick the AI-generated images disclosure.
 4. Preview on phone, tablet, and e-ink in KDP Previewer.
-5. DRM: leave **off** — the story is already free on the site.
-6. Do **not** enroll in KDP Select (the site copy would violate exclusivity).
+5. DRM: leave **off** unless you enroll in KDP Select.
+6. KDP Select is now possible — the full story is no longer free on anshikamahesh.com (sample only).
 7. Suggested list price: **$2.99** (70% royalty if the file stays under ~10 MB). If delivery cost looks high on the pricing page, use **35%** instead.
 
 Spine width used: **0.1408 in** (no spine type — book is under 79 pages). If KDP reports a different page count, run the builder again.

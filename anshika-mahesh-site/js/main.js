@@ -54,6 +54,7 @@ var readerFlushTimer = 0;
   initPageShare();
   initReaderStats();
   initPrintableBack();
+  initAmazonEdition();
   initStoryBook();
 })();
 
@@ -255,6 +256,70 @@ function storyIdFromPath() {
   return file.toLowerCase();
 }
 
+function amazonLink(href, label) {
+  return (
+    '<a href="' + href + '" target="_blank" rel="noopener noreferrer">' +
+    label +
+    "</a>"
+  );
+}
+
+function initAmazonEdition() {
+  const book = document.querySelector("main.book[data-amazon-url]");
+  if (!book) return;
+  const url = book.getAttribute("data-amazon-url");
+  if (!url) return;
+  const sampleN = parseInt(book.getAttribute("data-sample-chapters") || "2", 10) || 2;
+
+  document.body.classList.add("is-amazon-sample");
+
+  Array.prototype.forEach.call(book.querySelectorAll(".page.chapter[id^='ch']"), function (page) {
+    const n = parseInt(String(page.id || "").replace("ch", ""), 10);
+    if (n > sampleN) page.parentNode.removeChild(page);
+  });
+
+  const cta = book.querySelector(".cover-panel .cta, .cover-cta");
+  if (cta && !cta.querySelector('a[href^="http"]')) {
+    cta.innerHTML =
+      amazonLink(url, "Buy on Amazon") +
+      '<a class="secondary" href="#ch1">Read the sample</a>';
+  }
+
+  Array.prototype.forEach.call(book.querySelectorAll('.toc a[href^="#ch"]'), function (a) {
+    const id = (a.getAttribute("href") || "").slice(1);
+    const n = parseInt(id.replace("ch", ""), 10);
+    if (!(n > sampleN)) return;
+    const li = a.parentNode;
+    if (!li) return;
+    li.innerHTML = a.innerHTML;
+  });
+
+  if (!book.querySelector(".sample-gate")) {
+    const gate = document.createElement("section");
+    gate.className = "page sample-gate";
+    gate.id = "buy";
+    gate.innerHTML =
+      '<header class="chapter-head">' +
+        '<span class="chapter-num">Sample ends here</span>' +
+        "<h2>Continue on Amazon</h2>" +
+      "</header>" +
+      "<p>This is a free Look Inside. The rest of the story is on Amazon Kindle and in print.</p>" +
+      '<div class="cta">' + amazonLink(url, "Buy on Amazon") + "</div>";
+    book.appendChild(gate);
+  }
+
+  const tools = document.querySelector(".book-tools");
+  if (tools && !tools.querySelector("[data-amazon]")) {
+    const a = document.createElement("a");
+    a.href = url;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+    a.textContent = "Buy on Amazon";
+    a.setAttribute("data-amazon", "");
+    tools.appendChild(a);
+  }
+}
+
 function initStoryBook() {
   const book = document.querySelector("main.book");
   if (!book) return;
@@ -444,7 +509,7 @@ function initStoryBook() {
     noteStoryProgress(si);
     closeCast();
     wireCastNames();
-    showReact(si === totalSpreads - 1);
+    showReact(!amazonSample && si === totalSpreads - 1);
     if (listening) speakVisiblePages();
   }
 
@@ -666,6 +731,7 @@ function initStoryBook() {
     });
   }
 
+  const amazonSample = document.body.classList.contains("is-amazon-sample");
   const storyId = storyIdFromPath();
   const sentRead = { open: false, halfway: false, finish: false };
   function noteStoryProgress(si) {
@@ -680,7 +746,10 @@ function initStoryBook() {
     }
     if (!sentRead.finish && si === totalSpreads - 1) {
       sentRead.finish = true;
-      trackReaderEvent("story_finish/" + storyId, "Finished " + storyId);
+      trackReaderEvent(
+        (amazonSample ? "story_sample_end/" : "story_finish/") + storyId,
+        (amazonSample ? "Sample ended " : "Finished ") + storyId
+      );
     }
   }
 
@@ -1244,6 +1313,11 @@ function injectBookCss() {
     ".leaf.is-cover-bleed .cover-hero img{max-height:none!important;width:100%!important;height:100%!important;object-fit:cover!important;margin:0!important}",
     ".leaf.is-cover-bleed .cover-panel{flex:0 0 auto;padding:.7rem .85rem .95rem!important}",
     ".leaf.is-cover .cover-cta,.leaf.is-cover .cta{display:none!important}",
+    "body.is-amazon-sample .leaf.is-cover .cover-cta,body.is-amazon-sample .leaf.is-cover .cta{display:flex!important;justify-content:center;flex-wrap:wrap;gap:.45rem;margin-top:.55rem}",
+    "body.is-amazon-sample .leaf.is-cover .cta a,body.is-amazon-sample .leaf.is-cover .cover-cta a{display:inline-block;padding:.4rem .8rem;border-radius:999px;background:#1c2430;color:#fff;text-decoration:none;font-size:.72rem;font-weight:800}",
+    "body.is-amazon-sample .leaf.is-cover .cta a.secondary,body.is-amazon-sample .leaf.is-cover .cover-cta a.secondary{background:transparent;color:#1c2430;border:2px solid rgba(28,36,48,.2)}",
+    "body.is-amazon-sample .leaf-inner .sample-gate .cta{display:flex;justify-content:center;margin-top:.8rem}",
+    "body.is-amazon-sample .leaf-inner .sample-gate .cta a{display:inline-block;padding:.45rem .9rem;border-radius:999px;background:#1c2430;color:#fff;text-decoration:none;font-weight:800}",
     ".page-num{position:absolute;left:0;right:0;bottom:.42rem;z-index:6;text-align:center;font-size:.7rem;font-weight:800;letter-spacing:.14em;color:#6b6358;pointer-events:none}",
     ".flipper{position:absolute;top:0;height:100%;width:calc(50% - 4px);display:none;transform-style:preserve-3d;z-index:8;pointer-events:none}",
     ".flipper.is-forward,.flipper.is-back{display:block}",

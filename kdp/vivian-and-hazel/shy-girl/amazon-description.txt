@@ -1,0 +1,17 @@
+Paste into KDP → Kindle eBook → Description. Amazon shows the first paragraph before “Read more,” so keep that hook as-is.
+
+HTML is allowed: b, i, br, p, ul, li.
+
+---
+
+<p><b>Vivian is popular. Hazel is new, and shy. Can they be friends?</b></p>
+<p>Vivian is excited to start school again — and even more thrilled to help and make friends with new girl Hazel. But do Vivian’s friends approve of Hazel, or even let her be Hazel’s friend? There’s drama for sure: badminton tryouts, a small birthday party, and a choice that isn’t the easiest thing to do.</p>
+<p>So begins <i>The Shy Girl &amp; The Popular Girl</i>, a school story by young author Anshika Mahesh. Told in both girls’ voices, it is about kindness, courage, and what true friendship looks like.</p>
+<p><b>This book is for:</b></p>
+<ul>
+<li>Readers ages 9–12 who like school stories</li>
+<li>Families who want a short illustrated chapter book about friendship</li>
+<li>Anyone who has ever had to choose between fitting in and being kind</li>
+</ul>
+<p>Eight chapters, with pictures. A <i>Vivian &amp; Hazel</i> story.</p>
+<p><i>The Shy Girl &amp; The Popular Girl</i> · Written by Anshika Mahesh</p>
