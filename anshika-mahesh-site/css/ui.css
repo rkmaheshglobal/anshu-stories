@@ -81,7 +81,14 @@
   height: 100%;
   min-height: 280px;
   object-fit: cover;
+  object-position: center 18%;
   display: block;
+}
+
+.u-tile--photo-wide img {
+  min-height: 240px;
+  max-height: 420px;
+  object-position: center;
 }
 
 .u-tile--moss {

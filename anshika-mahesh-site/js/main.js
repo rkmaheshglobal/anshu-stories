@@ -51,6 +51,7 @@ var readerFlushTimer = 0;
   addPrivacyLink();
   addSiteIcons();
   addShareMeta();
+  initPageShare();
   initReaderStats();
   initPrintableBack();
   initStoryBook();
@@ -103,6 +104,51 @@ function addShareMeta() {
   ensure("name", "twitter:title", title);
   ensure("name", "twitter:description", desc);
   ensure("name", "twitter:image", img);
+}
+
+function initPageShare() {
+  var box = document.querySelector("[data-share]");
+  if (!box) return;
+
+  var title = document.title || "Anshika Mahesh";
+  var text = "Illustrated stories by Anshika Mahesh, age 12.";
+  var url = (document.querySelector('meta[property="og:url"]') || {}).content || location.href.split("#")[0];
+  var message = text + " " + url;
+
+  var nativeBtn = box.querySelector("[data-share-native]");
+  var wa = box.querySelector("[data-share-wa]");
+  var copyBtn = box.querySelector("[data-share-copy]");
+
+  if (wa) {
+    wa.href = "https://wa.me/?text=" + encodeURIComponent(message);
+  }
+
+  if (nativeBtn) {
+    if (!navigator.share) {
+      nativeBtn.hidden = true;
+    } else {
+      nativeBtn.addEventListener("click", function () {
+        navigator.share({ title: title, text: text, url: url }).catch(function () {});
+      });
+    }
+  }
+
+  if (copyBtn) {
+    copyBtn.addEventListener("click", function () {
+      var done = function () {
+        var prev = copyBtn.textContent;
+        copyBtn.textContent = "Copied";
+        window.setTimeout(function () { copyBtn.textContent = prev; }, 1600);
+      };
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(done).catch(function () {
+          window.prompt("Copy this link", url);
+        });
+      } else {
+        window.prompt("Copy this link", url);
+      }
+    });
+  }
 }
 
 function addSiteIcons() {

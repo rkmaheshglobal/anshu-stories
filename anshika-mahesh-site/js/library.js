@@ -233,6 +233,72 @@
     }
   ];
 
+  const SHELVES = [
+    {
+      id: "shy-girl",
+      kicker: "Series",
+      title: "Vivian & Hazel",
+      blurb: "Two school friends — popularity, kindness, and standing up. More stories to come.",
+      storyIds: ["shy-girl", "vivian-and-hazel"]
+    },
+    {
+      id: "star",
+      kicker: "Series",
+      title: "Star of the Toy Farm",
+      blurb: "A toy sheep finds her name, her girl, and a farm full of adventures.",
+      storyIds: ["star-of-the-toy-farm", "star-and-the-midnight-feast"]
+    },
+    {
+      id: "animals",
+      kicker: "Chapter book",
+      title: "Animals",
+      blurb: "From rainy streets to a forever home.",
+      storyIds: ["from-streets-to-snuggles"]
+    },
+    {
+      id: "school",
+      kicker: "School",
+      title: "School & friends",
+      blurb: "New families, class projects, and a playground gang.",
+      storyIds: ["almost-sisters", "invention-of-abacus", "trip-to-giza"]
+    },
+    {
+      id: "magic",
+      kicker: "Magic",
+      title: "Magic & fairy",
+      blurb: "Wishes, watches, and a garden study.",
+      storyIds: ["kylies-story", "the-wish-hair-fairies", "magic-of-storytelling"]
+    },
+    {
+      id: "adventure",
+      kicker: "Adventure",
+      title: "Adventure",
+      blurb: "Bandits, a new flat, and a treasure hunt.",
+      storyIds: ["the-bandit-family", "moving-in", "famous-five"]
+    },
+    {
+      id: "short",
+      kicker: "Quick read",
+      title: "Little tales",
+      blurb: "Six short stories for one sitting.",
+      storyIds: ["short-stories"]
+    },
+    {
+      id: "kannada",
+      kicker: "Kannada",
+      title: "Kannada",
+      blurb: "A project tale with a great poet.",
+      storyIds: ["kuvempu"]
+    },
+    {
+      id: "gifts",
+      kicker: "Gifts",
+      title: "For friends",
+      blurb: "Personalised editions — each friend gets to be the hero.",
+      storyIds: ["chosen-for-magic"]
+    }
+  ];
+
   const FILTERS = [
     { id: "all", label: "All" },
     { id: "short", label: "Short reads" },
@@ -357,26 +423,35 @@
     }).join("");
   }
 
-  function groupedSeries(query) {
-    const groups = SERIES.map(function (bundle) {
-      const stories = bundle.storyIds.map(byId).filter(Boolean).filter(function (story) {
-        return matches(story, "all", query);
-      }).sort(function (a, b) {
-        return (a.seriesBook || 0) - (b.seriesBook || 0);
-      });
-      return { bundle: bundle, stories: stories };
-    }).filter(function (group) { return group.stories.length; });
-
-    const groupedIds = {};
-    SERIES.forEach(function (bundle) {
-      bundle.storyIds.forEach(function (id) { groupedIds[id] = true; });
+  function shelfStories(shelf, filter, query) {
+    return shelf.storyIds.map(byId).filter(Boolean).filter(function (story) {
+      return matches(story, filter, query);
+    }).sort(function (a, b) {
+      return (a.seriesBook || 0) - (b.seriesBook || 0);
     });
+  }
 
-    const extras = STORIES.filter(function (story) {
-      return story.tags.indexOf("series") !== -1 && !groupedIds[story.id] && matches(story, "all", query);
+  function listedStoryIds() {
+    const ids = {};
+    SHELVES.forEach(function (shelf) {
+      shelf.storyIds.forEach(function (id) { ids[id] = true; });
     });
+    return ids;
+  }
 
-    return { groups: groups, extras: extras };
+  function renderShelf(shelf, stories) {
+    const kicker = shelf.kicker
+      ? '<p class="eyebrow">' + esc(shelf.kicker) + "</p>"
+      : "";
+    const blurb = shelf.blurb ? "<p>" + esc(shelf.blurb) + "</p>" : "";
+    return (
+      '<section class="library-group" id="shelf-' + esc(shelf.id) + '">' +
+        kicker +
+        "<h2>" + esc(shelf.title) + "</h2>" +
+        blurb +
+        '<div class="story-grid catalogue-grid">' + stories.map(cardHTML).join("") + "</div>" +
+      "</section>"
+    );
   }
 
   function renderLibrary(root, filter, query) {
@@ -384,51 +459,44 @@
     const count = document.querySelector("[data-library-count]");
     const groupsRoot = document.querySelector("[data-library-groups]");
 
-    if (filter === "series") {
-      const packed = groupedSeries(query);
-      const total = packed.groups.reduce(function (sum, group) {
-        return sum + group.stories.length;
-      }, 0) + packed.extras.length;
+    const sections = SHELVES.map(function (shelf) {
+      return { shelf: shelf, stories: shelfStories(shelf, filter, query) };
+    }).filter(function (section) { return section.stories.length; });
 
-      root.hidden = true;
-      root.innerHTML = "";
-      if (groupsRoot) {
-        groupsRoot.hidden = total === 0;
-        groupsRoot.innerHTML = packed.groups.map(function (group) {
-          return (
-            '<section class="library-group">' +
-              "<h2>" + esc(group.bundle.title) + "</h2>" +
-              "<p>" + esc(group.bundle.blurb) + "</p>" +
-              '<div class="story-grid catalogue-grid">' + group.stories.map(cardHTML).join("") + "</div>" +
-            "</section>"
-          );
-        }).join("") + (packed.extras.length
-          ? '<section class="library-group"><h2>Gift editions</h2><div class="story-grid catalogue-grid">' +
-            packed.extras.map(cardHTML).join("") +
-            "</div></section>"
-          : "");
-      }
-      if (count) count.textContent = total === 1 ? "1 series story" : total + " series stories";
-      if (empty) empty.hidden = total !== 0;
-      return;
-    }
-
-    if (groupsRoot) {
-      groupsRoot.hidden = true;
-      groupsRoot.innerHTML = "";
-    }
-    root.hidden = false;
-
-    const found = STORIES.filter(function (story) {
-      return matches(story, filter, query);
+    const used = listedStoryIds();
+    const extras = STORIES.filter(function (story) {
+      return !used[story.id] && matches(story, filter, query);
     });
-    renderGrid(root, found);
-    if (count) {
-      count.textContent = found.length === STORIES.length
-        ? found.length + " stories"
-        : found.length + " of " + STORIES.length + " stories";
+    if (extras.length) {
+      sections.push({
+        shelf: { id: "more", kicker: "More", title: "More stories", blurb: "" },
+        stories: extras
+      });
     }
-    if (empty) empty.hidden = found.length !== 0;
+
+    const total = sections.reduce(function (sum, section) {
+      return sum + section.stories.length;
+    }, 0);
+
+    root.hidden = true;
+    root.innerHTML = "";
+    if (groupsRoot) {
+      groupsRoot.hidden = total === 0;
+      groupsRoot.innerHTML = sections.map(function (section) {
+        return renderShelf(section.shelf, section.stories);
+      }).join("");
+    }
+
+    if (count) {
+      if (filter === "all" && !query) {
+        count.textContent = total + " stories";
+      } else if (total === 1) {
+        count.textContent = "1 story";
+      } else {
+        count.textContent = total + " of " + STORIES.length + " stories";
+      }
+    }
+    if (empty) empty.hidden = total !== 0;
   }
 
   function setChipState(toolbar, filter) {
