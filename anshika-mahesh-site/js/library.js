@@ -15,7 +15,7 @@
       tags: ["short", "magic", "animals"],
       lengthLabel: "Quick read",
       fresh: true,
-      search: "facing fears switcheroo coral rose hugo delia humpy raya bicycle unicorn mermaid dragon pirate camel penguin"
+      search: "mia bicycle facing fears switcheroo coral rose hugo song quiet castle camel penguin delia humpy raya unicorn mermaid dragon pirate"
     },
     {
       id: "kylies-story",
