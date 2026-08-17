@@ -31,18 +31,17 @@
     },
     {
       id: "vivian-and-hazel",
-      title: "Vivian and Hazel",
+      title: "A Play of Their Own",
       href: "stories/vivian-and-hazel.html",
       cover: "stories/images/vivian-and-hazel/cover.png",
       blurb: "A school play, an old-school rival, and the secret about Vivian’s sister.",
       teaser: "A school play, a rival, and a sister’s secret.",
       tags: ["school", "series"],
       seriesId: "shy-girl",
-      seriesLabel: "Book 2",
+      seriesLabel: "Vivian & Hazel",
       seriesBook: 2,
-      lengthLabel: "A short book",
-      continued: true,
-      search: "vivian hazel bella noele school play popular shy girl"
+      lengthLabel: "7 chapters",
+      search: "vivian hazel bella noele school play popular shy girl samaya a play of their own"
     },
     {
       id: "kuvempu",
@@ -173,7 +172,7 @@
       teaser: "When popularity and kindness collide, two girls learn what friendship is.",
       tags: ["school", "series"],
       seriesId: "shy-girl",
-      seriesLabel: "Book 1",
+      seriesLabel: "Vivian & Hazel",
       seriesBook: 1,
       lengthLabel: "A school story",
       search: "vivian hazel badminton friendship popular shy girl kindness"
@@ -223,7 +222,7 @@
     {
       id: "shy-girl",
       title: "Vivian & Hazel",
-      blurb: "A school friendship across two books — popularity, kindness, and standing up.",
+      blurb: "Two school friends — popularity, kindness, and standing up. More stories to come.",
       storyIds: ["shy-girl", "vivian-and-hazel"]
     },
     {

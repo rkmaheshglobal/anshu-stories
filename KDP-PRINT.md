@@ -42,13 +42,13 @@ Paperback on Amazon and the full story free on the site **can coexist**. Do **no
 
 | Story | On the site | Print path | Why |
 | --- | --- | --- | --- |
-| The Shy Girl & The Popular Girl | Finished · Book 1 | **First KDP candidate** | Original school story, complete, already illustrated |
+| The Shy Girl & The Popular Girl | Finished · Vivian & Hazel | **First KDP candidate** | Original school story, complete, already illustrated |
 | Star Finds a Home | Finished · 12 ch. | **First KDP candidate** | Star of the Toy Farm series opener |
 | Star and the Midnight Feast | Finished · 12 ch. | KDP after Star Finds a Home | Second Star of the Toy Farm story |
 | From Streets to Snuggles | Finished · 25 ch. | **Chosen first KDP title** | 6 × 9 illustrated chapter book — see section below |
 | Short Stories | Finished collection | Possible KDP bundle | Six shorts can pad to 24+ pages |
 | Kylie’s Story / Giza / Abacus / Kuvempu / Wish Hair Fairies | Finished shorts | Later / collections | Fine free online; thin as standalone paperbacks |
-| Vivian and Hazel | To be continued | **Wait** | Do not sell an unfinished Book 2 |
+| A Play of Their Own | Finished · 7 ch. | KDP after The Shy Girl | Complete sequel — play, Noele, and Samaya |
 | Almost Sisters / Bandit Family / Moving In | To be continued | **Wait** | Site already marks these unfinished |
 | Chosen for Magic | 12 gift editions | **Lulu / private print only** | Real friends’ names — not a public Amazon listing |
 | The Famous Five | Co-written short | **Do not sell** | Kirrin Island / Timmy are Enid Blyton marks |
