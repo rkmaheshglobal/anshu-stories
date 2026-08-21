@@ -123,6 +123,12 @@
       .page { break-after: page; border: none; border-radius: 0; margin: 0; padding: 1.3cm 1.5cm; }
       .page::before { display: none; }
     }
+  
+    .sample-gate .cover-cta, .sample-gate .cta { margin-top: 1.2rem; }
+    .cta { display: inline-flex; gap: .7rem; flex-wrap: wrap; justify-content: center; margin-top: 1.1rem; }
+    .cta a { text-decoration: none; color: #fff; background: var(--ink); padding: .7rem 1.15rem; border-radius: 999px; font-weight: 800; font-size: .88rem; }
+    .cta a.secondary { background: transparent; color: var(--ink); border: 2px solid rgba(28,36,48,.2); }
+    .toc li:not(:has(a)) { display: grid; gap: .2rem; padding: .85rem .15rem; }
   </style>
 </head>
 <body>
@@ -141,11 +147,12 @@
   </header>
   <div class="book-tools" aria-label="In this story">
     <a href="#contents">Contents</a>
-    <a href="#ch1">Begin</a>
+    <a href="#ch1">Sample</a>
     <a href="star-and-the-midnight-feast.html">Midnight Feast</a>
+    <a href="https://www.amazon.in/dp/B0HFJWKBY7" target="_blank" rel="noopener noreferrer" data-amazon>Buy on Amazon</a>
   </div>
 
-  <main class="book">
+  <main class="book" data-amazon-url="https://www.amazon.in/dp/B0HFJWKBY7" data-sample-chapters="2">
     <section class="page cover" id="cover">
       <figure class="cover-hero">
         <img src="images/star-of-the-toy-farm/cover.png" alt="Star the toy sheep on a sunny toy farm with animal friends" />
@@ -155,7 +162,8 @@
         <p class="author">Written by Anshika Mahesh</p>
         <p class="tagline">From a kid, to a kid</p>
         <div class="cover-cta">
-          <a href="#ch1">Read the story</a>
+          <a href="https://www.amazon.in/dp/B0HFJWKBY7" target="_blank" rel="noopener noreferrer">Buy on Amazon</a>
+          <a class="secondary" href="#ch1">Read the sample</a>
           <a class="secondary" href="star-and-the-midnight-feast.html">Star and the Midnight Feast</a>
         </div>
       </div>
@@ -186,25 +194,25 @@
     <section class="page toc" id="contents">
       <header class="chapter-head">
         <span class="chapter-num">Contents</span>
-        <h2>Chapters</h2>
+        <h2>12 chapters · sample of 1–2</h2>
       </header>
       <ol>
         <li><a href="#ch1"><span>On the Shelf</span><span class="sum">Star watches the shop window and wonders what she is for.</span></a></li>
         <li><a href="#ch2"><span>Chosen (and Wrapped!)</span><span class="sum">Sophia’s parents pick her — then the paper closes around her.</span></a></li>
-        <li><a href="#ch3"><span>Birthday Morning</span><span class="sum">Voices, torn paper, a hug. The toy farm begins.</span></a></li>
-        <li><a href="#ch4"><span>Bundle and a Purpose</span><span class="sum">A toy dog welcomes her, and the big question starts to answer.</span></a></li>
-        <li><a href="#ch5"><span>My Name is Star</span><span class="sum">Sophia names her the brightest of her toys.</span></a></li>
-        <li><a href="#ch6"><span>Bedtime (and the Door)</span><span class="sum">First night on hay — and a door Mia once walked through.</span></a></li>
-        <li><a href="#ch7"><span>The Silver Monster</span><span class="sum">A vacuum chase, a rule about grown-ups, and a question about Mia.</span></a></li>
-        <li><a href="#ch8"><span>Finding Mia</span><span class="sum">A search, a tag in the grass, and a cow who learned the outside.</span></a></li>
-        <li><a href="#ch9"><span>Farmyard Leaders</span><span class="sum">Bundle’s reunion — then counting everyone and closing the little door.</span></a></li>
-        <li><a href="#ch10"><span>The Mountain Day</span><span class="sum">One Saturday trek: courage in a bag, a picnic, and hillside grass.</span></a></li>
-        <li><a href="#ch11"><span>When Sophia Is Poorly</span><span class="sum">Star and Bundle sneak in as nurses.</span></a></li>
-        <li><a href="#ch12"><span>A Family</span><span class="sum">Shelf, name, Mia, mountain, care — and belonging.</span></a></li>
+        <li><span>Birthday Morning</span><span class="sum">Voices, torn paper, a hug. The toy farm begins.</span></li>
+        <li><span>Bundle and a Purpose</span><span class="sum">A toy dog welcomes her, and the big question starts to answer.</span></li>
+        <li><span>My Name is Star</span><span class="sum">Sophia names her the brightest of her toys.</span></li>
+        <li><span>Bedtime (and the Door)</span><span class="sum">First night on hay — and a door Mia once walked through.</span></li>
+        <li><span>The Silver Monster</span><span class="sum">A vacuum chase, a rule about grown-ups, and a question about Mia.</span></li>
+        <li><span>Finding Mia</span><span class="sum">A search, a tag in the grass, and a cow who learned the outside.</span></li>
+        <li><span>Farmyard Leaders</span><span class="sum">Bundle’s reunion — then counting everyone and closing the little door.</span></li>
+        <li><span>The Mountain Day</span><span class="sum">One Saturday trek: courage in a bag, a picnic, and hillside grass.</span></li>
+        <li><span>When Sophia Is Poorly</span><span class="sum">Star and Bundle sneak in as nurses.</span></li>
+        <li><span>A Family</span><span class="sum">Shelf, name, Mia, mountain, care — and belonging.</span></li>
       </ol>
     </section>
 
-    <section class="page" id="ch1">
+    <section class="page chapter" id="ch1">
       <header class="chapter-head">
         <span class="chapter-num">Chapter 1</span>
         <h2>On the Shelf</h2>
@@ -221,7 +229,7 @@
       <p>I did not know then that my day was almost here.</p>
     </section>
 
-    <section class="page" id="ch2">
+    <section class="page chapter" id="ch2">
       <header class="chapter-head">
         <span class="chapter-num">Chapter 2</span>
         <h2>Chosen (and Wrapped!)</h2>
@@ -236,195 +244,15 @@
       <p>I was scared… and a little excited too. Somewhere out there, a girl named Sophia was waiting — and I was going to be her birthday present.</p>
     </section>
 
-    <section class="page" id="ch3">
+        <section class="page sample-gate" id="buy">
       <header class="chapter-head">
-        <span class="chapter-num">Chapter 3</span>
-        <h2>Birthday Morning</h2>
+        <span class="chapter-num">Sample ends here</span>
+        <h2>Continue on Amazon</h2>
       </header>
-      <p class="dropcap">After a long day of bumping about in the dark, I heard faint voices. “It’s almost time — we’ve got to get ready. She’ll be up any moment now!”</p>
-      <p>“Why are they so worried?” I wondered. I wished I could see who they were.</p>
-      <p>Suddenly someone grabbed me tightly and took me to a room.</p>
-      <p>“Sophia, wake up! It’s your birthday and we’ve got a present for you!”</p>
-      <p>“Finally! I’ve been waiting for ages for this day!”</p>
-      <p>Slowly, the paper around me tore off. It was like magic, and I was so glad to be out of that package.</p>
-      <p>“Oh, thank you so much, Mummy and Daddy — it’s just what I wanted! Now my toy animal collection is almost complete!” said Sophia.</p>
-      <p>She hugged me tightly, like she wouldn’t let me go. She carried me through the morning wearing a huge grin. After a long breakfast, she placed me in a toy farm filled with toy animals just like me.</p>
-      <figure class="illust">
-        <img src="images/star-of-the-toy-farm/scene-birthday.jpg" alt="Sophia hugs Star on birthday morning as wrapping paper falls away" loading="lazy" />
-        <figcaption>She hugged me tightly, like she wouldn’t let me go.</figcaption>
-      </figure>
-    </section>
-
-    <section class="page" id="ch4">
-      <header class="chapter-head">
-        <span class="chapter-num">Chapter 4</span>
-        <h2>Bundle and a Purpose</h2>
-      </header>
-      <p class="dropcap">“Hello!” said a toy dog. “Welcome to our family. We are happy to meet you!”</p>
-      <p>“Hello — it’s nice to meet you. Why are we here?” I asked.</p>
-      <p>“We now belong to Sophia,” he said. “She takes care of us by washing us, playing with us, feeding us and more. Don’t worry — she’s the best owner a toy could wish for.”</p>
-      <p>Those words changed my life forever. They made me realise that I had a purpose — my purpose was to give children joy and give them company. I never forgot those words. Even today, they are still fresh in my mind.</p>
-      <p>“Is everything okay?” asked my new friend.</p>
-      <p>“I guess so, but I didn’t know that I even served a purpose until today.”</p>
-      <p>“That’s how I felt when I came here for the first time,” he replied. “Not only do we serve a purpose — everything serves a purpose.”</p>
-      <p>I simply couldn’t believe I had so much to learn. How could I not have known the reason for my existence? It was all very confusing, as though my mind was playing tricks on me.</p>
-      <p>I talked with my new friend and noticed that every animal except me had a tag.</p>
-      <p>“What’s that for?” I asked.</p>
-      <p>“It’s a piece of paper with our names,” he said.</p>
-      <p>“You have names!” I exclaimed. “I didn’t know toys could have names. What’s your name?”</p>
-      <p>“My name is Bundle,” he replied.</p>
-      <p>“Will I get a name too?”</p>
-      <p>“Of course you will. Every toy has a name.”</p>
-    </section>
-
-    <section class="page" id="ch5">
-      <header class="chapter-head">
-        <span class="chapter-num">Chapter 5</span>
-        <h2>My Name is Star</h2>
-      </header>
-      <p class="dropcap">“I didn’t know that. Does everything have a name?” I asked.</p>
-      <p>“There are lots of things you don’t know. Yes, of course everything has a name,” Bundle replied.</p>
-      <p>Just then Sophia came and picked me up.</p>
-      <p>“I’ve just decided on a name for you. Your name is Star, as you are the brightest of my toys,” she said.</p>
-      <p>She tied a tag around my neck which said Star. I belonged in the toy farm with the rest of the animals — and now I had a name of my own.</p>
-      <p>That afternoon the farmyard buzzed. I met Pinky the pig, who snorted hello. I met Flappy the duck, who already had her eye on a little pond. And I met Lina the cat, who loved climbing (though she never liked climbing back down).</p>
-      <p>There were other toys too — a whole soft farm — but those three grinned at me first, and that was enough for one day.</p>
-      <p>I was really starting to enjoy myself.</p>
-    </section>
-
-    <section class="page" id="ch6">
-      <header class="chapter-head">
-        <span class="chapter-num">Chapter 6</span>
-        <h2>Bedtime (and the Door)</h2>
-      </header>
-      <p class="dropcap">I was playing happily with my new friends when I suddenly felt very tired. I’d never felt tired before. I just sat and looked out of the window, waiting for something to happen.</p>
-      <p>“Time for bedtime,” said Sophia.</p>
-      <p>“Bedtime?” I exclaimed. “What’s that?!”</p>
-      <p>“We close our eyes till the sun rises,” replied Bundle.</p>
-      <p>“It sounds scary!”</p>
-      <p>“It’s not. You’ll love it. Let’s go to our hay beds.”</p>
-      <p>So I followed him. Lina was sleeping next to me.</p>
-      <p>“Good night,” said someone softly.</p>
-      <p>“Umm… good night?” I replied.</p>
-      <p>At first it was difficult to sleep, but then sleep came all at once.</p>
-      <p>I woke bright and early the next morning and went out to explore. Near the farmyard I noticed a little door that stood slightly open.</p>
-      <p>“What’s out there?” I asked.</p>
-      <p>Bundle shuddered. “Nobody knows. Once there was a cow named Mia… and then she went through that door. She promised she’d come back. She hasn’t — not really. Not the same. Not to stay.”</p>
-      <p>I was silent throughout the morning, thinking about the door.</p>
-      <p>Was it calling me? I didn’t know. I would rather stay in… but somehow I knew I was going to have to ask Sophia about this.</p>
-    </section>
-
-    <section class="page" id="ch7">
-      <header class="chapter-head">
-        <span class="chapter-num">Chapter 7</span>
-        <h2>The Silver Monster</h2>
-      </header>
-      <p class="dropcap">So I ventured out of my farmyard home, wondering where to go and what to do.</p>
-      <p>As I was exploring the house, I saw something big, scary and silver. Before I knew it, it was leaning towards me! I ran as fast as my little toy legs could go — and then I remembered how the silver monster couldn’t climb. So I ran towards higher ground.</p>
-      <p>(Grown-ups call it a vacuum cleaner. I still call it a monster.)</p>
-      <figure class="illust">
-        <img src="images/star-of-the-toy-farm/scene-vacuum.jpg" alt="Star runs toward a chair as a silver vacuum cleaner looms in the hallway" loading="lazy" />
-        <figcaption>I still call it a monster.</figcaption>
-      </figure>
-      <p>I couldn’t find Sophia at first. Well, actually, I didn’t find her — she found me! I was still looking around when she saw me and scooped me up.</p>
-      <p>“Star, you really need to be careful,” she said gently. “Especially when Mum and Dad are around. They mustn’t know you move and talk. Only I can hear you — and only when we’re alone. That’s our rule.”</p>
-      <p>“I need to ask you something,” I said in my toy way.</p>
-      <p>“Well, what is it?”</p>
-      <p>“What’s outside the door that’s opposite the farm?”</p>
-      <p>“Oh — there’s a lot more out there. Why did you want to know?”</p>
-      <p>“Well, I just wanted to explore. But my friend Bundle said I should stay here… Mia is out there somewhere. Can’t we find her? We really miss her.”</p>
-      <p>Sophia smiled. “Then let’s go look.”</p>
-    </section>
-
-    <section class="page" id="ch8">
-      <header class="chapter-head">
-        <span class="chapter-num">Chapter 8</span>
-        <h2>Finding Mia</h2>
-      </header>
-      <p class="dropcap">We went out and looked. We searched here and there. We searched under the garden bench. We searched behind the flower pots. We even checked the shady place where the hose curls like a snake.</p>
-      <p>“Maybe she’s over there,” I suggested. So we went and searched again.</p>
-      <p>Then we took a wrong turn past the compost heap. Something rustled. I froze — but it was only a leaf.</p>
-      <p>We almost lost hope. Then I saw a name tag in the grass — the same kind Bundle had shown me. I looked up, and there she was!</p>
-      <figure class="illust">
-        <img src="images/star-of-the-toy-farm/scene-mia.jpg" alt="Star finds a name tag in the grass and looks up to see Mia the cow" loading="lazy" />
-        <figcaption>Then I saw a name tag in the grass.</figcaption>
-      </figure>
-      <p>Mia told us her story. She had only wanted to find out if it was really dangerous. She found real grass that tasted better than any grass she had ever eaten — soft, fresh and tender. She lived on it for months. Every now and then, water appeared from nowhere and poured from the sky. It was scary at first, but she adjusted.</p>
-      <p>“Till now,” Mia said. “But now that I’m back, I’ll be your friend. I might visit the grass sometimes… but I won’t disappear without saying.”</p>
-      <p>We were still digesting all of this when Sophia said, “Come on in, and you can tell me your story.”</p>
-    </section>
-
-    <section class="page" id="ch9">
-      <header class="chapter-head">
-        <span class="chapter-num">Chapter 9</span>
-        <h2>Farmyard Leaders</h2>
-      </header>
-      <p class="dropcap">We went inside.</p>
-      <p>“Star!” exclaimed Bundle. “Thank goodness you’re back!” Then he saw Mia. “Is that you? I thought you were gone for good!”</p>
-      <p>“I promised I’d come back,” said Mia. “Didn’t you believe me when I said that?”</p>
-      <p>“I missed you,” Bundle whispered.</p>
-      <p>“You both have done great service to the farm,” said Sophia, “and I think it’s a good idea to let you be the farmyard leaders. Whatever that means!”</p>
-      <p>“It means you tell the rest of the group things and give orders when things need doing,” explained Bundle. “Leaders!”</p>
-      <p>As leaders, we had to keep everyone safe and sound while Sophia went to school in the morning and came back in the afternoon.</p>
-      <p>“But next year I’ll come a bit later than that,” Sophia told us, “so you’ll have to manage without me for a bit longer.” She had already explained how to evacuate in case of a storm.</p>
-      <p>That night, before hay beds, Bundle and I counted everyone. Pinky, Flappy, Lina, Mia — all there. Then I closed the little door, the one Mia had walked through, until morning.</p>
-      <p>I felt very proud to be a leader.</p>
-    </section>
-
-    <section class="page" id="ch10">
-      <header class="chapter-head">
-        <span class="chapter-num">Chapter 10</span>
-        <h2>The Mountain Day</h2>
-      </header>
-      <p class="dropcap">Saturday was our favourite day — it meant Sophia got the whole day to be with us.</p>
-      <p>She came home with an excited expression. “Guess what? We’re climbing the hill today — and of course you’re coming! I can’t wait.”</p>
-      <p>“Last time, under the big clouds, I got scared of being outside,” I protested.</p>
-      <p>“If we get wet she puts us in the bag,” said Flappy.</p>
-      <p>We packed. Mia and I almost forgot first aid — luckily Bundle reminded us. We packed chilly-weather gear and some grass for snacking. As soon as Sophia closed the bag, I turned on my brave face.</p>
-      <p>As she kept climbing, she panted and puffed. “Maybe she needs some encouragement to keep going,” I suggested.</p>
-      <p>“Yes — let’s keep whispering brave things in her ear!” said Mia.</p>
-      <p>We banged the side of the bag with all our might. Sophia jumped, opened it, and pretended to her dad that she only wanted a sandwich. We whispered courage in her ear when no grown-ups were looking — then stopped for a picnic breakfast.</p>
-      <p>At the top, the view was truly magical. I could see cities, villages and hills. I had never seen so much in my life. We had a scrumptious lunch of hillside grass. Even Mia agreed that it was better than anything before.</p>
-      <figure class="illust">
-        <img src="images/star-of-the-toy-farm/scene-mountain.jpg" alt="Star, Bundle and Mia picnic on the hilltop with a view of villages below" loading="lazy" />
-        <figcaption>At the top, the view was truly magical.</figcaption>
-      </figure>
-      <p>While we rested, Sophia made up a tiny story with us: a prince on one side of a forest, a princess on the other, a tower, a question, and a happy ending — all in about five lines. Then it was time to go home.</p>
-      <p>Going back wasn’t hard — though ordinary mornings afterwards felt small. Freedom and home, in the same breath.</p>
-    </section>
-
-    <section class="page" id="ch11">
-      <header class="chapter-head">
-        <span class="chapter-num">Chapter 11</span>
-        <h2>When Sophia Is Poorly</h2>
-      </header>
-      <p class="dropcap">Sophia didn’t have to go to school the next day. Bundle whispered, “Maybe she’s unwell.”</p>
-      <p>“Let’s go check on her,” I said.</p>
-      <p>So we hid behind curtains and sneaked into her room. I couldn’t believe what I saw. Sophia was in bed, sneezing and coughing. She looked tired — then she cheered up when she saw us.</p>
-      <p>“I have an allergy and didn’t carry a scarf when there was too much dust,” she whispered. “Mum mustn’t know you’re nurses.”</p>
-      <p>As soon as her mother left, we looked after her. We were the nurses and doctors. We made her day better.</p>
-      <p>Later that afternoon the silver monster growled again in the hallway. It almost swallowed Pinky’s ear — Bundle yanked her free, and we all froze like ordinary toys until Mrs Johns wheeled the monster away. Then we laughed so hard we had to bury our faces in the quilt.</p>
-      <p>Purpose isn’t only big mountains. Sometimes it’s sitting still beside someone who feels poorly.</p>
-    </section>
-
-    <section class="page" id="ch12">
-      <header class="chapter-head">
-        <span class="chapter-num">Chapter 12</span>
-        <h2>A Family</h2>
-      </header>
-      <p class="dropcap">I can’t believe how much I’ve learnt.</p>
-      <p>Not long ago I sat on a shop shelf and didn’t even know why I existed. Then I got a name. Then we found Mia. Then we climbed a hill. Then we cared for Sophia when she needed us.</p>
-      <p>I still love adventure. But I know my purpose now: joy, company, and family.</p>
-      <p>And that is the best thing I could ever own.</p>
-      <p>— Star<br />(From a kid, to a kid)</p>
-      <p class="note"><strong>A tiny tip from Star:</strong></p>
-      <ul class="tips">
-        <li>Ask a new friend’s name — and what it means.</li>
-        <li>Invent a silly game while you wait (stacking apples works).</li>
-        <li>Keep a diary. Every diary’s story is different.</li>
-      </ul>
-      <p class="end-mark" style="margin-top:1.5rem;">The End</p>
-      <p style="text-align:center;"><a href="star-and-the-midnight-feast.html">Continue to Star and the Midnight Feast →</a></p>
+      <p>This is a free Look Inside — the cover, the chapter list, and the first two chapters. The rest of <em>Star Finds a Home</em> is on Amazon Kindle.</p>
+      <div class="cover-cta cta">
+        <a href="https://www.amazon.in/dp/B0HFJWKBY7" target="_blank" rel="noopener noreferrer">Buy on Amazon</a>
+      </div>
     </section>
   </main>
 
@@ -432,7 +260,7 @@
     <span>© <span id="y"></span> Anshika Mahesh</span>
     <a href="../newsletter.html">Story Club</a>
   </footer>
-  <script src="../js/main.js?v=reader11"></script>
+  <script src="../js/main.js?v=reader14"></script>
   <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
 </body>
 </html>

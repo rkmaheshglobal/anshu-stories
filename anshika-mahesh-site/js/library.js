@@ -41,7 +41,8 @@
       seriesLabel: "Vivian & Hazel",
       seriesBook: 2,
       lengthLabel: "7 chapters",
-      search: "vivian hazel bella noele school play popular shy girl samaya a play of their own"
+      amazonUrl: "https://www.amazon.in/dp/B0HFJ855XS",
+      search: "vivian hazel bella noele school play popular shy girl samaya a play of their own amazon kindle"
     },
     {
       id: "kuvempu",
@@ -136,7 +137,8 @@
       seriesLabel: "Star of the Toy Farm",
       seriesBook: 1,
       lengthLabel: "12 chapters",
-      search: "star finds a home toy farm mia dog purpose belonging"
+      amazonUrl: "https://www.amazon.in/dp/B0HFJWKBY7",
+      search: "star finds a home toy farm mia dog purpose belonging amazon kindle"
     },
     {
       id: "star-and-the-midnight-feast",
@@ -150,7 +152,8 @@
       seriesLabel: "Star of the Toy Farm",
       seriesBook: 2,
       lengthLabel: "12 chapters",
-      search: "star midnight feast barney avril goat sleepover toy farm"
+      amazonUrl: "https://www.amazon.in/dp/B0HFKSM9PT",
+      search: "star midnight feast barney avril goat sleepover toy farm amazon kindle"
     },
     {
       id: "from-streets-to-snuggles",
@@ -161,8 +164,8 @@
       teaser: "A tale of kindness, rescue, and belonging.",
       tags: ["animals"],
       lengthLabel: "25 chapters",
-      amazonUrl: "https://amzn.in/d/00MzW627",
-      search: "bundle snowy fluffy rescue dogs goa sam forever home amazon kindle"
+      amazonUrl: "https://www.amazon.in/dp/B0HFGSMMCR",
+      search: "bundle snowy fluffy rescue dogs goa sam forever home amazon kindle paperback"
     },
     {
       id: "shy-girl",
@@ -176,7 +179,8 @@
       seriesLabel: "Vivian & Hazel",
       seriesBook: 1,
       lengthLabel: "A school story",
-      search: "vivian hazel badminton friendship popular shy girl kindness"
+      amazonUrl: "https://www.amazon.in/dp/B0HFJ72VJW",
+      search: "vivian hazel badminton friendship popular shy girl kindness amazon kindle"
     },
     {
       id: "chosen-for-magic",

@@ -273,13 +273,13 @@ function initAmazonEdition() {
 
   document.body.classList.add("is-amazon-sample");
 
-  Array.prototype.forEach.call(book.querySelectorAll(".page.chapter[id^='ch']"), function (page) {
+  Array.prototype.forEach.call(book.querySelectorAll(".page[id^='ch']"), function (page) {
     const n = parseInt(String(page.id || "").replace("ch", ""), 10);
     if (n > sampleN) page.parentNode.removeChild(page);
   });
 
   const cta = book.querySelector(".cover-panel .cta, .cover-cta");
-  if (cta && !cta.querySelector('a[href^="http"]')) {
+  if (cta && !cta.querySelector('a[href*="amazon."]')) {
     cta.innerHTML =
       amazonLink(url, "Buy on Amazon") +
       '<a class="secondary" href="#ch1">Read the sample</a>';
@@ -303,8 +303,8 @@ function initAmazonEdition() {
         '<span class="chapter-num">Sample ends here</span>' +
         "<h2>Continue on Amazon</h2>" +
       "</header>" +
-      "<p>This is a free Look Inside. The rest of the story is on Amazon Kindle and in print.</p>" +
-      '<div class="cta">' + amazonLink(url, "Buy on Amazon") + "</div>";
+      "<p>This is a free Look Inside. The rest of the story is on Amazon Kindle — and in print where a paperback exists.</p>" +
+      '<div class="cta cover-cta">' + amazonLink(url, "Buy on Amazon") + "</div>";
     book.appendChild(gate);
   }
 

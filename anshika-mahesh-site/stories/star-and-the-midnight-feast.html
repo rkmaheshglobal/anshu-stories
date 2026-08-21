@@ -118,6 +118,12 @@
       .page { break-after: page; border: none; border-radius: 0; margin: 0; padding: 1.3cm 1.5cm; }
       .page::before { display: none; }
     }
+  
+    .sample-gate .cover-cta, .sample-gate .cta { margin-top: 1.2rem; }
+    .cta { display: inline-flex; gap: .7rem; flex-wrap: wrap; justify-content: center; margin-top: 1.1rem; }
+    .cta a { text-decoration: none; color: #fff; background: var(--ink); padding: .7rem 1.15rem; border-radius: 999px; font-weight: 800; font-size: .88rem; }
+    .cta a.secondary { background: transparent; color: var(--ink); border: 2px solid rgba(28,36,48,.2); }
+    .toc li:not(:has(a)) { display: grid; gap: .2rem; padding: .85rem .15rem; }
   </style>
 </head>
 <body>
@@ -137,10 +143,11 @@
   <div class="book-tools" aria-label="In this story">
     <a href="star-of-the-toy-farm.html">Star Finds a Home</a>
     <a href="#contents">Contents</a>
-    <a href="#ch1">Begin</a>
+    <a href="#ch1">Sample</a>
+    <a href="https://www.amazon.in/dp/B0HFKSM9PT" target="_blank" rel="noopener noreferrer" data-amazon>Buy on Amazon</a>
   </div>
 
-  <main class="book">
+  <main class="book" data-amazon-url="https://www.amazon.in/dp/B0HFKSM9PT" data-sample-chapters="2">
     <section class="page cover" id="cover">
       <figure class="cover-hero">
         <img src="images/star-of-the-toy-farm/midnight-feast.png" alt="Star and friends sharing a midnight feast" />
@@ -150,7 +157,8 @@
         <p class="author">Written by Anshika Mahesh</p>
         <p class="tagline">From a kid, to a kid</p>
         <div class="cover-cta">
-          <a href="#ch1">Read the story</a>
+          <a href="https://www.amazon.in/dp/B0HFKSM9PT" target="_blank" rel="noopener noreferrer">Buy on Amazon</a>
+          <a class="secondary" href="#ch1">Read the sample</a>
           <a class="secondary" href="star-of-the-toy-farm.html">Star Finds a Home</a>
         </div>
       </div>
@@ -181,25 +189,25 @@
     <section class="page toc" id="contents">
       <header class="chapter-head">
         <span class="chapter-num">Contents</span>
-        <h2>Chapters</h2>
+        <h2>12 chapters · sample of 1–2</h2>
       </header>
       <ol>
         <li><a href="#ch1"> After the Mountain</a></li>
         <li><a href="#ch2"> Show and Tell</a></li>
-        <li><a href="#ch3"> Barney the Riddle Goat</a></li>
-        <li><a href="#ch4"> The Vacuum Strikes</a></li>
-        <li><a href="#ch5"> Invited!</a></li>
-        <li><a href="#ch6"> Meet Avril</a></li>
-        <li><a href="#ch7"> Rules of the Night</a></li>
-        <li><a href="#ch8"> Midnight Feast</a></li>
-        <li><a href="#ch9"> Morning Mess</a></li>
-        <li><a href="#ch10"> The Monster Bath</a></li>
-        <li><a href="#ch11"> What Leaders Do</a></li>
-        <li><a href="#ch12"> Tips from Star (and Goodnight)</a></li>
+        <li> Barney the Riddle Goat</li>
+        <li> The Vacuum Strikes</li>
+        <li> Invited!</li>
+        <li> Meet Avril</li>
+        <li> Rules of the Night</li>
+        <li> Midnight Feast</li>
+        <li> Morning Mess</li>
+        <li> The Monster Bath</li>
+        <li> What Leaders Do</li>
+        <li> Tips from Star (and Goodnight)</li>
       </ol>
     </section>
 
-    <section class="page" id="ch1">
+    <section class="page chapter" id="ch1">
       <header class="chapter-head">
         <span class="chapter-num">Chapter 1</span>
         <h2>After the Mountain</h2>
@@ -211,7 +219,7 @@
       <p>She was right.</p>
     </section>
 
-    <section class="page" id="ch2">
+    <section class="page chapter" id="ch2">
       <header class="chapter-head">
         <span class="chapter-num">Chapter 2</span>
         <h2>Show and Tell</h2>
@@ -228,171 +236,15 @@
       <p>Best of all, she whispered on the way home, “There’s a new friend coming to the farm. A goat. His name is Barney.”</p>
     </section>
 
-    <section class="page" id="ch3">
+        <section class="page sample-gate" id="buy">
       <header class="chapter-head">
-        <span class="chapter-num">Chapter 3</span>
-        <h2>Barney the Riddle Goat</h2>
+        <span class="chapter-num">Sample ends here</span>
+        <h2>Continue on Amazon</h2>
       </header>
-      <p class="dropcap">Barney was grass-coloured, with little horns and a brain full of riddles.</p>
-      <p>“What has hands but no body?” he asked the moment he arrived.</p>
-      <figure class="illust">
-        <img src="images/star-of-the-toy-farm/scene-barney.jpg" alt="Barney the riddle goat sits on the hay with Star and the farm friends" loading="lazy" />
-        <figcaption>What has hands but no body?</figcaption>
-      </figure>
-      <p>“A clock!” I said.</p>
-      <p>“What has a face but never needs a tissue?”</p>
-      <p>“Also a clock,” muttered Bundle, “if you ask me.”</p>
-      <p>Barney really was clever. Soon we all had nicknames:</p>
-      <div class="nick">
-        Bundle — Security Guard<br />
-        Lina — Miss Business<br />
-        Me — Floor Sailor (I do sail across the floor)<br />
-        Barney — Smarty Pants<br />
-        Mia — Adventurer
+      <p>This is a free Look Inside — the cover, the chapter list, and the first two chapters. The rest of <em>Star and the Midnight Feast</em> is on Amazon Kindle.</p>
+      <div class="cover-cta cta">
+        <a href="https://www.amazon.in/dp/B0HFKSM9PT" target="_blank" rel="noopener noreferrer">Buy on Amazon</a>
       </div>
-      <p>I liked Barney. Bundle worried. “Loud newcomers spoil secrets,” he whispered.</p>
-      <p>“Then we’ll teach him the rule,” I said. “That’s what leaders do.”</p>
-    </section>
-
-    <section class="page" id="ch4">
-      <header class="chapter-head">
-        <span class="chapter-num">Chapter 4</span>
-        <h2>The Vacuum Strikes</h2>
-      </header>
-      <p class="dropcap">One day the silver monster appeared again. It only made a few turns before — too late! — it tugged my friends toward its hungry mouth.</p>
-      <p>“Oh no!” I cried.</p>
-      <p>I grabbed Bundle’s paw. Mia shoved Barney behind a chair leg. Barney started a riddle out of nerves — “What sucks but isn’t rude—” and I clapped a woolly hoof over his mouth just as Mrs Johns looked over.</p>
-      <p>We froze. Ordinary toys. Ordinary silence.</p>
-      <figure class="illust">
-        <img src="images/star-of-the-toy-farm/scene-freeze.jpg" alt="Star grabs Bundle as the vacuum tugs and the toys freeze still" loading="lazy" />
-        <figcaption>Ordinary toys. Ordinary silence.</figcaption>
-      </figure>
-      <p>When the monster left, my friends were so relieved to see me. And how we laughed when Sophia came home — quietly, into pillows, so Mum wouldn’t hear.</p>
-      <p>Home still had adventures. Scary ones.</p>
-    </section>
-
-    <section class="page" id="ch5">
-      <header class="chapter-head">
-        <span class="chapter-num">Chapter 5</span>
-        <h2>Invited!</h2>
-      </header>
-      <p class="dropcap">After school, Sophia was jumping with excitement.</p>
-      <p>“I’m invited to a sleepover at Avril’s — and I told her all about you! I told Avril you can talk!” she said with a happy glow.</p>
-      <p>Bundle’s ears drooped. “You told—?”</p>
-      <p>“She’s my cousin,” Sophia said. “Just for one night. Same rule: freeze if grown-ups come.”</p>
-      <p>We all helped pack. Toothpaste, toothbrush, nightclothes, another set of clothes, board games. We mapped the route carefully, considering we might be up all night. Even five minutes of rest was crucial.</p>
-      <p>We got stuck in a huge traffic jam. My wool wanted to wriggle. “Leaders stay calm,” I whispered to Bundle, and we pretended we had not noticed anything. Mostly.</p>
-    </section>
-
-    <section class="page" id="ch6">
-      <header class="chapter-head">
-        <span class="chapter-num">Chapter 6</span>
-        <h2>Meet Avril</h2>
-      </header>
-      <p class="dropcap">“Meet Avril — she doesn’t talk much; she just plays sounds,” said Mr Johns, and then he left.</p>
-      <p>It was our secret time.</p>
-      <p>Avril was shocked to see us move and talk! We took turns introducing ourselves. Barney began a riddle. Bundle stepped on his hoof.</p>
-      <p>“I hoped adults couldn’t see us talking,” I whispered.</p>
-      <p>“They say that if you do, you’ll become… well… ordinary toys forever,” said Bundle. “So we’d better be careful.”</p>
-      <p>Sophia looked at Avril. “Tonight, Avril can hear you too — but only us. If Mum or Dad or Auntie comes, freeze. Deal?”</p>
-      <p>“Deal,” said Avril, eyes shining.</p>
-      <p>I didn’t know if Bundle’s forever-ordinary warning was true. I only knew I didn’t want to find out.</p>
-    </section>
-
-    <section class="page" id="ch7">
-      <header class="chapter-head">
-        <span class="chapter-num">Chapter 7</span>
-        <h2>Rules of the Night</h2>
-      </header>
-      <p class="dropcap">Before the fun, we made rules. Leaders love rules (Bundle loves them most).</p>
-      <p>1. Whisper only.<br />
-      2. Freeze if you hear footsteps.<br />
-      3. Barney: no loud riddles near doors.<br />
-      4. Chocolate crumbs go in the bin — not on wool.</p>
-      <p>Avril and Sophia planned the midnight feast in a notebook. Torch. Cake. Songs. Games on the lawn in the morning.</p>
-      <p>Away from our own farmyard, I felt like a real leader. Also a little bit small. Mia nudged me. “You’ve climbed a mountain in a bag,” she said. “You can climb a night in a cousin’s house.”</p>
-    </section>
-
-    <section class="page" id="ch8">
-      <header class="chapter-head">
-        <span class="chapter-num">Chapter 8</span>
-        <h2>Midnight Feast</h2>
-      </header>
-      <p class="dropcap">Once Avril’s parents were asleep, we turned on our torch and danced. We sang songs among ourselves — quietly.</p>
-      <p>Finally, we opened our basket. There was cake and chocolate. It was delicious! It tasted even better than grass!</p>
-      <figure class="illust">
-        <img src="images/star-of-the-toy-farm/scene-feast.jpg" alt="Star, Bundle, Mia and Barney share cake by torchlight at the midnight feast" loading="lazy" />
-        <figcaption>It tasted even better than grass!</figcaption>
-      </figure>
-      <p>Then — a creak in the hall.</p>
-      <p>“Freeze! Torch off!” I hissed.</p>
-      <p>Everyone froze. Bundle became a statue dog. Barney’s riddle died in his throat. For a second I thought Bundle’s warning was coming true — ordinary toys forever. Then the footsteps paused… and went the other way. A door closed.</p>
-      <p>We waited ten whole heartbeats. Then Sophia whispered, “Feast continues — but softer.”</p>
-      <p>Softer cake is still cake. We finished every crumb we dared.</p>
-    </section>
-
-    <section class="page" id="ch9">
-      <header class="chapter-head">
-        <span class="chapter-num">Chapter 9</span>
-        <h2>Morning Mess</h2>
-      </header>
-      <p class="dropcap">We didn’t get up till ten o’clock — way past our usual time. We ate a little and headed into a fun morning of games on the lawn.</p>
-      <p>The only problem was not being seen by her parents. And the other problem…</p>
-      <p>“My, what a dirty bunch!” someone said from the doorway. “What on earth was that?”</p>
-      <p>Chocolate on my wool. Grass on Mia. A suspicious crumb on Barney’s horn.</p>
-      <p>Panic!</p>
-      <p>“Neat row — now!” I whispered. We flopped in a line, faces blank, while Sophia mumbled something about “outdoor games” and whisked us toward the bag. Avril stuffed wrappers into her pocket like a secret agent.</p>
-      <figure class="illust">
-        <img src="images/star-of-the-toy-farm/scene-row.jpg" alt="The toys flop in a neat row on the lawn, chocolate and grass still on them" loading="lazy" />
-        <figcaption>Neat row — now!</figcaption>
-      </figure>
-      <p>We were happy. Sleepovers were the best. Also the messiest.</p>
-    </section>
-
-    <section class="page" id="ch10">
-      <header class="chapter-head">
-        <span class="chapter-num">Chapter 10</span>
-        <h2>The Monster Bath</h2>
-      </header>
-      <p class="dropcap">Back home, a different kind of monster waited — the washing machine!</p>
-      <p>(Because of the mess. Cause, then effect. Bundle said that twice.)</p>
-      <p>I was so dizzy I fell about inside. A few long turns later, Mrs Johns checked we were still the same toys. Thankfully, all my friends were okay. They hated the monster as much as I did, but at least they knew what was coming.</p>
-      <p>We complained to Sophia, who said, “I’m sorry! I never meant to put you in a monster. I thought she’d just give you a bubble bath instead.”</p>
-      <p>Soon we forgave her. Leaders forgive. Also, clean wool feels nice — once the spinning stops.</p>
-    </section>
-
-    <section class="page" id="ch11">
-      <header class="chapter-head">
-        <span class="chapter-num">Chapter 11</span>
-        <h2>What Leaders Do</h2>
-      </header>
-      <p class="dropcap">That evening the farmyard was quiet. Starlight on hay. No monsters. No traffic jams.</p>
-      <p>“Secrets are hard,” I said.</p>
-      <p>“Friends matter more than prizes or feasts,” said Mia.</p>
-      <p>Barney cleared his throat. “What belongs to you, but others use it more than you do?”</p>
-      <p>We thought. Bundle frowned so hard his ears folded.</p>
-      <p>“Your name,” Barney said softly. “Or… your family. People say them. Love them. You’re still you.”</p>
-      <p>Sophia tiptoed in and hugged us without waking the house. She didn’t explain anything to Mum. She didn’t need to.</p>
-      <p>Looking after friends when the night gets messy — that is also what leaders do.</p>
-    </section>
-
-    <section class="page" id="ch12">
-      <header class="chapter-head">
-        <span class="chapter-num">Chapter 12</span>
-        <h2>Tips from Star (and Goodnight)</h2>
-      </header>
-      <p class="dropcap">Now that I’m ending this diary for a while, I want to give you one more tip on making friends.</p>
-      <p>Don’t only ask, “Can I be your friend?” Try this instead:<br />
-        Name — ask what their name means.<br />
-        Place — ask where they live (not in my case!).<br />
-        Hobby — ask what they love and why.<br />
-        Thing — ask their favourite thing. By then you’ll know them better.</p>
-      <p>And if you ever have a midnight feast: freeze when you hear footsteps. Softer cake is still cake.</p>
-      <p>The farmyard is asleep. I am not wondering why I exist anymore.</p>
-      <p>I am wondering what adventure comes next.</p>
-      <p>— Star<br />(From a kid, to a kid)</p>
-      <p class="end-mark" style="margin-top:1.5rem;">The End</p>
-      <p style="text-align:center;"><a href="star-of-the-toy-farm.html">← Back to Star Finds a Home</a></p>
     </section>
   </main>
 
@@ -400,7 +252,7 @@
     <span>© <span id="y"></span> Anshika Mahesh</span>
     <a href="../newsletter.html">Story Club</a>
   </footer>
-  <script src="../js/main.js?v=reader11"></script>
+  <script src="../js/main.js?v=reader14"></script>
   <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
 </body>
 </html>

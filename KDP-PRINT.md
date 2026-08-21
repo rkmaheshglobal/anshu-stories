@@ -36,7 +36,7 @@ Reviewed 14 Aug 2026. Finished original, 25 chapters, ~2,700 words, The End. Goo
 | --- | --- |
 | Parent KDP account, tax, bank, finished original text, print-resolution art, interior PDF, wraparound cover, proof copy, live ASIN/ISBN | Cards today are one link into the reader. There is no story detail page yet. Show Order on Amazon only when `amazonUrl` exists. Hide it everywhere else. |
 
-Paperback on Amazon and the full story free on the site **can coexist**. Do **not** enroll that title in **KDP Select** (Kindle Unlimited): it requires 90 days of ebook exclusivity, including “not on your website.”
+Paperback on Amazon and a **Look Inside sample** on the site **can coexist**. KDP Select (Kindle Unlimited) is allowed only while the full ebook is not free on the website. The five live KDP titles now use two-chapter samples on anshikamahesh.com.
 
 ## Which titles can become a book
 
@@ -105,7 +105,15 @@ When a title has a live Amazon URL, add `amazonUrl` on that story in `js/library
 | Full text | Keep the complete HTML under `kdp/…` for rebuilds. Do not leave later chapters in the public `stories/*.html`. |
 | No affiliate until registered | Plain product URLs are enough. |
 
-Live now: **From Streets to Snuggles** → `https://amzn.in/d/00MzW627`.
+Live ASINs (same Kindle ID on Amazon.in and Amazon.com). Site **Buy on Amazon** buttons use the Amazon.in Kindle URL.
+
+| Title | Kindle | Paperback |
+| --- | --- | --- |
+| From Streets to Snuggles | [B0HFGSMMCR](https://www.amazon.in/dp/B0HFGSMMCR) | IN [B0HFGY7QYS](https://www.amazon.in/dp/B0HFGY7QYS) · US [B0HFB9G3FW](https://www.amazon.com/dp/B0HFB9G3FW) |
+| The Shy Girl & The Popular Girl | [B0HFJ72VJW](https://www.amazon.in/dp/B0HFJ72VJW) | — |
+| A Play of Their Own | [B0HFJ855XS](https://www.amazon.in/dp/B0HFJ855XS) | — |
+| Star Finds a Home | [B0HFJWKBY7](https://www.amazon.in/dp/B0HFJWKBY7) | — |
+| Star and the Midnight Feast | [B0HFKSM9PT](https://www.amazon.in/dp/B0HFKSM9PT) | — |
 
 ## From Streets to Snuggles — how to publish
 
@@ -163,10 +171,10 @@ Two Kindle titles, same series. Rebuild with `python3 kdp/vivian-and-hazel/build
 | A Play of Their Own | `kdp/vivian-and-hazel/a-play-of-their-own/` | `a-play-of-their-own-kindle.docx` | `kindle-cover.jpg` |
 
 - Subtitle for both: **A Vivian & Hazel story**. Do not put Book 1 / Book 2 on the listing.
-- Age **9–12**. Skip **KDP Select** while the stories are free on the site. DRM off.
+- Age **9–12**. DRM off.
 - Tick AI-generated images. Publish Shy Girl first, then Play in the same KDP series.
 - Paperback interiors are not built yet. Kindle can go live on its own.
-- Do not add Amazon buttons until each title is Live and you have the ASIN.
+- Amazon buttons are live: site pages are two-chapter samples. Full HTML stays under `kdp/vivian-and-hazel/`.
 
 ## Star of the Toy Farm — Kindle (ready to upload)
 
@@ -179,10 +187,10 @@ Two Kindle titles, same series. Rebuild with `python3 kdp/star-of-the-toy-farm/b
 
 - Subtitle for both: **A Star of the Toy Farm story**. Do not put Book 1 / Book 2 on the listing.
 - Age **6–8**. Categories: Juvenile Fiction / Animals / Toys, Dolls & Puppets; Social Themes / Friendship.
-- Skip **KDP Select** while the stories are free on the site. DRM off.
+- DRM off.
 - Tick AI-generated images. Publish Star Finds a Home first, then Midnight Feast in the same KDP series.
 - Paperback interiors are not built yet. Kindle can go live on its own.
-- Do not add Amazon buttons until each title is Live and you have the ASIN.
+- Amazon buttons are live: site pages are two-chapter samples. Full HTML stays under `kdp/star-of-the-toy-farm/`.
 
 ## Other first-book options (later)
 

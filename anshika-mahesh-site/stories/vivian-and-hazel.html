@@ -150,6 +150,12 @@
       .page { break-after: page; border: none; border-radius: 0; margin: 0; padding: 1.3cm 1.5cm; }
       .page::before { display: none; }
     }
+  
+    .sample-gate .cover-cta, .sample-gate .cta { margin-top: 1.2rem; }
+    .cta { display: inline-flex; gap: .7rem; flex-wrap: wrap; justify-content: center; margin-top: 1.1rem; }
+    .cta a { text-decoration: none; color: #fff; background: var(--ink); padding: .7rem 1.15rem; border-radius: 999px; font-weight: 800; font-size: .88rem; }
+    .cta a.secondary { background: transparent; color: var(--ink); border: 2px solid rgba(28,36,48,.2); }
+    .toc li:not(:has(a)) { display: grid; gap: .2rem; padding: .85rem .15rem; }
   </style>
 </head>
 <body>
@@ -168,11 +174,12 @@
   </header>
   <div class="book-tools" aria-label="In this story">
     <a href="#contents">Contents</a>
-    <a href="#ch1">Begin</a>
+    <a href="#ch1">Sample</a>
     <a href="shy-girl.html">The Shy Girl &amp; The Popular Girl</a>
+    <a href="https://www.amazon.in/dp/B0HFJ855XS" target="_blank" rel="noopener noreferrer" data-amazon>Buy on Amazon</a>
   </div>
 
-  <main class="book">
+  <main class="book" data-amazon-url="https://www.amazon.in/dp/B0HFJ855XS" data-sample-chapters="2">
     <section class="page cover" id="cover">
       <figure class="cover-hero">
         <img src="images/vivian-and-hazel/cover.png" alt="Cover: Vivian and Hazel walking to school together" />
@@ -181,7 +188,8 @@
         <h1 class="brand">A Play of Their Own<em>A Vivian &amp; Hazel story</em></h1>
         <p class="author">Written by Anshika Mahesh</p>
         <div class="cover-cta">
-          <a href="#ch1">Read the story</a>
+          <a href="https://www.amazon.in/dp/B0HFJ855XS" target="_blank" rel="noopener noreferrer">Buy on Amazon</a>
+          <a class="secondary" href="#ch1">Read the sample</a>
           <a class="secondary" href="shy-girl.html">The Shy Girl &amp; The Popular Girl</a>
         </div>
       </div>
@@ -213,20 +221,20 @@
     <section class="page toc" id="contents">
       <header class="chapter-head">
         <span class="chapter-num">Contents</span>
-        <h2>Chapters</h2>
+        <h2>7 chapters · sample of 1–2</h2>
       </header>
       <ol>
         <li><a href="#ch1"> Standing Up</a></li>
         <li><a href="#ch2"> A Play of Their Own</a></li>
-        <li><a href="#ch3"> Auditions</a></li>
-        <li><a href="#ch4"> Vivian’s Secret</a></li>
-        <li><a href="#ch5"> The Reason She Moved</a></li>
-        <li><a href="#ch6"> Jokes and Costumes</a></li>
-        <li><a href="#ch7"> The Day of the Play</a></li>
+        <li> Auditions</li>
+        <li> Vivian’s Secret</li>
+        <li> The Reason She Moved</li>
+        <li> Jokes and Costumes</li>
+        <li> The Day of the Play</li>
       </ol>
     </section>
 
-    <section class="page" id="ch1">
+    <section class="page chapter" id="ch1">
       <header class="chapter-head">
         <span class="chapter-num">Chapter 1</span>
         <h2>Standing Up</h2>
@@ -272,7 +280,7 @@
       <p>“Oh well — at least nobody will think I’m snobby,” replied Hazel.</p>
     </section>
 
-    <section class="page" id="ch2">
+    <section class="page chapter" id="ch2">
       <header class="chapter-head">
         <span class="chapter-num">Chapter 2</span>
         <h2>A Play of Their Own</h2>
@@ -313,484 +321,15 @@
       <p>“Bye, Vivian!” called Hazel.</p>
     </section>
 
-    <section class="page" id="ch3">
+        <section class="page sample-gate" id="buy">
       <header class="chapter-head">
-        <span class="chapter-num">Chapter 3</span>
-        <h2>Auditions</h2>
+        <span class="chapter-num">Sample ends here</span>
+        <h2>Continue on Amazon</h2>
       </header>
-      <p class="dropcap">The next day, Vivian and Hazel showed Miss Colman their play. Miss Colman said their ideas were good and agreed to read out the plot and the characters during her period. When she finished, this was the class’s response —</p>
-
-      <div class="script">
-        <p><strong>David —</strong> Jolly good idea, you two!</p>
-        <p><strong>Lily —</strong> Thank goodness it’s not about a boring old fairy tale.</p>
-        <p><strong>Emily —</strong> Fairy tales are good, but I like their concept of a clown being the main character.</p>
-        <p><strong>Josh —</strong> Yes, I really like their plot.</p>
-        <p><strong>Bella —</strong> I don’t! Clowns are meant to be funny, not scary.</p>
-        <p><strong>Ria —</strong> Exactly!</p>
-        <p><strong>Noele —</strong> It’s not as great as you make it out to be.</p>
-        <p><strong>David —</strong> Well, you’re outvoted! I’m sure everyone except you has agreed it’s a good idea.</p>
-        <p><strong>Emily —</strong> Clowns can be scary too. My little brother is terrified of them.</p>
-        <p><strong>Miss Colman —</strong> I think the majority of the class likes this plot. I’ll wait till tomorrow in case any others are interested in contributing their ideas. If nobody else has any, this plot will be the final plot for the school play.</p>
+      <p>This is a free Look Inside — the cover, the chapter list, and the first two chapters. The rest of <em>A Play of Their Own</em> is on Amazon Kindle.</p>
+      <div class="cover-cta cta">
+        <a href="https://www.amazon.in/dp/B0HFJ855XS" target="_blank" rel="noopener noreferrer">Buy on Amazon</a>
       </div>
-
-      <p class="stage">(The next day)</p>
-
-      <div class="script">
-        <p><strong>Noele —</strong> Miss Colman, Bella, Ria and I have written this plot. Please do read it.</p>
-        <p><strong>Miss Colman —</strong> Very well, I shall read it to the class — “Once upon a time, there lived a boy called Ry, who wrote this thing!”</p>
-        <p><strong>Bella, Ria &amp; Noele —</strong> We three did. Is it good, Ma’am?</p>
-        <p><strong>Miss Colman —</strong> I’m afraid I can’t understand a word you’ve written. There are too many spelling errors. I’ve never heard of the name Ry!</p>
-        <p><strong>Ria —</strong> It was supposed to be Roy.</p>
-        <p><strong>Miss Colman —</strong> Please explain what you have written.</p>
-        <p><strong>Noele —</strong> Well, Roy goes on an adventure.</p>
-        <p><strong>Miss Colman —</strong> That’s it? What is the adventure?</p>
-        <p><strong>Bella —</strong> Well… he is walking and the adventure just happens.</p>
-        <p><strong>Miss Colman —</strong> I’m not asking how it happened. I’m asking what the adventure is.</p>
-        <p><strong>Bella —</strong> Um… He is going to school and he goes to a forest.</p>
-        <p><strong>Miss Colman —</strong> I am not following you. Are you saying that he intentionally skips school and goes to a forest?</p>
-        <p><strong>Ria —</strong> We… don’t know.</p>
-        <p><strong>Miss Colman —</strong> Then how is this a proper story? You haven’t even told me what happens. I’m afraid I can’t count it. Any other ideas? Nobody?</p>
-        <p><strong>Drake —</strong> Ma’am, I tried, but I don’t have a knack for it, you know.</p>
-        <p><strong>Lily —</strong> I haven’t written a plot, but I can compose the music if any songs are in the play.</p>
-        <p><strong>Miss Colman —</strong> Thank you, Lily. I’m sure that will come in handy sooner or later.</p>
-        <p><strong>Emily —</strong> I’m good at sewing. I can make the costumes once the designs are passed on.</p>
-        <p><strong>Miss Colman —</strong> That will be useful, thank you, Emily. Since nobody has a better plot than Vivian and Hazel’s, I am taking their plot as the story for our play. Vivian and Hazel are the directors, as they have written this play. I’m sure you two will work together well.</p>
-        <p><strong>Hazel &amp; Vivian —</strong> Oh yes! We’ll work together as much as we can.</p>
-        <p><strong>Miss Colman —</strong> I am glad to hear it. You will be allowed to conduct auditions after lunch today.</p>
-      </div>
-
-      <p class="stage">(After lunch break)</p>
-
-      <div class="script">
-        <p><strong>Vivian —</strong> Listen up, everyone! The characters we need are a joker, five children, the head of the circus, an acrobat, a magician, a lion or animal tamer, and the clown’s sidekick.</p>
-        <p><strong>Hazel —</strong> We would also like some names for these characters. Any suggestions?</p>
-        <p><strong>Drake —</strong> We can call him the clown Jim.</p>
-        <p><strong>Dizzy —</strong> Or Jack.</p>
-        <p><strong>Emily —</strong> Or John.</p>
-        <p><strong>Tia —</strong> Maybe Leo.</p>
-        <p><strong>Noele —</strong> I’ve got it — how about Booh!</p>
-        <p><strong>Hazel —</strong> Booh! That’s not even a name!</p>
-        <p><strong>Noele —</strong> But after all he does scare people by creating scary nightmares.</p>
-        <p><strong>Vivian —</strong> And she’s not wrong.</p>
-        <p><strong>Hazel —</strong> Fine. Booh it is.</p>
-        <p><strong>Noele —</strong> I’d like to be Booh. I’ve a good sense of humour, much needed for a clown.</p>
-        <p><strong>Vivian —</strong> We’ll see about that.</p>
-        <p><strong>Tia —</strong> I’d like to be the acrobat. I’m good at yoga and gymnastics.</p>
-        <p><strong>Jemma —</strong> I’d like to be an acrobat too.</p>
-        <p><strong>Hazel —</strong> Okay, you two can be the acrobats — but before our first rehearsal, show me a trick or two.</p>
-        <p><strong>David —</strong> I’d like to be a lion tamer.</p>
-        <p><strong>Josh —</strong> And I want to be the head of the circus.</p>
-        <p><strong>Emma —</strong> Hazel, I have an idea.</p>
-        <p><strong>Hazel —</strong> Go on, Emma.</p>
-        <p><strong>Emma —</strong> The clown becomes good, right? After he learns his mistake — maybe he wants to help people. What if he conducted reading sessions?</p>
-        <p><strong>Vivian —</strong> Hmmm… Yes, that does seem like a good idea.</p>
-        <p><strong>Lily —</strong> What are the children supposed to do?</p>
-        <p><strong>Hazel —</strong> They are the ones getting nightmares.</p>
-        <p><strong>Emma —</strong> I’d like to be a child.</p>
-        <p><strong>Lily —</strong> Me too!</p>
-        <p><strong>Drake —</strong> Me three.</p>
-        <p><strong>Emily —</strong> Me four.</p>
-        <p><strong>Jenny —</strong> And me five.</p>
-        <p><strong>Vivian —</strong> You can show us your acting skills when we start rehearsals. Okay, time’s up now — time to disperse.</p>
-      </div>
-      <p class="stage">(They all walk towards class.)</p>
-    </section>
-
-    <section class="page" id="ch4">
-      <header class="chapter-head">
-        <span class="chapter-num">Chapter 4</span>
-        <h2>Vivian’s Secret</h2>
-      </header>
-      <p class="dropcap">Hazel and Vivian were heading to their classroom when someone tapped on their shoulders.</p>
-
-      <div class="script">
-        <p><strong>Bella —</strong> Hello, you two. I can see the pride has gone to your heads after your success. <span class="stage">(To Hazel)</span> I bet Vivian has told you you’re her BFF.</p>
-        <p><strong>Hazel —</strong> Yes.</p>
-        <p><strong>Bella —</strong> Well, she probably hasn’t told you her deepest, darkest secret, has she?</p>
-        <p><strong>Hazel —</strong> I don’t mind. Everyone has secrets.</p>
-        <p><strong>Bella —</strong> Well… what if I told you she told me her deepest, darkest secret?</p>
-        <p><strong>Vivian —</strong> Bella! Please don’t tell Hazel.</p>
-        <p><strong>Bella —</strong> I’m going to! Vivian has a sister who left for university two years ago.</p>
-        <p><strong>Hazel —</strong> So?</p>
-        <p><strong>Vivian —</strong> Yeah, so what?</p>
-        <p><strong>Bella —</strong> I’m not finished yet. Before her sister left, they had a quarrel and never made up. Such a bad younger sister you are, Vivian! And Vivian thought her sister left because of her. Of course, I think she’s right for once — I mean, who can live with her?</p>
-      </div>
-
-      <p>Hazel looked at Bella scornfully. She was trying to do the same thing she had done when Hazel had joined last year. Bella had told Vivian Hazel’s past to break their friendship. But instead, it had made their bond stronger. She turned to Vivian, who had gone pale from fright.</p>
-
-      <div class="script">
-        <p><strong>Hazel —</strong> Vi, don’t worry. I’m staying by your side. <span class="stage">(Puts an arm around Vivian. To Bella —)</span> You think I’m going to leave my friend just because she made a mistake in the past? You really are horrible! First trying to humiliate me, then another new girl, and now my friend — you crossed the limit, Bella, and you’re probably going to regret it. Because just like last time, I feel like this is going to strengthen our bond, not crumble it. So your evil plan has backfired on you!</p>
-        <p><strong>Bella —</strong> Well, whatever. I don’t care. <span class="stage">(Walks away.)</span></p>
-        <p><strong>Vivian —</strong> Thanks, Hazel. You really are a brick. I’m sorry I didn’t tell you earlier. It’s just that I didn’t want you to think the worst of me.</p>
-        <p><strong>Hazel —</strong> Don’t worry. I know how you feel. I’ve been through it before.</p>
-        <p><strong>Vivian —</strong> How can I do without you?</p>
-        <p><strong>Hazel —</strong> Same question I asked about you a year ago. Now — do you want to come over for tea and a chat? I think, if you don’t mind, I want to discuss this sister of yours.</p>
-        <p><strong>Vivian —</strong> Sure.</p>
-      </div>
-
-      <p class="stage">(At Hazel’s house)</p>
-
-      <div class="script">
-        <p><strong>Hazel —</strong> Vivian, look — if you don’t want to tell me anything, I’m not against it. But if you’re okay with telling me about it, I’m all ears. And I promise I won’t tell tales about you.</p>
-        <p><strong>Vivian —</strong> <span class="stage">(Takes a deep breath.)</span> I’ll tell you what happened. You see, I have a sister, Samaya. She is the best sister you could ever ask for. We used to walk home from school arm in arm. She helped me with my homework while I filled her in about my day. When we were free we used to walk outside together and have fun. I can’t tell you how amazing she is. But then, things changed. She declared that she wanted to go to a university abroad and even got a scholarship to go there. I was proud of her and knew it was for the best — but a part of me couldn’t help wondering if she would be happy to get rid of me. When I asked her about it, she got angry and asked me what she had done to make me feel like that. To be honest, her question was valid, and the truth is, I didn’t have any reason to think so. But then I lost my temper and we had a huge fight and didn’t sleep at all that night. She made up her mind to leave that very day. I wanted to say sorry, but my pride wouldn’t let me.</p>
-        <p><strong>Hazel —</strong> To be honest, your story is just like how I felt when I changed to this school.</p>
-        <p><strong>Vivian —</strong> Yes, but there’s one thing that sticks out. You couldn’t help being shy — but I could have held my tongue. That’s why I’m so ashamed about it. Maybe Samaya and I could have departed on a happy note.</p>
-        <p><strong>Hazel —</strong> But Vivian — you would probably still be wondering if she was leaving because of you if you hadn’t asked her. At least you know that she bore no hard feelings towards you. And I don’t think she does now either — nor do you. You are both only acting like you hate one another because you’re hurt about what happened that day. Come on, Vi! Admit it! You don’t hate her, do you?</p>
-        <p><strong>Vivian —</strong> You’re right. I bear no hard feelings towards her, nor does she towards me. But we’re so hurt that we are doing some stupid pretence.</p>
-        <p><strong>Hazel —</strong> Exactly! Come on, Vi — call your sister up and tell her you’re sorry. I’m sure she’ll be grateful to know you don’t assume anything about her.</p>
-        <p><strong>Vivian —</strong> You’re right. I’m going to call her right now, and you are the witness in case anyone wants proof.</p>
-        <p><strong>Hazel —</strong> I’m good with that.</p>
-      </div>
-
-      <p class="stage">Vivian runs to her house while Hazel fetches her mother’s phone and hands it over to Vivian.</p>
-
-      <div class="script">
-        <p><strong>Hazel —</strong> You know her number, don’t you?</p>
-        <p><strong>Vivian —</strong> Yes. I’m dialling it now.</p>
-      </div>
-
-      <p class="stage">She dials the number. It rings once, twice, thrice — and then someone picks it up!</p>
-
-      <div class="script">
-        <p><strong>Samaya —</strong> Hello! Who is this?</p>
-        <p><strong>Vivian —</strong> Samaya! Is it really you?</p>
-        <p><strong>Samaya —</strong> Vivian! Yes it is me! How have you been?</p>
-        <p><strong>Vivian —</strong> I’m doing good. How about you?</p>
-        <p><strong>Samaya —</strong> I’m great.</p>
-        <p><strong>Vivian —</strong> Samaya, I need to tell you something.</p>
-        <p><strong>Samaya —</strong> Go on—</p>
-        <p><strong>Vivian —</strong> I want to apologise for assuming you wanted to leave. It was awfully wrong of me. You can’t think how ashamed and guilty I am.</p>
-        <p><strong>Samaya —</strong> Oh Vivian! I’m sorry too. I shouldn’t have snapped at you like that when you asked me that. It was natural of you to feel like that. I was just so worried about what to pack, how I would settle in there and everything, that anything that bothered me annoyed me.</p>
-        <p><strong>Vivian —</strong> Oh really! You don’t know how much this means to me. And to think I wouldn’t have even thought of calling you if it wasn’t for my best friend Hazel. She’s a huge brick, you know. Do you remember Bella? Well, she’s not my friend any more — she tried to spread rumours about Hazel, and today she exposed me to Hazel in the hope that Hazel would break away from me. But Hazel stood up for me and put her in her place. When I told her what happened between us, she convinced me to call you. We are even writing a school play together.</p>
-        <p><strong>Samaya —</strong> Oh really! It’s so good to hear that you’re making such good friends. I never did like Bella — too snobby for my liking. And are you really writing the school play? What an honour. I’m so proud of you! I’m probably coming back home next month and I’m going to get a job near home, so I think I’ll come in time to see your play.</p>
-        <p><strong>Vivian —</strong> What! You’re coming home! I’m so happy! Of course you’ll be in time for the play.</p>
-        <p><strong>Samaya —</strong> Well, I’ve got to go now — I have a class now — but I’ll call you really soon, I promise. Bye, Vivian.</p>
-        <p><strong>Vivian —</strong> Bye, Samaya. <span class="stage">(Cuts the call. Claps Hazel into a hug.)</span> Hazel! She’s coming back home! She’ll be in time to see our school play! She isn’t angry at me at all! Oh, I can’t tell you how happy I am.</p>
-        <p><strong>Hazel —</strong> I’m so happy for you, Vivian. And it’s one in the eye for Bella. Not only has our bond grown stronger — even your sister is coming home to see you.</p>
-        <p><strong>Vivian —</strong> Let’s talk about it in the park. I just can’t sit still.</p>
-      </div>
-      <figure class="illust">
-        <img src="images/vivian-and-hazel/scene-call.jpg" alt="Vivian hugs Hazel after hanging up the phone with Samaya" loading="lazy" />
-        <figcaption>She’s coming home.</figcaption>
-      </figure>
-      <p class="stage">The two girls walk to the park together, with huge smiles on their faces.</p>
-    </section>
-
-    <section class="page" id="ch5">
-      <header class="chapter-head">
-        <span class="chapter-num">Chapter 5</span>
-        <h2>The Reason She Moved</h2>
-      </header>
-      <p class="dropcap">Hazel and Vivian walked to school together, talking happily about Vivian’s sister, when they couldn’t help noticing that everyone was staring at Hazel.</p>
-
-      <div class="script">
-        <p><strong>Hazel —</strong> Why is everyone staring at me?</p>
-        <p><strong>Vivian —</strong> I don’t know. Let’s find out.</p>
-      </div>
-
-      <p>As Vivian walked to her seat, she heard Lily tell her, “Have you heard? Apparently Hazel’s birthday party was completely empty because she didn’t have any friends.”</p>
-      <p>Vivian glared at Bella. Even though Bella was not her friend, she couldn’t believe she had spread rumours about Hazel.</p>
-
-      <div class="script">
-        <p><strong>Vivian —</strong> Why on Earth are you spreading rumours?</p>
-        <p><strong>Bella —</strong> It wasn’t me. Just because I used to be one of the only people who knew Hazel’s past doesn’t mean I spread the rumours. You should ask Noele, not me.</p>
-      </div>
-
-      <p>Vivian looked at Bella carefully before deciding to trust her. She looked quite honest for once. But how could Noele do such a mean thing? She approached Noele scornfully.</p>
-
-      <div class="script">
-        <p><strong>Vivian —</strong> Noele! Why are you spreading rumours about Hazel? What did she do to you?</p>
-        <p><strong>Hazel —</strong> Vivian!</p>
-        <p><strong>Noele —</strong> Oh well! We were closer than you think.</p>
-      </div>
-
-      <p>Vivian ran to find Hazel. Hazel was sitting alone, looking terrified. Vivian sat next to her and put a comforting arm around her.</p>
-      <p>“Vivian, I didn’t mean to tell you about Noele, but I think I must now. You see, Noele was my best friend. We used to be together always. Things stayed the same and we both grew closer. But then she used me. She got me to write her notes, suddenly stopped being my friend, and spread rumours about me. And before I could explain my side of the story, everyone decided to believe Noele just because I was more shy than her. That’s the reason I moved here.”</p>
-
-      <div class="script">
-        <p><strong>Vivian —</strong> Oh Hazel! You poor old thing! How did you manage?</p>
-        <p><strong>Hazel —</strong> Never mind all that. I just want a chance to explain myself.</p>
-        <p><strong>Vivian —</strong> Fair. Why don’t you tell Miss Colman about it? As she’s our class teacher, she’ll probably sort it out.</p>
-        <p><strong>Hazel —</strong> Good idea. Let’s go tell her now.</p>
-      </div>
-
-      <p>The two girls approach Miss Colman and tell her everything. Miss Colman assures Hazel that she’ll help set things right. During her period, she asks Hazel and Noele to come near the teacher’s desk and asks Noele to explain her side of the incident.</p>
-
-      <div class="script">
-        <p><strong>Noele —</strong> Ma’am, Hazel is responsible for everything. Ever since I met her she has been nothing but a nuisance. Firstly, she boarded the same bus as me!</p>
-        <p><strong>Hazel —</strong> Our houses used to be nearby!</p>
-        <p><strong>Noele —</strong> So? And she sneezed.</p>
-        <p><strong>Miss Colman —</strong> What does sneezing have to do with this?</p>
-        <p><strong>Noele —</strong> I sneezed on the same day five years ago!</p>
-        <p><strong>Hazel —</strong> <span class="stage">(bursts out laughing)</span></p>
-        <p><strong>Noele —</strong> It’s not funny! And you always try to copy my clothes. Look now — you’re wearing the same uniform as me! And you used to have the same pen as me!</p>
-        <p><strong>Hazel —</strong> Oh Noele! We got it at the same party as return gifts! And mine was blue while yours was yellow.</p>
-        <p><strong>Noele —</strong> So what! I still think it’s copying. And she even wore the same hairstyle as me.</p>
-        <p><strong>Hazel —</strong> Both our hair was long! We had to wear braids!</p>
-        <p><strong>Miss Colman —</strong> <span class="stage">(hiding her laughter)</span> Are you sure this is… valid?</p>
-        <p><strong>Noele —</strong> Of course! And she even wore the same bag as me.</p>
-        <p><strong>Hazel —</strong> Our old school used to provide bags to wear.</p>
-        <p><strong>Noele —</strong> And you read the same book I read.</p>
-        <p><strong>Hazel —</strong> You were the one who suggested I read it!</p>
-        <p><strong>Noele —</strong> You also have the same textbooks as me.</p>
-        <p><strong>Hazel —</strong> I think everyone does!</p>
-        <p><strong>Noele —</strong> And you even drew the same thing as me!</p>
-        <p><strong>Hazel —</strong> Our drawing teacher was teaching everyone to draw a bird, not just you.</p>
-        <p><strong>Noele —</strong> And finally! She has the same bracelet as me.</p>
-        <p><strong>Hazel —</strong> You gave it to me as a friendship band and said that because you had the same one, it meant our bond was strong!</p>
-        <p><strong>Noele —</strong> I did not!</p>
-        <p><strong>Hazel —</strong> Yes you did!</p>
-        <p><strong>Noele —</strong> But you also wore it on the same event I did.</p>
-        <p><strong>Hazel —</strong> Oh Noele — <span class="stage">(bursts out laughing again)</span> you were the one who suggested we wear the bracelets to Kate’s birthday!</p>
-        <p><strong>Miss Colman —</strong> <span class="stage">(trying not to laugh)</span> Well, as Noele has finished her part of this story, I’ll let Hazel have her say now.</p>
-        <p><strong>Hazel —</strong> Thank you, Ma’am. You see, Noele and I used to be friends in our old school. But after a while, she deserted me and started spreading rumours about me. As she was more liked and popular amongst our friends, everyone believed her. And now, she’s doing it all over again. I didn’t want to tell anyone this as I thought it might ruin Noele’s friendships and I didn’t want to form others’ opinions for them. Also, a part of me thought she had changed and wanted to give her a chance.</p>
-        <p><strong>Miss Colman —</strong> I understand, Hazel, and though you don’t have any proof that you’re right, I think your explanation was better than Noele’s.</p>
-        <p><strong>Noele —</strong> Hey!</p>
-        <p><strong>Lily —</strong> Ma’am, I think I have a bit of evidence.</p>
-        <p><strong>Miss Colman —</strong> What is it, Lily?</p>
-        <p><strong>Lily —</strong> You see, this morning, Noele told me that Hazel didn’t invite anyone to her birthday party as she had no friends.</p>
-        <p><strong>Drake —</strong> And she told me that Hazel deserted her.</p>
-        <p><strong>Emma —</strong> She also said that Hazel copied her answers during an exam.</p>
-        <p><strong>Hazel —</strong> I did not!</p>
-      </div>
-
-      <p>Everyone shared what Noele told them about Hazel.</p>
-
-      <div class="script">
-        <p><strong>Miss Colman —</strong> Hmm… so we do have some proof. Noele, what you have done is a very mean thing, a thing to be despised. Not only did you desert your friend, you are also spreading false accusations about her.</p>
-        <p><strong>Hazel —</strong> To be honest, the one she told Lily is not completely wrong. I only invited Vivian and Alice, who is in a different class now, as they were the only people I trusted. The only people who knew about this were Bella and her group. How they knew is a story I don’t want to share — but I immediately suspected they had something to do with it, so I owe you all an apology for that.</p>
-        <p><strong>Noele —</strong> See! I didn’t tell you all false stuff!</p>
-        <p><strong>Hazel —</strong> Umm… I think everyone knows I wouldn’t copy from you, considering I was top of the class last year. And I never deserted you. And even if what you told Lily was partly true, you shouldn’t have told anyone. I trusted you with it. You have broken the very last bit of trust I had in you.</p>
-        <p><strong>Miss Colman —</strong> What Hazel is saying is not wrong. Noele, I will let the class decide your punishment, as they are the ones you have tricked.</p>
-      </div>
-
-      <p>The class discusses, then Hazel steps forward.</p>
-
-      <div class="script">
-        <p><strong>Hazel —</strong> We have decided that Noele must apologise to everyone for her mistake. She must write a note to everyone about why telling tales and spreading rumours is a bad thing and pin it on the board so we all know she has learnt her lesson. We also ask her to be a more genuine, respectful and kind person and friend in future. We will watch her for a few months. If we feel she has truly changed, we will give her a chance.</p>
-        <p><strong>Miss Colman —</strong> I think this is a fair punishment. Now, as everything has been sorted out, you may begin your lunch.</p>
-      </div>
-    </section>
-
-    <section class="page" id="ch6">
-      <header class="chapter-head">
-        <span class="chapter-num">Chapter 6</span>
-        <h2>Jokes and Costumes</h2>
-      </header>
-      <p class="dropcap">Hazel and Vivian were eating lunch together, discussing the play.</p>
-
-      <div class="script">
-        <p><strong>Hazel —</strong> Vi, I feel like this is missing something.</p>
-        <p><strong>Vivian —</strong> Jokes!</p>
-        <p><strong>Hazel —</strong> Yes! We need jokes.</p>
-        <p><strong>Vivian —</strong> I’ve got an idea, but you won’t like it. Noele could help us.</p>
-        <p><strong>Hazel —</strong> I know, but… I haven’t forgiven her yet.</p>
-        <p><strong>Vivian —</strong> I mean, I don’t blame you.</p>
-        <p><strong>Hazel —</strong> But then, how do we get jokes?</p>
-        <p><strong>Vivian —</strong> Okay, I’ve got it. Whenever you hear Noele joke, write it down.</p>
-        <p><strong>Hazel —</strong> Fair.</p>
-      </div>
-
-      <p>This is the list they made —</p>
-
-      <div class="playbox">
-        <h3>Jokes for Booh</h3>
-        <ul>
-          <li>Why did the bicycle stop? Because it was two-tired.</li>
-          <li>Donkey, donkey, donkey — donkey had a donkey, donkey cried donkey. <em>(May not seem ideal, but Booh can sing the nightmares he’s making.)</em></li>
-          <li>She sneezed on the same day I did last year. <em>(Or can draw inspiration for nightmares.)</em></li>
-          <li>I last saw her 13,500,000 years ago. <em>(Maybe he has bad time sense.)</em></li>
-          <li>Homework is a pain. <em>(He uses homework in nightmares to taunt kids.)</em></li>
-          <li>She’s wearing the same uniform as me. <em>(He also uses copying to make people feel like they’re not unique.)</em></li>
-          <li>A kid can’t sleep. The clown says, “Close your eyes, relax your body, and think of… the worst thing you ever did.” <em>(Vivian had the guts to ask Noele.)</em></li>
-          <li>Whenever someone asks the clown something he just says “I don’t know,” even when it’s valid.</li>
-          <li>Uses different accents to depict different characters. <em>(Keeping Emma’s idea of story sessions.)</em></li>
-          <li>When someone asks him to show his talent, he sings some random thing like “tum ti ta ta, tu ti la la, voo voo!”</li>
-          <li>Always copies other people exactly.</li>
-        </ul>
-      </div>
-
-      <div class="script">
-        <p><strong>Vivian —</strong> That’s a good list.</p>
-        <p><strong>Hazel —</strong> Now for the costumes.</p>
-      </div>
-
-      <p>This is what they drew —</p>
-      <div class="gallery">
-        <figure class="illust">
-          <img src="images/vivian-and-hazel/costume-clown.jpg" alt="Anshika’s notebook drawing of Booh’s polka-dot clown dress, big boots, hat, red nose and wig" loading="lazy" />
-          <figcaption>Clown — polka-dot theme</figcaption>
-        </figure>
-        <figure class="illust">
-          <img src="images/vivian-and-hazel/costume-lion-tamer.jpg" alt="Anshika’s notebook drawing of the lion tamer’s shirt with a lion on the front" loading="lazy" />
-          <figcaption>Lion tamer</figcaption>
-        </figure>
-        <figure class="illust">
-          <img src="images/vivian-and-hazel/costume-acrobat.jpg" alt="Anshika’s notebook drawing of two acrobat costume options, with the short dress ticked" loading="lazy" />
-          <figcaption>Acrobat — option 1</figcaption>
-        </figure>
-        <figure class="illust">
-          <img src="images/vivian-and-hazel/costume-child.jpg" alt="Anshika’s notebook drawing of children’s pyjama costumes" loading="lazy" />
-          <figcaption>Children — pyjamas will do</figcaption>
-        </figure>
-        <figure class="illust">
-          <img src="images/vivian-and-hazel/costume-circus-head.jpg" alt="Anshika’s notebook drawing of the head of the circus in a formal suit with a gavel" loading="lazy" />
-          <figcaption>Head of the circus</figcaption>
-        </figure>
-        <figure class="illust">
-          <img src="images/vivian-and-hazel/costume-magician.jpg" alt="Anshika’s notebook drawing of a magician’s black coat, top hat and wand" loading="lazy" />
-          <figcaption>Magician</figcaption>
-        </figure>
-        <figure class="illust">
-          <img src="images/vivian-and-hazel/costume-princess.jpg" alt="Anshika’s notebook drawing of the Princess of Dreams in a puff ball gown and a helper fairy with a star wand" loading="lazy" />
-          <figcaption>Princess of Dreams and helper fairy — new characters</figcaption>
-        </figure>
-      </div>
-
-      <div class="script">
-        <p><strong>Vivian —</strong> Now to give these to Emily.</p>
-        <p><strong>Hazel —</strong> But what about the songs?</p>
-        <p><strong>Vivian —</strong> Come over today after school. We’ll figure it out.</p>
-      </div>
-
-      <p class="stage">(At Vivian’s house)</p>
-
-      <div class="script">
-        <p><strong>Vivian —</strong> I think we can take inspiration from the donkey chant Noele made and make a nightmare chant.</p>
-      </div>
-
-      <p>This is what they wrote —</p>
-      <div class="chant">
-        <p>Oh! Nightmare, nightmare, nightmare, come to me from far above.</p>
-        <p>Mix away, nightmares, nightmares, nightmares. Give this child ten homeworks and make sure others copy everything he does.</p>
-        <p>Oh Nightmare, give this child bad grades and a tattered old dress so bad no one shall spare her. Give this girl a demon for a pet, a robot head for her face, and give these two children nightmares so scary they don’t sleep a wink all night.</p>
-        <p>Oh nightmares from far and near, taunt these children in such a way they never sleep again. Nightmares, nightmares, nightmares.</p>
-      </div>
-
-      <div class="script">
-        <p><strong>Vivian —</strong> Not bad.</p>
-        <p><strong>Hazel —</strong> Now for the princess’s entrance. She tries to make all the nightmares into dreams.</p>
-      </div>
-
-      <div class="chant">
-        <p>Oh nightmares, go away, let these children sleep well! Oh dreams, come to me, give these children hope. Show them the way that leads to joy, make them happy, don’t let them cry. Oh dreams, listen to me — listen to me — listen to me.</p>
-      </div>
-
-      <div class="script">
-        <p><strong>Hazel —</strong> Now for when Booh realises he doesn’t want to be a nightmare giver any more.</p>
-        <p><strong>Vivian —</strong> You mean the night he gets a nightmare?</p>
-        <p><strong>Hazel —</strong> Yep.</p>
-        <p><strong>Vivian —</strong> Let’s do this.</p>
-      </div>
-
-      <div class="chant">
-        <p>I’m trying to sleep, but sleep won’t come to me tonight. I’ve closed my eyes and kept still, I’ve tossed and turned all night. When I tried to sleep I got such a nightmare — oh I wish I’d never got it. My red nose fell off, I tripped and fell, I got fired from the circus and was wandering on the streets, in a tattered old dress with homework in my hands, a monster for a pet and a robot head for a face. Whatever I did, everyone copied. Why, oh why, am I a nightmare giver? Why — oh why — oh why — oh why.</p>
-      </div>
-
-      <div class="script">
-        <p><strong>Vivian —</strong> Jolly good job to us.</p>
-        <p><strong>Hazel —</strong> Yep. Now we just need to assign roles. Let’s make the list now.</p>
-      </div>
-
-      <div class="playbox">
-        <h3>List of roles in the play</h3>
-        <ul>
-          <li>Clown — Noele</li>
-          <li>Clown’s friend — Jacob</li>
-          <li>Head of circus — Josh</li>
-          <li>Lion tamer — David</li>
-          <li>Acrobats — Jemma &amp; Tia</li>
-          <li>Children — Emma, Lily, Drake, Emily &amp; Jenny</li>
-          <li>Lion — Michael</li>
-          <li>Fairy — Lizzy</li>
-          <li>Princess of Dreams — Josie</li>
-          <li>Magician — John</li>
-        </ul>
-      </div>
-
-      <div class="script">
-        <p><strong>Hazel —</strong> Now for rehearsals.</p>
-        <p><strong>Vivian —</strong> Should we call everyone over so we can start?</p>
-        <p><strong>Hazel —</strong> Sure, and we can ask if anyone is ready to paint and decorate scenery.</p>
-        <p><strong>Vivian —</strong> Then let’s get to it.</p>
-      </div>
-
-      <p class="stage">(After calling all their friends)</p>
-
-      <div class="script">
-        <p><strong>Hazel —</strong> Now, before we start — is anyone willing to help? I know a few people are just servants, or hair and makeup assistants. It would be a huge help if you pitch in and help with the scenery.</p>
-        <p><strong>Samantha —</strong> Sure, I’m willing to help. After all, I’m just a servant in the background, so nobody needs me.</p>
-        <p><strong>Lily —</strong> I have composed a few possible tunes. Can you pass on the lyrics so I can try them out?</p>
-        <p><strong>Vivian —</strong> Sure. <span class="stage">(Passes on the lyrics.)</span></p>
-        <p><strong>Tia —</strong> I’ll join Samantha with the scenery.</p>
-        <p><strong>Josie —</strong> I suppose I’ll join too. I’m good at drawing.</p>
-        <p><strong>Bella —</strong> Josie! Remember how we decided that nobody except Noele should take part in the play?</p>
-        <p><strong>Josie —</strong> Sorry, but I want to help. I mean, I’m not doing anything on stage, so I’m not really taking part in it.</p>
-        <p><strong>Amaya —</strong> I’ll decide on makeup and hairstyles.</p>
-        <p><strong>Emily —</strong> Is there time to put on the dresses? I want to see if they fit everyone.</p>
-        <p><strong>Hazel —</strong> Okay, everyone! Anyone who wants to help with the scenery will come with me to the dining room, and rehearsals will happen in the hall with Vivian.</p>
-      </div>
-
-      <p>The day sped by. Surprisingly all the scenery was finished and kept out to dry. The songs were composed, dresses were tried, alterations were made and rehearsals were done. Everyone — well, mostly everyone — tried to work together as a team.</p>
-    </section>
-
-    <section class="page" id="ch7">
-      <header class="chapter-head">
-        <span class="chapter-num">Chapter 7</span>
-        <h2>The Day of the Play</h2>
-      </header>
-      <p class="dropcap">The month sped by. More rehearsals were conducted. Noele proved to be a great clown, being both funny and serious at the same time. The acrobats had worked hard on their tricks and were perfect at their act. The lion tamer, who was a robotic genius, had somehow managed to make a lion that jumped through hoops. All the other people taking part were a great success too. The scenery was well designed and the costumes fit everyone perfectly. Their hair and makeup had been decided and everyone waited excitedly for the day of the play.</p>
-      <p>Finally the day of the play arrived. All of them were on time. Vivian and Hazel hurried about, making sure everyone was there, sharing comfort with their friends and perfecting last-minute details. Hair and makeup were being done, dresses were worn and adjusted. Finally it was time for the play to start. Noele walked on stage. She began her part.</p>
-
-      <div class="script">
-        <p><strong>Noele —</strong> Hello, dear people. Today I’m going to show you all the worst thing in the whole world…… clowns!</p>
-      </div>
-
-      <p>The audience giggled.</p>
-
-      <div class="script">
-        <p><strong>Vivian —</strong> <span class="stage">(whispering)</span> Was it clowns?</p>
-        <p><strong>Hazel —</strong> It was maybe nightmares.</p>
-        <p><strong>Noele —</strong> I bring sorrow, anger, fear and…… homework!</p>
-        <p><strong>Hazel —</strong> It wasn’t homework! It was horror.</p>
-        <p><strong>Vivian —</strong> Well, I guess it’s —</p>
-      </div>
-
-      <p class="stage">(During the scene where Booh realises his mistake)</p>
-
-      <div class="script">
-        <p><strong>Noele —</strong> Oh, how shameless I am. I’ve given all the children homework and…… grief. Now I’ll give them chocolates and candies every day!</p>
-        <p><strong>Vivian —</strong> It was joy and happiness, not chocolates and candies.</p>
-        <p><strong>Noele —</strong> Now, children, let me tell you a story. Once, there was a clown named Booh!</p>
-        <p><strong>Hazel —</strong> It was the story of the princess and the pea.</p>
-        <p><strong>Noele —</strong> Booh loved taunting children. One day he gave them homework, another day he spoilt their clothes. He kept doing it for 1,356 years. Or was it 5,550 years. Maybe it was for 1,115 years. Ah yes! I’ve got it — for 100 centuries! Then Booh got a nightmare. He had lots of homework and his dress was all torn apart. Booh realised how children felt and quit his job. But his bag of nightmares exploded and mixed with air, so now don’t be sad if you still get nightmares. But now, I have a serious complaint to make. You three girls are wearing the same dress. That’s copying, isn’t it?</p>
-        <p><strong>Emma —</strong> You were the one who gave us these dresses and told us to wear them every day.</p>
-        <p><strong>Noele —</strong> Really? I don’t remember.</p>
-        <p><strong>Vivian —</strong> Trust Noele to change the script. To be honest I like her story of Booh over the princess and the pea.</p>
-        <p><strong>Hazel —</strong> True.</p>
-      </div>
-
-      <p>After Noele’s many mistakes, the play was finally over. The audience clapped ever so loudly. Someone called, “Who wrote it?” Someone whose voice sounded just like Samaya’s.</p>
-
-      <div class="script">
-        <p><strong>Vivian —</strong> Hazel! Samaya is in the audience! Let’s go say hi to her.</p>
-      </div>
-
-      <p>The two girls ran excitedly to the stage. Vivian searched for Samaya. She was in the very first row, a huge grin on her face. She yelled, “Good job, you two!” The audience followed her lead. The two girls were quite proud and embarrassed.</p>
-      <figure class="illust">
-        <img src="images/vivian-and-hazel/scene-stage.jpg" alt="Noele takes a bow as clown while Vivian, Hazel, and Samaya cheer from the hall" loading="lazy" />
-        <figcaption>Good job, you two!</figcaption>
-      </figure>
-
-      <div class="script">
-        <p><strong>Hazel —</strong> I’d like to thank everyone for coming today and keeping the applause and joy high.</p>
-        <p><strong>Vivian —</strong> We’d also like to thank all the actors for acting so well and working as a team together. We couldn’t have done it without you.</p>
-        <p><strong>Hazel —</strong> Special thanks to Lily, for composing our songs, Emily, for sewing all the amazing costumes, and to Amaya, for doing everyone’s hair and makeup so perfectly.</p>
-      </div>
-
-      <p>The audience clapped loudly. Who imagined their play would be such a success? Who thought Noele would be a great clown — and who knows what’s going to come. But whatever it is, I’m sure Vivian and Hazel will face it together, hand in hand, side by side and always together. Such a strong friendship there never was. Hurrah for Vivian and Hazel! Hip hip hurrah! Hip hip hurrah! And hip hip — hurrah!</p>
-
-      <p class="end-mark">The End</p>
     </section>
   </main>
 
@@ -798,7 +337,7 @@
     <span>© <span id="y"></span> Anshika Mahesh</span>
     <a href="../newsletter.html">Story Club</a>
   </footer>
-  <script src="../js/main.js?v=reader11"></script>
+  <script src="../js/main.js?v=reader14"></script>
   <script>document.getElementById("y").textContent = new Date().getFullYear();</script>
 </body>
 </html>
